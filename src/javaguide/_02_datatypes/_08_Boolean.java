@@ -15,15 +15,11 @@ void main() {
     /*
     Declaring boolean variables
     Syntax: boolean <name> = <value>;
+    Output: true false
     */
-    boolean flag1 = true;
-    boolean flag2 = false;
-    IO.println("flag1 = " + flag1);
-    IO.println("flag2 = " + flag2);
-    /* Output:
-    flag1 = true
-    flag2 = false
-    */
+    boolean x1 = true;
+    boolean x2 = false;
+    IO.println(x1 + " " + x2);
 
     /*
     Boolean expressions
@@ -33,21 +29,16 @@ void main() {
     boolean isGreater = a > b;
     boolean isEqual = a == b;
     boolean isSmaller = a < b;
-    IO.println("a > b: " + isGreater);
-    IO.println("a == b: " + isEqual);
-    IO.println("a < b: " + isSmaller);
-    /* Output:
-    a > b: false
-    a == b: false
-    a < b: true
-    */
+    IO.println(isGreater); // false
+    IO.println(isEqual);   // false
+    IO.println(isSmaller); // true
 
     /*
     Logical operations
     AND (&&), OR (||), NOT (!)
+    Output: true true
     */
-    boolean r1 = (a < b) && (b > 0);
-    boolean r2 = !(a > b);
-    IO.println("r1 = " + r1 + " r2 = " + r2);
-    /* Output: r1 = true r2 = true */
+    boolean x3 = (a < b) && (b > 0);
+    boolean x4 = !(a > b);
+    IO.println(x3 + " " + x4);
 }

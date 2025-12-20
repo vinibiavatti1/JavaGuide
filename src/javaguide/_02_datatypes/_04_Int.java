@@ -15,57 +15,49 @@ void main() {
     /*
     Declaring an int variable
     Syntax: int <name> = <value>;
+    Output: 42
     */
     int x1 = 42;
-    IO.println("x1 = " + x1);
-    /* Output: x1 = 42 */
+    IO.println(x1);
 
     /*
     Using underscores for readability
     Underscores do not affect the numeric value.
+    Output: 9223000
     */
     int x2 = 9_223_000;
-    IO.println("x2 = " + x2);
-    /* Output: x2 = 9223000 */
+    IO.println(x2);
 
     /*
     Int arithmetic
     All standard arithmetic operations are supported.
     */
     int a = 10, b = 3;
-    int sum = a + b;   // Sum
-    int diff = a - b;  // Subtraction
-    int prod = a * b;  // Multiplication
-    int div = a / b;   // Integer division (fractional part is discarded)
-    int mod = a % b;   // Module (remainder of the division)
-    IO.println("sum: " + sum);
-    IO.println("diff: " + diff);
-    IO.println("prod: " + prod);
-    IO.println("div: " + div);
-    IO.println("mod: " + mod);
-    /*
-    Output:
-    sum: 13
-    diff: 7
-    prod: 30
-    div: 3
-    mod: 1
-    */
+    int sum = a + b;  // Sum
+    int diff = a - b; // Subtraction
+    int prod = a * b; // Multiplication
+    int div = a / b;  // Integer division (fractional part is discarded)
+    int mod = a % b;  // Module (remainder of the division)
+    IO.println(sum);  // 13
+    IO.println(diff); // 7
+    IO.println(prod); // 30
+    IO.println(div);  // 3
+    IO.println(mod);  // 1
 
     /*
     Int limits
     Use MIN_VALUE and MAX_VALUE to check the boundaries.
+    Output: min: -2147483648 max: 2147483647
     */
     int min = Integer.MIN_VALUE;
     int max = Integer.MAX_VALUE;
     IO.println("min: " + min + " max: " + max);
-    /* Output: min: -2147483648 max: 2147483647 */
 
     /*
     Integer overflow
     When exceeding the limits, int values wrap around silently.
+    Output: -2147483648
     */
     int overflow = max + 1;
-    IO.println("overflow: " + overflow);
-    /* Output: overflow: -2147483648 */
+    IO.println(overflow);
 }

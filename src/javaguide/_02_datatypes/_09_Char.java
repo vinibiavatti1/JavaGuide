@@ -16,44 +16,28 @@ void main() {
     /*
     Declaring char variables
     Syntax: char <name> = '<character>';
+    Output: A
     */
-    char c1 = 'A';
-    char c2 = '9';
-    char c3 = '#';
-    IO.println("c1 = " + c1);
-    IO.println("c2 = " + c2);
-    IO.println("c3 = " + c3);
-    /* Output:
-    c1 = A
-    c2 = 9
-    c3 = #
-    */
+    char x1 = 'A';
+    IO.println(x1);
 
     /*
     Char arithmetic
     Chars can be used in arithmetic operations because they have numeric
     Unicode values.
+    We can cast back to char using "(char)".
+    The 'A' letter has the Unicode: 65.
+    Output: 66
     */
     char letter = 'A';
-    int nextLetter = letter + 1; // 'A' + 1 => 66
-    IO.println("nextLetter Unicode: " + nextLetter);
-    /* Output: nextLetter Unicode: 66 */
-
-    /*
-    Cast integer to char
-    */
-    char nextChar = (char) nextLetter; // Cast back to char
-    IO.println("nextChar = " + nextChar);
-    /* Output: nextChar = B */
+    int nextLetter = letter + 1;
+    IO.println(nextLetter);       // 66
+    IO.println((char)nextLetter); // B
 
     /*
     Comparison operations
+    Output: true false
     */
-    char x = 'a', y = 'b';
-    IO.println("x < y: " + (x < y));
-    IO.println("x == y: " + (x == y));
-    /* Output:
-    x < y: true
-    x == y: false
-    */
+    char x = 'A', y = 'B';
+    IO.println((x < y) + " " + (x == y));
 }

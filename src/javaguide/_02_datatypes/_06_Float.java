@@ -14,59 +14,51 @@ void main() {
     /*
     Declaring a float variable
     Syntax: float <name> = <value>;
+    Output: 3.14
     */
     float x1 = 3.14f;
-    IO.println("x1 = " + x1);
-    /* Output: x1 = 3.14 */
+    IO.println(x1);
 
     /*
     Float precision
     Float values are approximate and may suffer from precision loss.
+    Output: 0.30000001 (approximate)
     */
     float x2 = 0.1f + 0.2f;
-    IO.println("0.1f + 0.2f = " + x2);
-    /* Output: 0.30000001 (approximate) */
+    IO.println(x2);
 
     /*
     Float arithmetic
     All standard arithmetic operations are supported.
     */
     float a = 10.0f, b = 3.0f;
-    float sum = a + b;    // Sum
-    float diff = a - b;   // Subtraction
-    float prod = a * b;   // Multiplication
-    float div = a / b;    // Floating-point division
-    float mod = a % b;    // Remainder of the division
-    IO.println("sum: " + sum);
-    IO.println("diff: " + diff);
-    IO.println("prod: " + prod);
-    IO.println("div: " + div);
-    IO.println("mod: " + mod);
-    /*
-    Output:
-    sum: 13.0
-    diff: 7.0
-    prod: 30.0
-    div: 3.3333333
-    mod: 1.0
-    */
+    float sum = a + b;  // Sum
+    float diff = a - b; // Subtraction
+    float prod = a * b; // Multiplication
+    float div = a / b;  // Floating-point division
+    float mod = a % b;  // Remainder of the division
+    IO.println(sum);    // 13.0
+    IO.println(diff);   // 7.0
+    IO.println(prod);   // 30.0
+    IO.println(div);    // 3.3333333
+    IO.println(mod);    // 1.0
 
     /*
     Mixing float and double
     When a float interacts with a double, the result is promoted to double.
+    Output: 4.14
     */
     double mixed = x1 + 1.0;
-    IO.println("mixed = " + mixed);
-    /* Output: mixed = 4.14 */
+    IO.println(mixed);
 
     /*
     Float limits
     Use MIN_VALUE and MAX_VALUE to check the boundaries.
+    Output: min: 1.4E-45 max: 3.4028235E38
     */
     float min = Float.MIN_VALUE;
     float max = Float.MAX_VALUE;
     IO.println("min: " + min + " max: " + max);
-    /* Output: min: 1.4E-45 max: 3.4028235E38 */
 
     /*
     Special float values
@@ -76,13 +68,7 @@ void main() {
     float positiveInfinity = Float.POSITIVE_INFINITY;
     float negativeInfinity = Float.NEGATIVE_INFINITY;
     float notANumber = Float.NaN;
-    IO.println("Infinity: " + positiveInfinity);
-    IO.println("-Infinity: " + negativeInfinity);
-    IO.println("NaN: " + notANumber);
-    /*
-    Output:
-    Infinity: Infinity
-    -Infinity: -Infinity
-    NaN: NaN
-    */
+    IO.println(positiveInfinity); // Infinity
+    IO.println(negativeInfinity); // -Infinity
+    IO.println(notANumber);       // NaN
 }
