@@ -1,4 +1,3 @@
-package javaguide._03_strings;
+void main() {
 
-public class _01_Strings {
 }

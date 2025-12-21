@@ -27,6 +27,8 @@ Index
   - repeat()
   - indent()
   - translateEscapes()
+- Format
+  - formatted()
 - Substrings
   - substring()
 - Replacement
@@ -249,6 +251,19 @@ void main() {
     IO.println(y);
 
     //==================================================================================================================
+    // Format
+    //==================================================================================================================
+
+    /*
+    Formatted
+    Formats using this string as the format string, and the supplied arguments.
+    Output: Hello, John! You have 3 messages.
+    */
+    x = "Hello, %s! You have %d messages.";
+    y = x.formatted("John", 3);
+    IO.println(y);
+
+    //==================================================================================================================
     // Substrings
     //==================================================================================================================
 
@@ -275,7 +290,7 @@ void main() {
     y1 = x.replace('k', 'l');
     y2 = x.replace("kk", "ll");
     IO.println(y1 + " / " + y2);
-
+    
     /*
     Replace All (Regex)
     Replaces each substring of this string that matches the given regular expression with the given replacement.
