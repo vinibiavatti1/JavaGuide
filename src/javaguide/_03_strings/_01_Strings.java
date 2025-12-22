@@ -29,9 +29,9 @@ void main() {
     Concatenation
     Strings can be concatenated using the '+' operator.
     At compile time, constant expressions may be optimized by the compiler.
-    Output: HelloWorld
+    Output: Hello World
     */
-    x = "Hello" + "World";
+    x = "Hello" + " " + "World";
     IO.println(x);
 
     /*
