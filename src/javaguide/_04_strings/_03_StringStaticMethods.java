@@ -3,6 +3,7 @@ The String class represents immutable sequences of characters and also provides
 a rich set of static utility methods for creating, formatting, joining,
 and converting textual data.
 */
+@SuppressWarnings("all")
 void main () {
     /*
     Value Of

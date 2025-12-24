@@ -2,6 +2,7 @@
 Constants are variables whose value cannot be changed once assigned.
 In Java, constants are declared using the "final" keyword.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a constant integer.

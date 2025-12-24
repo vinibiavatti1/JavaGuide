@@ -5,6 +5,7 @@ Key points about the main method:
 - Must be "public" and "static".
 - Must accept a "String[] args" parameter for command-line arguments.
 */
+@SuppressWarnings("all")
 public class Main {
     public static void main(String[] args) {
         IO.println("Hello World");

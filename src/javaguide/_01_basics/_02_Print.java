@@ -2,6 +2,7 @@
 Printing to the console allows your program to communicate with the user.
 This example demonstrates different ways to output text in Java.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Printing to the console using the conventional method.

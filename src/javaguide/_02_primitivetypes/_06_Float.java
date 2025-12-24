@@ -10,6 +10,7 @@ Notes:
 - float literals must use the suffix 'f' or 'F'.
 - Most Java APIs use double by default for decimal values.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a float variable

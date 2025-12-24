@@ -48,9 +48,10 @@ Conversion
 "t": Formats date/time values according to the specified suffix (e.g., tY, tm, td, tH, tM, tS).
 "T": Formats date/time values according to the specified suffix (e.g., TY, TM, TD, TH, TM, TS).
 */
+@SuppressWarnings("all")
 void main() {
     /*
-    Conversion Example
+    Conversion
     Defines the type of data to format (e.g., s for strings, d for integers, f for floating-point).
     Format: %conversion
     Output: A A true 1 3,140000
@@ -60,7 +61,7 @@ void main() {
     IO.println(result);
 
     /*
-    Argument Index Example
+    Argument Index
     Specifies the index of the argument to use (1-based). Useful for reordering arguments.
     Format: %[arg$]conversion
     Output: B A
@@ -70,7 +71,7 @@ void main() {
     IO.println(result);
 
     /*
-    Flag Example
+    Flag
     Modify the formatting behavior, such as alignment, padding, sign display, or alternate forms.
     Format: %[flags]conversion
     Output: +1
@@ -80,7 +81,7 @@ void main() {
     IO.println(result);
 
     /*
-    Width Example
+    Width
     Sets the minimum number of characters to be written. Padding is applied if necessary.
     Format: [width]conversion
     Output: "  1"
@@ -90,7 +91,7 @@ void main() {
     IO.println(result);
 
     /*
-    Precision Example
+    Precision
     Controls the number of digits or characters to display, depending on the conversion type.
     Format: %[.precision]conversion
     Output: 3,14
@@ -100,12 +101,12 @@ void main() {
     IO.println(result);
 
     /*
-    Complete Example
-    An example case using all placeholders.
+    Full Example
+    An example using all the available placeholders.
     Format: %[arg$][flags][width][.precision]conversion
-    Output: 004,160 003,140
+    Output: +04,160 +03,140
     */
-    format = "%2$07.3f %1$07.3f";
+    format = "%2$+07.3f %1$+07.3f";
     result = String.format(format, 3.14, 4.16);
     IO.println(result);
 }

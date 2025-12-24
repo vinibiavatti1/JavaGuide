@@ -7,6 +7,7 @@ Notes:
 - Use byte for memory optimization when possible.
 - Be careful with arithmetic overflow, as bytes wrap around silently.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a byte variable

@@ -12,6 +12,7 @@ Notes:
 - Most arithmetic rules are the same as for int.
 - Java standard libraries often use long for time-related values.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a long variable

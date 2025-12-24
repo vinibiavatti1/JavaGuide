@@ -10,7 +10,7 @@ Notes:
   depending on the JVM implementation.
 - Only true and false are valid values; there is no numeric equivalence.
 */
-@SuppressWarnings("ConstantConditions")
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring boolean variables

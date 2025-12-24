@@ -7,6 +7,7 @@ Notes:
 - Use short when memory optimization is needed.
 - Be careful with arithmetic overflow, as shorts wrap around silently.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a short variable

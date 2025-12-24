@@ -11,6 +11,7 @@ Notes:
 - Most Java APIs expect int values (indexes, sizes, loops, math operations).
 - Arithmetic operations on smaller types (byte, short) are promoted to int.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring an int variable

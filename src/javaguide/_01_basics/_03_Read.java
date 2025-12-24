@@ -5,6 +5,7 @@ Java allows reading input from the console.
 This example demonstrates the new IO.readln method (Java 25+)
 and the conventional way using Scanner.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Reading input using the new IO class (Java 25+).

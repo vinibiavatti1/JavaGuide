@@ -30,7 +30,7 @@ Usage guidelines:
 - Use StringBuffer only when thread safety is required and synchronization
   cannot be managed externally.
 */
-@SuppressWarnings("StringBufferReplaceableByString")
+@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Transformation

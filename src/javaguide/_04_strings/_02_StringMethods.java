@@ -65,11 +65,13 @@ Index
   - toCharArray()
   - getChars()
   - getBytes()
+- Hashing
+  - hashCode()
 - CharSequence Support
   - contentEquals()
   - subSequence()
 */
-@SuppressWarnings("ConstantConditions")
+@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Length
@@ -94,6 +96,7 @@ void main() {
     Returns the char value at the specified index.
     Output: W
     */
+    x = "Hello World";
     char ch = x.charAt(6);
     IO.println(ch);
 
@@ -177,12 +180,12 @@ void main() {
     Output: Hello World
     */
     x = "  Hello World  ";
-    y = x.strip();
-    String y1 = x.stripLeading();
-    String y2 = x.stripTrailing();
-    IO.println(y);  // "Hello World"
-    IO.println(y1); // "Hello World  "
-    IO.println(y2); // "  Hello World"
+    String y1 = x.strip();
+    String y2 = x.stripLeading();
+    String y3 = x.stripTrailing();
+    IO.println(y1); // "Hello World"
+    IO.println(y2); // "Hello World  "
+    IO.println(y3); // "  Hello World"
 
     /*
     Strip Indent
@@ -408,20 +411,20 @@ void main() {
     Compare
     Compares two strings lexicographically.
     The comparison is based on the Unicode value of each character in the strings.
-    Output: 0
+    Output: 0 (equal)
     */
     x = "Hello World";
-    int result = x.compareTo("Hello World");
-    IO.println(result);
+    int cmp = x.compareTo("Hello World");
+    IO.println(cmp);
 
     /*
     Compare (Ignore Case)
     Compares two strings lexicographically, ignoring case differences.
-    Output: 0
+    Output: 0 (equal)
     */
     x = "Hello World";
-    result = x.compareToIgnoreCase("hello world");
-    IO.println(result);
+    cmp = x.compareToIgnoreCase("hello world");
+    IO.println(cmp);
 
     //==================================================================================================================
     // Splitting
@@ -530,7 +533,7 @@ void main() {
     /*
     Code Points
     Returns a stream of code point values from this sequence.
-    Note that for code points, the result below is a single value. Using chars, the character bellow counts as two ints.
+    Note that for code points, the cmp below is a single value. Using chars, the character bellow counts as two ints.
     Output: 128512
     */
     x = "😀";
@@ -553,7 +556,7 @@ void main() {
     /*
     Transform
     This method allows the application of a function to this string.
-    The function should expect a single String argument and produce an R result.
+    The function should expect a single String argument and produce an R cmp.
     Output: HELLO WORLD
     */
     x = "Hello World";
@@ -600,6 +603,19 @@ void main() {
         IO.print(b + " ");
     }
     IO.println();
+
+    //==================================================================================================================
+    // Hashing
+    //==================================================================================================================
+
+    /*
+    Hash Code
+    Returns a hash code for this string.
+    Output: -862545276
+    */
+    x = "Hello World";
+    int hc = x.hashCode();
+    IO.println(hc);
 
     //==================================================================================================================
     // CharSequence Support

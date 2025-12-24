@@ -10,6 +10,7 @@ Notes:
 - Decimal literals are double by default.
 - double should not be used for precise decimal calculations (e.g. money).
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a double variable

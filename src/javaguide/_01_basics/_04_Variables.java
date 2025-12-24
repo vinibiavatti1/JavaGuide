@@ -2,6 +2,7 @@
 Variables are used to store data in memory.
 The name of a variable or constant cannot be a Java keyword.
 */
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring a variable.

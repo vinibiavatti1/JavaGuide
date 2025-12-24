@@ -11,7 +11,7 @@ Notes:
 - Chars can be used in arithmetic operations because they are internally
   represented as numeric Unicode values.
 */
-@SuppressWarnings("ConstantConditions")
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring char variables

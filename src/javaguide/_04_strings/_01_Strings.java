@@ -15,7 +15,7 @@ Key characteristics:
 - Any operation that appears to modify a string returns a new instance.
 - Equality should be checked using equals(), not ==.
 */
-@SuppressWarnings("ConstantConditions")
+@SuppressWarnings("all")
 void main() {
     /*
     Declaring
@@ -55,4 +55,19 @@ void main() {
     y = "Hello World";
     boolean eq = x.equals(y);
     IO.println(eq);
+
+    /*
+    Converting a type to String
+    We can use the String.valueOf() method to convert a data type to its String representation.
+    Output: 5
+    */
+    x = String.valueOf(5);
+    IO.println(x);
+
+    /*
+    Parsing a String to a type
+    To convert a String to an equivalent primitive value, we can use the Wrapper Type classes.
+    */
+    int i = Integer.parseInt("5");
+    IO.println(i); // 5
 }
