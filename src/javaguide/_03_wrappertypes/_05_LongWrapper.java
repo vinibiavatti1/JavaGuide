@@ -1,22 +1,23 @@
 /*
-The Integer type is a wrapper (reference) type in Java.
-It represents a 32-bit signed integer object, with values ranging from -2,147,483,648 to 2,147,483,647.
+The Long type is a wrapper (reference) type in Java.
+It represents a 64-bit signed integer object, with values ranging from
+-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
 
-Unlike the primitive int, Integer is an object and can be used in contexts that
+Unlike the primitive long, Long is an object and can be used in contexts that
 require reference types, such as collections, generics, and APIs that operate
 on objects.
 
 Notes:
-- Use Integer when an object representation is required (e.g. List<Integer>, Map keys).
+- Use Long when an object representation is required (e.g. List<Long>, Map keys).
 - Supports null, which can be useful to represent the absence of a value.
-- Provides utility methods such as valueOf(), parseInt(), and compare().
-- Autoboxing allows transparent conversion between int and Integer.
-- Be aware of additional memory and performance overhead compared to primitive int.
+- Provides utility methods such as valueOf(), parseLong(), and compare().
+- Autoboxing allows transparent conversion between long and Long.
+- Be aware of additional memory and performance overhead compared to primitive long.
 */
 @SuppressWarnings("all")
 void main() {
     //==================================================================================================================
-    // Integer Instance
+    // Long Instance
     //==================================================================================================================
 
     /*
@@ -24,15 +25,15 @@ void main() {
     To declare an instance of this wrapper data type, we can use the "valueOf" function.
     Output: 5
     */
-    Integer w = Integer.valueOf(5);
+    Long w = Long.valueOf(5L);
     IO.println(w);
 
     /*
     Value
-    Returns the value of this Integer as the specified data type.
+    Returns the value of this Long as the specified data type.
     Output: 5
     */
-    w = Integer.valueOf(5);
+    w = Long.valueOf(5L);
     byte y1 = w.byteValue();
     int y2 = w.intValue();
     int y3 = w.intValue();
@@ -52,169 +53,169 @@ void main() {
     NOTE: Wrapper types should be compared using the equals() method rather than the '==' operator.
     Output: true
     */
-    Integer w1 = Integer.valueOf(5);
-    Integer w2 = Integer.valueOf(5);
+    Long w1 = Long.valueOf(5L);
+    Long w2 = Long.valueOf(5L);
     boolean eq = w1.equals(w2);
     IO.println(eq);
 
     /*
     Compare To
-    Compares two Integer objects numerically.
+    Compares two Long objects numerically.
     Output: 0 (equal)
     */
-    w1 = Integer.valueOf(5);
-    w2 = Integer.valueOf(5);
+    w1 = Long.valueOf(5L);
+    w2 = Long.valueOf(5L);
     int cmp = w1.compareTo(w2);
     IO.println(cmp);
 
     /*
     Hash Code
-    Returns a hash code for a int value;
+    Returns a hash code for a long value;
     Output: 5
     */
-    w = Integer.valueOf(5);
+    w = Long.valueOf(5L);
     int i = w.hashCode();
     IO.println(i);
 
     /*
     To String
-    Returns a new String object representing the specified int.
+    Returns a new String object representing the specified long.
     Output: 5
     */
-    w = Integer.valueOf(5);
+    w = Long.valueOf(5L);
     String str = w.toString();
     IO.println(str);
 
     //==================================================================================================================
-    // Integer Class
+    // Long Class
     //==================================================================================================================
 
     /*
     Fields
     The fields below are available in the wrapper class.
     */
-    IO.println(Integer.MIN_VALUE); // -2147483648
-    IO.println(Integer.MAX_VALUE); // 2147483647
-    IO.println(Integer.BYTES);     // 4
-    IO.println(Integer.SIZE);      // 32
-    IO.println(Integer.TYPE);      // int
+    IO.println(Long.MIN_VALUE); // -9223372036854775808L
+    IO.println(Long.MAX_VALUE); // 9223372036854775807L
+    IO.println(Long.BYTES);     // 8
+    IO.println(Long.SIZE);      // 64
+    IO.println(Long.TYPE);      // long
 
     /*
     Value Of
-    Returns a Integer object holding the value given by the specified argument.
+    Returns a Long object holding the value given by the specified argument.
     We can determine the base of the number using the radix parameter.
     */
-    w1 = Integer.valueOf("10");
-    w2 = Integer.valueOf("f", 16);
+    w1 = Long.valueOf("10");
+    w2 = Long.valueOf("f", 16);
     IO.println(w1); // 10
     IO.println(w2); // 15
 
     /*
-    Parse Int
-    Parses the string argument as a signed decimal int.
+    Parse Long
+    Parses the string argument as a signed decimal long.
     We can determine the base of the number using the radix parameter.
     */
-    int i1 = Integer.parseInt("10");
-    int i2 = Integer.parseInt("f", 16);
-    IO.println(i1); // 10
-    IO.println(i2); // 15
+    long l1 = Long.parseLong("10");
+    long l2 = Long.parseLong("f", 16);
+    IO.println(l1); // 10
+    IO.println(l2); // 15
 
     /*
     Compare
-    Compares two int values numerically.
+    Compares two long values numerically.
     Output: 0 (equal)
     */
-    i1 = 5;
-    i2 = 5;
-    cmp = Integer.compare(i1, i2);
+    l1 = 5;
+    l2 = 5;
+    cmp = Long.compare(l1, l2);
     IO.println(cmp);
 
     /*
     Max
-    Returns the greater of two int values as if by calling Math.max.
+    Returns the greater of two long values as if by calling Math.max.
     Output: 2
     */
-    i = Integer.max(1, 2);
-    IO.println(i);
+    long l = Long.max(1, 2);
+    IO.println(l);
 
     /*
     Min
-    Returns the smaller of two int values as if by calling Math.min.
+    Returns the smaller of two long values as if by calling Math.min.
     Output: 1
     */
-    i = Integer.min(1, 2);
+    l = Long.min(1, 2);
     IO.println(i);
 
     /*
     Signum
-    Returns the signum function of the specified int value.
+    Returns the signum function of the specified long value.
     I.e. Returns:
      -1: if number is negative
       0: if number is zero
       1: if number is positive
     Output:
     */
-    i = Integer.signum(0);
-    i1 = Integer.signum(-40);
-    i2 = Integer.signum(40);
+    i = Long.signum(0);
+    l1 = Long.signum(-40);
+    l2 = Long.signum(40);
     IO.println(i);  //  0
-    IO.println(i1); // -1
-    IO.println(i2); //  1
+    IO.println(l1); // -1
+    IO.println(l2); //  1
 
     /*
     Hash Code
-    Returns a hash code for a int value;
+    Returns a hash code for a long value;
     Output: 5
     */
-    i = Integer.hashCode(5);
+    i = Long.hashCode(5);
     IO.println(i);
 
     /*
     To String
-    Returns a new String object representing the specified int.
+    Returns a new String object representing the specified long.
     Output: 5
     */
-    str = Integer.toString(5);
+    str = Long.toString(5);
     IO.println(str);
 
     //==================================================================================================================
-    // Integer Class (Advanced Operations)
+    // Long Class (Advanced Operations)
     //==================================================================================================================
 
     /*
-    Parse Unsigned Int
-    Parses the string argument as an unsigned integer.
+    Parse Unsigned Long
+    Parses the string argument as an unsigned long.
     */
-    i1 = Integer.parseUnsignedInt("10");
-    i2 = Integer.parseUnsignedInt("f", 16);
-    IO.println(i1); // 10
-    IO.println(i2); // 15
+    l1 = Long.parseUnsignedLong("10");
+    l2 = Long.parseUnsignedLong("f", 16);
+    IO.println(l1); // 10
+    IO.println(l2); // 15
 
     /*
     Decode
-    Decodes a String into a Integer. Accepts decimal, hexadecimal, and octal.
+    Decodes a String into a Long. Accepts decimal, hexadecimal, and octal.
     Output: 15
     */
-    w1 = Integer.decode("0xf");
+    w1 = Long.decode("0xf");
     IO.println(w1);
 
     /*
     Reverse
     Returns the value obtained by reversing the order of the bits in the two's complement binary representation of the
-    specified int value.
+    specified long value.
     Output: -2147483648
     */
-    i1 = Integer.reverse(1);
-    IO.println(i1);
+    l1 = Long.reverse(1L);
+    IO.println(l1);
 
     /*
     Compare Unsigned
-    Compares two int values numerically treating the values as unsigned.
+    Compares two long values numerically treating the values as unsigned.
     Output: 254 (x1 > x2)
     */
-    i1 = -1; // 255 (unsigned)
-    i2 = 1;  // 1   (unsigned)
-    cmp = Integer.compareUnsigned(i1, i2);
+    l1 = -1L; // 255 (unsigned)
+    l2 = 1L;  // 1   (unsigned)
+    cmp = Long.compareUnsigned(l1, l2);
     IO.println(cmp);
 
     /*
@@ -222,16 +223,8 @@ void main() {
     Returns a string representation of the argument as an unsigned decimal value.
     Output: 4294967295
     */
-    str = Integer.toUnsignedString(-1);
+    str = Long.toUnsignedString(-1L);
     IO.println(str);
-
-    /*
-    To Unsigned Long
-    Converts the argument to an int by an unsigned conversion.
-    Output: 4294967295
-    */
-    long l = Integer.toUnsignedLong(-1);
-    IO.println(l);
 
     /*
     Divide Unsigned
@@ -239,8 +232,8 @@ void main() {
     interpreted as an unsigned value.
     Output: 2147483647
     */
-    i = Integer.divideUnsigned(-1, 2); // 4294967295 / 2
-    IO.println(i);
+    l = Long.divideUnsigned(-1L, 2L); // 4294967295 / 2
+    IO.println(l);
 
     /*
     Remainder Unsigned
@@ -248,29 +241,29 @@ void main() {
     interpreted as an unsigned value.
     Output: 1
     */
-    i = Integer.remainderUnsigned(-1, 2); // 4294967295 / 2
-    IO.println(i);
+    l = Long.remainderUnsigned(-1, 2); // 4294967295 / 2
+    IO.println(l);
 
     /*
-    Get Integer
-    Determines the integer value of the system property with the specified name.
-    Shortcut for: System.getProperty(...) + Integer parsing
+    Get Long
+    Determines the long value of the system property with the specified name.
+    Shortcut for: System.getProperty(...) + Long parsing
     Output: 30
     */
     System.setProperty("app.timeout", "30");
-    i = Integer.getInteger("app.timeout");
-    IO.println(i);
+    l = Long.getLong("app.timeout");
+    IO.println(l);
 
     //==================================================================================================================
-    // Integer Class (Binary Operations)
+    // Long Class (Binary Operations)
     //==================================================================================================================
 
     /*
     Bit Count
-    Returns the number of one-bits in the two's complement binary representation of the specified int value.
+    Returns the number of one-bits in the two's complement binary representation of the specified long value.
     Output: 8 (255 = 11111111)
     */
-    i = Integer.bitCount(255);
+    i = Long.bitCount(255);
     IO.println(i);
 
     /*
@@ -279,12 +272,12 @@ void main() {
     specified int value.
     Output: 256
     */
-    i1 = Integer.reverseBytes(1);
-    IO.println(i1);
+    l1 = Long.reverseBytes(1);
+    IO.println(l1);
 
     /*
     Compress
-    Returns the value obtained by compressing the bits of the specified int value, i, in accordance with the specified
+    Returns the value obtained by compressing the bits of the specified long value, i, in accordance with the specified
     bit mask.
     It can be used to extract selected bits from a binary value and pack them into a compact form in low-level
     programming.
@@ -293,12 +286,12 @@ void main() {
     = _01_ (1)
     Output: 1
     */
-    i = Integer.compress(10, 6);
-    IO.println(i);
+    l = Long.compress(10, 6);
+    IO.println(l);
 
     /*
     Expand
-    Returns the value obtained by expanding the bits of the specified int value, i, in accordance with the specified bit
+    Returns the value obtained by expanding the bits of the specified long value, i, in accordance with the specified bit
     mask.
     I.e. Replicates the value bits to the mask positions set as 1.
       0010 (2)
@@ -306,69 +299,69 @@ void main() {
     = 1000 (8)
     Output: 8
     */
-    i = Integer.expand(2, 12);
-    IO.println(i);
+    l = Long.expand(2, 12);
+    IO.println(l);
 
     /*
     Highest One Bit
-    Returns an int value with at most a single one-bit, in the position of the highest-order ("leftmost") one-bit in the
-    specified int value.
+    Returns an long value with at most a single one-bit, in the position of the highest-order ("leftmost") one-bit in
+    the specified long value.
     Value: 01010 (10)
     Selec:  ^
     Output: 8
     */
-    i = Integer.highestOneBit(10);
+    l = Long.highestOneBit(10);
     IO.println(i);
 
     /*
     Lowest One Bit
-    Returns an int value with at most a single one-bit, in the position of the lowest-order ("rightmost") one-bit in the
-    specified int value.
+    Returns an long value with at most a single one-bit, in the position of the lowest-order ("rightmost") one-bit in
+    the specified long value.
     Value: 01010 (10)
     Selec:    ^
     Output: 2
     */
-    i = Integer.lowestOneBit(10);
+    l = Long.lowestOneBit(10);
     IO.println(i);
 
     /*
     Number Of Leading Zeros
     Returns the number of zero bits preceding the highest-order ("leftmost") one-bit in the two's complement binary
-    representation of the specified int value.
-    Value: 00000000-00000000-00000000-00010100 (20)
-    Selec: ^^^^^^^^ ^^^^^^^^ ^^^^^^^^ ^^^
-    Output: 27
+    representation of the specified long value.
+    Value: 00000000-00000000...00000000-00010100 (20)
+    Selec: ^^^^^^^^ ^^^^^^^^   ^^^^^^^^ ^^^
+    Output: 59
     */
-    i = Integer.numberOfLeadingZeros(20);
+    i = Long.numberOfLeadingZeros(20L);
     IO.println(i);
 
     /*
     Number of Trailing Zeros
     Returns the number of zero bits following the lowest-order ("rightmost") one-bit in the two's complement binary
-    representation of the specified int value.
-    Value: 00000000-00000000-00000000-00010100 (20)
-    Selec:                                  ^^
+    representation of the specified long value.
+    Value: 00000000-00000000...00000000-00010100 (20)
+    Selec:                                    ^^
     Output: 2
     */
-    i = Integer.numberOfTrailingZeros(20);
+    i = Long.numberOfTrailingZeros(20L);
     IO.println(i);
 
     /*
     Rotate Left
-    Returns the value obtained by rotating the two's complement binary representation of the specified int value left by
-    the specified number of bits.
+    Returns the value obtained by rotating the two's complement binary representation of the specified long value left
+    by the specified number of bits.
     Unlike a left shift (<<), which discards the bits shifted out of range, rotateLeft performs a circular shift,
     reinserting the overflowed bits back into the lower positions.
       001100 (12)
     < 110000 (48)
     Output: 48
     */
-    i = Integer.rotateLeft(12, 2);
+    l = Long.rotateLeft(12L, 2);
     IO.println(i);
 
     /*
     Rotate Right
-    Returns the value obtained by rotating the two's complement binary representation of the specified int value right
+    Returns the value obtained by rotating the two's complement binary representation of the specified long value right
     by the specified number of bits.
     Unlike a right shift (>>), which discards the bits shifted out of range, rotateLeft performs a circular shift,
     reinserting the overflowed bits back into the lower positions.
@@ -376,30 +369,30 @@ void main() {
     > 000011 (3)
     Output: 3
     */
-    i = Integer.rotateRight(12, 2);
+    l = Long.rotateRight(12L, 2);
     IO.println(i);
 
     /*
     To Binary String
-    Returns a string representation of the integer argument as an unsigned integer in base 2.
+    Returns a string representation of the long argument as an unsigned long in base 2.
     Output: 10101
     */
-    String s = Integer.toBinaryString(21);
+    String s = Long.toBinaryString(21L);
     IO.println(s);
 
     /*
     To Octal String
-    Returns a string representation of the integer argument as an unsigned integer in base 8.
+    Returns a string representation of the long argument as an unsigned long in base 8.
     Output: 10
     */
-    s = Integer.toOctalString(8);
+    s = Long.toOctalString(8L);
     IO.println(s);
 
     /*
     To Hex String
-    Returns a string representation of the integer argument as an unsigned integer in base 16.
+    Returns a string representation of the long argument as an unsigned long in base 16.
     Output: ff
     */
-    s = Integer.toHexString(255);
+    s = Long.toHexString(255L);
     IO.println(s);
 }

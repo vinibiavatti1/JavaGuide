@@ -29,7 +29,7 @@ void main() {
 
     /*
     Value
-    Returns the value of this Byte as a byte.
+    Returns the value of this Byte as the specified data type.
     Output: 5
     */
     w = Byte.valueOf((byte)5);
