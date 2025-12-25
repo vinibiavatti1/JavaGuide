@@ -16,7 +16,77 @@ Notes:
 @SuppressWarnings("all")
 void main() {
     //==================================================================================================================
-    // Fields
+    // Short Instance
+    //==================================================================================================================
+
+    /*
+    Declaring
+    To declare an instance of this wrapper data type, we can use the "valueOf" function.
+    Output: 5
+    */
+    Short w = Short.valueOf((short)5);
+    IO.println(w);
+
+    /*
+    Value
+    Returns the value of this Short as a short.
+    Output: 5
+    */
+    Short s = Short.valueOf((short)5);
+    byte y1 = s.byteValue();
+    short y2 = s.shortValue();
+    int y3 = s.intValue();
+    long y4 = s.longValue();
+    float y5 = s.floatValue();
+    double y6 = s.doubleValue();
+    IO.println(y1); // 5
+    IO.println(y2); // 5
+    IO.println(y3); // 5
+    IO.println(y4); // 5
+    IO.println(y5); // 5.0
+    IO.println(y6); // 5.0
+
+    /*
+    Equals
+    Compares this object to the specified object.
+    NOTE: Wrapper types should be compared using the equals() method rather than the '==' operator.
+    Output: true
+    */
+    Short w1 = Short.valueOf((short)5);
+    Short w2 = Short.valueOf((short)5);
+    boolean eq = w1.equals(w2);
+    IO.println(eq);
+
+    /*
+    Compare To
+    Compares two Short objects numerically.
+    Output: 0 (equal)
+    */
+    w1 = Short.valueOf((short)5);
+    w2 = Short.valueOf((short)5);
+    int cmp = w1.compareTo(w2);
+    IO.println(cmp);
+
+    /*
+    Hash Code
+    Returns a hash code for a short value;
+    Output: 5
+    */
+    s = Short.valueOf((short)5);
+    int i = s.hashCode();
+    IO.println(i);
+
+    /*
+    To String
+    Returns a new String object representing the specified short.
+    Output: 5
+    */
+    s = Short.valueOf((short)5);
+    String str = s.toString();
+    IO.println(str);
+
+    //==================================================================================================================
+    // Short Class
     //==================================================================================================================
 
     /*
@@ -29,21 +99,15 @@ void main() {
     IO.println(Short.SIZE);      // 16
     IO.println(Short.TYPE);      // short
 
-    //==================================================================================================================
-    // Static Methods
-    //==================================================================================================================
-
     /*
     Value Of
     Returns a Short object holding the value given by the specified argument.
     We can determine the base of the number using the radix parameter.
     */
-    Short w1 = Short.valueOf((short)2);
-    Short w2 = Short.valueOf("10");
-    Short w3 = Short.valueOf("f", 16);
-    IO.println(w1); // 2
-    IO.println(w2); // 10
-    IO.println(w3); // 15
+    w1 = Short.valueOf("10");
+    w2 = Short.valueOf("f", 16);
+    IO.println(w1); // 10
+    IO.println(w2); // 15
 
     /*
     Parse Short
@@ -79,7 +143,7 @@ void main() {
     */
     s1 = 5;
     s2 = 5;
-    int cmp = Short.compare(s1, s2);
+    cmp = Short.compare(s1, s2);
     IO.println(cmp);
 
     /*
@@ -97,7 +161,7 @@ void main() {
     Converts the argument to an int by an unsigned conversion.
     Output: 65535
     */
-    int i = Short.toUnsignedInt((short)-1);
+    i = Short.toUnsignedInt((short)-1);
     IO.println(i);
 
     /*
@@ -121,68 +185,6 @@ void main() {
     Returns a new String object representing the specified short.
     Output: 5
     */
-    String str = Short.toString((short)5);
-    IO.println(str);
-
-    //==================================================================================================================
-    // Instance Methods
-    //==================================================================================================================
-
-    /*
-    Value
-    Returns the value of this Short as a short.
-    Output: 5
-    */
-    Short s = Short.valueOf("5");
-    byte y1 = s.byteValue();
-    short y2 = s.shortValue();
-    int y3 = s.intValue();
-    long y4 = s.longValue();
-    float y5 = s.floatValue();
-    double y6 = s.doubleValue();
-    IO.println(y1); // 5
-    IO.println(y2); // 5
-    IO.println(y3); // 5
-    IO.println(y4); // 5
-    IO.println(y5); // 5.0
-    IO.println(y6); // 5.0
-
-    /*
-    Equals
-    Compares this object to the specified object.
-    NOTE: Wrapper types should be compared using the equals() method rather than the '==' operator.
-    Output: true
-    */
-    w1 = Short.valueOf("5");
-    w2 = Short.valueOf("5");
-    boolean eq = w1.equals(w2);
-    IO.println(eq);
-
-    /*
-    Compare To
-    Compares two Short objects numerically.
-    Output: 0 (equal)
-    */
-    w1 = Short.valueOf("5");
-    w2 = Short.valueOf("5");
-    cmp = w1.compareTo(w2);
-    IO.println(cmp);
-
-    /*
-    Hash Code
-    Returns a hash code for a short value;
-    Output: 5
-    */
-    s = Short.valueOf("5");
-    i = s.hashCode();
-    IO.println(i);
-
-    /*
-    To String
-    Returns a new String object representing the specified short.
-    Output: 5
-    */
-    s = Short.valueOf("5");
-    str = s.toString();
+    str = Short.toString((short)5);
     IO.println(str);
 }

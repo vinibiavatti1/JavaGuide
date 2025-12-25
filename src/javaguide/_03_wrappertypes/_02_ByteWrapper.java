@@ -16,7 +16,77 @@ Notes:
 @SuppressWarnings("all")
 void main() {
     //==================================================================================================================
-    // Fields
+    // Byte Instance
+    //==================================================================================================================
+
+    /*
+    Declaring
+    To declare an instance of this wrapper data type, we can use the "valueOf" function.
+    Output: 5
+    */
+    Byte w = Byte.valueOf((byte)5);
+    IO.println(w);
+
+    /*
+    Value
+    Returns the value of this Byte as a byte.
+    Output: 5
+    */
+    w = Byte.valueOf((byte)5);
+    byte y1 = w.byteValue();
+    short y2 = w.shortValue();
+    int y3 = w.intValue();
+    long y4 = w.longValue();
+    float y5 = w.floatValue();
+    double y6 = w.doubleValue();
+    IO.println(y1); // 5
+    IO.println(y2); // 5
+    IO.println(y3); // 5
+    IO.println(y4); // 5
+    IO.println(y5); // 5.0
+    IO.println(y6); // 5.0
+
+    /*
+    Equals
+    Compares this object to the specified object.
+    NOTE: Wrapper types should be compared using the equals() method rather than the '==' operator.
+    Output: true
+    */
+    Byte w1 = Byte.valueOf((byte)5);
+    Byte w2 = Byte.valueOf((byte)5);
+    boolean eq = w1.equals(w2);
+    IO.println(eq);
+
+    /*
+    Compare To
+    Compares two Byte objects numerically.
+    Output: 0 (equal)
+    */
+    w1 = Byte.valueOf((byte)5);
+    w2 = Byte.valueOf((byte)5);
+    int cmp = w1.compareTo(w2);
+    IO.println(cmp);
+
+    /*
+    Hash Code
+    Returns a hash code for a byte value;
+    Output: 5
+    */
+    w = Byte.valueOf((byte)5);
+    int i = w.hashCode();
+    IO.println(i);
+
+    /*
+    To String
+    Returns a new String object representing the specified byte.
+    Output: 5
+    */
+    w = Byte.valueOf((byte)5);
+    String str = w.toString();
+    IO.println(str);
+
+    //==================================================================================================================
+    // Byte Class
     //==================================================================================================================
 
     /*
@@ -29,21 +99,15 @@ void main() {
     IO.println(Byte.SIZE);      // 8
     IO.println(Byte.TYPE);      // byte
 
-    //==================================================================================================================
-    // Static Methods
-    //==================================================================================================================
-
     /*
     Value Of
     Returns a Byte object holding the value given by the specified argument.
     We can determine the base of the number using the radix parameter.
     */
-    Byte w1 = Byte.valueOf((byte)2);
-    Byte w2 = Byte.valueOf("10");
-    Byte w3 = Byte.valueOf("f", 16);
-    IO.println(w1); // 2
-    IO.println(w2); // 10
-    IO.println(w3); // 15
+    w1 = Byte.valueOf("10");
+    w2 = Byte.valueOf("f", 16);
+    IO.println(w1); // 10
+    IO.println(w2); // 15
 
     /*
     Parse Byte
@@ -70,7 +134,7 @@ void main() {
     */
     b1 = 5;
     b2 = 5;
-    int cmp = Byte.compare(b1, b2);
+    cmp = Byte.compare(b1, b2);
     IO.println(cmp);
 
     /*
@@ -88,7 +152,7 @@ void main() {
     Converts the argument to an int by an unsigned conversion.
     Output: 255
     */
-    int i = Byte.toUnsignedInt((byte)-1);
+    i = Byte.toUnsignedInt((byte)-1);
     IO.println(i);
 
     /*
@@ -112,68 +176,6 @@ void main() {
     Returns a new String object representing the specified byte.
     Output: 5
     */
-    String str = Byte.toString((byte)5);
-    IO.println(str);
-
-    //==================================================================================================================
-    // Instance Methods
-    //==================================================================================================================
-
-    /*
-    Value
-    Returns the value of this Byte as a byte.
-    Output: 5
-    */
-    Byte w = Byte.valueOf("5");
-    byte y1 = w.byteValue();
-    short y2 = w.shortValue();
-    int y3 = w.intValue();
-    long y4 = w.longValue();
-    float y5 = w.floatValue();
-    double y6 = w.doubleValue();
-    IO.println(y1); // 5
-    IO.println(y2); // 5
-    IO.println(y3); // 5
-    IO.println(y4); // 5
-    IO.println(y5); // 5.0
-    IO.println(y6); // 5.0
-
-    /*
-    Equals
-    Compares this object to the specified object.
-    NOTE: Wrapper types should be compared using the equals() method rather than the '==' operator.
-    Output: true
-    */
-    w1 = Byte.valueOf("5");
-    w2 = Byte.valueOf("5");
-    boolean eq = w1.equals(w2);
-    IO.println(eq);
-
-    /*
-    Compare To
-    Compares two Byte objects numerically.
-    Output: 0 (equal)
-    */
-    w1 = Byte.valueOf("5");
-    w2 = Byte.valueOf("5");
-    cmp = w1.compareTo(w2);
-    IO.println(cmp);
-
-    /*
-    Hash Code
-    Returns a hash code for a byte value;
-    Output: 5
-    */
-    w = Byte.valueOf("5");
-    i = w.hashCode();
-    IO.println(i);
-
-    /*
-    To String
-    Returns a new String object representing the specified byte.
-    Output: 5
-    */
-    w = Byte.valueOf("5");
-    str = w.toString();
+    str = Byte.toString((byte)5);
     IO.println(str);
 }
