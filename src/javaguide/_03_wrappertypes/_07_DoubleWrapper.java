@@ -60,6 +60,16 @@ void main() {
     IO.println(eq);
 
     /*
+    Compare To
+    Compares two Double objects numerically.
+    Output: 0 (equal)
+    */
+    w1 = Double.valueOf(3.14);
+    w2 = Double.valueOf(3.14);
+    int cmp = w1.compareTo(w2);
+    IO.println(cmp);
+
+    /*
     Is Infinite
     Returns true if this Double value is infinitely large in magnitude, false otherwise.
     Output: true
@@ -76,16 +86,6 @@ void main() {
     w = Double.valueOf(Double.NaN);
     is = w.isNaN();
     IO.println(is);
-
-    /*
-    Compare To
-    Compares two Double objects numerically.
-    Output: 0 (equal)
-    */
-    w1 = Double.valueOf(3.14);
-    w2 = Double.valueOf(3.14);
-    int cmp = w1.compareTo(w2);
-    IO.println(cmp);
 
     /*
     Hash Code

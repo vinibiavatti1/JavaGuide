@@ -169,6 +169,16 @@ void main() {
     IO.println(i2); //  1
 
     /*
+    Get Integer
+    Determines the integer value of the system property with the specified name.
+    Shortcut for: System.getProperty(...) + Integer parsing
+    Output: 30
+    */
+    System.setProperty("property", "30");
+    i = Integer.getInteger("property");
+    IO.println(i);
+
+    /*
     Hash Code
     Returns a hash code for a int value;
     Output: 5
@@ -256,16 +266,6 @@ void main() {
     Output: 1
     */
     i = Integer.remainderUnsigned(-1, 2); // 4294967295 / 2
-    IO.println(i);
-
-    /*
-    Get Integer
-    Determines the integer value of the system property with the specified name.
-    Shortcut for: System.getProperty(...) + Integer parsing
-    Output: 30
-    */
-    System.setProperty("app.timeout", "30");
-    i = Integer.getInteger("app.timeout");
     IO.println(i);
 
     //==================================================================================================================
