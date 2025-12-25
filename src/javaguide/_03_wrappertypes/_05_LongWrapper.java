@@ -31,11 +31,10 @@ void main() {
     /*
     Value
     Returns the value of this Long as the specified data type.
-    Output: 5
     */
     w = Long.valueOf(5L);
     byte y1 = w.byteValue();
-    int y2 = w.intValue();
+    short y2 = w.shortValue();
     int y3 = w.intValue();
     long y4 = w.longValue();
     float y5 = w.floatValue();
@@ -131,20 +130,28 @@ void main() {
     IO.println(cmp);
 
     /*
-    Max
-    Returns the greater of two long values as if by calling Math.max.
-    Output: 2
-    */
-    long l = Long.max(1, 2);
-    IO.println(l);
-
-    /*
     Min
     Returns the smaller of two long values as if by calling Math.min.
     Output: 1
     */
-    l = Long.min(1, 2);
+    long l = Long.min(1, 2);
     IO.println(i);
+
+    /*
+    Max
+    Returns the greater of two long values as if by calling Math.max.
+    Output: 2
+    */
+    l = Long.max(1, 2);
+    IO.println(l);
+
+    /*
+    Sum
+    Adds two longs together as per the + operator.
+    Output: 3
+    */
+    l = Long.sum(1L, 2L);
+    IO.println(l);
 
     /*
     Signum
@@ -371,6 +378,10 @@ void main() {
     */
     l = Long.rotateRight(12L, 2);
     IO.println(i);
+
+    //==================================================================================================================
+    // Long Class (String Representations)
+    //==================================================================================================================
 
     /*
     To Binary String

@@ -30,7 +30,6 @@ void main() {
     /*
     Value
     Returns the value of this Byte as the specified data type.
-    Output: 5
     */
     w = Byte.valueOf((byte)5);
     byte y1 = w.byteValue();

@@ -30,7 +30,6 @@ void main() {
     /*
     Value
     Returns the value of this Short as the specified data type.
-    Output: 5
     */
     Short s = Short.valueOf((short)5);
     byte y1 = s.byteValue();

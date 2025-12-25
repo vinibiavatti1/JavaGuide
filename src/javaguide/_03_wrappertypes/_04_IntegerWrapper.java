@@ -30,11 +30,10 @@ void main() {
     /*
     Value
     Returns the value of this Integer as the specified data type.
-    Output: 5
     */
     w = Integer.valueOf(5);
     byte y1 = w.byteValue();
-    int y2 = w.intValue();
+    short y2 = w.shortValue();
     int y3 = w.intValue();
     long y4 = w.longValue();
     float y5 = w.floatValue();
@@ -130,6 +129,14 @@ void main() {
     IO.println(cmp);
 
     /*
+    Min
+    Returns the smaller of two int values as if by calling Math.min.
+    Output: 1
+    */
+    i = Integer.min(1, 2);
+    IO.println(i);
+
+    /*
     Max
     Returns the greater of two int values as if by calling Math.max.
     Output: 2
@@ -138,11 +145,11 @@ void main() {
     IO.println(i);
 
     /*
-    Min
-    Returns the smaller of two int values as if by calling Math.min.
-    Output: 1
+    Sum
+    Adds two integers together as per the + operator.
+    Output: 3
     */
-    i = Integer.min(1, 2);
+    i = Integer.sum(1, 2);
     IO.println(i);
 
     /*
@@ -378,6 +385,10 @@ void main() {
     */
     i = Integer.rotateRight(12, 2);
     IO.println(i);
+
+    //==================================================================================================================
+    // Integer Class (String Representations)
+    //==================================================================================================================
 
     /*
     To Binary String
