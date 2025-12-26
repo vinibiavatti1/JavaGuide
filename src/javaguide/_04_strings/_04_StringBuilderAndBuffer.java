@@ -1,23 +1,20 @@
 /*
 StringBuilder and StringBuffer
 
-StringBuilder and StringBuffer are mutable classes used to create and manipulate
-sequences of characters efficiently. Unlike String, which is immutable, these
-classes allow in-place modification of their internal character storage.
+StringBuilder and StringBuffer are mutable classes used to create and manipulate sequences of characters efficiently.
+Unlike String, which is immutable, these classes allow in-place modification of their internal character storage.
 
-Internally, both StringBuilder and StringBuffer manage a resizable array of
-characters, which avoids creating a new String instance for every transformation.
+Internally, both StringBuilder and StringBuffer manage a resizable array of characters, which avoids creating a new
+String instance for every transformation.
 
-This document focuses only on the core and distinctive methods of
-StringBuilder and StringBuffer, emphasizing their mutable behavior,
-buffer management, and in-place text modification capabilities.
+This document focuses only on the core and distinctive methods of StringBuilder and StringBuffer, emphasizing their
+mutable behavior, buffer management, and in-place text modification capabilities.
 
 Key differences:
 - StringBuilder is not synchronized and is therefore not thread-safe.
-  It offers better performance and should be preferred in single-threaded
-  or method-local contexts.
-- StringBuffer is synchronized (thread-safe) and can be safely used in
-  multithreaded environments, at the cost of additional synchronization overhead.
+  It offers better performance and should be preferred in single-threaded or method-local contexts.
+- StringBuffer is synchronized (thread-safe) and can be safely used in multithreaded environments, at the cost of
+  additional synchronization overhead.
 
 Common characteristics:
 - Both classes are mutable and operate directly on an internal character array.
@@ -27,8 +24,7 @@ Common characteristics:
 
 Usage guidelines:
 - Prefer StringBuilder for performance in non-concurrent code.
-- Use StringBuffer only when thread safety is required and synchronization
-  cannot be managed externally.
+- Use StringBuffer only when thread safety is required and synchronization cannot be managed externally.
 */
 @SuppressWarnings("all")
 void main() {

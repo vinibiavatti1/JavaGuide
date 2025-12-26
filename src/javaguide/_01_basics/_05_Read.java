@@ -1,10 +1,13 @@
+/*
+Reading Input
+Java allows programs to read data from the console, enabling interaction with the user.
+
+This example demonstrates two approaches:
+- The modern IO.readln() method (available in Java 25+), which simplifies reading a line of input.
+- The conventional approach using the Scanner class, which provides more flexibility for parsing different types.
+*/
 import java.util.Scanner;
 
-/*
-Java allows reading input from the console.
-This example demonstrates the new IO.readln method (Java 25+)
-and the conventional way using Scanner.
-*/
 @SuppressWarnings("all")
 void main() {
     /*

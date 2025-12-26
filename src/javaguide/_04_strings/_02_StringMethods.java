@@ -1,6 +1,6 @@
 /*
-String provides a rich set of methods for inspecting, transforming,
-searching, comparing, and converting textual data.
+String Methods
+String provides a rich set of methods for inspecting, transforming, searching, comparing, and converting textual data.
 
 Key characteristics:
 - Strings are immutable: all modification operations return a new instance.

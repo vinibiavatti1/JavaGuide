@@ -1,7 +1,8 @@
 /*
+Wrapper Types
 Java provides a set of wrapper classes for each primitive data type.
-These classes are reference types that encapsulate primitive values
-inside objects.
+
+These classes are reference types that encapsulate primitive values inside objects.
 
 Wrapper types exist mainly to support:
 - Object-oriented APIs (Collections, Generics)
@@ -9,8 +10,7 @@ Wrapper types exist mainly to support:
 - Utility methods (parsing, comparison, conversion)
 - Integration with frameworks and libraries
 
-Each wrapper type corresponds directly to a primitive type and is part
-of the java.lang package.
+Each wrapper type corresponds directly to a primitive type and is part of the java.lang package.
 */
 @SuppressWarnings("all")
 void main() {

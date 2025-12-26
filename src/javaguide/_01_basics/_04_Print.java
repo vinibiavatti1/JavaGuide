@@ -1,6 +1,10 @@
 /*
-Printing to the console allows your program to communicate with the user.
-This example demonstrates different ways to output text in Java.
+Printing
+Printing to the console allows a program to display information to the user.
+
+Java provides multiple ways to output text, including printing variables, literals, and formatted messages.
+
+This example demonstrates some common techniques for console output.
 */
 @SuppressWarnings("all")
 void main() {

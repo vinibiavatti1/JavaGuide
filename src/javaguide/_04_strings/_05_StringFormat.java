@@ -1,6 +1,5 @@
 /*
 String Format
-
 String formatting in Java is based on format specifiers, which define how
 values are converted and inserted into a formatted string. The syntax of
 a format specifier is:

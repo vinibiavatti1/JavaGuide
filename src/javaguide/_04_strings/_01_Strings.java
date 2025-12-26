@@ -2,12 +2,11 @@
 Strings
 A string represents an ordered sequence of characters used to model textual data.
 
-In Java, strings are instances of the String class and are implemented as
-immutable objects. Variables of type String hold references to these objects,
-not the characters themselves.
+In Java, strings are instances of the String class and are implemented as immutable objects. Variables of type String
+hold references to these objects, not the characters themselves.
 
-String literals are managed by the JVM through the string pool, allowing
-reuse of identical values and efficient memory usage.
+String literals are managed by the JVM through the string pool, allowing reuse of identical values and efficient memory
+usage.
 
 Key characteristics:
 - Strings represent textual data as sequences of UTF-16 code units (char).

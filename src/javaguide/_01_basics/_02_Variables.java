@@ -1,6 +1,13 @@
 /*
-Variables are used to store data in memory.
-The name of a variable or constant cannot be a Java keyword.
+Variables
+Variables are used to store data in memory and act as named references to values.
+
+Key points:
+- Each variable has a type that determines the kind of data it can hold (primitive or reference).
+- The name of a variable cannot be a Java keyword and must follow identifier rules.
+- Variables must be declared before use, optionally with initialization.
+- Their scope determines where in the code they can be accessed (e.g., local, instance, or static).
+- Constants can be defined with the 'final' keyword, making their value immutable after assignment.
 */
 @SuppressWarnings("all")
 void main() {
@@ -55,4 +62,18 @@ void main() {
     */
     var z = 2;
     IO.println(z);
+
+    /*
+    Number Representations
+    Java allows integer values to be represented in the formats below:
+    - Binary: prefix 0b or 0B, e.g., 0b010101 = 21 in decimal
+    - Octal: prefix 0, e.g., 025 = 21 in decimal
+    - Decimal: standard base-10, e.g., 21
+    - Hexadecimal: prefix 0x or 0X, e.g., 0xFF = 255 in decimal
+    Output: a:21 b:21 c:255
+    */
+    a = 0b010101; // 21 in decimal
+    b = 025;      // 21 in decimal
+    c = 0xFF;     // 255 in decimal
+    IO.println("a:" + a + " b:" + b + " c:" + c);
 }

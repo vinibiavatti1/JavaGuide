@@ -1,0 +1,68 @@
+/*
+Conditional Statements (if)
+The "if" statement is used to execute a block of code only when a specified condition evaluates to true.
+
+In Java, the condition must be a boolean expression and is evaluated at runtime. Based on the result, the program can
+follow different execution paths using if, else if, and else clauses.
+
+Key characteristics:
+- Conditions must evaluate to a boolean value.
+- Code blocks are executed conditionally, controlling program flow.
+- Multiple conditions can be chained using else if.
+- Logical and comparison operators are commonly used in conditions.
+- Braces are optional for single statements but recommended for clarity and safety.
+*/
+@SuppressWarnings("all")
+void main() {
+    /*
+    Conditional Statement (if)
+    The if statement evaluates a boolean expression and executes the associated code block only when the condition is
+    true.
+    Output: x is positive
+    */
+    int x = 1;
+    if (x > 0) {
+        IO.println("x is positive");
+    }
+
+    /*
+    Conditional Statement (if without block)
+    The if statement can be written without braces when it controls a single statement.
+    In this form, only the immediately following statement is conditionally executed.
+    Although valid, this style should be used with caution, as it can reduce readability
+    and lead to errors when the code is later modified.
+    Example output: x is positive
+    */
+    x = 1;
+    if (x > 0) IO.println("x is positive");
+
+    /*
+    Conditional "if-else"
+    The if-else statement allows a program to choose between two execution paths based on the evaluation of a boolean
+    condition.
+    If the condition is true, the code in the if block is executed. Otherwise, the code in the else block is executed.
+    Output: x is negative
+    */
+    x = -1;
+    if (x > 0) {
+        IO.println("x is positive");
+    } else {
+        IO.println("x is negative");
+    }
+
+    /*
+    Conditional "else-if"
+    The else-if construct allows chaining multiple conditions in sequence.
+    Each condition is evaluated in order, and the first one that evaluates to true determines which block is executed.
+    If none of the conditions are true, the optional else block is executed.
+    Output: x is zero
+    */
+    x = 0;
+    if (x > 0) {
+        IO.println("x is positive");
+    } else if (x < 0) {
+        IO.println("x is negative");
+    } else {
+        IO.println("x is zero");
+    }
+}
