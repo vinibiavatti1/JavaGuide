@@ -1,0 +1,304 @@
+/*
+ArrayList
+The List interface represents an ordered collection (also known as a sequence) of elements,
+allowing duplicate values and providing positional access and insertion.
+
+Key implementations:
+- ArrayList: Backed by a dynamically resizing array. Offers fast random access (O(1)) and slower insertions/removals in
+  the middle (O(n)) due to shifting elements.
+- LinkedList: Implemented as a doubly-linked list. Provides fast insertions and deletions anywhere in the list (O(1) if
+  node is known) but slower random access (O(n)).
+
+Important points:
+- Both implement the List interface and share common methods like add(), get(), remove(), size(), and iterator().
+- ArrayList is generally preferred for most use cases due to faster access and better cache performance.
+- LinkedList is useful when frequent insertions or deletions at the beginning or middle of the list are required.
+- Both are not synchronized; use Collections.synchronizedList() or CopyOnWriteArrayList for thread-safe variants.
+- Iterating over a list can be done using for, for-each, iterator, or streams.
+- Only the ArrayList will be used for the examples on this documentation.
+*/
+@SuppressWarnings("all")
+void main() {
+    /*
+    Declaration
+    Declares a List variable and initializes it with a concrete implementation (ArrayList).
+    Unlike arrays, lists do not have a fixed size and can dynamically grow as elements are added.
+    */
+    List<String> list = new ArrayList<>();
+
+    /*
+    Initialization (Immutable)
+    This declares and initializes a List with specific elements in a single step.
+    The resulting list is immutable, meaning that elements cannot be added, removed, or modified after creation.
+    Use this approach when you need a fixed set of elements that should not change during the program execution.
+    */
+    list = List.of("A", "B", "C");
+
+    /*
+    Initialization (Mutable)
+    This declares and initializes a List with specific elements while allowing modifications afterward.
+    By creating an ArrayList from another collection (such as List.of), you obtain a mutable list that supports adding,
+    removing, or updating elements.
+    Use this approach when you need an initial set of elements but want to modify the list dynamically during program
+    execution.
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+
+    /*
+    Nullable
+    Since the List data type is a reference type, it can represent the absence of a value.
+    Output: null
+    */
+    List<String> otherList = null;
+
+    //==================================================================================================================
+    // Size
+    //==================================================================================================================
+
+    /*
+    Size (length)
+    The "size()" method returns the number of elements currently stored in the List.
+    Unlike arrays, lists do not have a fixed length, and the size can change as elements are added or removed.
+    Output: 3
+    */
+    list = List.of("A", "B", "C");
+    int size = list.size();
+    IO.println(size);
+
+    /*
+    Empty
+    The isEmpty() method returns true if the list contains no elements, and false otherwise.
+    It is a convenient way to check whether a list has any content before performing operations.
+    Output: true
+    */
+    list = List.of();
+    boolean is = list.isEmpty();
+    IO.println(is);
+
+    //==================================================================================================================
+    // Accessing Elements
+    //==================================================================================================================
+
+    /*
+    Getting Elements
+    Elements in a List can be accessed by their index using the "get()" method.
+    The index is zero-based, meaning the first element is at index 0.
+    If an invalid index is provided (less than 0 or greater than or equal to the list size),
+    the method throws an IndexOutOfBoundsException.
+    */
+    list = List.of("A", "B", "C");
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // B
+    IO.println(list.get(2)); // C
+
+    /*
+    Getting Index
+    The "indexOf(Object o)" method returns the index of the first occurrence of the specified element in the list. If
+    the element is not found, it returns -1.
+    Output: 0
+    */
+    list = List.of("A", "B", "A");
+    IO.println(list.indexOf("A"));
+
+    /*
+    Getting Last Index
+    The "lastIndexOf(Object o)" method returns the index of the last occurrence of the specified element in the list. If
+    the element is not found, it returns -1.
+    Output: 2
+    */
+    list = List.of("A", "B", "A");
+    IO.println(list.indexOf("A"));
+
+    /*
+    Contains Element
+    The "contains()" method checks whether a specific element exists in the list.
+    It returns true if the element is present and false otherwise.
+    Output: true
+    */
+    list = List.of("A", "B", "C");
+    boolean has = list.contains("A");
+    IO.println(has);
+
+    //==================================================================================================================
+    // Adding Elements
+    //==================================================================================================================
+
+    /*
+    Adding Elements
+    Elements can be added to a List dynamically using the "add()" method. The list automatically resizes as needed to
+    accommodate new elements.
+    This approach is suitable for mutable lists where elements are not known in advance or may change during program
+    execution.
+    Content: A, B, C
+    */
+    list = new ArrayList<>();
+    list.add("A");
+    list.add("B");
+    list.add("C");
+
+    /*
+    Adding Elements (in a specific position)
+    Elements can be inserted at a specific index in a List using the add(index, element) method.
+    This shifts existing elements to the right to make room for the new element.
+    */
+    list = new ArrayList<>(List.of("B"));
+    list.add(0, "A");
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // B
+
+    /*
+    Adding Elements (from another collection)
+    The "addAll(Collection<? extends E> c)" method appends all elements from another collection to the end of the list.
+    This allows combining lists or adding multiple elements at once.
+    */
+    list = new ArrayList<>();
+    list.addAll(List.of("A", "B"));
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // B
+
+    //==================================================================================================================
+    // Setting Elements
+    //==================================================================================================================
+
+    /*
+    Setting Elements
+    Elements in a mutable List can be updated using the "set(index, element)" method.
+    The element at the specified index is replaced with the new value.
+    If an invalid index is provided (less than 0 or greater than or equal to the list size),
+    the method throws an IndexOutOfBoundsException.
+    Output: Z
+    */
+    list = new ArrayList<>(List.of("A"));
+    list.set(0, "Z");
+    String element = list.get(0);
+    IO.println(element);
+
+    //==================================================================================================================
+    // Removing Elements
+    //==================================================================================================================
+
+    /*
+    Removing Elements (by index)
+    Elements in a List can be removed using the "remove(index)" method, which deletes the element at the specified
+    position. Subsequent elements are shifted to fill the gap, reducing the size of the list by one.
+    If an invalid index is provided (less than 0 or greater than or equal to the list size), the method throws an
+    IndexOutOfBoundsException.
+    Output: C
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+    list.remove(1);
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // C
+
+    /*
+    Removing Elements (by object)
+    The "remove(Object o)" method removes the first occurrence of the specified element from the list, if it exists.
+    Subsequent elements are shifted to fill the gap, reducing the list size by one.
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+    list.remove("B");
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // C
+
+    /*
+    Removing Elements (from another collection)
+    The "removeAll(Collection<?> c)" method removes all elements from the list that are also contained in the specified
+    collection. Remaining elements are shifted accordingly, and the list size is reduced.
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+    list.remove(List.of("A", "B"));
+    IO.println(list.get(0)); // C
+
+    /*
+    Clear
+    The "clear()" method removes all elements from the list, leaving it empty.
+    After calling "clear()", the list size becomes 0.
+    Output: 0
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+    list.clear();
+    IO.println(list.size());
+
+    //==================================================================================================================
+    // Equality
+    //==================================================================================================================
+
+    /*
+    Equality
+    Two lists are considered equal if they contain the same elements in the same order.
+    The "equals()" method compares the contents of the lists, not their references.
+    Output: true
+    */
+    List<String> a = List.of("A", "B", "C");
+    List<String> b = List.of("A", "B", "C");
+    boolean eq = a.equals(b);
+    IO.println(eq);
+
+    //==================================================================================================================
+    // Iteration
+    //==================================================================================================================
+
+    /*
+    Iterating (for)
+    A traditional for loop can be used to iterate over a List by accessing elements through their index. This approach
+    is useful when the index is required or when custom iteration logic is needed.
+    Output: A | B | C
+    */
+    list = List.of("A", "B", "C");
+    for (int i = 0; i < list.size(); i++) {
+        IO.println(list.get(i));
+    }
+
+    /*
+    Iterating (for each)
+    The for-each loop (enhanced for loop) provides a simple and readable way to iterate over all elements in a List
+    without using indices.
+    It is preferred when only element access is needed and the index is not required.
+    Output: A | B | C
+    */
+    list = List.of("A", "B", "C");
+    for (String el : list) {
+        IO.println(el);
+    }
+
+    /*
+    Iterator (unidirectional)
+    An Iterator provides a standard way to traverse elements of a collection sequentially.
+    It allows safe iteration and supports element removal during traversal.
+    It does not expose element indices or support bidirectional navigation.
+    Output: A | B | C
+    */
+    list = List.of("A", "B", "C");
+    Iterator<String> iter = list.iterator();
+    while (iter.hasNext()) {
+        String el = iter.next();
+        IO.println(el);
+    }
+
+    /*
+    List Iterator (bidirectional / index support / write support)
+    A ListIterator is a specialized iterator designed for List implementations.
+    It allows bidirectional traversal, enabling iteration both forward and backward through the list.
+    In addition to navigation, it supports modifying the list during iteration, such as adding, removing, or replacing
+    elements, and provides access to the current element index.
+    Output: 0:A | 1:B | 2:C
+    */
+    list = List.of("A", "B", "C");
+    ListIterator<String> listIter = list.listIterator();
+    while (listIter.hasNext()) {
+        int index = listIter.nextIndex();
+        String el = listIter.next();
+        IO.println(index + ":" + el);
+    }
+
+    /*
+    Iterating (functional for each)
+    The functional for-each uses a lambda expression or method reference to process each element of the list. It
+    provides a concise and expressive way to iterate over elements without explicit loop control.
+    This approach is well suited for simple operations on each element and integrates naturally with functional
+    programming features in Java.
+    Output: A | B | C
+    */
+    list = List.of("A", "B", "C");
+    list.forEach(IO::println);
+}
