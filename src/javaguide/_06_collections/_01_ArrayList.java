@@ -109,16 +109,6 @@ void main() {
     list = List.of("A", "B", "A");
     IO.println(list.indexOf("A"));
 
-    /*
-    Contains Element
-    The "contains()" method checks whether a specific element exists in the list.
-    It returns true if the element is present and false otherwise.
-    Output: true
-    */
-    list = List.of("A", "B", "C");
-    boolean has = list.contains("A");
-    IO.println(has);
-
     //==================================================================================================================
     // Adding Elements
     //==================================================================================================================
@@ -129,6 +119,7 @@ void main() {
     accommodate new elements.
     This approach is suitable for mutable lists where elements are not known in advance or may change during program
     execution.
+    We can specify an index to add an element in a specific position.
     Content: A, B, C
     */
     list = new ArrayList<>();
@@ -137,19 +128,10 @@ void main() {
     list.add("C");
 
     /*
-    Adding Elements (in a specific position)
-    Elements can be inserted at a specific index in a List using the add(index, element) method.
-    This shifts existing elements to the right to make room for the new element.
-    */
-    list = new ArrayList<>(List.of("B"));
-    list.add(0, "A");
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // B
-
-    /*
     Adding Elements (from another collection)
     The "addAll(Collection<? extends E> c)" method appends all elements from another collection to the end of the list.
     This allows combining lists or adding multiple elements at once.
+    We can specify an index to add the elements from a specific position.
     */
     list = new ArrayList<>();
     list.addAll(List.of("A", "B"));
@@ -191,7 +173,7 @@ void main() {
     IO.println(list.get(1)); // C
 
     /*
-    Removing Elements (by object)
+    Removing Elements (by element)
     The "remove(Object o)" method removes the first occurrence of the specified element from the list, if it exists.
     Subsequent elements are shifted to fill the gap, reducing the list size by one.
     */
@@ -218,6 +200,44 @@ void main() {
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.clear();
     IO.println(list.size());
+
+    //==================================================================================================================
+    // Checking Elements
+    //==================================================================================================================
+
+    /*
+    Contains Element
+    The "contains()" method checks whether a specific element exists in the list.
+    It returns true if the element is present and false otherwise.
+    Output: true
+    */
+    list = List.of("A", "B", "C");
+    boolean has = list.contains("A");
+    IO.println(has);
+
+    /*
+    Contains Elements (from another collection)
+    The containsAll(Collection<?> c) method checks whether the list contains all elements from another collection.
+    It returns true only if every element in the provided collection is present in the list.
+    Output: true
+    */
+    list = List.of("A", "B", "C");
+    has = list.containsAll(List.of("A", "B"));
+    IO.println(has);
+
+    //==================================================================================================================
+    // Sorting Elements
+    //==================================================================================================================
+
+    /*
+    Sorting Elements
+    Lists can be sorted using utility methods provided by the Java standard library.
+    Sorting can be done in natural order or using a custom Comparator to define specific ordering rules.
+    */
+    list = List.of("B", "A");
+    list.sort(Comparator.naturalOrder());
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // B
 
     //==================================================================================================================
     // Equality
