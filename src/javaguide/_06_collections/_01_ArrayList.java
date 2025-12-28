@@ -188,8 +188,19 @@ void main() {
     collection. Remaining elements are shifted accordingly, and the list size is reduced.
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
-    list.remove(List.of("A", "B"));
+    list.removeAll(List.of("A", "B"));
     IO.println(list.get(0)); // C
+
+    /*
+    Retaining Elements
+    The retainAll(Collection<?> c) method keeps only the elements that are also present in another collection.
+    All elements that are not contained in the provided collection are removed from the list.
+    This operation effectively performs an intersection between the two collections and modifies the original list.
+    */
+    list = new ArrayList<>(List.of("A", "B", "C"));
+    list.retainAll(List.of("A", "B"));
+    IO.println(list.get(0)); // A
+    IO.println(list.get(1)); // B
 
     /*
     Clear
@@ -234,7 +245,7 @@ void main() {
     Lists can be sorted using utility methods provided by the Java standard library.
     Sorting can be done in natural order or using a custom Comparator to define specific ordering rules.
     */
-    list = List.of("B", "A");
+    list = new ArrayList<>(List.of("B", "A"));
     list.sort(Comparator.naturalOrder());
     IO.println(list.get(0)); // A
     IO.println(list.get(1)); // B
@@ -311,8 +322,12 @@ void main() {
         IO.println(index + ":" + el);
     }
 
+    //==================================================================================================================
+    // Functional Methods
+    //==================================================================================================================
+
     /*
-    Iterating (functional for each)
+    Functional Iteration
     The functional for-each uses a lambda expression or method reference to process each element of the list. It
     provides a concise and expressive way to iterate over elements without explicit loop control.
     This approach is well suited for simple operations on each element and integrates naturally with functional
@@ -321,4 +336,26 @@ void main() {
     */
     list = List.of("A", "B", "C");
     list.forEach(IO::println);
+
+    /*
+    Functional Replace
+    The "replaceAll(UnaryOperator<E> operator)" method applies a transformation function to each element of the list and
+    replaces the original elements with the results.
+    This approach is useful for bulk updates or data transformations using functional programming constructs.
+    */
+    list = new ArrayList<>(List.of("A", "B"));
+    list.replaceAll(String::toLowerCase);
+    IO.println(list.get(0)); // a
+    IO.println(list.get(1)); // b
+
+    /*
+    Function Removal
+    The "removeIf(Predicate<? super E> filter)" method removes all elements from the list that match a given condition.
+    The predicate is evaluated for each element, and elements for which the condition returns true are removed.
+    This provides a concise and expressive way to filter a list based on custom rules using functional programming
+    constructs.
+    */
+    list = new ArrayList<>(List.of("A", "B"));
+    list.removeIf(el -> el.equals("A"));
+    IO.println(list.get(0)); // B
 }
