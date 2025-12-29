@@ -354,8 +354,9 @@ void main() {
     The predicate is evaluated for each element, and elements for which the condition returns true are removed.
     This provides a concise and expressive way to filter a list based on custom rules using functional programming
     constructs.
+    Output: B
     */
     list = new ArrayList<>(List.of("A", "B"));
     list.removeIf(el -> el.equals("A"));
-    IO.println(list.get(0)); // B
+    IO.println(list.get(0));
 }
