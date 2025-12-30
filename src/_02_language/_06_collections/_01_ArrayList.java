@@ -62,8 +62,7 @@ void main() {
     Output: 3
     */
     list = List.of("A", "B", "C");
-    int size = list.size();
-    IO.println(size);
+    IO.println(list.size());
 
     /*
     Empty
@@ -72,8 +71,7 @@ void main() {
     Output: true
     */
     list = List.of();
-    boolean is = list.isEmpty();
-    IO.println(is);
+    IO.println(list.isEmpty());
 
     //==================================================================================================================
     // Accessing Elements
@@ -107,7 +105,7 @@ void main() {
     Output: 2
     */
     list = List.of("A", "B", "A");
-    IO.println(list.indexOf("A"));
+    IO.println(list.lastIndexOf("A"));
 
     //==================================================================================================================
     // Adding Elements

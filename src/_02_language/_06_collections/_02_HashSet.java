@@ -1,3 +1,253 @@
-void main() {
+/*
+HashSet
+The Set interface represents a collection of unique elements, meaning it does not allow duplicate values and does not
+provide positional access.
 
+Key implementations:
+- HashSet: Backed by a hash table. Does not guarantee iteration order and offers constant-time performance (O(1))
+  for basic operations such as add(), remove(), and contains(), assuming a good hash function.
+- LinkedHashSet: Maintains insertion order while still providing near O(1) performance for basic operations.
+- TreeSet: Stores elements in a sorted (natural or comparator-defined) order, with O(log n) performance.
+
+Important points:
+- All Set implementations enforce element uniqueness.
+- HashSet allows one null element.
+- Element equality is determined using equals() and hashCode(); both must be correctly implemented.
+- HashSet is generally preferred when order does not matter and fast lookup is required.
+- HashSet is not synchronized; use Collections.synchronizedSet() or CopyOnWriteArraySet when thread safety is
+  needed.
+- Iteration can be done using for-each, iterator, or streams.
+- Only the HashSet will be used for the examples in this documentation.
+*/
+@SuppressWarnings("all")
+void main() {
+    /*
+    Declaration
+    Declares a Set variable and initializes it with a concrete implementation (HashSet).
+    A HashSet does not maintain insertion order and does not allow duplicate elements.
+    It provides fast lookups, additions, and removals based on hashing.
+    */
+    Set<String> set = new HashSet<>();
+
+    /*
+    Initialization (Immutable)
+    This declares and initializes a Set with specific elements in a single step.
+    The resulting set is immutable, meaning that elements cannot be added or removed after creation.
+    Duplicate elements are not allowed and will cause an IllegalArgumentException at runtime.
+    Use this approach when you need a fixed set of unique elements that should not change during program execution.
+    */
+    set = Set.of("A", "B", "C");
+
+    /*
+    Initialization (Mutable)
+    This declares and initializes a Set with specific elements while allowing modifications afterward.
+    By creating a HashSet from another collection (such as Set.of), you obtain a mutable set that supports adding or
+    removing elements.
+    Duplicate elements are automatically ignored.
+    Use this approach when you need an initial set of unique elements but want to modify the set dynamically during
+    program execution.
+    */
+    set = new HashSet<>(Set.of("A", "B", "C"));
+
+    /*
+    Nullable
+    Since the Set data type is a reference type, it can represent the absence of a value.
+    Output: null
+    */
+    Set<String> otherSet = null;
+
+    //==================================================================================================================
+    // Size
+    //==================================================================================================================
+
+    /*
+    Size (length)
+    The "size()" method returns the number of elements currently stored in the Set.
+    Since sets do not allow duplicate elements, the size reflects the count of unique values.
+    The size can change dynamically as elements are added or removed.
+    Output: 3
+    */
+    set = Set.of("A", "B", "C");
+    IO.println(set.size());
+
+    /*
+    Empty
+    The isEmpty() method returns true if the set contains no elements, and false otherwise.
+    It is a convenient way to check whether a set has any content before performing operations.
+    Output: true
+    */
+    set = Set.of();
+    IO.println(set.isEmpty());
+
+    //==================================================================================================================
+    // Adding Elements
+    //==================================================================================================================
+
+    /*
+    Adding Elements
+    Elements can be added to a Set dynamically using the "add()" method.
+    Since sets do not allow duplicate elements, adding an element that already exists has no effect.
+    HashSet does not maintain any order, so you cannot specify a position for insertion.
+    This approach is suitable for mutable sets where elements are not known in advance or may change during program
+    execution.
+    Content: A, B
+    */
+    set = new HashSet<>();
+    set.add("A");
+    set.add("A"); // Duplicated (No Effect)
+    set.add("B");
+
+    /*
+    Adding Elements (from another collection)
+    The "addAll(Collection<? extends E> c)" method adds all elements from another collection to the set.
+    Since sets do not allow duplicate elements, any duplicates in the added collection are ignored.
+    HashSet does not maintain order, so there is no concept of inserting at a specific position.
+    Output: 2
+    */
+    set = new HashSet<>();
+    set.addAll(Set.of("A", "B"));
+    IO.println(set.size());
+
+    //==================================================================================================================
+    // Removing Elements
+    //==================================================================================================================
+
+    /*
+    Removing Elements (by element)
+    A Set does not support index-based removal because it does not maintain order.
+    Elements can be removed by specifying the value using the "remove(Object o)" method.
+    If the element exists in the set, it is removed; otherwise, the set remains unchanged.
+    Output: 2
+    */
+    new HashSet<>(Set.of("A", "B", "C"));
+    set.remove("B");
+    IO.println(set.size());
+
+    /*
+    Removing Elements (from another collection)
+    The "removeAll(Collection<?> c)" method removes all elements from the set that are also contained in the specified
+    collection.
+    Since sets do not maintain order, there is no shifting of elements; only the specified elements are removed.
+    Output: 1
+    */
+    new HashSet<>(Set.of("A", "B", "C"));
+    set.removeAll(Set.of("A", "B"));
+    IO.println(set.size());
+
+    /*
+    Retaining Elements
+    The retainAll(Collection<?> c) method keeps only the elements in the set that are also present in another
+    collection.
+    All elements not contained in the provided collection are removed from the set.
+    This operation effectively performs an intersection between the two collections and modifies the original set.
+    Output: 2
+    */
+    set = new HashSet<>(Set.of("A", "B", "C"));
+    set.retainAll(Set.of("A", "B"));
+    IO.println(set.size());
+
+    /*
+    Clear
+    The "clear()" method removes all elements from the set, leaving it empty.
+    After calling "clear()", the set size becomes 0.
+    Output: 0
+    */
+    set = new HashSet<>(Set.of("A", "B", "C"));
+    set.clear();
+    IO.println(set.size());
+
+    //==================================================================================================================
+    // Checking Elements
+    //==================================================================================================================
+
+    /*
+    Contains Element
+    The "contains()" method checks whether a specific element exists in the set.
+    It returns true if the element is present and false otherwise.
+    Output: true
+    */
+    set = Set.of("A", "B", "C");
+    boolean has = set.contains("A");
+    IO.println(has);
+
+    /*
+    Contains Elements (from another collection)
+    The containsAll(Collection<?> c) method checks whether the set contains all elements from another collection.
+    It returns true only if every element in the provided collection is present in the set.
+    Output: true
+    */
+    set = Set.of("A", "B", "C");
+    has = set.containsAll(Set.of("A", "B"));
+    IO.println(has);
+
+    //==================================================================================================================
+    // Equality
+    //==================================================================================================================
+
+    /*
+    Equality
+    Two sets are considered equal if they contain the same elements, regardless of order.
+    The "equals()" method compares the contents of the sets, not their references.
+    Output: true
+    */
+    Set<String> a = Set.of("A", "B", "C");
+    Set<String> b = Set.of("C", "B", "A");
+    boolean eq = a.equals(b);
+    IO.println(eq);
+
+    //==================================================================================================================
+    // Iteration
+    //==================================================================================================================
+
+    /*
+    Iterating (for each)
+    Since a Set does not have indices, a traditional for loop cannot be used.
+    Instead, a for-each loop is used to iterate over all elements in the set.
+    Output: A | B | C (order not guaranteed)
+    */
+    set = Set.of("A", "B", "C");
+    for (String element : set) {
+        IO.println(element);
+    }
+
+    /*
+    Iterator (unidirectional)
+    An Iterator provides a standard way to traverse elements of a Set sequentially.
+    It allows safe iteration and supports element removal during traversal.
+    Since sets do not have indices, element positions are not exposed, and bidirectional navigation is not supported.
+    Output: A | B | C (order not guaranteed)
+    */
+    set = Set.of("A", "B", "C");
+    Iterator<String> iter = set.iterator();
+    while (iter.hasNext()) {
+        String el = iter.next();
+        IO.println(el);
+    }
+
+    //==================================================================================================================
+    // Functional Methods
+    //==================================================================================================================
+
+    /*
+    Functional Iteration
+    The functional for-each uses a lambda expression or method reference to process each element of the set.
+    It provides a concise and expressive way to iterate over elements without explicit loop control.
+    This approach is well suited for simple operations on each element and integrates naturally with functional
+    programming features in Java.
+    Output: A | B | C (order not guaranteed)
+    */
+    set = Set.of("A", "B", "C");
+    set.forEach(IO::println);
+
+    /*
+    Function Removal
+    The "removeIf(Predicate<? super E> filter)" method removes all elements from the set that match a given condition.
+    The predicate is evaluated for each element, and elements for which the condition returns true are removed.
+    This provides a concise and expressive way to filter a set based on custom rules using functional programming
+    constructs.
+    Output: 1
+    */
+    set = new HashSet<>(Set.of("A", "B"));
+    set.removeIf(el -> el.equals("A"));
+    IO.println(set.size());
 }
