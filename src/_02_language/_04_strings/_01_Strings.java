@@ -26,6 +26,21 @@ void main() {
     IO.println(x);
 
     /*
+    Multi-line String (Text Block)
+    Text blocks provide a concise and readable way to declare multi-line strings.
+    They preserve line breaks and formatting exactly as written, reducing the need for escape characters and string
+    concatenation.
+    This feature is available in Java 15+ and is ideal for large text, templates, JSON, SQL, or documentation strings.
+    Output: Hello | World
+    */
+    x = """
+    Hello
+    World
+    """;
+    IO.println(x);
+    System.exit(0);
+
+    /*
     Nullable
     Since the String data type is a reference type, it can represent the absence of a value.
     Output: null
