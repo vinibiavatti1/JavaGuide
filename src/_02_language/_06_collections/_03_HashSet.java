@@ -167,8 +167,7 @@ void main() {
     Output: true
     */
     set = Set.of("A", "B", "C");
-    boolean has = set.contains("A");
-    IO.println(has);
+    IO.println(set.contains("A"));
 
     /*
     Contains Elements (from another collection)
@@ -177,8 +176,7 @@ void main() {
     Output: true
     */
     set = Set.of("A", "B", "C");
-    has = set.containsAll(Set.of("A", "B"));
-    IO.println(has);
+    IO.println(set.containsAll(Set.of("A", "B")));
 
     //==================================================================================================================
     // Equality
@@ -192,8 +190,7 @@ void main() {
     */
     Set<String> a = Set.of("A", "B", "C");
     Set<String> b = Set.of("C", "B", "A");
-    boolean eq = a.equals(b);
-    IO.println(eq);
+    IO.println(a.equals(b));
 
     //==================================================================================================================
     // Iteration

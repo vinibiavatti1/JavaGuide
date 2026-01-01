@@ -20,8 +20,7 @@ void main() {
     Output: 11
     */
     String x = "Hello World";
-    int length = x.length();
-    IO.println(length);
+    IO.println(x.length());
 
     //==================================================================================================================
     // Character Access
@@ -33,8 +32,7 @@ void main() {
     Output: W
     */
     x = "Hello World";
-    char ch = x.charAt(6);
-    IO.println(ch);
+    IO.println(x.charAt(6));
 
     //==================================================================================================================
     // Search
@@ -94,8 +92,7 @@ void main() {
     Output: Hello World
     */
     x = "Hello";
-    String y = x.concat(" World");
-    IO.println(y);
+    IO.println(x.concat(" World"));
 
     /*
     Trim
@@ -106,8 +103,7 @@ void main() {
     Output: Hello World
     */
     x = "  Hello World  ";
-    y = x.trim();
-    IO.println(y);
+    IO.println(x.trim());
 
     /*
     Strip
@@ -136,8 +132,7 @@ void main() {
             <body />
         </html>
     """;
-    y = x.stripIndent();
-    IO.println(y);
+    IO.println(x.stripIndent());
 
     /*
     Lower Case
@@ -165,8 +160,7 @@ void main() {
     Output: HelloHelloHello
     */
     x = "Hello";
-    y = x.repeat(3);
-    IO.println(y);
+    IO.println(x.repeat(3));
 
     /*
     Indent
@@ -177,8 +171,7 @@ void main() {
         World
     */
     x = "Hello\nWorld";
-    y = x.indent(4);
-    IO.println(y);
+    IO.println(x.indent(4));
 
     /*
     Translate Escapes
@@ -186,8 +179,7 @@ void main() {
     Output: U+0009 U+000A
     */
     x = "\t \n";
-    y = x.translateEscapes();
-    IO.println(y);
+    IO.println(x.translateEscapes());
 
     //==================================================================================================================
     // Format
@@ -199,8 +191,7 @@ void main() {
     Output: Hello, John! You have 3 messages.
     */
     x = "Hello, %s! You have %d messages.";
-    y = x.formatted("John", 3);
-    IO.println(y);
+    IO.println(x.formatted("John", 3));
 
     //==================================================================================================================
     // Substrings
@@ -236,8 +227,7 @@ void main() {
     Output: Hxxxx Wxxxx
     */
     x = "Hello World";
-    y = x.replaceAll("[a-z]", "x");
-    IO.println(y);
+    IO.println(x.replaceAll("[a-z]", "x"));
 
     /*
     Replace First (Regex)
@@ -245,8 +235,7 @@ void main() {
     Output: Hxllo World
     */
     x = "Hello World";
-    y = x.replaceFirst("[a-z]", "x");
-    IO.println(y);
+    IO.println(x.replaceFirst("[a-z]", "x"));
 
     //==================================================================================================================
     // Equality and Matching
@@ -258,8 +247,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    boolean check = x.equals("Hello World");
-    IO.println(check);
+    IO.println(x.equals("Hello World"));
 
     /*
     Equals (Ignore Case)
@@ -267,8 +255,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    check = x.equalsIgnoreCase("hello world");
-    IO.println(check);
+    IO.println(x.equalsIgnoreCase("hello world"));
 
     /*
     Is Blank
@@ -276,8 +263,7 @@ void main() {
     Output: true
     */
     x = "   ";
-    check = x.isBlank();
-    IO.println(check);
+    IO.println(x.isBlank());
 
     /*
     Is Empty
@@ -285,8 +271,7 @@ void main() {
     Output: true
     */
     x = "";
-    check = x.isEmpty();
-    IO.println(check);
+    IO.println(x.isEmpty());
 
     /*
     Contains
@@ -294,8 +279,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    check = x.contains("Wor");
-    IO.println(check);
+    IO.println(x.contains("Wor"));
 
     /*
     Starts With
@@ -314,8 +298,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    check = x.endsWith("World");
-    IO.println(check);
+    IO.println(x.endsWith("World"));
 
     /*
     Matches
@@ -323,8 +306,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    check = x.matches("[a-zA-Z ]*");
-    IO.println(check);
+    IO.println(x.matches("[a-zA-Z ]*"));
 
     /*
     Region Matches
@@ -350,8 +332,7 @@ void main() {
     Output: 0 (equal)
     */
     x = "Hello World";
-    int cmp = x.compareTo("Hello World");
-    IO.println(cmp);
+    IO.println(x.compareTo("Hello World"));
 
     /*
     Compare (Ignore Case)
@@ -359,8 +340,7 @@ void main() {
     Output: 0 (equal)
     */
     x = "Hello World";
-    cmp = x.compareToIgnoreCase("hello world");
-    IO.println(cmp);
+    IO.println(x.compareToIgnoreCase("hello world"));
 
     //==================================================================================================================
     // Splitting
@@ -431,8 +411,7 @@ void main() {
     Output: 128512
     */
     x = "😀";
-    i1 = x.codePointAt(0);
-    IO.println(i1);
+    IO.println(x.codePointAt(0));
 
     /*
     Code Point Before
@@ -440,8 +419,7 @@ void main() {
     Output: 128512
     */
     x = "😀!";
-    i1 = x.codePointBefore(2);
-    IO.println(i1);
+    IO.println(x.codePointBefore(2));
 
     /*
     Offset By Code Points
@@ -450,8 +428,7 @@ void main() {
     Output: 6
     */
     x = "😀😀😀";
-    i1 = x.offsetByCodePoints(0, 3);
-    IO.println(i1);
+    IO.println(x.offsetByCodePoints(0, 3));
 
     //==================================================================================================================
     // Streaming
@@ -496,8 +473,7 @@ void main() {
     Output: HELLO WORLD
     */
     x = "Hello World";
-    y = x.transform(String::toUpperCase);
-    IO.println(y);
+    IO.println(x.transform(String::toUpperCase));
 
     //==================================================================================================================
     // Conversion
@@ -550,8 +526,7 @@ void main() {
     Output: -862545276
     */
     x = "Hello World";
-    int hc = x.hashCode();
-    IO.println(hc);
+    IO.println(x.hashCode());
 
     //==================================================================================================================
     // CharSequence Support
@@ -573,8 +548,7 @@ void main() {
     Output: true
     */
     x = "Hello World";
-    check = x.contentEquals(new StringBuffer("Hello World"));
-    IO.println(check);
+    IO.println(x.contentEquals(new StringBuffer("Hello World")));
 
     /*
     Sub Sequence
@@ -582,8 +556,7 @@ void main() {
     Output: Wor
     */
     x = "Hello World";
-    CharSequence seq = x.subSequence(6, 9);
-    IO.println(seq);
+    IO.println(x.subSequence(6, 9));
 
     //==================================================================================================================
     // Static Methods

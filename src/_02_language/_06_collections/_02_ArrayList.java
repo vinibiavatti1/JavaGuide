@@ -150,8 +150,7 @@ void main() {
     */
     list = new ArrayList<>(List.of("A"));
     list.set(0, "Z");
-    String element = list.get(0);
-    IO.println(element);
+    IO.println(list.get(0));
 
     //==================================================================================================================
     // Removing Elements
@@ -221,8 +220,7 @@ void main() {
     Output: true
     */
     list = List.of("A", "B", "C");
-    boolean has = list.contains("A");
-    IO.println(has);
+    IO.println(list.contains("A"));
 
     /*
     Contains Elements (from another collection)
@@ -231,8 +229,7 @@ void main() {
     Output: true
     */
     list = List.of("A", "B", "C");
-    has = list.containsAll(List.of("A", "B"));
-    IO.println(has);
+    IO.println(list.containsAll(List.of("A", "B")));
 
     //==================================================================================================================
     // Sorting Elements
@@ -260,8 +257,7 @@ void main() {
     */
     List<String> a = List.of("A", "B", "C");
     List<String> b = List.of("A", "B", "C");
-    boolean eq = a.equals(b);
-    IO.println(eq);
+    IO.println(a.equals(b));
 
     //==================================================================================================================
     // Iteration

@@ -68,8 +68,7 @@ void main() {
     */
     String s1 = "Hello World";
     String s2 = "Hello World";
-    boolean eq = s1.equals(s2);
-    IO.println(eq);
+    IO.println(s1.equals(s2));
 
     /*
     Comparison
@@ -80,8 +79,7 @@ void main() {
     */
     s1 = "Hello World";
     s2 = "Hello World";
-    int cmp = s1.compareTo(s2);
-    IO.println(cmp);
+    IO.println(s1.compareTo(s2));
 
     /*
     Casting

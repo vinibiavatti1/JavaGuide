@@ -118,8 +118,7 @@ void main() {
     Output: 27
     */
     x = new StringBuilder("Hello World");
-    int cap = x.capacity();
-    IO.println(cap);
+    IO.println(x.capacity());
 
     /*
     Ensure Capacity
@@ -128,8 +127,7 @@ void main() {
     */
     x = new StringBuilder("Hello World");
     x.ensureCapacity(56);
-    cap = x.capacity();
-    IO.println(cap);
+    IO.println(x.capacity());
 
     /*
     Trim to Size
@@ -138,8 +136,7 @@ void main() {
     */
     x = new StringBuilder("Hello World");
     x.trimToSize();
-    cap = x.capacity();
-    IO.println(cap);
+    IO.println(x.capacity());
 
     //==================================================================================================================
     // String Buffer
