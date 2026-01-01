@@ -22,26 +22,30 @@ Important points:
 */
 @SuppressWarnings("all")
 void main() {
+    //==================================================================================================================
+    // Declaration
+    //==================================================================================================================
+
     /*
     Declaration
     Declares a Map variable and initializes it with a concrete implementation (HashMap).
     Maps store key-value pairs instead of positional elements.
     Unlike arrays, maps do not have a fixed size and can dynamically grow as entries are added.
     Keys must be unique, while values may be duplicated.
+    Output: {}
     */
     Map<String, Integer> map = new HashMap<>();
+    IO.println(map);
 
     /*
     Initialization (Immutable)
     This declares and initializes a Map with specific key-value pairs in a single step.
     The resulting map is immutable, meaning that entries cannot be added, removed, or modified after creation.
     Use this approach when you need a fixed set of mappings that should not change during the program execution.
+    Output: {A=1, B=2, C=3} (order not guaranteed)
     */
-    map = Map.of(
-            "A", 1,
-            "B", 2,
-            "C", 3
-    );
+    map = Map.of("A", 1, "B", 2, "C", 3);
+    IO.println(map);
 
     /*
     Initialization (Mutable)
@@ -50,12 +54,10 @@ void main() {
     removing, or updating entries.
     Use this approach when you need an initial set of mappings but want to modify the map dynamically during
     program execution.
+    Output: {A=1, B=2, C=3} (order not guaranteed)
     */
-    map = new HashMap<>(Map.of(
-            "A", 1,
-            "B", 2,
-            "C", 3
-    ));
+    map = new HashMap<>(Map.of("A", 1, "B", 2, "C", 3));
+    IO.println(map);
 
     /*
     Nullable
@@ -64,6 +66,7 @@ void main() {
     Output: null
     */
     Map<String, Integer> otherMap = null;
+    IO.println(map);
 
     //==================================================================================================================
     // Size
@@ -97,20 +100,19 @@ void main() {
     Unlike lists, maps do not use positional indexes; each value is associated with a unique key.
     If the specified key does not exist in the map, the method returns null.
     */
-    map = Map.of("A", 1, "B", 2, "C", 3);
+    map = Map.of("A", 1, "B", 2);
     IO.println(map.get("A")); // 1
     IO.println(map.get("B")); // 2
-    IO.println(map.get("C")); // 3
 
     /*
     Get or Default
     The "getOrDefault(key, defaultValue)" method returns the value associated with the given key.
     If the key does not exist in the map, the provided default value is returned instead of null.
     This is useful to avoid null checks and simplify fallback logic.
-    Output: 0
+    Output: 2
     */
-    map = Map.of("A", 1, "B", 2);
-    IO.println(map.getOrDefault("C", 0));
+    map = Map.of("A", 1);
+    IO.println(map.getOrDefault("B", 2));
 
     /*
     Get All Keys
@@ -151,56 +153,58 @@ void main() {
     If the key already exists, the old value is replaced with the new value.
     This approach is suitable for mutable maps where entries are not known in advance or may change during program
     execution.
-    Content: {A=1, B=2, C=3}
+    Output: {A=1}
     */
     map = new HashMap<>();
-    map.put("A", 1);
-    map.put("B", 2);
-    map.put("C", 3);
+    map.put("A", 0);
+    map.put("A", 1); // Old value updated (0 to 1)
+    IO.println(map);
 
     /*
     Put If Absent
     The "putIfAbsent(key, value)" method adds the key-value pair to the map only if the key is not already present.
     If the key exists, the map remains unchanged for that key.
     This is useful to ensure that existing entries are not overwritten unintentionally.
+    Output: {A=1, B=2} (order not guaranteed)
     */
-    map = new HashMap<>();
-    map.put("A", 1);
-    map.putIfAbsent("A", 100);
-    IO.println(map.get("A")); // 1
+    map = new HashMap<>(Map.of("B", 2));
+    map.putIfAbsent("A", 1);
+    map.putIfAbsent("B", 0); // Value already present (no effect)
+    IO.println(map);
 
     /*
     Adding Entries (from another map)
     The "putAll(Map<? extends K, ? extends V> m)" method adds all key-value pairs from another map.
     If a key already exists, its value is replaced with the value from the provided map.
     This allows combining maps or adding multiple entries at once.
+    Output: {A=1, B=2} (order not guaranteed)
     */
     map = new HashMap<>();
     map.putAll(Map.of("A", 1, "B", 2));
-    IO.println(map.get("A")); // 1
-    IO.println(map.get("B")); // 2
+    IO.println(map);
 
     /*
     Replace Value
     The "replace(key, value)" method updates the value associated with the given key.
     If the key exists, its value is replaced with the new value.
-    Output: 5
+    Output: {A=1}
     */
-    map = new HashMap<>(Map.of("A", 1));
-    map.replace("A", 5);
-    IO.println(map.get("A"));
+    map = new HashMap<>(Map.of("A", 0));
+    map.replace("A", 1);
+    map.replace("B", 2); // Key not present (no effect)
+    IO.println(map);
 
     /*
     Replace If Value
     The "replace(key, oldValue, newValue)" method updates the value for the given key only if the current value matches
     the specified oldValue.
     If the value does not match, the map remains unchanged.
-    Output: 1
+    Output: {A=1, B=2} (order not guaranteed)
     */
-    map = new HashMap<>(Map.of("A", 1));
-    map.replace("A", 0, 5); // Will not replace because current value is 1
-    IO.println(map.get("A"));
-
+    map = new HashMap<>(Map.of("A", 0, "B", 2));
+    map.replace("A", 0, 1);
+    map.replace("B", 1, 9); // Will not replace because current value is not 1
+    IO.println(map);
 
     //==================================================================================================================
     // Removing Elements
@@ -210,21 +214,21 @@ void main() {
     Removing Entries (by key)
     Entries in a Map can be removed using the "remove(key)" method, which deletes the entry with the specified key.
     If the key does not exist, the map remains unchanged.
-    Output: C
+    Output: {}
     */
     map = new HashMap<>(Map.of("A", 1));
     map.remove("A");
-    IO.println(map.getOrDefault("A", 0)); // 0
+    IO.println(map);
 
     /*
     Clear
     The "clear()" method removes all entries from the map, leaving it empty.
     After calling "clear()", the map size becomes 0.
-    Output: 0
+    Output: {}
     */
     map = new HashMap<>(Map.of("A", 1, "B", 2, "C", 3));
     map.clear();
-    IO.println(map.size());
+    IO.println(map);
 
     //==================================================================================================================
     // Checking Elements
@@ -333,11 +337,11 @@ void main() {
     applies a transformation function to each entry in the map, replacing the original values
     with the results returned by the function.
     This is useful for bulk updates using a functional approach.
-    Output:  2
+    Output: {A=2, B=4, C=6}
     */
     map = new HashMap<>(Map.of("A", 1, "B", 2, "C", 3));
-    map.replaceAll((k, v) -> v + 1);
-    IO.println(map.get("A"));
+    map.replaceAll((k, v) -> v * 2);
+    IO.println(map);
 
     //==================================================================================================================
     // Merge
@@ -350,13 +354,12 @@ void main() {
     - If the key is absent, the new value is inserted.
     - If the key is present, the remapping function is applied to the existing and new values, and the result replaces
     the old value.
-    Output: 2
+    Output: {A=2, B=0}
     */
     map = new HashMap<>(Map.of("A", 1));
-    map.merge("A", 1, (k, v) -> v + 1);
-    map.merge("B", 5, (k, v) -> v + 1);
-    IO.println(map.get("A")); // 2 (Updated by function)
-    IO.println(map.get("B")); // 5 (Inserted)
+    map.merge("A", 1, (k, v) -> v * 2); // Key exist (function performed)
+    map.merge("B", 0, (k, v) -> v * 2); // Key doesn't exist (0 value added)
+    IO.println(map);
 
     //==================================================================================================================
     // Compute Methods
@@ -369,12 +372,12 @@ void main() {
     - If the key is absent (value is null), the function can define a new value.
     - If the key is present, the function receives the current value and can update it.
     This allows conditional or dynamic value computation in a functional style.
+    Output: {A=1, B=2}
     */
     map = new HashMap<>(Map.of("B", 1));
-    map.compute("A", (k, v) -> v == null ? 1 : v + 1); // Key "A" absent = new value 1
-    map.compute("B", (k, v) -> v == null ? 1 : v + 1); // Key "B" present = 1 + 1 = 2
-    IO.println(map.get("A")); // 1
-    IO.println(map.get("B")); // 2
+    map.compute("A", (k, v) -> v == null ? 1 : v * 2); // Key "A" absent = new value 1
+    map.compute("B", (k, v) -> v == null ? 1 : v * 2); // Key "B" present = 1 * 2 = 2
+    IO.println(map);
 
     /*
     Compute If Present
@@ -382,11 +385,12 @@ void main() {
     value for a given key only if the key is already present in the map.
     If the key is absent, nothing happens.
     This is useful for conditionally updating existing entries without affecting missing keys.
-    Output: 2
+    Output: {A=2}
     */
     map = new HashMap<>(Map.of("A", 1));
-    map.computeIfPresent("A", (k, v) -> v + 1);
-    IO.println(map.get("A"));
+    map.computeIfPresent("A", (k, v) -> v * 2);
+    map.computeIfPresent("B", (k, v) -> v * 2);
+    IO.println(map);
 
     /*
     Compute If Absent
@@ -394,9 +398,10 @@ void main() {
     only if it is not already present in the map.
     If the key exists, its value remains unchanged.
     This is useful for lazily initializing values for missing keys.
+    Output: {A=1, B=2}
     */
     map = new HashMap<>(Map.of("A", 1));
+    map.computeIfAbsent("A", k -> 2);
     map.computeIfAbsent("B", k -> 2);
-    IO.println(map.get("A")); // 1
-    IO.println(map.get("B")); // 2
+    IO.println(map);
 }

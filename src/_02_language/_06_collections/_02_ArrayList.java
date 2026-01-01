@@ -19,20 +19,28 @@ Important points:
 */
 @SuppressWarnings("all")
 void main() {
+    //==================================================================================================================
+    // Declaration
+    //==================================================================================================================
+
     /*
     Declaration
     Declares a List variable and initializes it with a concrete implementation (ArrayList).
     Unlike arrays, lists do not have a fixed size and can dynamically grow as elements are added.
+    Output: []
     */
     List<String> list = new ArrayList<>();
+    IO.println(list);
 
     /*
     Initialization (Immutable)
     This declares and initializes a List with specific elements in a single step.
     The resulting list is immutable, meaning that elements cannot be added, removed, or modified after creation.
     Use this approach when you need a fixed set of elements that should not change during the program execution.
+    Output: [A, B, C]
     */
     list = List.of("A", "B", "C");
+    IO.println(list);
 
     /*
     Initialization (Mutable)
@@ -41,8 +49,10 @@ void main() {
     removing, or updating elements.
     Use this approach when you need an initial set of elements but want to modify the list dynamically during program
     execution.
+    Output: [A, B, C]
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
+    IO.println(list);
 
     /*
     Nullable
@@ -50,6 +60,7 @@ void main() {
     Output: null
     */
     List<String> otherList = null;
+    IO.println(list);
 
     //==================================================================================================================
     // Size
@@ -118,23 +129,22 @@ void main() {
     This approach is suitable for mutable lists where elements are not known in advance or may change during program
     execution.
     We can specify an index to add an element in a specific position.
-    Content: A, B, C
+    Output: [A]
     */
     list = new ArrayList<>();
     list.add("A");
-    list.add("B");
-    list.add("C");
+    IO.println(list);
 
     /*
     Adding Elements (from another collection)
     The "addAll(Collection<? extends E> c)" method appends all elements from another collection to the end of the list.
     This allows combining lists or adding multiple elements at once.
     We can specify an index to add the elements from a specific position.
+    Output: [A, B]
     */
     list = new ArrayList<>();
     list.addAll(List.of("A", "B"));
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // B
+    IO.println(list);
 
     //==================================================================================================================
     // Setting Elements
@@ -146,11 +156,11 @@ void main() {
     The element at the specified index is replaced with the new value.
     If an invalid index is provided (less than 0 or greater than or equal to the list size),
     the method throws an IndexOutOfBoundsException.
-    Output: Z
+    Output: [Z]
     */
     list = new ArrayList<>(List.of("A"));
     list.set(0, "Z");
-    IO.println(list.get(0));
+    IO.println(list);
 
     //==================================================================================================================
     // Removing Elements
@@ -162,52 +172,52 @@ void main() {
     position. Subsequent elements are shifted to fill the gap, reducing the size of the list by one.
     If an invalid index is provided (less than 0 or greater than or equal to the list size), the method throws an
     IndexOutOfBoundsException.
-    Output: C
+    Output: [A, C]
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.remove(1);
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // C
+    IO.println(list);
 
     /*
     Removing Elements (by element)
     The "remove(Object o)" method removes the first occurrence of the specified element from the list, if it exists.
     Subsequent elements are shifted to fill the gap, reducing the list size by one.
+    Output: [A, C]
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.remove("B");
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // C
+    IO.println(list);
 
     /*
     Removing Elements (from another collection)
     The "removeAll(Collection<?> c)" method removes all elements from the list that are also contained in the specified
     collection. Remaining elements are shifted accordingly, and the list size is reduced.
+    Output: [C]
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.removeAll(List.of("A", "B"));
-    IO.println(list.get(0)); // C
+    IO.println(list);
 
     /*
     Retaining Elements
     The retainAll(Collection<?> c) method keeps only the elements that are also present in another collection.
     All elements that are not contained in the provided collection are removed from the list.
     This operation effectively performs an intersection between the two collections and modifies the original list.
+    Output: [A, B]
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.retainAll(List.of("A", "B"));
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // B
+    IO.println(list);
 
     /*
     Clear
     The "clear()" method removes all elements from the list, leaving it empty.
     After calling "clear()", the list size becomes 0.
-    Output: 0
+    Output: []
     */
     list = new ArrayList<>(List.of("A", "B", "C"));
     list.clear();
-    IO.println(list.size());
+    IO.println(list);
 
     //==================================================================================================================
     // Checking Elements
@@ -239,11 +249,11 @@ void main() {
     Sorting Elements
     Lists can be sorted using utility methods provided by the Java standard library.
     Sorting can be done in natural order or using a custom Comparator to define specific ordering rules.
+    Output: [A, B]
     */
     list = new ArrayList<>(List.of("B", "A"));
     list.sort(Comparator.naturalOrder());
-    IO.println(list.get(0)); // A
-    IO.println(list.get(1)); // B
+    IO.println(list);
 
     //==================================================================================================================
     // Equality
@@ -336,11 +346,11 @@ void main() {
     The "replaceAll(UnaryOperator<E> operator)" method applies a transformation function to each element of the list and
     replaces the original elements with the results.
     This approach is useful for bulk updates or data transformations using functional programming constructs.
+    Output: [a, b]
     */
     list = new ArrayList<>(List.of("A", "B"));
     list.replaceAll(String::toLowerCase);
-    IO.println(list.get(0)); // a
-    IO.println(list.get(1)); // b
+    IO.println(list);
 
     /*
     Function Removal
@@ -348,9 +358,9 @@ void main() {
     The predicate is evaluated for each element, and elements for which the condition returns true are removed.
     This provides a concise and expressive way to filter a list based on custom rules using functional programming
     constructs.
-    Output: B
+    Output: [B]
     */
     list = new ArrayList<>(List.of("A", "B"));
     list.removeIf(el -> el.equals("A"));
-    IO.println(list.get(0));
+    IO.println(list);
 }
