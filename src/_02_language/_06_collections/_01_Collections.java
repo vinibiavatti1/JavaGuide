@@ -30,7 +30,7 @@ void main() {
     new ArrayList<>();             // Resizable List, allows duplicates, maintains insertion order
     new HashSet<>();               // Unordered Set, unique elements only
     new HashMap<>();               // Unordered Map, key-value pairs, unique keys
-    new ArrayDeque<>();            // Double-ended Queue, can be used as Stack or Queue
+    new ArrayDeque<>();            // Double-ended Queue, can be used as Queue (FIFO) or Stack (LIFO)
 
     // Linked / Insertion-Order Collections
     new LinkedList<>();            // List and Deque, allows fast insertions/removals anywhere
