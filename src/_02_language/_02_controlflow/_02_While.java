@@ -1,16 +1,24 @@
 /*
 Looping Statements (while)
-The "while" statement is used to repeatedly execute a block of code as long as a specified condition evaluates to true.
+This section explains how to use the "while" loop in Java to repeatedly execute a block of code while a condition
+remains true.
 
-In Java, the condition must be a boolean expression and is evaluated before each iteration. If the condition is false
-at the first check, the loop body will not execute at all.
+Overview
+- The "while" loop executes its body as long as the specified boolean condition evaluates to true.
+- The condition is evaluated **before each iteration**.
+- If the condition is false at the first check, the loop body is skipped entirely.
 
-Key characteristics:
-- The condition must evaluate to a boolean value.
-- The loop may execute zero or more times, depending on the condition.
+Key Characteristics
+- The condition must result in a boolean value.
+- The loop may execute zero or more times depending on the condition.
 - The condition is re-evaluated before every iteration.
 - Commonly used when the number of iterations is not known in advance.
-- Improper condition updates may lead to infinite loops.
+- Improper updates to the condition may result in infinite loops.
+
+Usage
+- Use "while" loops for tasks that require repeated execution until a certain condition changes.
+- Ensure the condition will eventually become false to avoid infinite loops.
+- Can be combined with "break" or "continue" for more control over loop execution.
 */
 void main() {
     /*

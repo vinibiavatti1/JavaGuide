@@ -1,14 +1,24 @@
 /*
 Matrices (Multi-Dimensional Arrays)
-A matrix in Java is a two-dimensional array, which is an ordered collection of elements organized in rows and columns.
-In general, Java supports arrays with N dimensions, where each element of a multidimensional array is itself an array.
+This section explains matrices in Java, which are multidimensional arrays used to organize elements in rows and columns.
 
-Key characteristics:
-- Each dimension has a fixed length defined at creation and cannot be resized.
-- Elements are accessed and modified using multiple zero-based indices (e.g., matrix[i][j]).
-- Arrays can hold primitive types or references to objects.
-- The length of each dimension can be obtained using the 'length' property on the array or sub-array.
-- Multi-dimensional arrays can be rectangular (all rows the same length) or jagged (rows of different lengths).
+Overview
+- A matrix is a two-dimensional array, but Java supports arrays with N dimensions.
+- Each element of a multidimensional array is itself an array.
+- Used to model grids, tables, or other structured data.
+
+Key Characteristics
+- Each dimension has a fixed length defined at creation; resizing is not allowed.
+- Elements accessed and modified using multiple zero-based indices (e.g., matrix[i][j]).
+- Can hold primitives or object references.
+- The length of each dimension is obtained via the "length" property of the array or sub-array.
+- Arrays can be rectangular (uniform row lengths) or jagged (rows with varying lengths).
+
+Usage
+- Use multidimensional arrays to represent grids, matrices, or structured tabular data.
+- Iterate using nested loops or enhanced for-each statements.
+- Choose rectangular arrays for uniform structures and jagged arrays for irregular datasets.
+- Combine with standard array operations for efficient data manipulation.
 */
 void main() {
     /*

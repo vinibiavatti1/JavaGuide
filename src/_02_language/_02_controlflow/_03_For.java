@@ -1,26 +1,32 @@
 /*
 Looping Statements (for and for-each)
-The "for" statement is used to repeatedly execute a block of code a specific number of times,
-controlled by an initialization, a condition, and an update expression.
+This section explains how to use "for" and "for-each" loops in Java to repeatedly execute a block of code either a
+specific number of times or over all elements of a collection or array.
 
-In Java, the initialization is executed once at the beginning, the condition is evaluated
-before each iteration, and the update expression is executed after each iteration.
-For loops can have multiple initializations, conditions, and update expressions, all separated by commas.
+Overview
+- The "for" loop executes a block of code a specific number of times, controlled by an initialization, condition,
+  and update expression.
+- The initialization runs once at the beginning, the condition is evaluated before each iteration, and the update
+  expression runs after each iteration.
+- Multiple initializations, conditions, and updates can be separated by commas.
+- The "for-each" loop (enhanced for loop) iterates over all elements of an array or Iterable without requiring an index.
 
-For Syntax: for(<initializations>; <conditions>; <updates>)
-
-The "for-each" loop (enhanced for loop) is used to iterate over all elements of an array or Iterable,
-without needing an explicit index. It is simpler and more readable when the index is not required.
-
-For-each Syntax: for(<elementType> <element> : <arrayOrCollection>)
-
-Key characteristics:
+Key Characteristics
 - The condition in a traditional for loop must evaluate to a boolean value.
 - Both loops may execute zero or more times depending on the data or condition.
-- Initialization, condition, and update can be customized in a traditional for loop.
-- For-each loops automatically traverse all elements in order.
+- Traditional for loops allow full control over initialization, condition, and update.
+- For-each loops automatically traverse all elements in order, improving readability.
 - Misconfigured traditional loops can result in infinite loops or skipped iterations.
-- For-each is preferred for readability when only element access is needed.
+- For-each loops are preferred when only element access is needed and index is irrelevant.
+
+Syntax:
+- For Syntax:      for(<initializations>; <conditions>; <updates>)
+- For-each Syntax: for(<elementType> <element> : <arrayOrCollection>)
+
+Usage
+- Use "for" loops when the number of iterations is known or controlled explicitly.
+- Use "for-each" loops to iterate over arrays or collections in a simple, readable way.
+- Avoid modifying the collection inside a for-each loop to prevent `ConcurrentModificationException`.
 */
 void main() {
     /*

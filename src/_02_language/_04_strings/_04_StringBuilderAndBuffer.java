@@ -1,31 +1,27 @@
 /*
 StringBuilder and StringBuffer
+This section explains the mutable character sequence classes "StringBuilder" and "StringBuffer", which allow
+efficient in-place modification of text without creating new string instances.
 
-StringBuilder and StringBuffer are mutable classes used to create and manipulate sequences of characters efficiently.
-Unlike String, which is immutable, these classes allow in-place modification of their internal character storage.
+Overview
+- Both classes manage a resizable internal character array to store text.
+- Unlike "String", they are mutable and support direct modification of content.
+- "StringBuilder" is un-synchronized and faster, suitable for single-threaded contexts.
+- "StringBuffer" is synchronized and thread-safe, suitable for multithreaded environments.
 
-Internally, both StringBuilder and StringBuffer manage a resizable array of characters, which avoids creating a new
-String instance for every transformation.
+Key Characteristics
+- Both implement the "CharSequence" interface.
+- Most modification methods return the same instance, enabling method chaining.
+- Can be converted to immutable "String" using "toString()".
+- Allow operations such as "append", "insert", "delete", "replace", and "reverse" directly on the internal buffer.
 
-This document focuses only on the core and distinctive methods of StringBuilder and StringBuffer, emphasizing their
-mutable behavior, buffer management, and in-place text modification capabilities.
-
-Key differences:
-- StringBuilder is not synchronized and is therefore not thread-safe.
-  It offers better performance and should be preferred in single-threaded or method-local contexts.
-- StringBuffer is synchronized (thread-safe) and can be safely used in multithreaded environments, at the cost of
-  additional synchronization overhead.
-
-Common characteristics:
-- Both classes are mutable and operate directly on an internal character array.
-- Both implement the CharSequence interface.
-- Most modification methods return the same instance, allowing method chaining.
-- Both can be converted to String using toString() when an immutable result is needed.
-
-Usage guidelines:
-- Prefer StringBuilder for performance in non-concurrent code.
-- Use StringBuffer only when thread safety is required and synchronization cannot be managed externally.
+Usage
+- Use "StringBuilder" for efficient string manipulation in single-threaded code.
+- Use "StringBuffer" when multiple threads need safe access to the same mutable text.
+- Favor method chaining for concise and readable modifications.
+- Convert to "String" only when an immutable result is required.
 */
+
 void main() {
     //==================================================================================================================
     // Transformation

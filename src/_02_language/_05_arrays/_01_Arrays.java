@@ -1,14 +1,23 @@
 /*
 Arrays
-An array represents a fixed-size, ordered collection of elements of the same type, used to store multiple values under a
-single variable name.
-In Java, arrays are objects, and variables of array type hold references to these objects, not the elements themselves.
-Key characteristics:
-- Arrays have a fixed length defined at creation and cannot be resized.
-- Elements are accessed and modified using zero-based indices.
-- Arrays can hold primitive types or references to objects.
-- The length of an array can be obtained using the 'length' property.
-- Multidimensional arrays are arrays of arrays, allowing nested structures.
+This section explains arrays in Java, which are fixed-size, ordered collections of elements of the same type.
+
+Overview
+- Arrays store multiple values under a single variable name.
+- Variables of array type hold references to array objects, not the elements themselves.
+- Arrays can hold primitives or object references and support multidimensional structures.
+
+Key Characteristics
+- Fixed length defined at creation; cannot be resized.
+- Elements accessed and modified via zero-based indices.
+- Use the "length" property to get the size of the array.
+- Multidimensional arrays are arrays of arrays, enabling nested data structures.
+
+Usage
+- Use arrays to store multiple related values of the same type efficiently.
+- Ideal for performance-critical operations where a fixed-size collection is sufficient.
+- Combine with loops or enhanced for-each statements for iteration and manipulation.
+- Use arrays when the number of elements is known in advance or when indexed access is needed.
 */
 void main() {
     /*

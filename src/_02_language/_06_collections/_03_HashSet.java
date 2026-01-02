@@ -1,23 +1,26 @@
 /*
 HashSet
-The Set interface represents a collection of unique elements, meaning it does not allow duplicate values and does not
-provide positional access.
+This section explains the HashSet class, a hash table–backed implementation of the Set interface in Java.
 
-Key implementations:
-- HashSet: Backed by a hash table. Does not guarantee iteration order and offers constant-time performance (O(1))
-  for basic operations such as add(), remove(), and contains(), assuming a good hash function.
-- LinkedHashSet: Maintains insertion order while still providing near O(1) performance for basic operations.
-- TreeSet: Stores elements in a sorted (natural or comparator-defined) order, with O(log n) performance.
+Overview
+- HashSet stores a collection of unique elements without duplicates.
+- Does not provide positional access or ordering guarantees.
+- Uses a hash table internally for fast operations.
 
-Important points:
-- All Set implementations enforce element uniqueness.
-- HashSet allows one null element.
-- Element equality is determined using equals() and hashCode(); both must be correctly implemented.
-- HashSet is generally preferred when order does not matter and fast lookup is required.
-- HashSet is not synchronized; use Collections.synchronizedSet() or CopyOnWriteArraySet when thread safety is
-  needed.
-- Iteration can be done using for-each, iterator, or streams.
-- Only the HashSet will be used for the examples in this documentation.
+Key Characteristics
+- Constant-time performance (O(1)) for add(), remove(), and contains(), assuming a good hash function.
+- Allows one null element.
+- Element equality is determined using equals() and hashCode().
+- Other Set implementations:
+  - LinkedHashSet: maintains insertion order.
+  - TreeSet: stores elements in sorted order with O(log n) performance.
+- Not synchronized; use Collections.synchronizedSet() or CopyOnWriteArraySet for thread safety.
+
+Usage
+- Preferred when uniqueness is required and iteration order does not matter.
+- Use LinkedHashSet to preserve insertion order, or TreeSet for sorted elements.
+- Iterate using for-each loops, iterators, or streams.
+- This documentation focuses on HashSet examples.
 */
 void main() {
     //==================================================================================================================

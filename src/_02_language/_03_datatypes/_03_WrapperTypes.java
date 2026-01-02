@@ -1,16 +1,22 @@
 /*
 Wrapper Types
-Java provides a set of wrapper classes for each primitive data type.
+This section explains the wrapper classes in Java, which encapsulate primitive values as objects.
 
-These classes are reference types that encapsulate primitive values inside objects.
+Overview
+- Each primitive type has a corresponding wrapper class: Byte, Short, Integer, Long, Float, Double, Character, Boolean.
+- Wrapper types allow primitive values to be used in object-oriented contexts.
+- They provide utility methods for parsing, conversion, and comparison.
 
-Wrapper types exist mainly to support:
-- Object-oriented APIs (Collections, Generics)
-- Nullable values
-- Utility methods (parsing, comparison, conversion)
-- Integration with frameworks and libraries
+Key Characteristics
+- Wrapper types are reference types and can be null.
+- Useful for Collections, Generics, and APIs that require objects.
+- Provide constants (MIN_VALUE, MAX_VALUE) and methods (parseInt, valueOf, etc.).
+- Part of the "java.lang" package and automatically supported by autoboxing/unboxing.
 
-Each wrapper type corresponds directly to a primitive type and is part of the java.lang package.
+Usage
+- Use wrapper types when objects are required instead of primitives (e.g., in Lists, Maps, or Generics).
+- Enable nullability for primitive values when needed.
+- Utilize utility methods for conversions and comparisons.
 */
 void main() {
     /*

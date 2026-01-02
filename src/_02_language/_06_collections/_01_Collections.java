@@ -1,28 +1,28 @@
 /*
 Collections
-The Collections framework in Java represents a unified architecture for storing and manipulating groups of objects.
-It provides interfaces like Collection, List, Set, Map, and Queue, along with concrete implementations that vary in
-performance, ordering, and thread-safety.
+This section explains the Java Collections framework, which provides a unified architecture for storing and
+manipulating groups of objects.
 
-Key points:
-- The Collection interface is the root of the hierarchy and defines basic operations like add(), remove(), contains(),
-  size(), and iterator().
-- List represents an ordered collection with positional access, allowing duplicates. Key implementations include
-  ArrayList and LinkedList.
-- Set represents a collection with unique elements. Key implementations include HashSet, LinkedHashSet, TreeSet, and
-  EnumSet.
-- Map represents key-value associations. Key implementations include HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap,
-  and EnumMap.
-- Deque represents a double-ended queue allowing insertion and removal at both ends. Key implementations include
-  ArrayDeque and LinkedList.
-- Collections provides utility methods for sorting, searching, synchronization, and thread-safe wrappers (e.g.,
-  Collections.synchronizedList()).
+Overview
+- The framework includes core interfaces like Collection, List, Set, Map, and Queue.
+- Concrete implementations vary in performance, ordering, and thread-safety.
+- Collections provide utility methods for sorting, searching, synchronization, and creating thread-safe wrappers.
 
-Important points:
-- Concrete implementations differ in memory usage, access speed, ordering guarantees, and thread-safety.
-- Choosing the right collection depends on the specific requirements: order, uniqueness, concurrency, and performance.
-- For the most cases, the default collections are enough.
-- Iteration can be performed using for-loops, for-each, iterators, spliterators, or streams.
+Key Characteristics
+- Collection interface defines basic operations: add(), remove(), contains(), size(), and iterator().
+- Iteration supported via for-loops, for-each, iterators, spliterators, or streams.
+
+Abstractions
+- List: ordered collection with positional access; allows duplicates (ArrayList, LinkedList).
+- Set: collection of unique elements (HashSet, LinkedHashSet, TreeSet, EnumSet).
+- Map: key-value associations (HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap, EnumMap).
+- Deque: double-ended queue with insertion/removal at both ends (ArrayDeque, LinkedList).
+
+Usage
+- Choose the appropriate collection based on requirements: order, uniqueness, concurrency, and performance.
+- Use List for ordered data, Set for uniqueness, Map for key-value pairs, and Deque for double-ended operations.
+- Utilize Collections utility methods for common tasks like sorting, searching, and synchronization.
+- For most standard cases, default implementations (ArrayList, HashSet, HashMap) are sufficient.
 */
 void main() {
     // Default Collections
@@ -58,7 +58,7 @@ void main() {
 
     // Enum Optimized Collections
     EnumSet.of(DayOfWeek.FRIDAY);  // Specialized Set for Enums, extremely fast (bit-vector based)
-    new EnumMap(Type.class);     // Specialized Map for Enum keys, very efficient (array based)
+    new EnumMap(Type.class);       // Specialized Map for Enum keys, very efficient (array based)
 
     // Rare & Specialized Collections (Use only in very specific architectural needs)
     new WeakHashMap<>();           // Entries are removed when keys are no longer in use (ideal for caches)

@@ -1,18 +1,23 @@
 /*
 Control Flow Statements (break and continue)
-The break and continue statements are used to alter the normal flow of loops in Java.
+This section explains how to use the "break" and "continue" statements in Java to modify the normal flow of loops.
 
-- break: Immediately exits the nearest enclosing loop or switch statement. It can also be used with a label to exit an
-  outer loop from within nested loops. It is commonly used to stop a loop early when a condition is met.
-- continue: Skips the current iteration of the nearest enclosing loop and proceeds to the next iteration. It is commonly
-  used to bypass specific cases without exiting the loop entirely.
+Overview
+- "break" immediately exits the nearest enclosing loop or switch statement.
+- "continue" skips the current iteration of the nearest enclosing loop and moves to the next iteration.
+- Both statements are used to improve control over loop execution, allowing early exit or skipping iterations.
 
-Key characteristics:
-- Both statements affect the flow only within the loop or switch they belong to.
-- break can be used in for, while, do-while loops, and switch statements.
-- continue can be used in for, while, and do-while loops.
-- Proper use improves readability and control in loops, but excessive use can make
-  code harder to follow.
+Key Characteristics
+- "break" can be used with a label to exit an outer loop from within nested loops.
+- "continue" affects only the current iteration of the loop it belongs to.
+- "break" is allowed in "for", "while", "do-while" loops, and "switch" statements.
+- "continue" is allowed in "for", "while", and "do-while" loops.
+- Proper use can improve readability and control, but excessive use may reduce clarity.
+
+Usage
+- Use "break" to exit loops early when a certain condition is met.
+- Use "continue" to skip specific iterations without exiting the loop entirely.
+- Use labels with "break" or "continue" only when necessary, to maintain readability.
 */
 void main() {
     /*

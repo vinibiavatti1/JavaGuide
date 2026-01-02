@@ -1,29 +1,28 @@
 /*
 ArrayDeque
-The Deque interface represents a double-ended queue that allows elements to be added,
-removed, and inspected from both the front and the back of the collection.
+This section explains the ArrayDeque class, a resizable array–backed implementation of the Deque interface in Java.
 
-Key implementation:
-- ArrayDeque: Backed by a resizable array with circular indexing. Provides efficient
-  insertions and removals at both ends (O(1) amortized) and does not incur the overhead
-  of node allocation like linked structures.
+Overview
+- ArrayDeque allows elements to be added, removed, and inspected from both ends efficiently.
+- Supports both FIFO (First-In, First-Out) and LIFO (Last-In, First-Out) semantics.
+- Backed by a circular array for fast O(1) amortized insertions and removals.
 
-FIFO and LIFO behavior:
-- FIFO (First-In, First-Out): When used as a queue, elements are processed in the same
-  order they were inserted (e.g., offer() + poll()).
-- LIFO (Last-In, First-Out): When used as a stack, the most recently added element is
-  processed first (e.g., push() + pop()).
-- ArrayDeque can safely replace the legacy Stack class for LIFO use cases.
+FIFO (queue) and LIFO (stack):
+- FIFO: When used as a queue, elements are processed in the same order they were inserted (offer() + poll()).
+- LIFO: When used as a stack, the most recently added element is processed first (push() + pop()).
 
-Important points:
-- Implements the Deque interface (and indirectly Queue), supporting both FIFO and LIFO semantics.
+Key Characteristics
+- Implements the Deque interface (and indirectly Queue).
 - Null elements are not allowed.
-- Not thread-safe; use external synchronization or concurrent alternatives if required.
-- Generally faster than LinkedList and Stack for queue and stack operations.
-- Common operations include addFirst(), addLast(), offer(), poll(), peek(),
-  push(), pop(), and iterator().
-- Iteration order follows the deque order from first to last.
-- This implementation will be used for the examples in this documentation.
+- Common operations: addFirst(), addLast(), offer(), poll(), peek(), push(), pop(), and iterator().
+- Not thread-safe; external synchronization or concurrent alternatives are needed for multithreaded use.
+- Safer and faster alternative to legacy Stack and LinkedList for stack/queue operations.
+
+Usage
+- Use ArrayDeque for double-ended queues where fast insertion/removal at both ends is required.
+- Use as FIFO queue (offer() + poll()) or LIFO stack (push() + pop()) depending on the use case.
+- Iteration follows deque order from first to last.
+- This documentation focuses on ArrayDeque examples.
 */
 void main() {
     //==================================================================================================================

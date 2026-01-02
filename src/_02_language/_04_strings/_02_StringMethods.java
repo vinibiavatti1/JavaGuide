@@ -1,12 +1,24 @@
 /*
 String Methods
-String provides a rich set of methods for inspecting, transforming, searching, comparing, and converting textual data.
+This section explains the methods provided by the "String" class to manipulate, inspect, and transform textual data.
 
-Key characteristics:
-- Strings are immutable: all modification operations return a new instance.
-- Index-based operations work on UTF-16 code units (char), not on user-perceived characters.
-- Unicode-aware operations are provided via code point–based methods.
+Overview
+- Strings provide a wide range of methods for searching, comparing, formatting, and converting text.
+- All modification methods return new string instances because strings are immutable.
+- Supports both simple character-based and Unicode code point–aware operations.
+
+Key Characteristics
+- Index-based operations work on UTF-16 code units ("char"), not necessarily on user-perceived characters.
+- Immutable nature ensures thread safety and predictable behavior.
+- Includes methods such as "length()", "charAt()", "substring()", "equals()", "compareTo()", "contains()", and
+  "replace()".
+
+Usage
+- Use string methods to inspect content, perform comparisons, or extract substrings.
+- Combine multiple methods to transform or validate textual data.
+- Be aware of immutability when performing repetitive modifications; consider "StringBuilder" for efficiency.
 */
+
 void main() {
     //==================================================================================================================
     // Length

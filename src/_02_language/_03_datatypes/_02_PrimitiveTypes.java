@@ -1,11 +1,23 @@
 /*
 Primitive Types
-Java provides a set of built-in primitive data types used to store values in memory.
+This section explains the built-in primitive data types in Java, which are used to store simple values directly in
+memory.
 
-In practice, a small subset of these types is used most of the time.
+Overview
+- Java provides eight primitive types: byte, short, int, long, float, double, char, and boolean.
+- Primitive types store raw values and are not objects.
+- They offer efficient memory usage and fast performance compared to reference types.
 
-Types like int and double are the defaults in the Java standard library, while smaller or less precise types are mainly
-used in strict performance or memory-sensitive scenarios.
+Key Characteristics
+- Each type has a fixed size and range (e.g., int: 32-bit signed, double: 64-bit floating point).
+- Used for numbers, characters, and boolean logic.
+- Not nullable; they always hold a value.
+- Default types in the standard library are "int" for integers and "double" for floating-point numbers.
+
+Usage
+- Use primitive types for performance-critical or memory-sensitive operations.
+- Combine with wrapper classes (Integer, Double, etc.) when object behavior or generics are needed.
+- Commonly used in arithmetic, logical operations, and control flow conditions.
 */
 void main() {
     /*

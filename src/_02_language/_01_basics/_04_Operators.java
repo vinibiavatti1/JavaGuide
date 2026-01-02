@@ -1,9 +1,14 @@
 /*
 Operators
-Java provides a set of built-in operators used to manipulate values, perform calculations, compare data, and control
-program flow.
+This section explains the built-in operators in Java, which are used to manipulate values, perform calculations, compare
+data, and control program flow.
 
-These operators are organized into several categories:
+Overview
+- Operators are symbols that represent computations, comparisons, logical operations, or assignments.
+- They are applied to variables, literals, or expressions to produce a result.
+- Java provides operators for arithmetic, comparison, logical, bitwise, shift, and assignment operations.
+
+Operators
 - Arithmetic Operators: +, -, *, /, %
 - Unary Operators: +, -
 - Increment/Decrement Operators: ++, --
@@ -13,9 +18,13 @@ These operators are organized into several categories:
 - Shift Operators: <<, >>, >>>
 - Assignment Operators: =, +=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=, >>>=
 
-In practice, arithmetic, comparison, logical, and assignment operators are used most frequently, while bitwise, shift,
-and certain unary operators are mainly applied in low-level, performance-critical, or specialized scenarios.
+Usage
+- Arithmetic, comparison, logical, and assignment operators are used most frequently.
+- Bitwise, shift, and certain unary operators are used mainly in low-level, performance-critical, or specialized
+  scenarios.
+- Operators are fundamental for calculations, decision-making, and controlling program logic.
 */
+
 void main() {
     /*
     Arithmetic Operators

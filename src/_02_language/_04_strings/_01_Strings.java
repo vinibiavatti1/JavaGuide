@@ -1,18 +1,22 @@
 /*
 Strings
-A string represents an ordered sequence of characters used to model textual data.
+This section explains how strings represent textual data in Java and how they are implemented as immutable objects.
 
-In Java, strings are instances of the String class and are implemented as immutable objects. Variables of type String
-hold references to these objects, not the characters themselves.
+Overview
+- Strings are instances of the "String" class, representing an ordered sequence of characters.
+- Variables of type "String" hold references to immutable string objects.
+- String literals are managed in the JVM string pool for memory efficiency and reuse.
 
-String literals are managed by the JVM through the string pool, allowing reuse of identical values and efficient memory
-usage.
+Key Characteristics
+- Strings are sequences of UTF-16 code units ("char" values).
+- "String" is a reference type but immutable; operations that modify a string return a new instance.
+- Equality between strings should be checked using "equals()", not "==".
+- Supports concatenation, substring, and various utility methods for manipulation.
 
-Key characteristics:
-- Strings represent textual data as sequences of UTF-16 code units (char).
-- String is a reference type, but its instances are immutable.
-- Any operation that appears to modify a string returns a new instance.
-- Equality should be checked using equals(), not ==.
+Usage
+- Use strings to store and manipulate textual data.
+- Prefer "StringBuilder" or "StringBuffer" for intensive modifications to avoid creating many temporary objects.
+- Use the string pool to optimize memory when reusing literal values.
 */
 void main() {
     /*

@@ -1,24 +1,26 @@
 /*
 HashMap
-The Map interface represents a collection of key-value pairs, where each key is unique and maps to exactly one value.
-It allows fast retrieval, insertion, and deletion of elements based on keys.
+This section explains the HashMap class, a hash table–backed implementation of the Map interface in Java.
 
-Key implementations:
-- HashMap: Backed by a hash table. Provides O(1) average time complexity for get, put, and remove operations.
-  Keys are unordered and null keys/values are allowed.
-- LinkedHashMap: Maintains insertion order or access order. Slightly slower than HashMap due to linked list overhead.
-- TreeMap: Implements a sorted map using a Red-Black tree. Keys are kept in natural order or by a comparator. Slower
-  (O(log n)).
+Overview
+- HashMap stores key-value pairs with unique keys, allowing fast retrieval, insertion, and deletion.
+- Keys are unordered, and one null key and multiple null values are allowed.
+- Provides average O(1) performance for basic operations using a hash table.
 
-Important points:
-- All implement the Map interface and share common methods like put(), get(), remove(), containsKey(), containsValue(),
-  size(), and keySet()/values()/entrySet().
-- HashMap is generally preferred for most use cases due to fast key-based access.
-- LinkedHashMap is useful when iteration order matters (insertion or access order).
-- TreeMap is useful when sorted keys are required.
-- HashMap is not synchronized; use ConcurrentHashMap for thread-safe operations.
-- Iteration can be done over keys, values, entries, or using Map.forEach().
-- Only the HashMap will be used for the examples on this documentation.
+Key Characteristics
+- Implements the Map interface, sharing methods like put(), get(), remove(), containsKey(), containsValue(),
+  size(), keySet(), values(), and entrySet().
+- Other Map implementations:
+  - LinkedHashMap: preserves insertion or access order, slightly slower due to linked list overhead.
+  - TreeMap: keeps keys sorted in natural order or by a comparator, with O(log n) operations.
+- Not synchronized; use ConcurrentHashMap for thread-safe access.
+
+Usage
+- Preferred when fast key-based access is required and ordering is not important.
+- Use LinkedHashMap when iteration order matters (insertion or access).
+- Use TreeMap when sorted keys are required.
+- Iterate over keys, values, entries, or use Map.forEach() for convenience.
+- This documentation focuses on HashMap examples.
 */
 void main() {
     //==================================================================================================================

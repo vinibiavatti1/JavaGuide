@@ -1,10 +1,20 @@
 /*
 Printing
-Printing to the console allows a program to display information to the user.
+This section explains how to output information to the console in Java, allowing programs to communicate with the user.
 
-Java provides multiple ways to output text, including printing variables, literals, and formatted messages.
+Overview
+- Printing is used to display variables, literals, or formatted messages.
+- Java provides several mechanisms for console output, such as the modern "IO.println()" (Java 25+) and the common
+  "System.out.println()".
 
-This example demonstrates some common techniques for console output.
+Key Characteristics
+- "print": prints a message without adding a newline.
+- "println": prints a message followed by a newline.
+
+Usage
+- Use printing for debugging, logging, or providing user feedback.
+- Combine literals, variables, and expressions to display meaningful information.
+- Prefer formatted output when clarity or alignment is important.
 */
 void main() {
     /*

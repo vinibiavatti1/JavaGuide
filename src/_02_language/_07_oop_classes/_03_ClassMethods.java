@@ -1,5 +1,5 @@
 /*
-Methods
+Class Methods
 This section explains methods in Java and how they define the behavior of classes and objects.
 
 Overview

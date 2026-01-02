@@ -1,16 +1,24 @@
 /*
 Conditional Statements (if)
-The "if" statement is used to execute a block of code only when a specified condition evaluates to true.
+This section explains how to use the "if" statement in Java to execute code blocks conditionally based on boolean 
+expressions.
 
-In Java, the condition must be a boolean expression and is evaluated at runtime. Based on the result, the program can
-follow different execution paths using if, else if, and else clauses.
+Overview
+- The "if" statement executes a block of code only when a specified condition evaluates to true.
+- Conditions must be boolean expressions evaluated at runtime.
+- Can be combined with "else if" and "else" to handle multiple execution paths.
 
-Key characteristics:
-- Conditions must evaluate to a boolean value.
-- Code blocks are executed conditionally, controlling program flow.
-- Multiple conditions can be chained using else if.
-- Logical and comparison operators are commonly used in conditions.
-- Braces are optional for single statements but recommended for clarity and safety.
+Key Characteristics
+- Conditions must result in a boolean value ("true" or "false").
+- Code blocks are executed only if the condition is satisfied, controlling program flow.
+- Multiple conditions can be chained using "else if".
+- Logical ("&&", "||", "!") and comparison ("==", "!=", "<", ">", "<=", ">=") operators are commonly used.
+- Braces "{}" are optional for single statements but recommended for readability and to prevent errors.
+
+Usage
+- Use "if" to execute code selectively based on program state or user input.
+- Combine with "else if" and "else" for more complex conditional logic.
+- Ensure conditions are clear and boolean to avoid unexpected behavior.
 */
 void main() {
     /*

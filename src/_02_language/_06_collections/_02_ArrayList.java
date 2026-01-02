@@ -1,21 +1,23 @@
 /*
 ArrayList
-The List interface represents an ordered collection (also known as a sequence) of elements,
-allowing duplicate values and providing positional access and insertion.
+This section explains the ArrayList class, a resizable array implementation of the List interface in Java.
 
-Key implementations:
-- ArrayList: Backed by a dynamically resizing array. Offers fast random access (O(1)) and slower insertions/removals in
-  the middle (O(n)) due to shifting elements.
-- LinkedList: Implemented as a doubly-linked list. Provides fast insertions and deletions anywhere in the list (O(1) if
-  node is known) but slower random access (O(n)).
+Overview
+- ArrayList stores an ordered collection of elements (sequence), allowing duplicates.
+- Provides positional access and insertion.
+- Backed by a dynamically resizing array for efficient random access.
 
-Important points:
-- Both implement the List interface and share common methods like add(), get(), remove(), size(), and iterator().
-- ArrayList is generally preferred for most use cases due to faster access and better cache performance.
-- LinkedList is useful when frequent insertions or deletions at the beginning or middle of the list are required.
-- Both are not synchronized; use Collections.synchronizedList() or CopyOnWriteArrayList for thread-safe variants.
-- Iterating over a list can be done using for, for-each, iterator, or streams.
-- Only the ArrayList will be used for the examples on this documentation.
+Key Characteristics
+- Fast random access: O(1) for get(index) operations.
+- Insertions/removals in the middle or beginning require shifting elements: O(n).
+- Implements the List interface, sharing methods like add(), get(), remove(), size(), and iterator().
+- Not synchronized; for thread-safe use, wrap with Collections.synchronizedList() or use CopyOnWriteArrayList.
+
+Usage
+- Preferred when fast indexed access is required and insertions/removals are infrequent.
+- Use LinkedList instead when frequent insertions/deletions at arbitrary positions are needed.
+- Iterate using for-loops, for-each, iterators, or streams.
+- This documentation will focus on ArrayList examples.
 */
 void main() {
     //==================================================================================================================

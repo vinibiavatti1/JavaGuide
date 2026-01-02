@@ -41,7 +41,6 @@ public class Cat implements Speaker {
     }
 }
 
-@SuppressWarnings("all")
 void main() {
     Speaker s1 = new Dog();
     Speaker s2 = new Cat();

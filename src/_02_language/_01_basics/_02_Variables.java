@@ -1,13 +1,24 @@
 /*
 Variables
-Variables are used to store data in memory and act as named references to values.
+This section explains how to declare, initialize, and use variables in Java, which store data in memory and act as named
+references to values.
 
-Key points:
+Overview
+- Variables are named storage locations for data.
 - Each variable has a type that determines the kind of data it can hold (primitive or reference).
-- The name of a variable cannot be a Java keyword and must follow identifier rules.
 - Variables must be declared before use, optionally with initialization.
-- Their scope determines where in the code they can be accessed (e.g., local, instance, or static).
-- Constants can be defined with the 'final' keyword, making their value immutable after assignment.
+- Constants can be defined with the "final" keyword, making their value immutable after assignment.
+
+Key Characteristics
+- Scope: defines where a variable can be accessed (local, instance, static).
+- Naming rules: cannot use Java keywords and must follow identifier conventions.
+- Types: primitive types (int, boolean, etc.) or reference types (objects, arrays).
+- Mutability: variables can be reassigned unless declared as "final".
+
+Usage
+- Use variables to store temporary or persistent data in methods, objects, or classes.
+- Use constants ("final") for values that should not change.
+- Variables are essential for controlling program state and passing data between methods.
 */
 void main() {
     /*

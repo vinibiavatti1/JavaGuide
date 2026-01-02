@@ -1,20 +1,27 @@
 /*
 Conditional Statements (switch)
-The "switch" statement is used to select and execute one code block from multiple possible options based on the value
-of a single expression.
+This section explains how to use the "switch" statement in Java to select and execute a code block from multiple
+options based on the value of a single expression.
 
-In Java, the switch expression is evaluated once, and its result is compared against predefined case labels. When a
-matching case is found, the corresponding block is executed. Control flow can optionally continue to subsequent cases
-unless explicitly terminated.
+Overview
+- The "switch" statement evaluates an expression once and executes the block corresponding to a matching case label.
+- Control flow can optionally continue to subsequent cases unless explicitly terminated with "break".
+- Modern Java allows using "switch" both as a statement and as an expression.
 
-Key characteristics:
-- The switch expression must evaluate to a compatible type (such as int, enum, String, or certain wrapper types).
-- Each case represents a possible execution path.
-- The "break" statement is commonly used to prevent fall-through to the next case.
-- A "default" case can be defined to handle unmatched values.
-- Improves readability when handling multiple discrete values compared to long if-else chains.
-- Since modern Java versions, switch supports enhanced syntax and can be used as an expression.
+Key Characteristics
+- The switch expression must evaluate to a compatible type (int, enum, String, or certain wrapper types).
+- Each "case" represents a possible execution path.
+- "break" is commonly used to prevent fall-through to the next case.
+- A "default" case can handle unmatched values.
+- Improves readability compared to long chains of "if-else" statements.
+- Enhanced syntax in modern Java versions supports concise expressions and yields values.
+
+Usage
+- Use "switch" when selecting among multiple discrete values for clear, readable branching.
+- Always consider adding a "default" case for unmatched scenarios.
+- Use "break" or modern expression syntax to control flow and prevent unintended fall-through.
 */
+
 void main() {
     /*
     Conditional Statement (switch)
