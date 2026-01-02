@@ -1,39 +1,36 @@
 /*
 Methods
-This section explains how to define and use methods in Java, allowing classes or programs to encapsulate behavior that
-can accept parameters, return values, or handle variable-length arguments.
+This section explains how to define and use methods in Java to encapsulate behavior and organize program logic.
 
 Overview
-- Methods define operations or actions that a class or program can perform.
-- They can accept parameters to customize behavior and optionally return values.
-- Methods improve code reuse, readability, maintainability, and organization.
+- Methods define actions that a class or program can perform.
+- They may accept parameters and optionally return a value.
+- Methods improve code reuse, readability, and maintainability.
 
 Key Characteristics
-- Arguments: inputs that influence method behavior.
-- Return type: the output of a method; use void if no value is returned.
-- Varargs: allows passing zero or more arguments of the same type, treated internally as an array.
-- Methods can be overloaded (same name, different arguments) for flexibility.
+- Parameters: inputs provided to the method.
+- Return type: the value produced by the method; use void when no value is returned.
+- Varargs: allow passing a variable number of arguments, handled internally as an array.
+- Methods can be overloaded by changing their parameter list.
 
 Usage
-- Use methods to encapsulate behavior and avoid code duplication.
-- Apply varargs for flexible argument lists.
-- Return values when a result is needed; otherwise, use void.
-- Common examples: utility methods, calculation methods, getters/setters, and main program logic.
+- Use methods to avoid code duplication and group related logic.
+- Apply parameters to customize behavior.
+- Use varargs when the number of arguments may vary.
+- Return values when a result is required.
 */
 
 /*
 Method
-- A simple method with no arguments and no return value (void).
-- Demonstrates basic method declaration.
+- Simple method with no parameters and no return value.
 */
 public void method() {
     IO.println("Hello World");
 }
 
 /*
-Method (with arguments)
-- Accepts two integers as parameters and prints them.
-- Demonstrates declaring arguments to a method.
+Method (with parameters)
+- Accepts two integers and uses them inside the method.
 */
 public void methodWithArguments(int a, int b) {
     IO.println("a:" + a + " b:" + b);
@@ -41,8 +38,8 @@ public void methodWithArguments(int a, int b) {
 
 /*
 Method (with varargs)
-- Accepts a variable number of integer arguments.
-- Demonstrates how varargs are treated as an array internally.
+- Accepts zero or more integers.
+- Internally treated as an int array.
 */
 public void methodWithVarArgs(int... numbers) {
     IO.println(numbers[0] + " " + numbers[1]);
@@ -50,17 +47,15 @@ public void methodWithVarArgs(int... numbers) {
 
 /*
 Method (with return type)
-- Returns an integer value.
-- Demonstrates how to define a method with a return type.
+- Returns a single integer value.
 */
 public int methodWithReturn() {
     return 1;
 }
 
 /*
-Method Example
+Method (example)
 - Returns the sum of two integers.
-- Demonstrates a practical example of a method performing a computation.
 */
 public int add(int a, int b) {
     return a + b;

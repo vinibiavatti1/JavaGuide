@@ -13,32 +13,38 @@ Key Characteristics
 - Fields, methods, and constructors can use the generic type.
 - Can be combined with bounded types to restrict allowed types.
 
-Usage
-- Use generic classes for collections, containers, and utilities that should work with multiple types.
-- Common examples: "List<E>", "Map<K, V>", or custom generic data structures.
-- Follow standard conventions for collections (E = element, K = key, V = value, T = type)
+Notes
+- List<Number> is not the same as List<Integer>. To allow a variable to accept a list of multiple types, you can use
+  wildcards: List<? extends Number> or List<? super Integer> (Check Upper Bound and Lower Bound guide files!)
 
-Example:
-- The example shows a simple generic class "MyList<E>" that stores and retrieves elements of any specified type.
+Usage
+- Use generic classes for containers, collections, or utilities that should work with multiple types.
+- Common examples: "List<T>", "Map<K, V>", or custom generic data structures.
+- Follow standard conventions for generics (E = element, K = key, V = value, T = type)
+
+Example
+- The example shows a simple generic class "Container<T>" that stores and retrieves a value of any specified type.
 - No casting is required, and type safety is enforced at compile time.
 */
-public class MyList<E> {
-    private List<E> list = new ArrayList<>();
+public class Container<T> {
+    private T value;
 
-    public void add(E element) {
-        list.add(element);
+    public void set(T value) {
+        this.value = value;
     }
 
-    public E get(int index) {
-        return list.get(index);
+    public T get() {
+        return value;
     }
 }
 
 void main() {
-    MyList<String> l1 = new MyList<>();  // Same class can be used for String type
-    MyList<Integer> l2 = new MyList<>(); // Same class can be used for Integer type
-    l1.add("Hello World");
-    l2.add(1);
-    IO.println(l1.get(0)); // Hello World
-    IO.println(l2.get(0)); // 1
+    Container<String> stringContainer = new Container<>();   // Same class can be used for String type
+    Container<Integer> integerContainer = new Container<>(); // Same class can be used for Integer type
+
+    stringContainer.set("Hello World");
+    integerContainer.set(1);
+
+    IO.println(stringContainer.get());  // Hello World
+    IO.println(integerContainer.get()); // 1
 }

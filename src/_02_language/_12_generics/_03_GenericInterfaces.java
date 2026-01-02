@@ -59,10 +59,12 @@ public class GenericContainer<E> implements Container<E> {
 }
 
 void main() {
-    Container<String> c1 = new StringContainer();            // String Container
-    Container<Integer> c3 = new GenericContainer<Integer>(); // Generic Container (type specified at usage)
-    c1.set("Hello Generics");
-    c3.set(1);
-    IO.println(c1.get()); // Hello Generics
-    IO.println(c3.get()); // 1
+    Container<String> stringContainer = new StringContainer();             // String Container
+    Container<Integer> integerContainer = new GenericContainer<Integer>(); // Generic Container (type specified)
+
+    stringContainer.set("Hello Generics");
+    integerContainer.set(1);
+
+    IO.println(stringContainer.get());  // Hello Generics
+    IO.println(integerContainer.get()); // 1
 }

@@ -1,5 +1,5 @@
 /*
-Generics Super Classes
+Generics Superclasses
 This section explains how to create generic superclasses in Java, allowing subclasses to specify or inherit type
 parameters while maintaining type safety and code reuse.
 
@@ -44,10 +44,12 @@ public class GenericContainer<E> extends Container<E> {
 }
 
 void main() {
-    Container<String> c1 = new StringContainer();            // String-specific container
-    Container<Integer> c2 = new GenericContainer<Integer>(); // Generic container with Integer
-    c1.set("Hello Generics");
-    c2.set(42);
-    IO.println(c1.get()); // Hello Generics
-    IO.println(c2.get()); // 42
+    Container<String> stringContainer = new StringContainer();             // String-specific container
+    Container<Integer> integerContainer = new GenericContainer<Integer>(); // Generic container with Integer
+
+    stringContainer.set("Hello Generics");
+    integerContainer.set(42);
+
+    IO.println(stringContainer.get());  // Hello Generics
+    IO.println(integerContainer.get()); // 42
 }
