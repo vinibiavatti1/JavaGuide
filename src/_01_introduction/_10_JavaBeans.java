@@ -40,7 +40,6 @@ Summary
 - They enable reusable, maintainable, and tool-friendly components.
 - Widely used for data encapsulation, GUI components, and integration with frameworks that rely on introspection.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Java Bean Example

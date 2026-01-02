@@ -4,7 +4,6 @@ This file documents the standard naming conventions used in the project for clas
 constants, exceptions, and other identifiers. The goal is to ensure code readability, consistency, and maintainability
 across the codebase.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Project

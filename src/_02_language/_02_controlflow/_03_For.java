@@ -22,7 +22,6 @@ Key characteristics:
 - Misconfigured traditional loops can result in infinite loops or skipped iterations.
 - For-each is preferred for readability when only element access is needed.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Looping Statement (for)

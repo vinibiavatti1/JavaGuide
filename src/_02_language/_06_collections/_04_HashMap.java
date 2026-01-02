@@ -20,7 +20,6 @@ Important points:
 - Iteration can be done over keys, values, entries, or using Map.forEach().
 - Only the HashMap will be used for the examples on this documentation.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Declaration

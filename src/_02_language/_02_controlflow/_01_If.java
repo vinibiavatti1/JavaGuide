@@ -12,11 +12,10 @@ Key characteristics:
 - Logical and comparison operators are commonly used in conditions.
 - Braces are optional for single statements but recommended for clarity and safety.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Conditional Statement (if)
-    The if statement evaluates a boolean expression and executes the associated code block only when the condition is
+    The "if" statement evaluates a boolean expression and executes the associated code block only when the condition is
     true.
     Output: x is positive
     */

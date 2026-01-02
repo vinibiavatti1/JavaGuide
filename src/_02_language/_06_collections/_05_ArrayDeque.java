@@ -25,7 +25,6 @@ Important points:
 - Iteration order follows the deque order from first to last.
 - This implementation will be used for the examples in this documentation.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Declaration

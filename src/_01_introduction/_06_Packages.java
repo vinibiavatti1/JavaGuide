@@ -43,5 +43,4 @@ MyProject                                    | Project
          |- com.example.myproject.model      | Package
          |- com.example.myproject.controller | Package
 */
-@SuppressWarnings("all")
 void main() {}

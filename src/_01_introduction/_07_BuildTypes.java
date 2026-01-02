@@ -42,5 +42,4 @@ applications.
 - Can work with Java, Kotlin, Android, and other JVM languages.
 - Increasingly popular for new projects due to flexible configuration and faster incremental builds.
 */
-@SuppressWarnings("all")
 void main() {}

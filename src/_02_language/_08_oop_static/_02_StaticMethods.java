@@ -12,21 +12,14 @@ Usage
 - They improve code clarity by indicating that no object context is required.
 
 Example
-- "public static void greet()" is a simple static method that prints a message without needing an object.
+- The static method "greet" is called directly on the class, demonstrating that no object instantiation is required.
 */
-@SuppressWarnings("all")
 public class Person {
     public static void greet() {
         IO.println("Hello from Person class!");
     }
 }
 
-/*
-Static Methods Example
-In this example, the static method "greet" is called directly on the class, demonstrating that no object instantiation
-is required.
-*/
-@SuppressWarnings("all")
 void main() {
     Person.greet(); // Hello from Person class!
 }

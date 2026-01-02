@@ -19,7 +19,6 @@ Important points:
 - Iteration can be done using for-each, iterator, or streams.
 - Only the HashSet will be used for the examples in this documentation.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Declaration

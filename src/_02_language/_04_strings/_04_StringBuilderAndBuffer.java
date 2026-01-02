@@ -26,7 +26,6 @@ Usage guidelines:
 - Prefer StringBuilder for performance in non-concurrent code.
 - Use StringBuffer only when thread safety is required and synchronization cannot be managed externally.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Transformation

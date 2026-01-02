@@ -37,5 +37,4 @@ Comparison Summary:
 - JRE = JVM + core Java libraries + runtime support files; used to run Java applications without development tools.
 - JDK = JRE + development tools (javac, jdb, javadoc, jar, etc.); used to develop, compile, and build Java applications.
 */
-@SuppressWarnings("all")
 void main() {}

@@ -1,62 +1,50 @@
 /*
 Sealed Interfaces
-This section explains sealed interfaces in Java, introduced in Java 17. 
-A sealed interface restricts which classes or interfaces can implement it, providing more control over hierarchy design.
+This section explains sealed interfaces in Java and how they restrict which classes or interfaces can implement them.
 
 Overview
-- Declared with the "sealed" keyword followed by "interface".
-- Use the "permits" clause to list the allowed implementing classes or interfaces.
-- Only the permitted classes/interfaces can implement the sealed interface.
-- Permitted implementers must be declared as "final", "sealed", or "non-sealed".
+- A sealed interface limits which classes or interfaces may implement it.
+- Declared using the "sealed" keyword along with the "permits" clause.
+- Promotes controlled implementation and a clear, fixed hierarchy.
+- Subclasses must be either "final", "sealed", or "non-sealed".
 
 Key Characteristics
-- Improves encapsulation and hierarchy safety.
-- Allows the compiler to know all possible implementations.
-- Useful for pattern matching and controlled polymorphism.
+- Only the classes listed in the "permits" clause can implement the sealed interface.
+- Supports better reasoning about type hierarchies.
+- Works well with pattern matching and switch expressions.
+- Prevents uncontrolled or accidental implementations outside the intended set.
+
+Usage
+- Use sealed interfaces to define a fixed set of implementations.
+- Useful in APIs or domain models where you want to restrict extensions.
+- Helps maintain invariants and predictable behavior.
 
 Example:
-- The "Shape" interface is sealed and only allows "Circle" and "Square" to implement it.
-- "Circle" is final, so no further subclassing is allowed.
-- "Square" is non-sealed, allowing other classes to extend it.
+- The example demonstrates a sealed interface "Speaker" with permitted implementations "Dog" and "Cat".
+- Each class provides its own implementation of the "speak" method.
 */
-@SuppressWarnings("all")
-public sealed interface Animal permits Dog, Cat {
+public sealed interface Speaker permits Dog, Cat {
     void say();
 }
 
-/*
-Implementing Interface
-This example demonstrates how classes implement the Speaker interface.
-*/
-@SuppressWarnings("all")
-public final class Dog implements Animal {
+public final class Dog implements Speaker {
     @Override
     public void say() {
         IO.println("woof!");
     }
 }
 
-/*
-Implementing Interface
-This example demonstrates how classes implement the Speaker interface.
-*/
-@SuppressWarnings("all")
-public non-sealed class Cat implements Animal {
+public non-sealed class Cat implements Speaker {
     @Override
     public void say() {
-        IO.println("meaw!");
+        IO.println("meow!");
     }
 }
 
-/*
-Usage Example
-- Demonstrates creating instances of `Dog` and `Cat` and calling their `say()` methods.
-- Only the permitted classes can implement the sealed interface `Animal`.
-*/
 @SuppressWarnings("all")
 void main() {
-    Animal a1 = new Dog();
-    Animal a2 = new Cat();
+    Speaker a1 = new Dog();
+    Speaker a2 = new Cat();
     a1.say(); // woof!
-    a2.say(); // meaw!
+    a2.say(); // meow!
 }

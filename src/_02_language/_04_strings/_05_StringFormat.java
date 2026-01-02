@@ -47,7 +47,6 @@ Conversion
 "t": Formats date/time values according to the specified suffix (e.g., tY, tm, td, tH, tM, tS).
 "T": Formats date/time values according to the specified suffix (e.g., TY, TM, TD, TH, TM, TS).
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Conversion

@@ -16,7 +16,6 @@ These operators are organized into several categories:
 In practice, arithmetic, comparison, logical, and assignment operators are used most frequently, while bitwise, shift,
 and certain unary operators are mainly applied in low-level, performance-critical, or specialized scenarios.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Arithmetic Operators

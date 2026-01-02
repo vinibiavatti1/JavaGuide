@@ -17,7 +17,6 @@ Important points:
 - Iterating over a list can be done using for, for-each, iterator, or streams.
 - Only the ArrayList will be used for the examples on this documentation.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Declaration

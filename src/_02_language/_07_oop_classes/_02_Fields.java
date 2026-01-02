@@ -1,7 +1,6 @@
 /*
-Class Fields
+Fields
 This section explains what fields are in Java and how they represent the state of a class or its objects.
-NOTE: Public instance fields are discouraged; always use private fields with getters/setters.
 
 Overview
 - Fields are variables declared inside a class.
@@ -21,17 +20,13 @@ Usage
 
 Example:
 - This example declares a public class named "Person" and illustrates the definition of an instance field.
+- Each "Person" instance has its own "name" value, demonstrating that objects maintain independent state.
+- NOTE: Public instance fields are discouraged; always use private fields with getters/setters.
 */
-@SuppressWarnings("all")
 public class Person {
     public String name;
 }
 
-/*
-Usage Example
-In this example, each "Person" instance has its own "name" value, demonstrating that objects maintain independent state.
-*/
-@SuppressWarnings("all")
 void main() {
     Person p1 = new Person();
     Person p2 = new Person();

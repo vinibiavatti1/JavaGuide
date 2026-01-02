@@ -1,62 +1,53 @@
 /*
 Interfaces
-This section explains what interfaces are in Java and how they are used to define contracts for classes.
+This section explains interfaces in Java and how they define a contract for classes without providing full
+implementation.
 
 Overview
-- An interface is an abstract type that defines a set of methods without implementations.
-- Classes that implement the interface must provide concrete implementations for all its methods.
-- Interfaces are used to define behavior that can be shared across multiple classes, regardless of their class 
-  hierarchy.
+- An interface is a reference type that can contain abstract methods, default methods, and static methods.
+- Declared using the "interface" keyword.
+- Classes implement interfaces to agree to provide implementations for the abstract methods.
+- Supports multiple inheritance of type, unlike classes which only support single inheritance.
 
 Key Characteristics
-- Interfaces cannot have instance fields (except constants declared as "public static final").
-- Methods are implicitly "public" and abstract.
-- A class can implement multiple interfaces (supports multiple inheritance of type).
-- Provides a way to achieve polymorphism and decoupling.
+- All abstract methods in an interface are implicitly public (the public keyword can be hidden).
+- Default methods can provide a concrete implementation.
+- Static methods belong to the interface and can be called without an instance.
+- Fields are implicitly public, static, and final.
+- A class can implement multiple interfaces to achieve multiple inheritance of behavior.
 
 Usage
-- Define a contract that multiple classes can follow.
-- Enable polymorphic behavior without forcing a class hierarchy.
-- Commonly used for callbacks, event listeners, service APIs, and strategy patterns.
+- Use interfaces to define a common contract for unrelated classes.
+- Enable polymorphism and flexible design.
+- Decouple code from concrete implementations.
+- Commonly used for callbacks, strategy patterns, and API definitions.
+
+Example:
+- The example demonstrates an interface "Speaker" with an abstract method "say".
+- Classes "Dog" and "Cat" implement the interface and provide their own behavior.
 */
-@SuppressWarnings("all")
 public interface Speaker {
-    // Abstract method (must be implemented by any class implementing this interface)
-    void say(String message);
+    // Abstract method (public as default)
+    void say();
 }
 
-/*
-Implementing Interface
-This example demonstrates how classes implement the Speaker interface.
-*/
-@SuppressWarnings("all")
 public class Dog implements Speaker {
     @Override
-    public void say(String message) {
-        IO.println("Dog says: " + message);
+    public void say() {
+        IO.println("woof!");
     }
 }
 
-/*
-Implementing Interface
-This example demonstrates how classes implement the Speaker interface.
-*/
-@SuppressWarnings("all")
 public class Cat implements Speaker {
     @Override
-    public void say(String message) {
-        IO.println("Cat says: " + message);
+    public void say() {
+        IO.println("meow!");
     }
 }
 
-/*
-Usage Example
-This example demonstrates how classes implement the Speaker interface.
-*/
-@SuppressWarnings("all")
 void main() {
     Speaker s1 = new Dog();
     Speaker s2 = new Cat();
-    s1.say("Woof!"); // Dog says: Woof!
-    s2.say("Meaw!"); // Cat says: Meaw!
+    s1.say(); // woof!
+    s2.say(); // meow!
 }

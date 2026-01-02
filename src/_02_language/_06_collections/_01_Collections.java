@@ -24,7 +24,6 @@ Important points:
 - For the most cases, the default collections are enough.
 - Iteration can be performed using for-loops, for-each, iterators, spliterators, or streams.
 */
-@SuppressWarnings("all")
 void main() {
     // Default Collections
     new ArrayList<>();             // Resizable List, allows duplicates, maintains insertion order

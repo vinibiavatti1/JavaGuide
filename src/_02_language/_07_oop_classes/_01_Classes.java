@@ -20,16 +20,10 @@ Usage
 
 Example:
 - The example shows a class declaration that defines a new reference type in Java using the "class" keyword.
+- The main method shows how we create instances (objects) of our class using the "new" keyword.
 */
-@SuppressWarnings("all")
 public class Person {}
 
-/*
-Usage Example
-Class instantiation is the process of creating objects from a class definition.
-This is done using the "new" keyword, which allocates memory and invokes the class constructor.
-*/
-@SuppressWarnings("all")
 void main() {
     Person p1 = new Person();
     Person p2 = new Person();

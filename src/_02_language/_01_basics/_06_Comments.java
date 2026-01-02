@@ -31,7 +31,6 @@ Best Practices
 - Keep comments meaningful, concise, and up-to-date to avoid misleading information.
 - Avoid over-commenting obvious code; focus on explaining "why" rather than "what".
 */
-@SuppressWarnings("all")
 void main() {}
 // Inline Comment
 

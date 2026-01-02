@@ -6,7 +6,6 @@ Java provides multiple ways to output text, including printing variables, litera
 
 This example demonstrates some common techniques for console output.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Printing to the console using the conventional method.

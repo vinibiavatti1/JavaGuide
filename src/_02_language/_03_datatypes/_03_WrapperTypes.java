@@ -12,7 +12,6 @@ Wrapper types exist mainly to support:
 
 Each wrapper type corresponds directly to a primitive type and is part of the java.lang package.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Wrapper Types

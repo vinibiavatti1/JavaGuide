@@ -68,5 +68,4 @@ Summary
 - Supports standard project layout and lifecycle tasks, as well as custom tasks.
 - Popular for modern applications, multi-module projects, and incremental builds due to flexibility and speed.
 */
-@SuppressWarnings("all")
 void main() {}

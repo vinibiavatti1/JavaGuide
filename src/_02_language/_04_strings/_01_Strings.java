@@ -14,7 +14,6 @@ Key characteristics:
 - Any operation that appears to modify a string returns a new instance.
 - Equality should be checked using equals(), not ==.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Declaration

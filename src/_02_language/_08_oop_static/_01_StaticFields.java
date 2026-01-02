@@ -19,18 +19,12 @@ Usage
 - "static final" constants improve readability and prevent accidental modification.
 
 Example
-- "public static final String DEFAULT_NAME = "Unknown";" defines a class-level constant.
+- The "DEFAULT_NAME" constant belongs to the class itself and is shared by all "Person" instances.
 */
-@SuppressWarnings("all")
 public class Person {
     public static final String DEFAULT_NAME = "Unknown";
 }
 
-/*
-Usage Example
-In this example, the "DEFAULT_NAME" constant belongs to the class itself and is shared by all "Person" instances.
-*/
-@SuppressWarnings("all")
 void main() {
     IO.println(Person.DEFAULT_NAME); // Unknown
 }

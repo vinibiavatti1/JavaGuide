@@ -36,5 +36,4 @@ Without the correct classpath, Java cannot find the classes your program needs, 
 - For external dependencies, classpath must be set explicitly, either via environment variables, command-line options,
   or build tool configuration.
 */
-@SuppressWarnings("all")
 void main() {}

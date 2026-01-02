@@ -3,7 +3,7 @@ Enterprise Edition (Jakarta EE / Java EE)
 This document explains what the Java Enterprise Edition is, its components, typical usage, servers, and modern context.
 
 What is Java Enterprise Edition
-- Java Enterprise Edition (Java EE), now called Jakarta EE, is a an entire platform with standardized APIs, runtime
+- Java Enterprise Edition (Java EE), now called Jakarta EE, is an entire platform with standardized APIs, runtime
   services, and managed components that handle transactions, security, persistence, messaging, and web applications,
   allowing developers to focus on business logic while the server manages the infrastructure.
 - Provides standardized APIs for building enterprise applications, including web applications, REST services, messaging,
@@ -47,5 +47,4 @@ Summary
 - Includes libraries for web apps, persistence, messaging, and business logic.
 - For new web projects, external app servers are often not necessary due to modern frameworks with embedded servers.
 */
-@SuppressWarnings("all")
 void main() {}

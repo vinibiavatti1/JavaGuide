@@ -7,7 +7,6 @@ In practice, a small subset of these types is used most of the time.
 Types like int and double are the defaults in the Java standard library, while smaller or less precise types are mainly
 used in strict performance or memory-sensitive scenarios.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Data Types

@@ -17,36 +17,23 @@ Usage
 - Both provide a way to run code automatically without explicitly calling a method.
 
 Example
-- Static initializer sets a static constant.
-- Instance initializer sets a default value for instance fields.
-*/
-@SuppressWarnings("all")
-public class Person {
-    public static int instanceCounter;
-
-    // Static Initializer
-    static {
-        instanceCounter = 0;
-        IO.println("Static initializer executed: class loaded");
-    }
-
-    // Instance Initializer
-    {
-        instanceCounter++;
-        IO.println("Instance initializer executed: object created");
-    }
-}
-
-/*
-Class Initializers Example
-In this example:
 - The static initializer runs once when the Person class is loaded.
 - The instance initializer runs every time a new Person object is created.
 - This demonstrates automatic setup for class-level and object-level fields.
 */
-@SuppressWarnings("all")
+public class Person {
+    // Static Initializer
+    static {
+        IO.println("Static initializer executed: class loaded");
+    }
+
+    // Instance initializer
+    {
+        IO.println("Instance initializer executed: object created");
+    }
+}
+
 void main() {
-    IO.println("Total instances: " + Person.instanceCounter); // 0
-    Person p = new Person();
-    IO.println("Total instances: " + Person.instanceCounter); // 1
+    Person p1 = new Person(); // Static and Instance initializers executed
+    Person p2 = new Person(); // Only Instance initializer executed
 }

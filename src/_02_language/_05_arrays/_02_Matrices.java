@@ -10,7 +10,6 @@ Key characteristics:
 - The length of each dimension can be obtained using the 'length' property on the array or sub-array.
 - Multi-dimensional arrays can be rectangular (all rows the same length) or jagged (rows of different lengths).
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Declaration
@@ -22,7 +21,7 @@ void main() {
 
     /*
     Initialization
-    Declares and initializes a multi-dimensional array in a single step with specific values.
+    Declares and initializes a multidimensional array in a single step with specific values.
     The length of the array is inferred from the number of elements provided.
     */
     int[][] y2 = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}; // 3x3 Matrix
@@ -49,7 +48,7 @@ void main() {
 
     /*
     Length
-    In multi-dimensional arrays, each dimension has its own length.
+    In multidimensional arrays, each dimension has its own length.
     */
     int[][] y3 = new int[][] {{1, 2}, {4, 5}, {7, 8}};
     IO.println(y3.length);    // 3 (number of rows)

@@ -28,11 +28,10 @@ It is typically used in applications that run on application servers such as Wil
 Jakarta EE "does not replace Java SE", but extends it to meet enterprise requirements.
 Jakarta EE APIs can be used:
 - As standalone libraries for lightweight Java SE applications (Maven/Gradle dependencies).
-- On full application servers (GlassFish, etc) when container features are needed (application server).
+- On full application servers (GlassFish, etc.) when container features are needed (application server).
 
 Comparison Summary:
 - Java SE = Core Java platform, foundation for all applications.
 - Jakarta EE = Enterprise API extensions built on Java SE, for web, services, and enterprise features.
 */
-@SuppressWarnings("all")
 void main() {}

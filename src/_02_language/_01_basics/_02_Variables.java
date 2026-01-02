@@ -9,7 +9,6 @@ Key points:
 - Their scope determines where in the code they can be accessed (e.g., local, instance, or static).
 - Constants can be defined with the 'final' keyword, making their value immutable after assignment.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Declaration

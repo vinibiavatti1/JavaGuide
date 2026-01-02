@@ -8,7 +8,6 @@ This example demonstrates two approaches:
 */
 import java.util.Scanner;
 
-@SuppressWarnings("all")
 void main() {
     /*
     Reading input using the new IO class (Java 25+).

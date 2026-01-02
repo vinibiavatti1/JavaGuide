@@ -10,7 +10,6 @@ Key characteristics:
 - The length of an array can be obtained using the 'length' property.
 - Multidimensional arrays are arrays of arrays, allowing nested structures.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Declaration

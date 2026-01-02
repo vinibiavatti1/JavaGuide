@@ -10,7 +10,6 @@ Key points about the main method:
 The main method in Java has a parameter 'String[] args', which allows the program to receive input from the command line
 when it is executed.
 */
-@SuppressWarnings("all")
 public class Main {
     public static void main(String[] args) {
         IO.println("Hello World"); // Output: Hello World

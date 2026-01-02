@@ -42,5 +42,4 @@ Other Directories
 - /docs: Folder for project documentation, README files, or generated Javadoc.
 - /scripts: Contains scripts for "build, deployment, or automation" tasks.
 */
-@SuppressWarnings("all")
 void main() {}

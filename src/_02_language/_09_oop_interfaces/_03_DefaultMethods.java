@@ -1,26 +1,29 @@
 /*
-Interfaces with Default Methods
-This section explains what default methods are in Java interfaces and how they allow adding behavior without breaking
-existing implementations.
+Default Methods
+This section explains default methods in Java interfaces and how they allow interfaces to provide a concrete
+implementation.
 
 Overview
-- Default methods are methods in interfaces that provide a default implementation.
-- Classes implementing the interface can use the default implementation or override it.
-- Default methods help evolve interfaces by adding new functionality without forcing all implementing classes to
-  implement the new methods.
+- Default methods are methods with a body defined in an interface using the "default" keyword.
+- They allow adding new methods to interfaces without breaking existing implementations.
+- Classes implementing the interface can either use the default implementation or override it.
 
 Key Characteristics
-- Declared using the "default" keyword in the interface.
-- Can have a method body, unlike regular abstract interface methods.
-- Classes can override default methods to provide specific behavior.
-- Support polymorphism and code reuse in interfaces.
+- Declared with the "default" keyword inside an interface.
+- Can provide common behavior for multiple implementing classes.
+- Can be overridden in the implementing class to provide specific behavior.
+- Help evolve interfaces without forcing changes in all implementing classes.
 
 Usage
-- Add new functionality to interfaces without breaking existing code.
-- Provide common behavior to multiple implementing classes.
-- Combine default methods with abstract methods for flexible contracts.
+- Use default methods to provide shared behavior in interfaces.
+- Avoid code duplication across multiple implementing classes.
+- Useful for backward-compatible interface evolution.
+- Can be combined with abstract methods for flexible API design.
+
+Example:
+- The example demonstrates an interface "Speaker" with a default method "greet".
+- Classes "Dog" and "Cat" implement the interface and inherit or override the default behavior.
 */
-@SuppressWarnings("all")
 public interface Speaker {
     // Default method
     default void sayHello() {
@@ -28,18 +31,9 @@ public interface Speaker {
     }
 }
 
-/*
-Implementing Interface Example: Dog
-This class implements the Speaker interface. It uses the default sayHello method without overriding it.
-*/
-@SuppressWarnings("all")
-public class Dog implements Speaker {}
+public class Dog implements Speaker {
+}
 
-/*
-Implementing Interface Example: Cat
-This class implements the Speaker interface and overrides the default sayHello method.
-*/
-@SuppressWarnings("all")
 public class Cat implements Speaker {
     @Override
     public void sayHello() {
@@ -47,10 +41,6 @@ public class Cat implements Speaker {
     }
 }
 
-/*
-Usage Example
-This example demonstrates polymorphic behavior with default methods in interfaces.
-*/
 @SuppressWarnings("all")
 void main() {
     Speaker s1 = new Dog();

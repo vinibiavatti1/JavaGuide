@@ -12,7 +12,6 @@ Key characteristics:
 - Commonly used when the number of iterations is not known in advance.
 - Improper condition updates may lead to infinite loops.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Looping Statement (while)

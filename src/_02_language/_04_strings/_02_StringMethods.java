@@ -7,7 +7,6 @@ Key characteristics:
 - Index-based operations work on UTF-16 code units (char), not on user-perceived characters.
 - Unicode-aware operations are provided via code point–based methods.
 */
-@SuppressWarnings("all")
 void main() {
     //==================================================================================================================
     // Length

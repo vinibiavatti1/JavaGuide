@@ -14,7 +14,6 @@ Key characteristics:
 - Proper use improves readability and control in loops, but excessive use can make
   code harder to follow.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Control Flow Statement (break)

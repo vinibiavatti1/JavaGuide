@@ -17,28 +17,22 @@ Usage
 - Method selection occurs at compile time based on the arguments provided.
 
 Example
-- "add(int a, int b)" adds two integers.
-- "add(double a, double b)" adds two doubles.
+- The example shows that we can create methods with the same name, with different parameters, types, etc.
 */
-@SuppressWarnings("all")
 public class Calculator {
+    // Method add (for int data type)
     public int add(int a, int b) {
         return a + b;
     }
 
+    // Method add (for double data type)
     public double add(double a, double b) {
         return a + b;
     }
 }
 
-/*
-Method Overloading Example
-In this example, the "add" method is overloaded to handle different types and numbers of arguments.
-The compiler selects the correct method based on the argument types and count.
-*/
-@SuppressWarnings("all")
 void main() {
     Calculator calc = new Calculator();
-    IO.println(calc.add(2, 3));        // 5
-    IO.println(calc.add(2.5, 3.5));    // 6.0
+    IO.println(calc.add(2, 3));     // 5
+    IO.println(calc.add(2.5, 3.5)); // 6.0
 }

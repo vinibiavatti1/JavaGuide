@@ -20,9 +20,9 @@ Usage
 - Proper constructor design improves code safety, readability, and consistency of object state.
 
 Example
-- This example declares a public class named `Person` and illustrates the definition of a constructor.
+- This example declares a public class named "Person" and illustrates the definition of a constructor.
+- In the main method, we will use the constructor to initialize the class fields.
 */
-@SuppressWarnings("all")
 public class Person {
     private String name;
 
@@ -37,12 +37,6 @@ public class Person {
     }
 }
 
-/*
-Class Constructor Example
-In this example, we are using the constructor to create new instances of the `Person` class.
-The constructor initializes the object, setting up its initial state before any methods are called.
-*/
-@SuppressWarnings("all")
 void main() {
     Person p1 = new Person("John");
     Person p2 = new Person("Jane");

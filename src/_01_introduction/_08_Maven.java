@@ -71,5 +71,4 @@ Summary
 - Enforces standard project layout and lifecycle.
 - Widely used in enterprise applications and modern Java projects.
 */
-@SuppressWarnings("all")
 void main() {}

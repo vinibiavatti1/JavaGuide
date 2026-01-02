@@ -15,7 +15,6 @@ Key characteristics:
 - Improves readability when handling multiple discrete values compared to long if-else chains.
 - Since modern Java versions, switch supports enhanced syntax and can be used as an expression.
 */
-@SuppressWarnings("all")
 void main() {
     /*
     Conditional Statement (switch)
@@ -70,7 +69,7 @@ void main() {
     }
 
     /*
-    Conditional Statement (switch wtih default)
+    Conditional Statement (switch with default)
     The switch statement allows a program to choose between multiple execution paths based on the value of an
     expression.
     If none of the defined cases match the expression value, the default block is executed.
@@ -127,7 +126,7 @@ void main() {
 
     /*
     Pattern Matching (switch)
-    This switch statement uses pattern matching to test the runtime type of an object.
+    This switch statement uses pattern matching to test the runtime type of object.
     To use pattern matching, a variable must be defined in the case label; this variable is automatically cast and bound
     to the matched type, allowing it to be used directly inside the case block.
     Output: Integer: 1

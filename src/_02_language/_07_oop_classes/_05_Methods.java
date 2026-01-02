@@ -1,5 +1,5 @@
 /*
-Class Methods
+Methods
 This section explains methods in Java and how they define the behavior of classes and objects.
 
 Overview
@@ -18,8 +18,9 @@ Usage
 
 Example:
 - This example declares a public class named "Person" and illustrates the definition of methods.
+- In main method, we are using the property methods to change the class state, and behavioral methods to perform
+  actions.
 */
-@SuppressWarnings("all")
 public class Person {
     private String name;
 
@@ -39,12 +40,6 @@ public class Person {
     }
 }
 
-/*
-Usage Example
-In this example, we are using the methods to access and mutate the instance fields.
-We are also calling a behavioral method.
-*/
-@SuppressWarnings("all")
 void main() {
     Person p1 = new Person();
     Person p2 = new Person();
