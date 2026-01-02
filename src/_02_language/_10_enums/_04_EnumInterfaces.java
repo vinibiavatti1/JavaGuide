@@ -21,15 +21,15 @@ Usage
 
 Example:
 - The example demonstrates an interface "OperationInterface" and an enum "OperationEnum" implementing it.
-- Each constant ("ADD", "SUBTRACT", "MULTIPLY") defines its own "apply" behavior.
+- Each constant ("ADD" and "SUB") defines its own "apply" behavior.
 */
 interface OperationApplier {
     int apply(int a, int b);
 }
 
-enum Operation implements OperationApplier {
+public enum Operation implements OperationApplier {
     ADD,
-    SUBTRACT {
+    SUB {
         @Override // Override Implementation (enum instance level)
         public int apply(int a, int b) {
             return a - b;
@@ -44,6 +44,6 @@ enum Operation implements OperationApplier {
 }
 
 void main() {
-    IO.println(Operation.ADD.apply(5, 3));      // 8 (uses default implementation)
-    IO.println(Operation.SUBTRACT.apply(5, 3)); // 2 (uses override implementation)
+    IO.println(Operation.ADD.apply(5, 3)); // 8 (uses default implementation)
+    IO.println(Operation.SUB.apply(5, 3)); // 2 (uses override implementation)
 }

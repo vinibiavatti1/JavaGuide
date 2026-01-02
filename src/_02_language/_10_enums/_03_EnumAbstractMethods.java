@@ -22,7 +22,7 @@ Usage
 
 Example:
 - The example shows an enum "Operation" with an abstract method "apply".
-- Each constant ("ADD", "SUBTRACT", "MULTIPLY") implements "apply" differently.
+- Each constant ("ADD", "SUB") implements "apply" differently.
 */
 public enum Operation {
     ADD {
@@ -31,16 +31,10 @@ public enum Operation {
             return a + b;
         }
     },
-    SUBTRACT {
+    SUB {
         @Override
         public int apply(int a, int b) {
             return a - b;
-        }
-    },
-    MULTIPLY {
-        @Override
-        public int apply(int a, int b) {
-            return a * b;
         }
     };
 
@@ -49,7 +43,6 @@ public enum Operation {
 }
 
 void main() {
-    IO.println(Operation.ADD.apply(5, 3));      // 8
-    IO.println(Operation.SUBTRACT.apply(5, 3)); // 2
-    IO.println(Operation.MULTIPLY.apply(5, 3)); // 15
+    IO.println(Operation.ADD.apply(5, 3)); // 8
+    IO.println(Operation.SUB.apply(5, 3)); // 2
 }

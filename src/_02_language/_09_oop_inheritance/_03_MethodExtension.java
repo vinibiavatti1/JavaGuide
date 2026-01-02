@@ -38,7 +38,7 @@ public class Dog extends Animal {
     }
 }
 
-public void main() {
+void main() {
     Dog d = new Dog();
     d.speak(); // The animal makes a sound | The dog barks
 }

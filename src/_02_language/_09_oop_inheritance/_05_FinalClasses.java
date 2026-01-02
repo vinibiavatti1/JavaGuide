@@ -28,7 +28,7 @@ public final class Dog {
     }
 }
 
-public void main() {
+void main() {
     Dog dog = new Dog();
     dog.say(); // woof!
 }
