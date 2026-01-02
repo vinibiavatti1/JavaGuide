@@ -13,9 +13,15 @@ Key Characteristics
 - Reading values returns a general type (usually Object), so casting may be needed
 - Useful when a method or container should accept a range of types upwards in the hierarchy
 
-Notes
-- List<Number> is not the same as List<Integer>. To allow a variable to accept a list of multiple types, you can use
-  wildcards: List<? extends Number> or List<? super Integer>.
+Idea
+- Upper Bounded Wildcards (<? extends T>)
+  - List<? extends Number> accepts (List<Number>, List<Integer>, List<Double>)
+  - Number x = list.get(i) : OK - Can read integer/double as Number
+  - list.add(3.14)         : FAIL - Cannot add Double to List<Integer>
+- Lower Bounded Wildcards (<? super T>)
+  - List<? super Double> accepts (List<Double>, List<Number>, List<Object>)
+  - Double x = list.get(i) : FAIL - Cannot read Object as Double
+  - list.add(3.14)         : OK - Can add Double to (List<Double>, List<Number>, List<Object>)
 
 Usage
 - Use lower bounds when you want to write values safely into a container
