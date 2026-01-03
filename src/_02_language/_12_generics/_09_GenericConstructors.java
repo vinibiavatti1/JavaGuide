@@ -36,11 +36,9 @@ public class Container {
 }
 
 void main() {
-    Container c1 = new Container("Hello World");
-    Container c2 = new Container(42);
-    Container c3 = new Container(3.14);
+    Container strContainer = new Container("Hello World"); // Inferred
+    Container intContainer = new <Integer>Container(1);    // Explicit
 
-    IO.println(c1.get()); // Hello World
-    IO.println(c2.get()); // 42
-    IO.println(c3.get()); // 3.14
+    IO.println(strContainer.get()); // Hello World
+    IO.println(intContainer.get()); // 3.14
 }
