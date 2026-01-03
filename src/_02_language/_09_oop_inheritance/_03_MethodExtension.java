@@ -1,7 +1,7 @@
 /*
 Method Extension
-This section explains how to extend the behavior of an inherited method in Java by overriding it and calling the
-superclass implementation using "super".
+- This section explains how to extend the behavior of an inherited method in Java by overriding it and calling the
+  superclass implementation using "super".
 
 Overview
 - Method overriding allows a subclass to provide its own implementation of a method defined in its superclass.

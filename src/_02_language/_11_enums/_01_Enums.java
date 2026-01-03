@@ -1,6 +1,6 @@
 /*
 Enums
-This section explains enums in Java and how they represent a fixed set of constants.
+- This section explains enums in Java and how they represent a fixed set of constants.
 
 Overview
 - An enum (short for "enumeration") is a special type that defines a collection of named constants.
@@ -32,7 +32,7 @@ public enum Color {
 void main() {
     /*
     Constants
-    Prints the enum constant directly. Shows the name of the constant as defined.
+    - Prints the enum constant directly. Shows the name of the constant as defined.
     */
     IO.println(Color.RED);   // RED
     IO.println(Color.GREEN); // GREEN
@@ -40,8 +40,8 @@ void main() {
 
     /*
     Values
-    Returns an array of all enum constants in declaration order.
-    Output: RED | GREEN | BLUE
+    - Returns an array of all enum constants in declaration order.
+    - Output: RED | GREEN | BLUE
     */
     for (Color c : Color.values()) {
         IO.println(c);
@@ -49,16 +49,16 @@ void main() {
 
     /*
     Value Of
-    Returns the enum constant matching the given string name.
-    Throws an exception if the name does not exist.
-    Output: RED
+    - Returns the enum constant matching the given string name.
+    - Throws an exception if the name does not exist.
+    - Output: RED
     */
     Color c = Color.valueOf("RED");
     IO.println(c);
 
     /*
     Ordinal
-    Returns the zero-based position of the constant in the enum declaration.
+    - Returns the zero-based position of the constant in the enum declaration.
     */
     IO.println(Color.RED.ordinal());   // 0
     IO.println(Color.GREEN.ordinal()); // 1

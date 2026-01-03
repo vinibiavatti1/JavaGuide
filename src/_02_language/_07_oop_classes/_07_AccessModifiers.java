@@ -1,7 +1,7 @@
 /*
 Access Modifiers
-This section explains how access modifiers control the visibility of class members in Java.
-Fields should usually be private and accessed via getters/setters.
+- This section explains how access modifiers control the visibility of class members in Java.
+- Fields should usually be private and accessed via getters/setters.
 
 Overview
 - public: The field is accessible from any class, regardless of the package.

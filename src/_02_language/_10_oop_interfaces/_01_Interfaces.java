@@ -1,7 +1,7 @@
 /*
 Interfaces
-This section explains interfaces in Java and how they define a contract for classes without providing full
-implementation.
+- This section explains interfaces in Java and how they define a contract for classes without providing full
+  implementation.
 
 Overview
 - An interface is a reference type that can contain abstract methods, default methods, and static methods.

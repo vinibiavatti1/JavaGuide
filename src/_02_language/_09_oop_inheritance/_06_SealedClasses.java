@@ -1,6 +1,6 @@
 /*
 Sealed Classes
-This section explains sealed classes in Java and how they restrict which classes can extend or implement them.
+- This section explains sealed classes in Java and how they restrict which classes can extend or implement them.
 
 Overview
 - A sealed class or interface limits which other classes or interfaces may inherit or implement it.

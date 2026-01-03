@@ -1,7 +1,7 @@
 /*
 Generics Lower Bound (<? super T>)
-This section explains how to use lower bounds in Java generics to restrict types to a specific class or its
-superclasses.
+- This section explains how to use lower bounds in Java generics to restrict types to a specific class or its
+  superclasses.
 
 Overview
 - Lower bounds use "super" in wildcards to restrict a generic type: <? super Integer>

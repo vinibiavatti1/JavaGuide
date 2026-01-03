@@ -1,6 +1,6 @@
 /*
 Static Methods
-This section explains static methods in Java and how they belong to the class rather than individual instances.
+- This section explains static methods in Java and how they belong to the class rather than individual instances.
 
 Overview
 - Static methods are defined with the "static" keyword.

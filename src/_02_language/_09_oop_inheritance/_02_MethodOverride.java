@@ -1,7 +1,7 @@
 /*
 Method Overriding
-This section explains method overriding in Java and how subclasses can provide their own implementation of inherited
-methods.
+- This section explains method overriding in Java and how subclasses can provide their own implementation of inherited
+  methods.
 
 Overview
 - Method overriding occurs when a subclass provides a specific implementation of a method already defined in its

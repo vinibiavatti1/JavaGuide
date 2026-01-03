@@ -1,7 +1,7 @@
 /*
 Generics Interfaces
-This section explains how to make Java interfaces generic, allowing different implementations to operate on various
-types while maintaining type safety.
+- This section explains how to make Java interfaces generic, allowing different implementations to operate on various
+  types while maintaining type safety.
 
 Overview
 - Generic interfaces declare type parameters (e.g., <T>, <E>) for their methods or return types.

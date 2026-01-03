@@ -1,7 +1,7 @@
 /*
 Primitive Types
-This section explains the built-in primitive data types in Java, which are used to store simple values directly in
-memory.
+- This section explains the built-in primitive data types in Java, which are used to store simple values directly in
+  memory.
 
 Overview
 - Java provides eight primitive types: byte, short, int, long, float, double, char, and boolean.
@@ -22,9 +22,9 @@ Usage
 void main() {
     /*
     Data Types
-    The primitive types below are available in Java and can be used to store values in memory.
-    Common types: int, double, boolean and char
-    Less common types: byte, short, long, float
+    - The primitive types below are available in Java and can be used to store values in memory.
+    - Common types: int, double, boolean and char
+    - Less common types: byte, short, long, float
     */
     byte y1 = 127;      // 8-bit signed integer
     short y2 = 32767;   // 16-bit signed integer
@@ -37,16 +37,16 @@ void main() {
 
     /*
     Declaration
-    We can use the "<type> <name> = <value>;" syntax to declare a variable of a data type.
-    Output: 5
+    - We can use the "<type> <name> = <value>;" syntax to declare a variable of a data type.
+    - Output: 5
     */
     int x = 5;
     IO.println(x);
 
     /*
     Equality
-    To compare data types, we can use the '==' operator.
-    Output: true
+    - To compare data types, we can use the '==' operator.
+    - Output: true
     */
     int i1 = 5;
     int i2 = 5;
@@ -55,18 +55,18 @@ void main() {
 
     /*
     Parsing
-    To parse a String to the data type, we can use the "parseType" method.
-    Output: 10
+    - To parse a String to the data type, we can use the "parseType" method.
+    - Output: 10
     */
     int i = Integer.parseInt("10");
     IO.println(i);
 
     /*
     Comparison
-    To compare data types for ordering, we can use the "compare" method from the wrapper type class.
-    It compares the current object with another object of the same type and returns a negative value, zero, or a
-    positive value.
-    Output: 0 (equal)
+    - To compare data types for ordering, we can use the "compare" method from the wrapper type class.
+    - It compares the current object with another object of the same type and returns a negative value, zero, or a
+      positive value.
+    - Output: 0 (equal)
     */
     i1 = 5;
     i2 = 5;
@@ -75,8 +75,8 @@ void main() {
 
     /*
     Casting
-    We can cast the data type to any other data type using the "(type)" syntax.
-    Output: 5.0
+    - We can cast the data type to any other data type using the "(type)" syntax.
+    - Output: 5.0
     */
     i = 5;
     double d = (double)i;
@@ -84,15 +84,15 @@ void main() {
 
     /*
     Min and Max Values
-    To retrieve the min and max values of numeric wrapper types, we can use the fields available in the wrapper class.
+    - To retrieve the min and max values of numeric wrapper types, we can use the fields available in the wrapper class.
     */
     IO.println(Integer.MIN_VALUE); // -2147483648
     IO.println(Integer.MAX_VALUE); // 2147483647
 
     /*
     Floating-point Constants
-    Floating-point wrapper classes provide useful predefined constants, such as
-    NaN (Not a Number), positive infinity, and negative infinity.
+    - Floating-point wrapper classes provide useful predefined constants, such as NaN (Not a Number), positive infinity,
+      and negative infinity.
     */
     IO.println(Double.NaN);               // NaN (0.0d / 0.0)
     IO.println(Double.NEGATIVE_INFINITY); // -Infinity (-1.0 / 0.0)

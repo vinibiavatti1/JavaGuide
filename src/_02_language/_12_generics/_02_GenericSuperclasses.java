@@ -1,7 +1,7 @@
 /*
 Generics Superclasses
-This section explains how to create generic superclasses in Java, allowing subclasses to specify or inherit type
-parameters while maintaining type safety and code reuse.
+- This section explains how to create generic superclasses in Java, allowing subclasses to specify or inherit type
+  parameters while maintaining type safety and code reuse.
 
 Overview
 - Generic superclasses declare type parameters (e.g., <T>, <E>) that can be used in fields, methods, and constructors.

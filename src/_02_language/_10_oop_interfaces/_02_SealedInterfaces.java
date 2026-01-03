@@ -1,6 +1,6 @@
 /*
 Sealed Interfaces
-This section explains sealed interfaces in Java and how they restrict which classes or interfaces can implement them.
+- This section explains sealed interfaces in Java and how they restrict which classes or interfaces can implement them.
 
 Overview
 - A sealed interface limits which classes or interfaces may implement it.

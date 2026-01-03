@@ -1,7 +1,7 @@
 /*
 Try-Catch-Finally
-This section explains how to use try-catch-finally blocks in Java to handle exceptions, ensuring proper error handling
-and resource cleanup.
+- This section explains how to use try-catch-finally blocks in Java to handle exceptions, ensuring proper error handling
+  and resource cleanup.
 
 Overview
 - The try block contains code that might throw exceptions.

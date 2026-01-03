@@ -1,7 +1,7 @@
 /*
 StringBuilder and StringBuffer
-This section explains the mutable character sequence classes "StringBuilder" and "StringBuffer", which allow
-efficient in-place modification of text without creating new string instances.
+- This section explains the mutable character sequence classes "StringBuilder" and "StringBuffer", which allow efficient
+  in-place modification of text without creating new string instances.
 
 Overview
 - Both classes manage a resizable internal character array to store text.
@@ -29,9 +29,9 @@ void main() {
 
     /*
     Append
-    Appends the specified object to this character sequence.
-    It supports: all native datatypes, Object, char[], etc.
-    Output: Hello World
+    - Appends the specified object to this character sequence.
+    - It supports: all native datatypes, Object, char[], etc.
+    - Output: Hello World
     */
     StringBuilder x = new StringBuilder("Hello");
     x.append(" World");
@@ -39,8 +39,8 @@ void main() {
 
     /*
     Insert
-    Inserts the object into this character sequence.
-    Output: Hello World
+    - Inserts the object into this character sequence.
+    - Output: Hello World
     */
     x = new StringBuilder("World");
     x.insert(0, "Hello ");
@@ -48,8 +48,8 @@ void main() {
 
     /*
     Set Char At
-    The character at the specified index is set to ch.
-    Output: Hello-World
+    - The character at the specified index is set to ch.
+    - Output: Hello-World
     */
     x = new StringBuilder("Hello World");
     x.setCharAt(5, '-');
@@ -57,8 +57,8 @@ void main() {
 
     /*
     Delete
-    Removes the characters in a substring of this sequence.
-    Output: World
+    - Removes the characters in a substring of this sequence.
+    - Output: World
     */
     x = new StringBuilder("Hello World");
     x.delete(0, 6);
@@ -66,8 +66,8 @@ void main() {
 
     /*
     Delete Char At
-    Removes the char at the specified position in this sequence.
-    Output: HelloWorld
+    - Removes the char at the specified position in this sequence.
+    - Output: HelloWorld
     */
     x = new StringBuilder("Hello-World");
     x.deleteCharAt(5);
@@ -75,8 +75,8 @@ void main() {
 
     /*
     Repeat
-    Appends count copies of the specified CharSequence to this sequence.
-    Output: Hello World World
+    - Appends count copies of the specified CharSequence to this sequence.
+    - Output: Hello World World
     */
     x = new StringBuilder("Hello");
     x.repeat(" World", 2);
@@ -84,8 +84,8 @@ void main() {
 
     /*
     Replace
-    Replaces the characters in a substring of this sequence with characters in the specified String.
-    Output: Hi World
+    - Replaces the characters in a substring of this sequence with characters in the specified String.
+    - Output: Hi World
     */
     x = new StringBuilder("Hello World");
     x.replace(0, 5, "Hi");
@@ -93,8 +93,8 @@ void main() {
 
     /*
     Reverse
-    Causes this character sequence to be replaced by the reverse of the sequence.
-    Output: dlroW olleH
+    - Causes this character sequence to be replaced by the reverse of the sequence.
+    - Output: dlroW olleH
     */
     x = new StringBuilder("Hello World");
     x.reverse();
@@ -106,19 +106,18 @@ void main() {
 
     /*
     Capacity
-    Returns the current capacity.
-    StringBuilder maintains an internal character array with a certain capacity.
-    This capacity defines how many characters can be stored without reallocating
-    the internal buffer.
-    Output: 27
+    - Returns the current capacity.
+    - StringBuilder maintains an internal character array with a certain capacity.
+    - This capacity defines how many characters can be stored without reallocating the internal buffer.
+    - Output: 27
     */
     x = new StringBuilder("Hello World");
     IO.println(x.capacity());
 
     /*
     Ensure Capacity
-    Ensures that the capacity is at least equal to the specified minimum.
-    Output: 56
+    - Ensures that the capacity is at least equal to the specified minimum.
+    - Output: 56
     */
     x = new StringBuilder("Hello World");
     x.ensureCapacity(56);
@@ -126,8 +125,8 @@ void main() {
 
     /*
     Trim to Size
-    Attempts to reduce storage used for the character sequence.
-    Output: 11
+    - Attempts to reduce storage used for the character sequence.
+    - Output: 11
     */
     x = new StringBuilder("Hello World");
     x.trimToSize();
@@ -139,10 +138,9 @@ void main() {
 
     /*
     String Buffer
-    StringBuffer behaves like StringBuilder and provides the same set of methods,
-    but all its operations are synchronized, making it thread-safe at the cost of
-    lower performance.
-    Output: Hello World
+    - StringBuffer behaves like StringBuilder and provides the same set of methods, but all its operations are
+      synchronized, making it thread-safe at the cost of lower performance.
+    - Output: Hello World
     */
     StringBuffer y = new StringBuffer("Hello");
     y.append(" World");

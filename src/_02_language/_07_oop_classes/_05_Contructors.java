@@ -1,6 +1,6 @@
 /*
 Class Constructors
-This section explains constructors in Java and their role in creating and initializing objects.
+- This section explains constructors in Java and their role in creating and initializing objects.
 
 Overview
 - Constructors are special methods in a class used to create new instances.

@@ -1,6 +1,6 @@
 /*
 Generic Constructors
-This section explains how generic constructors work in Java and how they differ from generic classes and methods.
+- This section explains how generic constructors work in Java and how they differ from generic classes and methods.
 
 Overview
 - A generic constructor declares its own type parameter.

@@ -1,7 +1,7 @@
 /*
 Enums Interfaces
-This section explains how Java enums can implement interfaces to provide polymorphic behavior and consistent contracts
-across constants.
+- This section explains how Java enums can implement interfaces to provide polymorphic behavior and consistent contracts
+  across constants.
 
 Overview
 - Enums can implement one or more interfaces just like regular classes.

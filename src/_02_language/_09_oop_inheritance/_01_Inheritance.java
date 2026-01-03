@@ -1,6 +1,6 @@
 /*
 Inheritance
-This section explains inheritance in Java and how it allows classes to reuse and extend behavior from other classes.
+- This section explains inheritance in Java and how it allows classes to reuse and extend behavior from other classes.
 
 Overview
 - Inheritance allows a class to acquire fields and methods from another class.

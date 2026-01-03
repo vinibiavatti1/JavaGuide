@@ -1,6 +1,6 @@
 /*
 Classes
-This section explains what classes are in Java and their role in object-oriented programming.
+- This section explains what classes are in Java and their role in object-oriented programming.
 
 Overview
 - A class is a blueprint for creating objects.

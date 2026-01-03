@@ -1,7 +1,7 @@
 /*
 Generics Classes
-This section explains how to make Java classes generic, allowing them to operate on objects of different types while
-providing compile-time type safety.
+- This section explains how to make Java classes generic, allowing them to operate on objects of different types while
+  providing compile-time type safety.
 
 Overview
 - Generic classes define one or more type parameters (e.g., <E>, <T>, <K, V>).

@@ -1,7 +1,7 @@
 /*
 Abstract Classes
-This section explains abstract classes in Java and how they provide a base for other classes without allowing direct
-instantiation.
+- This section explains abstract classes in Java and how they provide a base for other classes without allowing direct
+  instantiation.
 
 Overview
 - An abstract class cannot be instantiated directly.

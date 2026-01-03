@@ -1,6 +1,6 @@
 /*
 Static Fields
-This section explains what static fields are in Java and how they represent class-level state.
+- This section explains what static fields are in Java and how they represent class-level state.
 
 Overview
 - Static fields are variables declared inside a class with the "static" keyword.

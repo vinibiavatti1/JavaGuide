@@ -1,7 +1,7 @@
 /*
 Method Overloading
-This section explains method overloading in Java, which allows multiple methods in the same class to have the same
-name but different parameter lists.
+- This section explains method overloading in Java, which allows multiple methods in the same class to have the same
+  name but different parameter lists.
 
 Overview
 - Overloaded methods have the same method name but differ in:

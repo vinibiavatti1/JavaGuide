@@ -1,7 +1,7 @@
 /*
 Collections
-This section explains the Java Collections framework, which provides a unified architecture for storing and
-manipulating groups of objects.
+- This section explains the Java Collections framework, which provides a unified architecture for storing and
+  manipulating groups of objects.
 
 Overview
 - The framework includes core interfaces like Collection, List, Set, Map, and Queue.

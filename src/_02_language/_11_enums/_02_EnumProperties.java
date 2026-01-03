@@ -1,7 +1,7 @@
 /*
 Enums Properties
-This section explains how Java enums can include fields, constructors, and methods to represent additional data and
-behavior for each constant.
+- This section explains how Java enums can include fields, constructors, and methods to represent additional data and
+  behavior for each constant.
 
 Overview
 - Enums in Java are more than just named constants; they can have fields and methods.

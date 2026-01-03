@@ -1,6 +1,6 @@
 /*
 Final Classes
-This section explains final classes in Java and how they prevent inheritance.
+- This section explains final classes in Java and how they prevent inheritance.
 
 Overview
 - A final class cannot be extended by any other class.

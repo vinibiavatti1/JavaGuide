@@ -1,7 +1,7 @@
 /*
 Class Initializers
-This section explains initializers in Java, which allow code to run automatically during class loading or object
-creation.
+- This section explains initializers in Java, which allow code to run automatically during class loading or object
+  creation.
 
 Overview
 - Static Initializers (`static { ... }`):

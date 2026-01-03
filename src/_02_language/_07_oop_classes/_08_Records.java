@@ -1,6 +1,6 @@
 /*
 Records
-This section explains what records are in Java and their purpose.
+- This section explains what records are in Java and their purpose.
 
 Overview
 - Records are a special kind of class introduced to model immutable data.

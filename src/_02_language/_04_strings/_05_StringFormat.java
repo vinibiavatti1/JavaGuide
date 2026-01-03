@@ -1,7 +1,7 @@
 /*
 String Format
-String formatting in Java is based on format specifiers, which define how values are converted and inserted into a
-formatted string.
+- String formatting in Java is based on format specifiers, which define how values are converted and inserted into a
+  formatted string.
 
 Overview
 - String formatting uses placeholders and format specifiers to insert values into a string.
@@ -54,9 +54,9 @@ Conversion
 void main() {
     /*
     Conversion
-    Defines the type of data to format (e.g., s for strings, d for integers, f for floating-point).
-    Format: %conversion
-    Output: A A true 1 3,140000
+    - Defines the type of data to format (e.g., s for strings, d for integers, f for floating-point).
+    - Format: %conversion
+    - Output: A A true 1 3,140000
     */
     String format = "%s %c %b %d %f";
     String result = String.format(format, "A", 'A', true, 1, 3.14);
@@ -64,9 +64,9 @@ void main() {
 
     /*
     Argument Index
-    Specifies the index of the argument to use (1-based). Useful for reordering arguments.
-    Format: %[arg$]conversion
-    Output: B A
+    - Specifies the index of the argument to use (1-based). Useful for reordering arguments.
+    - Format: %[arg$]conversion
+    - Output: B A
     */
     format = "%2$s %1$s";
     result = String.format(format, "A", "B");
@@ -74,9 +74,9 @@ void main() {
 
     /*
     Flag
-    Modify the formatting behavior, such as alignment, padding, sign display, or alternate forms.
-    Format: %[flags]conversion
-    Output: +1
+    - Modify the formatting behavior, such as alignment, padding, sign display, or alternate forms.
+    - Format: %[flags]conversion
+    - Output: +1
     */
     format = "%+d";
     result = String.format(format, 1);
@@ -84,9 +84,9 @@ void main() {
 
     /*
     Width
-    Sets the minimum number of characters to be written. Padding is applied if necessary.
-    Format: [width]conversion
-    Output: "  1"
+    - Sets the minimum number of characters to be written. Padding is applied if necessary.
+    - Format: [width]conversion
+    - Output: "  1"
     */
     format = "%03d";
     result = String.format(format, 1);
@@ -94,9 +94,9 @@ void main() {
 
     /*
     Precision
-    Controls the number of digits or characters to display, depending on the conversion type.
-    Format: %[.precision]conversion
-    Output: 3,14
+    - Controls the number of digits or characters to display, depending on the conversion type.
+    - Format: %[.precision]conversion
+    - Output: 3,14
     */
     format = "%.2f";
     result = String.format(format, 3.14);
@@ -104,9 +104,9 @@ void main() {
 
     /*
     Full Example
-    An example using all the available placeholders.
-    Format: %[arg$][flags][width][.precision]conversion
-    Output: +04,160 +03,140
+    - An example using all the available placeholders.
+    - Format: %[arg$][flags][width][.precision]conversion
+    - Output: +04,160 +03,140
     */
     format = "%2$+07.3f %1$+07.3f";
     result = String.format(format, 3.14, 4.16);

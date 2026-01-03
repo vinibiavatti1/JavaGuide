@@ -1,6 +1,6 @@
 /*
 Class Methods
-This section explains methods in Java and how they define the behavior of classes and objects.
+- This section explains methods in Java and how they define the behavior of classes and objects.
 
 Overview
 - Methods are functions inside a class that perform tasks or operate on fields.

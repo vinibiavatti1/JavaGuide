@@ -1,7 +1,7 @@
 /*
 Generic Methods
-This section explains how to define and use generic methods in Java, allowing methods to work with different types
-while preserving compile-time type safety.
+- This section explains how to define and use generic methods in Java, allowing methods to work with different types
+  while preserving compile-time type safety.
 
 Overview
 - Generic methods declare their own type parameters (e.g., <T>, <R>).

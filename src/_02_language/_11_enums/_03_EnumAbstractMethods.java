@@ -1,7 +1,7 @@
 /*
 Enums with Abstract Methods
-This section explains how Java enums can define abstract methods, allowing each constant to provide its own
-implementation.
+- This section explains how Java enums can define abstract methods, allowing each constant to provide its own
+  implementation.
 
 Overview
 - Enums can contain abstract methods just like abstract classes.

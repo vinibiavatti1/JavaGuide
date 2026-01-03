@@ -1,6 +1,6 @@
 /*
 Class Fields
-This section explains what fields are in Java and how they represent the state of a class or its objects.
+- This section explains what fields are in Java and how they represent the state of a class or its objects.
 
 Overview
 - Fields are variables declared inside a class.

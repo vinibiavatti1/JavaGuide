@@ -1,6 +1,6 @@
 /*
 Unbounded Wildcard (<?>)
-This section explains how to use unbounded wildcards in Java generics to accept any type.
+- This section explains how to use unbounded wildcards in Java generics to accept any type.
 
 Overview
 - The wildcard "?" represents an unknown type.

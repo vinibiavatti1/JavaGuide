@@ -1,6 +1,6 @@
 /*
 Upper Bounded Wildcards (<? extends T>)
-This section explains how to use upper bounds in Java generics to restrict types to a specific class or its subclasses.
+- This section explains how to use upper bounds in Java generics to restrict types to a specific class or its subclasses.
 
 Overview
 - Upper bounds use "extends" to restrict a generic type: <T extends Number>.

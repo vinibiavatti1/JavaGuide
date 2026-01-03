@@ -1,7 +1,7 @@
 /*
 Multiple Bounds (&)
-This section explains how to use multiple bounds in Java generics, allowing a type parameter to be restricted to a class
-and one or more interfaces at the same time.
+- This section explains how to use multiple bounds in Java generics, allowing a type parameter to be restricted to a
+  class and one or more interfaces at the same time.
 
 Overview
 - Multiple bounds use the "&" operator with the "extends" keyword.

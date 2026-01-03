@@ -1,7 +1,7 @@
 /*
 Exceptions in Java
-This section explains how exceptions work in Java, the difference between checked and unchecked exceptions,
-and the basic exception hierarchy.
+- This section explains how exceptions work in Java, the difference between checked and unchecked exceptions, and the
+  basic exception hierarchy.
 
 Overview
 - Exceptions are objects that represent errors or unexpected conditions during program execution.

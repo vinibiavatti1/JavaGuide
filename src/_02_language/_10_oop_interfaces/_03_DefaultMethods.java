@@ -1,7 +1,7 @@
 /*
 Default Methods
-This section explains default methods in Java interfaces and how they allow interfaces to provide a concrete
-implementation.
+- This section explains default methods in Java interfaces and how they allow interfaces to provide a concrete
+  implementation.
 
 Overview
 - Default methods are methods with a body defined in an interface using the "default" keyword.
