@@ -12,6 +12,7 @@ Key Characteristics
 - Type parameters are placeholders for actual types provided when creating instances.
 - Fields, methods, and constructors can use the generic type.
 - Can be combined with bounded types to restrict allowed types.
+- Multiple types are allowed <T1, T2, ...>
 
 Notes
 - List<Number> is not the same as List<Integer>. To allow a variable to accept a list of multiple types, you can use

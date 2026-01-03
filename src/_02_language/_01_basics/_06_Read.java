@@ -1,6 +1,6 @@
 /*
 Reading Input
-This section explains how to read data from the console in Java, enabling programs to interact with the user.
+- This section explains how to read data from the console in Java, enabling programs to interact with the user.
 
 Overview
 - Reading input allows programs to capture user-provided data.
@@ -19,17 +19,17 @@ Usage
 void main() {
     /*
     Reading input using the new IO class (Java 25+).
-    The readln method prints the prompt and waits for user input.
-    Output: You entered: <user input>
+    - The readln method prints the prompt and waits for user input.
+    - Output: You entered: <user input>
     */
     String input = IO.readln("Enter something: ");
     IO.println("You entered: " + input);
 
     /*
     Conventional way using Scanner (works in all Java versions).
-    Scanner reads input from System.in.
-    It is always good practice to close Scanner when done.
-    Output: <user input>
+    - Scanner reads input from System.in.
+    - It is always good practice to close Scanner when done.
+    - Output: <user input>
     */
     java.util.Scanner scanner = new java.util.Scanner(System.in);
     System.out.print("Enter something else: ");

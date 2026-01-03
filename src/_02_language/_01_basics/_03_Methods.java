@@ -1,6 +1,6 @@
 /*
 Methods
-This section explains how to define and use methods in Java to encapsulate behavior and organize program logic.
+- This section explains how to define and use methods in Java to encapsulate behavior and organize program logic.
 
 Overview
 - Methods define actions that a class or program can perform.
@@ -69,32 +69,32 @@ Calling Methods
 void main() {
     /*
     Calling Method
-    Output: Hello World
+    - Output: Hello World
     */
     method();
 
     /*
     Calling Method (with arguments)
-    Output: a:5 b:3
+    - Output: a:5 b:3
     */
     methodWithArguments(5, 3);
 
     /*
     Calling Method (with varargs)
-    Output: 1 2
+    - Output: 1 2
     */
     methodWithVarArgs(1, 2);
 
     /*
     Calling Method (with return type)
-    Output: 1
+    - Output: 1
     */
     int x = methodWithReturn();
     IO.println(x);
 
     /*
     Calling Example
-    Output: 8
+    - Output: 8
     */
     int sum = add(5, 3);
     IO.println(sum);

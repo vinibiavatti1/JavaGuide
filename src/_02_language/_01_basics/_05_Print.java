@@ -1,6 +1,7 @@
 /*
 Printing
-This section explains how to output information to the console in Java, allowing programs to communicate with the user.
+- This section explains how to output information to the console in Java, allowing programs to communicate with the
+  user.
 
 Overview
 - Printing is used to display variables, literals, or formatted messages.
@@ -19,33 +20,33 @@ Usage
 void main() {
     /*
     Printing to the console using the conventional method.
-    This prints the message and moves the cursor to the next line.
-    Output: Hello World
+    - This prints the message and moves the cursor to the next line.
+    - Output: Hello World
     */
     System.out.println("Hello World");
 
     /*
     Printing using the new IO class (Java 25+).
-    Simplifies console output; behaves like println.
-    Output: Hello World
+    - Simplifies console output; behaves like println.
+    - Output: Hello World
     */
     IO.println("Hello World");
 
     /*
     Printing to the console without automatically moving to the next line.
-    We add "\n" at the end of the string to force the cursor to jump to the next line.
-    Output: Hello World
+    - We add "\n" at the end of the string to force the cursor to jump to the next line.
+    - Output: Hello World
     */
     IO.print("Hello World\n");
 
     /*
     Printing using formatted output.
-    System.out.printf allows you to define a template string with placeholders:
-    %d -> integer
-    %f -> floating-point number
-    %s -> string
-    %n -> \n
-    Output: Count: 1, Price: 1.23
+    - System.out.printf allows you to define a template string with placeholders:
+      - %d -> integer
+      - %f -> floating-point number
+      - %s -> string
+      - %n -> \n
+    - Output: Count: 1, Price: 1.23
     */
     int count = 1;
     double price = 1.234;
