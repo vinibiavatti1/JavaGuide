@@ -21,6 +21,17 @@ Usage
 - For Text Files: Use Files.newBufferedReader(path) or Files.newBufferedWriter(path).
 - For Quick Reads: Use Files.readAllLines(path) for small files or Files.lines(path) for large files and streaming.
 
+Open Options
+- StandardOpenOption flags can be used to control file creation and writing behavior.
+- Common flags include:
+  - CREATE           : Creates a new file if it does not exist.
+  - CREATE_NEW       : Creates a new file and fails if it already exists.
+  - APPEND           : Opens the file for writing at the end, preserving existing content.
+  - TRUNCATE_EXISTING: Opens the file and truncates it to zero length if it already exists.
+  - DELETE_ON_CLOSE  : Deletes the file automatically when the stream is closed.
+  - READ             : Opens the file for reading.
+  - WRITE            : Opens the file for writing.
+
 Legacy
 - Prior to Java 7 (before NIO.2), developers were required to manually chain multiple stream constructors to enable
   buffering and ensure correct character encoding:
@@ -44,11 +55,11 @@ void main() throws IOException {
     - If the file does not exist, an IOException is thrown.
     - Path.of is used to create a platform-independent path to the resource.
     - The entire file is read into memory using readAllBytes().
-    - Output: [B@8efb846 (byte array)
+    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
     */
     try (InputStream in = Files.newInputStream(Path.of("resources/file.dat"))) {
         byte[] content = in.readAllBytes();
-        IO.println(content);
+        for (byte b : content) IO.println(b);
     }
 
     /*
@@ -56,6 +67,7 @@ void main() throws IOException {
     - The "Files.newOutputStream" method creates an OutputStream for writing binary data to a file.
     - If the file already exists, its content is truncated before writing.
     - If the file does not exist, it is created automatically.
+    - To control open behavior, the flags in StandardOpenOption can be used.
     - The byte array represents the ASCII/UTF-8 encoding of the string "Hello World".
     */
     try (OutputStream out = Files.newOutputStream(Path.of("resources/file.dat"))) {
@@ -80,6 +92,7 @@ void main() throws IOException {
     Writing Text
     - The "Files.newBufferedWriter" method creates a BufferedWriter for writing text files.
     - If the file already exists, its content is truncated before writing; if it does not exist, it is created.
+    - To control open behavior, the flags in StandardOpenOption can be used.
     - Path.of is used to create a platform-independent path to the resource.
     - The text is written to the file using the write() method.
     - Output in "resources/file.txt": Hello World

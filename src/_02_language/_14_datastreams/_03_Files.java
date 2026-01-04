@@ -1,6 +1,43 @@
 /*
+Files Utility Class
+- This section explains the "Files" class in Java, which provides a rich set of static methods for file and directory
+  operations, allowing efficient and safe manipulation of resources in the filesystem.
 
- */
+Overview
+- The "Files" class is part of the java.nio.file package.
+- It provides methods for creating, reading, writing, copying, moving, and deleting files and directories.
+- Supports both byte and text operations, as well as checking file attributes and permissions.
+- Introduced in Java 7 as part of the NIO.2 (New I/O) API to modernize file handling.
+
+Key Characteristics
+- All methods are static; there is no need to instantiate the class.
+- Supports operations on Path objects, providing platform-independent access to filesystem resources.
+- Can handle both small and large files efficiently.
+- Methods often throw IOException to indicate problems during file operations.
+
+Notes
+- Modern methods like readString, writeString, readAllBytes, and write handle common tasks more concisely.
+- For large files or streaming data, use Files.newInputStream(path)/Files.newOutputStream(path) for binary, or
+  Files.newBufferedReader(path)/Files.newBufferedWriter(path) for text.
+- Supports symbolic and hard links, directory traversal, file attribute checks, and temporary files/directories.
+
+Usage
+- Use Files for performing common file I/O tasks safely and concisely.
+- Examples of typical operations: creating files/directories, copying or moving resources, reading/writing bytes or text,
+  checking existence and permissions.
+- Provides a consistent and modern alternative to legacy java.io.File methods.
+
+Open Options
+- StandardOpenOption flags can be used to control file creation and writing behavior.
+- Common flags include:
+  - CREATE           : Creates a new file if it does not exist.
+  - CREATE_NEW       : Creates a new file and fails if it already exists.
+  - APPEND           : Opens the file for writing at the end, preserving existing content.
+  - TRUNCATE_EXISTING: Opens the file and truncates it to zero length if it already exists.
+  - DELETE_ON_CLOSE  : Deletes the file automatically when the stream is closed.
+  - READ             : Opens the file for reading.
+  - WRITE            : Opens the file for writing.
+*/
 void main() throws IOException {
     //==================================================================================================================
     // Create Resources
@@ -158,6 +195,7 @@ void main() throws IOException {
     Writing Bytes
     - The "Files.write" method writes the given byte array to the specified file.
     - If the file already exists, its content is replaced; if it does not exist, it is created automatically.
+    - To control open behavior, the flags in StandardOpenOption can be used.
     */
     bytes = "Hello World".getBytes();
     Files.write(Path.of("resources/file.txt"), bytes);
@@ -166,8 +204,68 @@ void main() throws IOException {
     Writing String
     - The "Files.writeString" method writes the given String to the specified file using UTF-8 by default.
     - If the file already exists, its content is replaced; if it does not exist, it is created automatically.
+    - To control open behavior, the flags in StandardOpenOption can be used.
     - Output example: "Hello World" is written to resources/file.txt
     */
     content = "Hello World";
     Files.writeString(Path.of("resources/file.txt"), content);
+
+    //==================================================================================================================
+    // Byte Data Stream
+    //==================================================================================================================
+
+    /*
+    Reading Bytes
+    - The "Files.newInputStream" method creates an InputStream for reading binary data from a file.
+    - If the file does not exist, an IOException is thrown.
+    - Path.of is used to create a platform-independent path to the resource.
+    - The entire file is read into memory using readAllBytes().
+    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
+    */
+    try (InputStream in = Files.newInputStream(Path.of("resources/file.dat"))) {
+        bytes = in.readAllBytes();
+        for (byte b : bytes) IO.println(b);
+    }
+
+    /*
+    Writing Bytes
+    - The "Files.newOutputStream" method creates an OutputStream for writing binary data to a file.
+    - If the file already exists, its content is truncated before writing.
+    - If the file does not exist, it is created automatically.
+    - The byte array represents the ASCII/UTF-8 encoding of the string "Hello World".
+    */
+    try (OutputStream out = Files.newOutputStream(Path.of("resources/file.dat"))) {
+        byte[] data = "Hello World".getBytes();
+        out.write(data);
+    }
+
+    //==================================================================================================================
+    // Text Data Stream
+    //==================================================================================================================
+
+    /*
+    Reading Text
+    - The "Files.newBufferedReader" method creates a BufferedReader for reading text files.
+    - If the file does not exist, an IOException is thrown.
+    - Path.of is used to create a platform-independent path to the resource.
+    - The entire text is read into a String in memory using readAllAsString().
+    - Output: Hello World
+    */
+    try (BufferedReader in = Files.newBufferedReader(Path.of("resources/file.txt"))) {
+        content = in.readAllAsString();
+        IO.println(content);
+    }
+
+    /*
+    Writing Text
+    - The "Files.newBufferedWriter" method creates a BufferedWriter for writing text files.
+    - If the file already exists, its content is truncated before writing; if it does not exist, it is created.
+    - Path.of is used to create a platform-independent path to the resource.
+    - The text is written to the file using the write() method.
+    - Output in "resources/file.txt": Hello World
+    */
+    try (BufferedWriter out = Files.newBufferedWriter(Path.of("resources/file.txt"))) {
+        content = "Hello World";
+        out.write(content);
+    }
 }
