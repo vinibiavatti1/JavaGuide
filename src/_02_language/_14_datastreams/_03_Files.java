@@ -277,9 +277,14 @@ void main() throws IOException {
     Walk File Tree
     - The "Files.walkFileTree" method recursively traverses a directory tree starting from the specified path.
     - The traversal is controlled by a FileVisitor (or SimpleFileVisitor), allowing actions on files and directories.
+    - Methods to override:
+      - visitFile: Invoked for each file encountered during the traversal.
+      - preVisitDirectory: Invoked before entering a directory.
+      - postVisitDirectory: Invoked after all entries in a directory have been processed.
+      - visitFileFailed: Invoked when a file cannot be accessed or visited.
     - In this example, we override the visitFile method to print the path of each file visited.
     - FileVisitResult.CONTINUE indicates that the traversal should continue normally.
-    - Output example: Visiting: resources\file.dat | Visiting: resources\file.txt
+    - Output: Visiting: resources\file.dat | Visiting: resources\file.txt
     */
     Files.walkFileTree(Path.of("resources"), new SimpleFileVisitor<Path>() {
         @Override
