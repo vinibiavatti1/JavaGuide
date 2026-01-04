@@ -486,25 +486,21 @@ void main() {
     /*
     To Char Array
     - Converts this string to a new character array.
-    - Output: 0: A | 1: B | 2: C
+    - Output: A | B | C
     */
     x = "ABC";
     char[] chars = x.toCharArray();
-    for (int i = 0; i < chars.length; i++) {
-        IO.println(i + ": " + chars[i]);
-    }
+    for (char c : chars) IO.println(c);
 
     /*
     Get Chars
     - Copies characters from this sequence into the given destination array.
-    - Output: 0: W | 1: o | 2: r | 3: l | 4: d
+    - Output: W | o | r | l | d
     */
     x = "Hello World";
     char[] dst = new char[5];
     x.getChars(6, 11, dst, 0);
-    for (int i = 0; i < dst.length; i++) {
-        IO.println(i + ": " + dst[i]);
-    }
+    for (char c : dst) IO.println(c);
 
     /*
     Get Bytes
@@ -515,9 +511,7 @@ void main() {
     */
     x = "Hello World";
     byte[] arr = x.getBytes();
-    for (byte b : arr) {
-        IO.println(b + " ");
-    }
+    for (byte b : arr) IO.println(b);
 
     //==================================================================================================================
     // Hashing
