@@ -30,13 +30,13 @@ Usage
 Open Options
 - StandardOpenOption flags can be used to control file creation and writing behavior.
 - Common flags include:
-  - CREATE           : Creates a new file if it does not exist.
-  - CREATE_NEW       : Creates a new file and fails if it already exists.
-  - APPEND           : Opens the file for writing at the end, preserving existing content.
+  - CREATE: Creates a new file if it does not exist.
+  - CREATE_NEW: Creates a new file and fails if it already exists.
+  - APPEND: Opens the file for writing at the end, preserving existing content.
   - TRUNCATE_EXISTING: Opens the file and truncates it to zero length if it already exists.
-  - DELETE_ON_CLOSE  : Deletes the file automatically when the stream is closed.
-  - READ             : Opens the file for reading.
-  - WRITE            : Opens the file for writing.
+  - DELETE_ON_CLOSE: Deletes the file automatically when the stream is closed.
+  - READ: Opens the file for reading.
+  - WRITE: Opens the file for writing.
 */
 void main() throws IOException {
     //==================================================================================================================

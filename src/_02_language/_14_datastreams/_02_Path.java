@@ -10,7 +10,7 @@ Overview
 - Introduced in Java 7 as part of the NIO.2 (New I/O) API.
 
 Key Characteristics
-- Path is an interface, not a concrete class; it is typically obtained via Path.of(...) or Paths.get(...).
+- Path is an interface, not a concrete class; it is typically obtained via Path.of(...).
 - Provides methods for path manipulation, such as resolving, normalizing, and comparing paths.
 - Does not access the filesystem directly; actual I/O operations are performed by the Files utility class.
 - Immutable: operations like resolve or normalize return new Path instances.
@@ -20,6 +20,7 @@ Notes
 - Relative paths are resolved against the current working directory of the JVM.
 - Path operations are platform-independent, handling separators and filesystem rules automatically.
 - Can represent files, directories, symbolic links, or non-existent resources.
+- Avoid using the "Paths" class since this class may be deprecated in a future release.
 
 Usage
 - Use Path to represent and manipulate filesystem paths.
