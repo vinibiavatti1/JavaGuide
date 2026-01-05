@@ -23,8 +23,8 @@ Notes
 
 Usage
 - Use Files for performing common file I/O tasks safely and concisely.
-- Examples of typical operations: creating files/directories, copying or moving resources, reading/writing bytes or text,
-  checking existence and permissions.
+- Examples of typical operations: creating files/directories, copying or moving resources, reading/writing bytes or
+  text, checking existence and permissions.
 - Provides a consistent and modern alternative to legacy java.io.File methods.
 
 Open Options
