@@ -555,42 +555,4 @@ void main() {
     */
     x = "Hello World";
     IO.println(x.subSequence(6, 9));
-
-    //==================================================================================================================
-    // Static Methods
-    //==================================================================================================================
-
-    /*
-    Value Of
-    - Returns the string representation of the argument.
-    */
-    y1 = String.valueOf(3.14);
-    y2 = String.valueOf(new char[]{'A', 'B', 'C', 'D'});
-    y3 = String.valueOf(new char[]{'A', 'B', 'C', 'D'}, 1, 2);
-    IO.println(y1); // "3.14"
-    IO.println(y2); // "ABCD"
-    IO.println(y3); // "BC"
-
-    /*
-    Join
-    - Returns a new String composed of copies of the CharSequence elements joined together with a copy of the specified
-      delimiter.
-    */
-    y1 = String.join(", ", "A", "B", "C");
-    y2 = String.join(", ", new String[] {"A", "B", "C"});
-    y3 = String.join(", ", Arrays.asList("A", "B", "C"));
-    IO.println(y1); // A, B, C
-    IO.println(y2); // A, B, C
-    IO.println(y3); // A, B, C
-
-    /*
-    Format
-    - Returns a formatted string using the specified format string and arguments.
-    - An optional Locale can be provided.
-    */
-    String template = "Hello, %s! You have %d messages.";
-    y1 = String.format(template, "John", 3);
-    y2 = String.format(Locale.US, template, "John", 3);
-    IO.println(y1); // Hello, John! You have 3 messages.
-    IO.println(y2); // Hello, John! You have 3 messages.
 }
