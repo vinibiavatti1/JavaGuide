@@ -16,18 +16,28 @@ Key Characteristics
   checkFromIndexSize).
 - Supports deep equality checks with Objects.deepEquals() and combined hash codes with Objects.hash().
 
-Notes
-- Useful for defensive programming, ensuring null safety and consistent object handling.
-- Commonly used in conjunction with collections, maps, and streams.
-- Reduces boilerplate code when performing equality, hashing, and null-handling operations.
-- Complements other utility classes like java.util.Arrays for array-related operations.
-
 Usage
-- Use Objects to perform null-safe comparisons and hash code computations.
-- Use requireNonNull() and related methods to enforce contracts and fail-fast validation.
-- Use checkIndex and similar methods for bounds validation in collections and arrays.
-- Use toString() and toIdentityString() for safe and informative object string representations.
-- Use Objects.hash() for combining multiple fields into a single hash code, typically in hashCode() implementations.
+- Use Objects to simplify and standardize operations on objects.
+- Ensure null-safety and reduce boilerplate code in comparisons and validations.
+- Apply when writing robust, defensive, and maintainable code.
+- Useful in combination with collections, streams, and object-oriented designs.
+
+Example
+- The example below demonstrates modern validation techniques using Objects utility in a method.
+- Validates null references, checks index ranges, and provides default values.
+- Throws exceptions immediately if validations fail (fail-fast approach).
+*/
+public static String processItem(List<String> items, Integer index) {
+    Objects.requireNonNull(items, "The items list cannot be null"); // Validate that the list itself is not null
+    int safeIndex = Objects.requireNonNullElse(index, 0);           // Provide a default index if null
+    int validIndex = Objects.checkIndex(safeIndex, items.size());   // Check that the index is within bounds
+    String item = items.get(validIndex);                            // Retrieve the element safely
+    return Objects.toString(item, "default item");                  // Return a string safely, even if item is null
+}
+
+/*
+Objects Class
+- The example belows shows the most used operations from the Objects class.
 */
 void main() {
     //==================================================================================================================
@@ -219,18 +229,4 @@ void main() {
     a = "A";
     b = "B";
     IO.println(Objects.hash(a, b));
-}
-
-/*
-Example
-- Demonstrates modern validation techniques using Objects utility methods.
-- Validates null references, checks index ranges, and provides default values.
-- Throws exceptions immediately if validations fail (fail-fast approach).
-*/
-public static String processItem(List<String> items, Integer index) {
-    Objects.requireNonNull(items, "The items list cannot be null"); // Validate that the list itself is not null
-    int safeIndex = Objects.requireNonNullElse(index, 0);           // Provide a default index if null
-    int validIndex = Objects.checkIndex(safeIndex, items.size());   // Check that the index is within bounds
-    String item = items.get(validIndex);                            // Retrieve the element safely
-    return Objects.toString(item, "default item");                  // Return a string safely, even if item is null
 }
