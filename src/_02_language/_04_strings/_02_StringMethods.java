@@ -20,77 +20,84 @@ Usage
 */
 void main() {
     //==================================================================================================================
+    // Static Methods
+    //==================================================================================================================
+
+    /*
+    Value Of
+    - Returns the string representation of the given argument.
+    - Has overloads for all primitive types, objects, and even char arrays.
+    - Output: 3.14 (as string)
+    */
+    String str = String.valueOf(3.14);
+    IO.println(str);
+
+    /*
+    Join
+    - Returns a new String composed of copies of the CharSequence elements joined together with the specified delimiter.
+    - Can accept either a varargs of CharSequence or an Iterable (e.g., List<String>).
+    - Output: A, B, C
+    */
+    str = String.join(", ", "A", "B", "C");
+    IO.println(str);
+
+    /*
+    Format
+    - Returns a formatted string using the specified format string and arguments.
+    - Supports multiple overloads, including optional Locale specification.
+    - Useful for creating strings with dynamic values in a controlled format.
+    - Output: Hello, John! You have 3 messages.
+    */
+    String template = "Hello, %s! You have %d messages.";
+    str = String.format(template, "John", 3);
+    IO.println(str);
+
+    //==================================================================================================================
     // Length
     //==================================================================================================================
 
     /*
-    Length
-    - Returns the length of this string.
-    - The length is equal to the number of Unicode code units in the string.
+    Get String Length
+    - The length() method returns the number of Unicode code units in a string.
+    - Works correctly with all characters, including ASCII and Unicode.
     - Output: 11
     */
-    String x = "Hello World";
-    IO.println(x.length());
+    str = "Hello World";
+    IO.println(str.length());
 
     //==================================================================================================================
-    // Character Access
+    // Index Operations
     //==================================================================================================================
 
     /*
-    Char At
-    - Returns the char value at the specified index.
+    Get Character at Index
+    - The "charAt(index)" method returns the character at the specified zero-based index in the string.
+    - Index must be between 0 and length()-1, otherwise it throws StringIndexOutOfBoundsException.
     - Output: W
     */
-    x = "Hello World";
-    IO.println(x.charAt(6));
-
-    //==================================================================================================================
-    // Search
-    //==================================================================================================================
+    str = "Hello World";
+    IO.println(str.charAt(6));
 
     /*
-    Index Of
-    - Returns the index within this string of the first occurrence of the specified character or string.
-    - beginIndex – the index to start the search from (included).
-    - endIndex – the index to stop the search at (excluded)
-    - Output: 2 4
+    Get Index
+    - Returns the index of the first occurrence of the specified character or substring.
+    - The fromIndex and endIndex are optional parameters to specify the start (inclusive) and end (exclusive) of the
+      search range.
+    - If not found, returns -1.
+    - Output: 6
     */
-    x = "A B A C";
-    int i1 = x.indexOf("B");
-    int i2 = x.indexOf("A", 2, 6);
-    IO.println(i1 + " " + i2);
+    str = "Hello World";
+    IO.println(str.indexOf("W"));
 
     /*
-    Index Of (char / int)
-    - Returns the index based on a UTF-16 char value.
-    - Output: 2 4
+    Get Last Index
+    - Returns the index of the last occurrence of the specified character or substring, searching backward.
+    - The fromIndex and endIndex are optional parameters to define the search range (fromIndex inclusive, endIndex exclusive).
+    - If not found, returns -1.
+    - Output: 9
     */
-    x = "A B A C";
-    i1 = x.indexOf(66);       // B
-    i2 = x.indexOf(65, 2, 6); // A
-    IO.println(i1 + " " + i2);
-
-    /*
-    Last Index Of
-    - Returns the index within this string of the last occurrence of the specified substring searching backward starting
-      at the specified index.
-    - fromIndex – the index to start the search from
-    - Output: 4 0
-    */
-    x = "A B A C";
-    i1 = x.lastIndexOf("A");
-    i2 = x.lastIndexOf("A", 3);
-    IO.println(i1 + " " + i2);
-
-    /*
-    Last Index Of (char / int)
-    - Returns the last index based on a UTF-16 char value.
-    - Output: 4 0
-    */
-    x = "A B A C";
-    i1 = x.lastIndexOf(65);    // A
-    i2 = x.lastIndexOf(65, 3); // A
-    IO.println(i1 + " " + i2);
+    str = "Hello World";
+    IO.println(str.lastIndexOf("l"));
 
     //==================================================================================================================
     // Transformation
@@ -99,147 +106,107 @@ void main() {
     /*
     Concat
     - Concatenates the specified string to the end of this string.
+    - The argument string is required; no optional parameters.
     - Output: Hello World
     */
-    x = "Hello";
-    IO.println(x.concat(" World"));
+    str = "Hello ";
+    IO.println(str.concat("World"));
 
     /*
     Trim
-    - Returns a string whose value is this string, with all leading and trailing space removed,
-    - where space is defined as any character whose codepoint is less than or equal to 'U+0020' (the space character).
-    - Characters: \t, \n, \r
+    - Returns a string with all leading and trailing whitespace removed.
+    - Whitespace is defined as any character with a codepoint <= U+0020 (space, tab, newline, carriage return, etc.).
     - Output: Hello World
     */
-    x = "  Hello World  ";
-    IO.println(x.trim());
+    str = " Hello World ";
+    IO.println(str.trim());
 
     /*
     Strip
-    - Returns a string with incidental white space removed
-    - Removes any character classified as Unicode Whitespace: Character.isWhitespace(...)
+    - Returns a string with all leading and trailing Unicode whitespace removed.
+    - Removes any character classified as whitespace by Character.isWhitespace(...).
+    - Related methods: stripLeading() removes only leading whitespace, stripTrailing() removes only trailing whitespace.
     - Output: Hello World
     */
-    x = "  Hello World  ";
-    String y1 = x.strip();
-    String y2 = x.stripLeading();
-    String y3 = x.stripTrailing();
-    IO.println(y1); // "Hello World"
-    IO.println(y2); // "Hello World  "
-    IO.println(y3); // "  Hello World"
-
-    /*
-    Strip Indent
-    - Returns a with incidental white space removed from the beginning and end of every line.
-    - Output: <html> | <body /> | </html>
-    */
-    x = """
-        <html>
-            <body />
-        </html>
-    """;
-    IO.println(x.stripIndent());
+    str = "  Hello World  ";
+    IO.println(str.strip());
 
     /*
     Lower Case
-    - Converts all the characters in this String to lower case using the rules of the Locale.
-    - Output: hello world / hello world
+    - Converts all characters in the string to lower case.
+    - To specify a locale, use toLowerCase(Locale), otherwise the default locale will be used.
+    - Output: hello world
     */
-    x = "Hello World";
-    y1 = x.toLowerCase();
-    y2 = x.toLowerCase(Locale.US);
-    IO.println(y1 + " / " + y2);
+    str = "Hello World";
+    IO.println(str.toLowerCase());
 
     /*
     Upper Case
-    - Converts all the characters in this String to upper case using the rules of the Locale.
-    - Output: HELLO WORLD / HELLO WORLD
+    - Converts all characters in the string to upper case.
+    - To specify a locale, use toUpperCase(Locale), otherwise the default locale will be used.
+    - Output: HELLO WORLD
     */
-    x = "Hello World";
-    y1 = x.toUpperCase();
-    y2 = x.toUpperCase(Locale.US);
-    IO.println(y1 + " / " + y2);
+    str = "Hello World";
+    IO.println(str.toUpperCase());
 
     /*
     Repeat
-    - Returns a string whose value is the concatenation of this string repeated count times.
-    - Output: HelloHelloHello
+    - Returns a string that is the concatenation of this string repeated count times.
+    - Output: Hello Hello Hello
     */
-    x = "Hello";
-    IO.println(x.repeat(3));
-
-    /*
-    Indent
-    - Adjusts the indentation of each line of this string based on the value of n, and normalizes line termination
-      characters.
-    - Output: "    Hello" | "    World"
-    */
-    x = "Hello\nWorld";
-    IO.println(x.indent(4));
-
-    /*
-    Translate Escapes
-    - Returns a string with escape sequences translated as string literal.
-    - Output: U+0009 U+000A
-    */
-    x = "\t \n";
-    IO.println(x.translateEscapes());
-
-    //==================================================================================================================
-    // Format
-    //==================================================================================================================
-
-    /*
-    Formatted
-    - Formats using this string as the format string, and the supplied arguments.
-    - Output: Hello, John! You have 3 messages.
-    */
-    x = "Hello, %s! You have %d messages.";
-    IO.println(x.formatted("John", 3));
-
-    //==================================================================================================================
-    // Substrings
-    //==================================================================================================================
-
-    /*
-    Substring
-    - Returns a string that is a substring of this string.
-    - Output: World / Wor
-    */
-    x = "Hello World";
-    y1 = x.substring(6);
-    y2 = x.substring(6, 9);
-    IO.println(y1 + " / " + y2);
-
-    //==================================================================================================================
-    // Replacement
-    //==================================================================================================================
+    str = "Hello ";
+    IO.println(str.repeat(3));
 
     /*
     Replace
-    - Returns a string resulting from replacing all occurrences of a character or substring.
-    - Output: Hello World / Hello Workd
+    - Returns a new string resulting from replacing all occurrences of a target character or substring with a
+      replacement.
+    - Output: Hi World
     */
-    x = "Hekko Workd";
-    y1 = x.replace('k', 'l');
-    y2 = x.replace("kk", "ll");
-    IO.println(y1 + " / " + y2);
-    
+    str = "Hello World";
+    IO.println(str.replace("Hello", "Hi"));
+
     /*
     Replace All (Regex)
-    - Replaces each substring of this string that matches the given regular expression with the given replacement.
-    - Output: Hxxxx Wxxxx
+    - Returns a new string where each substring matching the given regular expression is replaced with the specified
+      replacement.
+    - This method uses regular expressions (regex) for matching, so special regex characters in the pattern must be
+      escaped if needed.
+    - Output: Hi
     */
-    x = "Hello World";
-    IO.println(x.replaceAll("[a-z]", "x"));
+    str = "Hello";
+    IO.println(str.replaceAll("[a-z]+", "i"));
 
     /*
     Replace First (Regex)
-    - Replaces the first substring of this string that matches the given regular expression with the given replacement.
-    - Output: Hxllo World
+    - Returns a new string where the first substring matching the given regular expression is replaced with the
+      specified replacement.
+    - This method uses regular expressions (regex) for matching, so special regex characters in the pattern must be
+      escaped if needed.
+    - Output: Hi Hello
     */
-    x = "Hello World";
-    IO.println(x.replaceFirst("[a-z]", "x"));
+    str = "Hello Hello";
+    IO.println(str.replaceFirst("[a-z]+", "i"));
+
+    /*
+    Substring
+    - Returns a new string that is a substring of this string.
+    - The beginIndex (inclusive) and endIndex (exclusive) specify the range to extract.
+    - Output: World
+    */
+    str = "Hello World";
+    IO.println(str.substring(6, 11));
+
+    /*
+    Split
+    - Splits this string around matches of the given regular expression.
+    - This method uses regular expressions (regex) for matching, so special regex characters must be escaped if needed.
+    - An optional limit parameter can be specified to control the number of resulting substrings.
+    - Output: [A, B, C]
+    */
+    str = "A,B,C";
+    String[] parts = str.split(",");
+    IO.println(Arrays.toString(parts));
 
     //==================================================================================================================
     // Equality and Matching
@@ -247,223 +214,140 @@ void main() {
 
     /*
     Equals
-    - Compares this string to the specified object.
+    - Compares this string to the specified object for equality.
+    - Related method: equalsIgnoreCase(...) compares ignoring case differences.
     - Output: true
     */
-    x = "Hello World";
-    IO.println(x.equals("Hello World"));
+    str = "Hello World";
+    IO.println(str.equals("Hello World"));
 
     /*
-    Equals (Ignore Case)
-    - Compares this String to another String, ignoring case considerations.
-    - Output: true
+    Compare
+    - Compares two strings lexicographically based on the Unicode value of each character.
+    - Related method: compareToIgnoreCase(...) compares strings ignoring case differences.
+    - Output: 0 (equal)
     */
-    x = "Hello World";
-    IO.println(x.equalsIgnoreCase("hello world"));
+    str = "Hello World";
+    IO.println(str.compareTo("Hello World"));
 
     /*
     Is Blank
-    - Returns true if the string is empty or contains only white space codepoints.
+    - Returns true if the string is empty or contains only whitespace codepoints.
     - Output: true
     */
-    x = "   ";
-    IO.println(x.isBlank());
+    str = " ";
+    IO.println(str.isBlank());
 
     /*
     Is Empty
     - Returns true if, and only if, length() is 0.
     - Output: true
     */
-    x = "";
-    IO.println(x.isEmpty());
+    str = "";
+    IO.println(str.isEmpty());
 
     /*
     Contains
-    - Returns true if and only if this string contains the specified sequence of char values.
+    - Returns true if this string contains the specified sequence of characters.
     - Output: true
     */
-    x = "Hello World";
-    IO.println(x.contains("Wor"));
+    str = "Hello World";
+    IO.println(str.contains("Hello"));
 
     /*
     Starts With
     - Tests if this string starts with the specified prefix.
-    - We can specify an offse where to begin looking in this string.
-    - Output: true true
+    - Optional: an offset can be specified to start checking from a specific index.
+    - Output: true
     */
-    x = "Hello World";
-    boolean check1 = x.startsWith("Hello");
-    boolean check2 = x.startsWith("World", 6);
-    IO.println(check1 + " " + check2);
+    str = "Hello World";
+    IO.println(str.startsWith("Hello"));
 
     /*
     Ends With
     - Tests if this string ends with the specified suffix.
     - Output: true
     */
-    x = "Hello World";
-    IO.println(x.endsWith("World"));
+    str = "Hello World";
+    IO.println(str.endsWith("World"));
 
     /*
     Matches
-    - Tells if this string matches the given regular expression.
+    - Returns true if this string matches the given regular expression.
+    - This method uses regular expressions (regex) for matching.
     - Output: true
     */
-    x = "Hello World";
-    IO.println(x.matches("[a-zA-Z ]*"));
+    str = "Hello World";
+    IO.println(str.matches("[a-zA-Z ]*"));
 
     /*
-    Region Matches
-    - Tests if two string regions are equal.
-    - The code below is comparing: "B C" with "B C".
-    - Note: This method operates on UTF-16 char units, not Unicode code points. It is not safe for characters outside
-      the BMP (e.g. emojis).
-    - Output: true true
+    Hash Code
+    - Returns a hash code value for this string, computed from its characters.
+    - Useful for hash-based collections like HashMap or HashSet.
+    - Output: -862545276
     */
-    x = "A B C D";
-    check1 = x.regionMatches(2, "_ B C _", 2, 3);
-    check2 = x.regionMatches(true, 2, "_ b c _", 2, 3); // Ignore Case
-    IO.println(check1 + " " + check2);
+    str = "Hello World";
+    IO.println(str.hashCode());
 
     //==================================================================================================================
-    // Comparison
+    // Formatting
     //==================================================================================================================
 
     /*
-    Compare
-    - Compares two strings lexicographically.
-    - The comparison is based on the Unicode value of each character in the strings.
-    - Output: 0 (equal)
+    Formatted
+    - Returns a formatted string using this string as the format template and the supplied arguments.
+    - Works like String.format(...) but called directly on the string instance.
+    - The arguments must match the format specifiers in the string.
+    - Output: Hello, John! You have 3 messages.
     */
-    x = "Hello World";
-    IO.println(x.compareTo("Hello World"));
-
-    /*
-    Compare (Ignore Case)
-    - Compares two strings lexicographically, ignoring case differences.
-    - Output: 0 (equal)
-    */
-    x = "Hello World";
-    IO.println(x.compareToIgnoreCase("hello world"));
+    str = "Hello, %s! You have %d messages.";
+    IO.println(str.formatted("John", 3));
 
     //==================================================================================================================
-    // Splitting
+    // Array Conversion
     //==================================================================================================================
 
     /*
-    Split
-    - Splits this string around matches of the given regular expression.
-    - Output: 0: A | 1: B | 2: C
+    To Char Array
+    - Converts this string into a new character array.
+    - Useful for processing individual characters directly.
+    - Output: [A, B, C]
     */
-    x = "A,B,C";
-    String[] parts = x.split(",");
-    for (int i = 0; i < parts.length; i++) {
-        IO.println(i + ": " + parts[i]);
-    }
+    str = "ABC";
+    IO.println(Arrays.toString(str.toCharArray()));
 
     /*
-    Split (With Limit)
-    - Splits this string around matches of the given regular expression.
-    - The limit parameter controls the number of times the pattern is applied and therefore affects the length of the
-      resulting array.
-    - If limit is zero, the pattern will be applied as many times as possible.
-    - Output: 0: A | 1: B | 2: C,D
+    Get Bytes
+    - Encodes this string into a sequence of bytes using the platform's default charset.
+    - An optional charset can be specified for explicit encoding, e.g., getBytes(StandardCharsets.UTF_8).
+    - Useful for I/O operations or byte-level processing.
+    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
     */
-    x = "A,B,C,D";
-    parts = x.split(",", 3);
-    for (int i = 0; i < parts.length; i++) {
-        IO.println(i + ": " + parts[i]);
-    }
-
-    /*
-    Split With Delimiters
-    - Splits this string around matches of the given regular expression and returns both the strings and the matching
-      delimiters.
-    - If limit is zero, the pattern will be applied as many times as possible.
-    - Output: 0: A | 1: , | 2: B | 3: , | 4: C
-    */
-    x = "A,B,C";
-    parts = x.splitWithDelimiters(",", 0);
-    for (int i = 0; i < parts.length; i++) {
-        IO.println(i + ": " + parts[i]);
-    }
+    str = "Hello World";
+    IO.println(Arrays.toString(str.getBytes()));
 
     //==================================================================================================================
-    // Unicode and Code Points
-    //==================================================================================================================
-
-    /*
-    Java String is UTF-16 based.
-    - Some characters (like emojis) are represented by TWO char values (surrogate pairs).
-    - The code point API allows working with real Unicode characters instead of UTF-16 units.
-    */
-
-    /*
-    Code Point Count
-    - Returns the number of Unicode code points in a given range.
-    - Explanation: 😀 is represented by two char values, but a single Unicode code point (U+1F600).
-    - Output: length: 4 count: 2
-    */
-    x = "😀😀";
-    i1 = x.length();
-    i2 = x.codePointCount(0, x.length());
-    IO.println("length: " + i1 + " count: " + i2);
-
-    /*
-    Code Point At
-    - Returns the character (Unicode code point) at the specified index.
-    - Output: 128512
-    */
-    x = "😀";
-    IO.println(x.codePointAt(0));
-
-    /*
-    Code Point Before
-    - Returns the character (Unicode code point) before the specified index.
-    - Output: 128512
-    */
-    x = "😀!";
-    IO.println(x.codePointBefore(2));
-
-    /*
-    Offset By Code Points
-    - Moves an index by a given number of Unicode code points.
-    - Explanation: Each emoji occupies two UTF-16 code units. Moving by 3 code points results in index 6.
-    - Output: 6
-    */
-    x = "😀😀😀";
-    IO.println(x.offsetByCodePoints(0, 3));
-
-    //==================================================================================================================
-    // Streaming
+    // Stream
     //==================================================================================================================
 
     /*
     Chars
-    - Returns a stream of int zero-extending the char values from this sequence.
-    - Output: 55357 56832
+    - Returns an IntStream of the characters in this string, where each char is zero-extended to an int.
+    - Useful for processing or mapping characters as their Unicode code points.
+    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
     */
-    x = "😀";
-    IntStream charsStream = x.chars();
+    str = "Hello World";
+    IntStream charsStream = str.chars();
     charsStream.forEach(IO::println);
 
     /*
-    Code Points
-    - Returns a stream of code point values from this sequence.
-    - Note that for code points, the cmp below is a single value. Using chars, the character bellow counts as two ints.
-    - Output: 128512
-    */
-    x = "😀";
-    IntStream codePointsStream = x.codePoints();
-    codePointsStream.forEach(IO::println);
-
-    /*
     Lines
-    - Returns a stream of lines extracted from this string, separated by line terminators.
+    - Returns a Stream of lines extracted from this string, separated by line terminators (\n, \r, \r\n).
+    - Useful for processing multi-line strings line by line.
     - Output: Hello | World
     */
-    x = "Hello\nWorld";
-    Stream<String> linesStream = x.lines();
+    str = "Hello\nWorld";
+    Stream<String> linesStream = str.lines();
     linesStream.forEach(IO::println);
 
     //==================================================================================================================
@@ -472,87 +356,11 @@ void main() {
 
     /*
     Transform
-    - This method allows the application of a function to this string.
-    - The function should expect a single String argument and produce an R cmp.
+    - Applies the given function to this string and returns the result.
+    - The function should accept a single String argument and produce a result of any type (R).
+    - Useful for chaining operations on a string in a functional style.
     - Output: HELLO WORLD
     */
-    x = "Hello World";
-    IO.println(x.transform(String::toUpperCase));
-
-    //==================================================================================================================
-    // Conversion
-    //==================================================================================================================
-
-    /*
-    To Char Array
-    - Converts this string to a new character array.
-    - Output: A | B | C
-    */
-    x = "ABC";
-    char[] chars = x.toCharArray();
-    for (char c : chars) IO.println(c);
-
-    /*
-    Get Chars
-    - Copies characters from this sequence into the given destination array.
-    - Output: W | o | r | l | d
-    */
-    x = "Hello World";
-    char[] dst = new char[5];
-    x.getChars(6, 11, dst, 0);
-    for (char c : dst) IO.println(c);
-
-    /*
-    Get Bytes
-    - Encodes this String into a sequence of bytes.
-    - We can also specify the charset.
-    - For more explicit encoding, prefer getBytes(StandardCharsets.UTF_8).
-    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
-    */
-    x = "Hello World";
-    byte[] arr = x.getBytes();
-    for (byte b : arr) IO.println(b);
-
-    //==================================================================================================================
-    // Hashing
-    //==================================================================================================================
-
-    /*
-    Hash Code
-    - Returns a hash code for this string.
-    - Output: -862545276
-    */
-    x = "Hello World";
-    IO.println(x.hashCode());
-
-    //==================================================================================================================
-    // CharSequence Support
-    //==================================================================================================================
-
-    /*
-    CharSequence
-    - CharSequence is a Java interface implemented by several classes that represent a readable sequence of characters,
-      such as String, StringBuilder, StringBuffer, and CharBuffer.
-    - The String class provides specific support for working with CharSequence to enable efficient and flexible
-      interaction between different text representations.
-    - The contentEquals method, for example, allows comparing the character content of a String with any object that
-      implements CharSequence, regardless of its concrete type. This makes it possible to compare a String directly with
-      instances like StringBuilder or StringBuffer without requiring explicit conversion.
-    */
-
-    /*
-    Content Equals
-    - Compares this string to the specified CharSequence.
-    - Output: true
-    */
-    x = "Hello World";
-    IO.println(x.contentEquals(new StringBuffer("Hello World")));
-
-    /*
-    Sub Sequence
-    - Returns a character sequence that is a subsequence of this sequence.
-    - Output: Wor
-    */
-    x = "Hello World";
-    IO.println(x.subSequence(6, 9));
+    str = "Hello World";
+    IO.println(str.transform(String::toUpperCase));
 }

@@ -37,8 +37,8 @@ void main() {
     - Output: Hello | World
     */
     x = """
-    Hello
-    World
+        Hello
+        World
     """;
     IO.println(x);
     System.exit(0);
