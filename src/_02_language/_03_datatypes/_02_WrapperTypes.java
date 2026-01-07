@@ -6,6 +6,8 @@ Overview
 - Each primitive type has a corresponding wrapper class: Byte, Short, Integer, Long, Float, Double, Character, Boolean.
 - Wrapper types allow primitive values to be used in object-oriented contexts.
 - They provide utility methods for parsing, conversion, and comparison.
+- Wrapper types are sometimes referred to as "boxed" or "container" types because they wrap a primitive value inside an
+  object.
 
 Key Characteristics
 - Wrapper types are reference types and can be null.

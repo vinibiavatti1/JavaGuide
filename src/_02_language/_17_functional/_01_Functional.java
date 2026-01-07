@@ -17,11 +17,8 @@ Core Concepts
 Functional Interfaces
 - A functional interface is an interface with exactly one abstract method.
 - They are the foundation of lambdas and method references in Java.
-- Common functional interfaces from java.util.function:
-  - Function<T, R>: transforms a value of type T into R.
-  - Consumer<T>: consumes a value without returning a result.
-  - Supplier<T>: supplies a value without taking arguments.
-  - Predicate<T>: tests a condition and returns a boolean.
+- Common functional interfaces from java.util.function: Function<T, R>, Consumer<T>, Supplier<T>, Predicate<T>, etc.
+- More details explained in StreamApi doc file.
 
 Method References
 - Method references are a concise way to refer to existing methods without invoking them.
@@ -34,7 +31,7 @@ Method References
 - Example: The lambda function "(s) -> s.toUpperCase()" can be replaced by the method reference "String::toUpperCase",
   since both perform the same operation by directly delegating to an existing method.
 
-Streams API
+Stream API
 - The Stream API enables functional-style operations on collections.
 - Streams support operations such as filter, map, flatMap, sorted, and collect.
 - Operations are lazy and executed only when a terminal operation is invoked.

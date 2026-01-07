@@ -228,10 +228,9 @@ void main() {
     - Output: A | B | C (order not guaranteed)
     */
     set = Set.of("A", "B", "C");
-    Iterator<String> iter = set.iterator();
-    while (iter.hasNext()) {
-        String el = iter.next();
-        IO.println(el);
+    Iterator<String> iterator = set.iterator();
+    while (iterator.hasNext()) {
+        IO.println(iterator.next());
     }
 
     //==================================================================================================================

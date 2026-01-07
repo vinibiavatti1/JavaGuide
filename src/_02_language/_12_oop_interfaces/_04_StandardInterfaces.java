@@ -22,6 +22,10 @@ Popular Interfaces & Abstractions
   - List<E>: Ordered collection (index-based).
   - Set<E>: Collection of unique elements.
   - Map<K, V>: Key-value associations (not a Collection, but part of the framework).
+- Stream API
+  - Stream<T>: Sequence of elements for functional-style aggregate operations.
+  - Spliterator<T>: Specialized iterator for parallel/sequential stream traversal.
+  - Collector<T, A, R>: Defines how to reduce stream elements into a result (e.g., toList()).
 - Lifecycle & Markers
   - AutoCloseable: Resources that must be closed (enables try-with-resources).
   - Serializable: Marker interface for object serialization/persistence.
@@ -31,15 +35,6 @@ Popular Interfaces & Abstractions
   - Path: Modern interface for hierarchical paths (NIO.2), replacing the legacy File class.
 - Events
   - EventListener: A tagging interface that all event listener interfaces must extend.
-- Stream API
-  - Stream<T>: Sequence of elements for functional-style aggregate operations.
-  - Spliterator<T>: Specialized iterator for parallel/sequential stream traversal.
-  - Collector<T, A, R>: Defines how to reduce stream elements into a result (e.g., toList()).
-- Functional (java.util.function)
-  - Function<T, R>: Transforms T into R.
-  - Consumer<T>: Uses T and returns nothing.
-  - Supplier<T>: Provides a value of type T (lazy generation).
-  - Predicate<T>: Tests a condition on T (returns boolean).
 - Concurrency & Async
   - Runnable: Task that runs and returns nothing.
   - Callable<V>: Task that returns a value and can throw exceptions.

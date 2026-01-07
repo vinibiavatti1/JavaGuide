@@ -21,7 +21,6 @@ Usage
 - Favor method chaining for concise and readable modifications.
 - Convert to "String" only when an immutable result is required.
 */
-
 void main() {
     //==================================================================================================================
     // Transformation

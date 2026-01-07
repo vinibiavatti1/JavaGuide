@@ -275,8 +275,8 @@ void main() {
 
     /*
     Equality
-    - Two deques are considered equal if they contain the same elements in the same order.
-    - The "equals()" method compares the contents of the deques, not their references.
+    - Two deque are considered equal if they contain the same elements in the same order.
+    - The "equals()" method compares the contents of the deque, not their references.
     - Output: true
     */
     Deque<String> a = new ArrayDeque<>(List.of("A", "B", "C"));
@@ -308,10 +308,9 @@ void main() {
     - Output: A | B | C
     */
     deque = new ArrayDeque<>(List.of("A", "B", "C"));
-    Iterator<String> iter = deque.iterator();
-    while (iter.hasNext()) {
-        String el = iter.next();
-        IO.println(el);
+    Iterator<String> iterator = deque.iterator();
+    while (iterator.hasNext()) {
+        IO.println(iterator.next());
     }
 
     /*
@@ -322,10 +321,9 @@ void main() {
     - Output: C | B | A
     */
     deque = new ArrayDeque<>(List.of("A", "B", "C"));
-    Iterator<String> descIter = deque.descendingIterator();
-    while (descIter.hasNext()) {
-        String el = descIter.next();
-        IO.println(el);
+    Iterator<String> descIterator = deque.descendingIterator();
+    while (descIterator.hasNext()) {
+        IO.println(descIterator.next());
     }
 
     //==================================================================================================================

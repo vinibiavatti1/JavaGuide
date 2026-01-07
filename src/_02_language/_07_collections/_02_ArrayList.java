@@ -308,10 +308,9 @@ void main() {
     - Output: A | B | C
     */
     list = List.of("A", "B", "C");
-    Iterator<String> iter = list.iterator();
-    while (iter.hasNext()) {
-        String el = iter.next();
-        IO.println(el);
+    Iterator<String> iterator = list.iterator();
+    while (iterator.hasNext()) {
+        IO.println(iterator.next());
     }
 
     /*
@@ -323,11 +322,9 @@ void main() {
     - Output: 0:A | 1:B | 2:C
     */
     list = List.of("A", "B", "C");
-    ListIterator<String> listIter = list.listIterator();
-    while (listIter.hasNext()) {
-        int index = listIter.nextIndex();
-        String el = listIter.next();
-        IO.println(index + ":" + el);
+    ListIterator<String> listIterator = list.listIterator();
+    while (listIterator.hasNext()) {
+        IO.println(listIterator.nextIndex() + ":" + listIterator.next());
     }
 
     //==================================================================================================================
