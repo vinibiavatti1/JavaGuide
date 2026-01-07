@@ -78,6 +78,43 @@ Usage
 */
 void main() {
     //==================================================================================================================
+    // Initialization
+    //==================================================================================================================
+
+    /*
+    Initialization from Collection
+    - Creates a Stream from a Collection using the "stream()" method.
+    - Available for all Collection types (e.g., List, Set), providing a unified way to process elements.
+    - The resulting stream reflects the iteration order of the underlying collection, when it is defined.
+    - Streams created from collections are lazy and only execute when a terminal operation is invoked.
+    - Useful for applying functional-style operations (filter, map, reduce) on collection data.
+    - Output: Stream containing [A, B, C]
+    */
+    Stream<String> stream = List.of("A", "B", "C").stream();
+
+    /*
+    Initialization with Fixed Set of Values
+    - Creates a Stream directly from a fixed set of values using the "Stream.of" factory method.
+    - Does not require an existing collection; elements are provided explicitly.
+    - Preserves the order of the values as they are passed to the method.
+    - Commonly used for quick stream creation, testing, or small, known datasets.
+    - The resulting stream is lazy and processed only when a terminal operation is executed.
+    - Output: Stream containing [A, B, C]
+    */
+    stream = Stream.of("A", "B", "C");
+
+    /*
+    Empty Initialization
+    - Creates an empty Stream with no elements using the "Stream.empty" factory method.
+    - Useful as a safe default to avoid returning null when no elements are available.
+    - Allows stream pipelines to be composed without additional null checks.
+    - Commonly used in APIs and methods that conditionally return a Stream.
+    - The resulting stream immediately completes when a terminal operation is invoked.
+    - Output: empty stream
+    */
+    stream = Stream.empty();
+
+    //==================================================================================================================
     // Terminal Operations
     //==================================================================================================================
 
@@ -553,7 +590,7 @@ void main() {
             .peek(IO::println);
 
     //==================================================================================================================
-    // Intermediate Operations (Primitive Streams)
+    // Convert to Primitive Streams
     //==================================================================================================================
 
     /*
