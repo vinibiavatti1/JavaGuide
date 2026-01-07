@@ -35,11 +35,11 @@ Usage
 */
 void main() {
     //==================================================================================================================
-    // Initialization
+    // Declaration
     //==================================================================================================================
 
     /*
-    Initialization with Fixed Set of Values
+    Declaration with Fixed Set of Values
     - Creates an IntStream containing the specified int values using the "IntStream.of" factory method.
     - This is a primitive stream, which avoids boxing overhead compared to "Stream<Integer>".
     - Useful for numeric processing such as sum, average, min, max, and other mathematical operations.
@@ -50,7 +50,7 @@ void main() {
     IntStream stream = IntStream.of(1, 2, 3);
 
     /*
-    Initialization with Range
+    Declaration with Range
     - Creates an IntStream that produces a sequence of int values within the specified range.
     - The start value is inclusive, and the end value is exclusive.
     - Useful for iteration, indexing, and numeric loops without explicit counters.
@@ -61,7 +61,7 @@ void main() {
     stream = IntStream.range(1, 4);
 
     /*
-    Empty Initialization
+    Empty Declaration
     - Creates an empty IntStream with no elements using the "IntStream.empty" factory method.
     - Useful as a safe default for numeric streams when no values are available.
     - Avoids returning null and allows stream pipelines to be composed consistently.

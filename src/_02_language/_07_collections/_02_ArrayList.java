@@ -364,4 +364,15 @@ void main() {
     list = new ArrayList<>(List.of("A", "B"));
     list.removeIf(el -> el.equals("A"));
     IO.println(list);
+
+    //==================================================================================================================
+    // Stream API
+    //==================================================================================================================
+
+    /*
+    Call Stream API
+    - The "stream" method converts a Collection (e.g., List, Set) into a Stream.
+    - Useful for performing functional-style operations like map, filter, reduce, and forEach on collections.
+    */
+    Stream<String> stream = List.of("A", "B", "C").stream();
 }

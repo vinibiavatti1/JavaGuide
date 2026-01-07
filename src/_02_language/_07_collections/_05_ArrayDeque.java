@@ -351,4 +351,15 @@ void main() {
     deque = new ArrayDeque<>(List.of("A", "B"));
     deque.removeIf(el -> el.equals("A"));
     IO.println(deque);
+
+    //==================================================================================================================
+    // Stream API
+    //==================================================================================================================
+
+    /*
+    Call Stream API
+    - The "stream" method converts a Collection (e.g., List, Set) into a Stream.
+    - Useful for performing functional-style operations like map, filter, reduce, and forEach on collections.
+    */
+    Stream<String> stream = new ArrayDeque<>(List.of("A", "B", "C")).stream();
 }

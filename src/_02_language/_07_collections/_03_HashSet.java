@@ -259,4 +259,15 @@ void main() {
     set = new HashSet<>(Set.of("A", "B"));
     set.removeIf(el -> el.equals("A"));
     IO.println(set);
+
+    //==================================================================================================================
+    // Stream API
+    //==================================================================================================================
+
+    /*
+    Call Stream API
+    - The "stream" method converts a Collection (e.g., List, Set) into a Stream.
+    - Useful for performing functional-style operations like map, filter, reduce, and forEach on collections.
+    */
+    Stream<String> stream = Set.of("A", "B", "C").stream();
 }

@@ -78,11 +78,11 @@ Usage
 */
 void main() {
     //==================================================================================================================
-    // Initialization
+    // Declaration
     //==================================================================================================================
 
     /*
-    Initialization from Collection
+    Declaration from Collection
     - Creates a Stream from a Collection using the "stream()" method.
     - Available for all Collection types (e.g., List, Set), providing a unified way to process elements.
     - The resulting stream reflects the iteration order of the underlying collection, when it is defined.
@@ -93,7 +93,7 @@ void main() {
     Stream<String> stream = List.of("A", "B", "C").stream();
 
     /*
-    Initialization with Fixed Set of Values
+    Declaration with Fixed Set of Values
     - Creates a Stream directly from a fixed set of values using the "Stream.of" factory method.
     - Does not require an existing collection; elements are provided explicitly.
     - Preserves the order of the values as they are passed to the method.
@@ -104,7 +104,7 @@ void main() {
     stream = Stream.of("A", "B", "C");
 
     /*
-    Empty Initialization
+    Empty Declaration
     - Creates an empty Stream with no elements using the "Stream.empty" factory method.
     - Useful as a safe default to avoid returning null when no elements are available.
     - Allows stream pipelines to be composed without additional null checks.
