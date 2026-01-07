@@ -18,7 +18,7 @@ Functional Interfaces
 - A functional interface is an interface with exactly one abstract method.
 - They are the foundation of lambdas and method references in Java.
 - Common functional interfaces from java.util.function: Function<T, R>, Consumer<T>, Supplier<T>, Predicate<T>, etc.
-- More details explained in StreamApi doc file.
+- More functions explained in Stream API doc file.
 
 Method References
 - Method references are a concise way to refer to existing methods without invoking them.
@@ -45,13 +45,16 @@ void main() {
     /*
     Functional Stream Example
     - Demonstrates a functional pipeline using the Stream API.
-    - Uses Predicate, Function, method references, and function chaining.
+    - Uses Predicate, Function, method references, constructor references and function chaining.
+    - Output: [User[name=ANNA], User[name=ALICE], User[name=AMANDA]]
     */
-    List<String>names = List.of("Anna", "Bob", "Alice", "Brian", "Amanda", "Charles");
-    List<String> result = names.stream()
-            .filter(name -> name.startsWith("A"))
-            .map(String::toUpperCase)
-            .sorted(Comparator.comparingInt(String::length))
-            .toList();
-    IO.println(result); // [ANNA, ALICE, AMANDA]
+    record User(String name) {}
+    List<String> names = List.of("Amanda", "Anna", "John");  // Declare List
+    List<User> result = names.stream()                       // Call Stream API
+            .filter(name -> name.startsWith("A"))            // Filter names with "A":   ["Amanda", "Anna"]
+            .map(String::toUpperCase)                        // Map to uppercase:        ["AMANDA", "ANNA"]
+            .sorted(Comparator.comparingInt(String::length)) // Sort by length:          ["ANNA", "AMANDA"]
+            .map(User::new)                                  // Map to User constructor: [User, User]
+            .toList();                                       // (Terminal Operation) Execute stream and return new list.
+    IO.println(result);                                      // Output: [User[name=ANNA], User[name=AMANDA]]
 }
