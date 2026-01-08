@@ -45,19 +45,6 @@ Operation Categories
   - May terminate the stream before processing all elements.
   - Examples: findFirst(), findAny(), anyMatch(...), allMatch(...), noneMatch(...)
 
-Functional Interfaces
-- Function<T, R>: transforms a value of type T into a value of type R, commonly used in map and collect operations.
-- Consumer<T>: consumes a value of type T without returning a result, typically used for side effects such as forEach.
-- Supplier<T>: supplies a value of type T without taking arguments, often used for lazy value creation or factories.
-- Predicate<T>: tests a condition on a value of type T and returns a boolean, mainly used in filter operations.
-- BiFunction<T, U, R>: transforms two input values (T and U) into a result of type R, used in reducers and collectors.
-- BiConsumer<T, U>: consumes two input values without returning a result, often used in map or collector.
-- BinaryOperator<T>: combines two values of the same type into one result of the same type, frequently used in reduce.
-- UnaryOperator<T>: transforms a value into another value of the same type, used in mapping and element transformation.
-- IntFunction<R>: takes an int and produces a result of type R, commonly used with primitive streams.
-- ToIntFunction<T>: converts a value of type T into an int, used in mapToInt operations.
-- IntConsumer: consumes an int value without returning a result, used with IntStream forEach operations.
-
 Primitive Streams
 - Java provides specialized stream types to avoid boxing overhead: IntStream, LongStream and DoubleStream.
 - These streams offer additional numeric operations such as: sum(), average(), min(), max(), summaryStatistics(), etc.

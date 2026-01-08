@@ -1,5 +1,5 @@
 /*
-Functional Programming in Java
+Functional Programming
 - This section explains the Functional Programming paradigm and how Java supports it.
 
 Overview
@@ -14,27 +14,15 @@ Core Concepts
 - Declarative style: focus on what should be done, not how it is done.
 - Function composition: small functions are combined to build more complex behavior.
 
-Functional Interfaces
-- A functional interface is an interface with exactly one abstract method.
-- They are the foundation of lambdas and method references in Java.
-- Common functional interfaces from java.util.function: Function<T, R>, Consumer<T>, Supplier<T>, Predicate<T>, etc.
-- More functions explained in Stream API doc file.
-
-Method References
-- Method references are a concise way to refer to existing methods without invoking them.
-- They improve readability when a lambda only calls a single method.
-- Common forms:
-  - ClassName::staticMethod
-  - instance::instanceMethod
-  - ClassName::instanceMethod
-  - ClassName::new (constructor reference)
-- Example: The lambda function "(s) -> s.toUpperCase()" can be replaced by the method reference "String::toUpperCase",
-  since both perform the same operation by directly delegating to an existing method.
-
-Stream API
-- The Stream API enables functional-style operations on collections.
-- Streams support operations such as filter, map, flatMap, sorted, and collect.
-- Operations are lazy and executed only when a terminal operation is invoked.
+Features
+- Functional Interfaces: interfaces with a single abstract method that serve as target types for lambda expressions
+  and method references.
+- Lambda Expressions: allow defining anonymous functions inline, enabling functional-style programming.
+- Method References: a concise syntax to refer to existing methods or constructors without explicitly invoking them.
+- Optional: a container object used to represent the presence or absence of a value, helping to avoid null-related
+  errors and encouraging functional-style operations.
+- Stream API: a high-level abstraction for processing sequences of elements in a functional and declarative way,
+  supporting operations such as filtering, mapping, reducing, grouping, and parallel processing.
 
 Usage
 - Use Functional Programming for data processing, transformations, and pipelines.
@@ -43,7 +31,7 @@ Usage
 */
 void main() {
     /*
-    Functional Stream Example
+    Functional Programming Example
     - Demonstrates a functional pipeline using the Stream API.
     - Uses Predicate, Function, method references, constructor references and function chaining.
     - Output: [User[name=ANNA], User[name=ALICE], User[name=AMANDA]]
