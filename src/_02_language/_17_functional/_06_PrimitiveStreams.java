@@ -84,7 +84,7 @@ void main() {
     - Allows interoperability between object streams and primitive streams, enabling efficient numeric processing.
     - Output: IntStream containing [1, 2, 3]
     */
-    IntStream primitiveStream = List.of(1, 2, 3).stream().mapToInt(x -> x);
+    IntStream primitiveStream = Stream.of(1, 2, 3).mapToInt(x -> x);
 
     /*
     Primitive Stream to Wrapper Stream (Boxed)

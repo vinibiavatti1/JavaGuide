@@ -82,17 +82,6 @@ void main() {
     //==================================================================================================================
 
     /*
-    Declaration from Collection
-    - Creates a Stream from a Collection using the "stream()" method.
-    - Available for all Collection types (e.g., List, Set), providing a unified way to process elements.
-    - The resulting stream reflects the iteration order of the underlying collection, when it is defined.
-    - Streams created from collections are lazy and only execute when a terminal operation is invoked.
-    - Useful for applying functional-style operations (filter, map, reduce) on collection data.
-    - Output: Stream containing [A, B, C]
-    */
-    Stream<String> stream = List.of("A", "B", "C").stream();
-
-    /*
     Declaration with Fixed Set of Values
     - Creates a Stream directly from a fixed set of values using the "Stream.of" factory method.
     - Does not require an existing collection; elements are provided explicitly.
@@ -101,7 +90,18 @@ void main() {
     - The resulting stream is lazy and processed only when a terminal operation is executed.
     - Output: Stream containing [A, B, C]
     */
-    stream = Stream.of("A", "B", "C");
+    Stream<String> stream = Stream.of("A", "B", "C");
+
+    /*
+    Declaration from Collection
+    - Creates a Stream from a Collection using the "stream()" method.
+    - Available for all Collection types (e.g., List, Set), providing a unified way to process elements.
+    - The resulting stream reflects the iteration order of the underlying collection, when it is defined.
+    - Streams created from collections are lazy and only execute when a terminal operation is invoked.
+    - Useful for applying functional-style operations (filter, map, reduce) on collection data.
+    - Output: Stream containing [A, B, C]
+    */
+    stream = List.of("A", "B", "C").stream();
 
     /*
     Empty Declaration
@@ -130,9 +130,7 @@ void main() {
       interoperable with standard Java APIs.
     - Output: [A, B, C]
     */
-    List<String> list = List.of("A", "B", "C");
-    List<String> result = list.stream()
-            .collect(Collectors.toList());
+    List<String> result = Stream.of("A", "B", "C").collect(Collectors.toList());
     IO.println(result);
 
     /*
@@ -144,9 +142,7 @@ void main() {
       elements will throw an exception).
     - Output: [A, B, C]
     */
-    list = List.of("A", "B", "C");
-    result = list.stream()
-            .toList();
+    result = Stream.of("A", "B", "C").toList();
     IO.println(result);
 
     /*
@@ -159,9 +155,7 @@ void main() {
       snapshots of stream data.
     - Output: [A, B, C]
     */
-    list = List.of("A", "B", "C");
-    Object[] array = list.stream()
-            .toArray();
+    Object[] array = Stream.of("A", "B", "C").toArray();
     IO.println(Arrays.toString(array));
 
     /*
@@ -173,9 +167,7 @@ void main() {
     - Note: If you need to preserve order in parallel streams, consider using "forEachOrdered".
     - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .forEach(IO::println);
+    Stream.of("A", "B", "C").forEach(IO::println);
 
     /*
     Iterate with For Each Ordered
@@ -187,10 +179,7 @@ void main() {
     - In sequential streams, "forEach" and "forEachOrdered" behave the same.
     - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .parallel()
-            .forEachOrdered(IO::println);
+    Stream.of("A", "B", "C").parallel().forEachOrdered(IO::println);
 
     /*
     Check if All Match
@@ -202,9 +191,7 @@ void main() {
     - Related methods: "anyMatch" (checks if any element matches) and "noneMatch" (checks if no element matches).
     - Output: true
     */
-    list = List.of("A", "A", "A");
-    boolean match = list.stream()
-            .allMatch(x -> x.equals("A"));
+    boolean match = Stream.of("A", "B", "C").allMatch(x -> x.equals("A"));
     IO.println(match);
 
     /*
@@ -217,9 +204,7 @@ void main() {
     - Related methods: "allMatch" (checks if all elements match) and "noneMatch" (checks if no elements match).
     - Output: true
     */
-    list = List.of("A", "B", "C");
-    match = list.stream()
-            .anyMatch(x -> x.equals("A"));
+    match = Stream.of("A", "B", "C").anyMatch(x -> x.equals("A"));
     IO.println(match);
 
     /*
@@ -233,9 +218,7 @@ void main() {
       matches).
     - Output: true
     */
-    list = List.of("B", "B", "B");
-    match = list.stream()
-            .noneMatch(x -> x.equals("A"));
+    match = Stream.of("B", "B", "B").noneMatch(x -> x.equals("A"));
     IO.println(match);
 
     /*
@@ -250,9 +233,7 @@ void main() {
     - Related method: "findAny" (may return any element in parallel streams, without guaranteeing order).
     - Output: A
     */
-    list = List.of("A", "B", "C");
-    Optional<String> optionalStr = list.stream()
-            .findFirst();
+    Optional<String> optionalStr = Stream.of("A", "B", "C").findFirst();
     optionalStr.ifPresent(IO::println);
 
     /*
@@ -266,9 +247,7 @@ void main() {
     - Related method: "findFirst" (guarantees the first element according to encounter order).
     - Output: A
     */
-    list = List.of("A", "B", "C");
-    optionalStr = list.stream()
-            .findAny();
+    optionalStr = Stream.of("A", "B", "C").findAny();
     optionalStr.ifPresent(IO::println);
 
     /*
@@ -281,9 +260,7 @@ void main() {
     - Related method: "max" (returns the maximum element according to the Comparator).
     - Output: A
     */
-    list = List.of("A", "B", "C");
-    optionalStr = list.stream()
-            .min(Comparator.naturalOrder());
+    optionalStr = Stream.of("A", "B", "C").min(Comparator.naturalOrder());
     optionalStr.ifPresent(IO::println);
 
     /*
@@ -296,9 +273,7 @@ void main() {
     - Related method: "min" (returns the minimum element according to the Comparator).
     - Output: C
     */
-    list = List.of("A", "B", "C");
-    optionalStr = list.stream()
-            .max(Comparator.naturalOrder());
+    optionalStr = Stream.of("A", "B", "C").max(Comparator.naturalOrder());
     optionalStr.ifPresent(IO::println);
 
     /*
@@ -308,9 +283,7 @@ void main() {
     - Works with both sequential and parallel streams.
     - Output: 3
     */
-    list = List.of("A", "B", "C");
-    long count = list.stream()
-            .count();
+    long count = Stream.of("A", "B", "C").count();
     IO.println(count);
 
     /*
@@ -324,9 +297,7 @@ void main() {
     - Example shorthand: .reduce(0, Integer::sum) for summing integers.
     - Output: 6
     */
-    List<Integer> intList = List.of(1, 2, 3);
-    int sum = intList.stream()
-            .reduce(0, (x, acc) -> acc + x); // or .reduce(0, Integer::sum);
+    int sum = Stream.of(1, 2, 3).reduce(0, (x, acc) -> acc + x); // or .reduce(0, Integer::sum);
     IO.println(sum);
 
     /*
@@ -338,8 +309,7 @@ void main() {
       iterating.
     - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    Iterator<String> iterator = list.stream().iterator();
+    Iterator<String> iterator = Stream.of("A", "B", "C").iterator();
     while (iterator.hasNext()) {
         IO.println(iterator.next());
     }
@@ -355,9 +325,7 @@ void main() {
     - Works with both sequential and parallel streams, preserving encounter order when applicable.
     - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    Spliterator<String> spliterator = list.stream()
-            .spliterator();
+    Spliterator<String> spliterator = Stream.of("A", "B", "C").spliterator();
     spliterator.forEachRemaining(IO::println);
 
     //==================================================================================================================
@@ -373,8 +341,7 @@ void main() {
     - Can be chained with other intermediate operations for complex pipelines.
     - Output: [B]
     */
-    list = List.of("A", "B", "C");
-    result = list.stream()
+    result = Stream.of("A", "B", "C")
             .filter(x -> x == "B")
             .toList();
     IO.println(result);
@@ -388,13 +355,12 @@ void main() {
     - Works with both sequential and parallel streams.
     - Can be chained with other intermediate operations like "filter", "distinct", and "sorted" to build complex
       pipelines.
-    - Output: [A, B, C]
+    - Output: [a, b, c]
     */
-    list = List.of("A", "B", "C");
-    List<Character> charList = list.stream()
-            .map(x -> x.charAt(0))
+    result = Stream.of("A", "B", "C")
+            .map(String::toLowerCase)
             .toList();
-    IO.println(charList);
+    IO.println(result);
 
     /*
     Map Multi
@@ -408,8 +374,7 @@ void main() {
       flattened).
     - Output: [1, 10, 2, 20, 3, 30]
     */
-    intList = List.of(1, 2, 3);
-    List<Integer> intResultList = intList.stream()
+    List<Integer> intResultList = Stream.of(1, 2, 3)
             .<Integer>mapMulti((x, consumer) -> {
                 consumer.accept(x);
                 consumer.accept(x * 10);
@@ -427,9 +392,8 @@ void main() {
       outputs per input without creating nested streams).
     - Output: [A, B, C, D]
     */
-    List<List<String>> deepList = List.of(List.of("A", "B"), List.of("C", "D"));
-    result = deepList.stream()
-            .flatMap(x -> x.stream())
+    result = Stream.of(List.of("A", "B"), List.of("C", "D"))
+            .flatMap(List::stream)
             .toList();
     IO.println(result);
 
@@ -443,8 +407,7 @@ void main() {
     - Can be chained with other intermediate operations like "filter", "map", or "sorted" for more complex pipelines.
     - Output: [A, B, C]
     */
-    list = List.of("A", "A", "B", "B", "C", "C");
-    result = list.stream()
+    result = Stream.of("A", "A", "B", "B", "C", "C")
             .distinct()
             .toList();
     IO.println(result);
@@ -460,8 +423,7 @@ void main() {
     - Can be chained with other intermediate operations like "filter", "map", or "distinct".
     - Output: [A, B, C]
     */
-    list = List.of("C", "B", "A");
-    result = list.stream()
+    result = Stream.of("C", "B", "A")
             .sorted()
             .toList();
     IO.println(result);
@@ -476,8 +438,7 @@ void main() {
     - Can be chained with other intermediate operations like "filter", "distinct", or "sorted".
     - Output: [A, B, C]
     */
-    list = List.of("A", "B", "C", "Y", "Z");
-    result = list.stream()
+    result = Stream.of("A", "B", "C", "Y", "Z")
             .limit(3)
             .toList();
     IO.println(result);
@@ -492,22 +453,22 @@ void main() {
     - Can be chained with other intermediate operations like "filter", "limit", or "sorted".
     - Output: [A, B, C]
     */
-    list = List.of("Y", "Z", "A", "B", "C");
-    result = list.stream()
+    result = Stream.of("Y", "Z", "A", "B", "C")
             .skip(2)
             .toList();
     IO.println(result);
 
     /*
     Take While
-    - The "takeWhile" method is an intermediate operation that returns a stream consisting of elements from the start of the original stream while the given predicate remains true.
-    - Useful for processing a prefix of elements that meet a condition and stopping as soon as an element does not match.
+    - The "takeWhile" method is an intermediate operation that returns a stream consisting of elements from the start of
+      the original stream while the given predicate remains true.
+    - Useful for processing a prefix of elements that meet a condition and stopping as soon as an element does not
+      match.
     - Works only with sequential streams (in parallel streams the behavior is not well-defined for encounter order).
     - Short-circuiting: stops processing once the predicate returns false.
     - Output: [A, B, C]
     */
-    list = List.of("A", "B", "C", "Y", "Z");
-    result = list.stream()
+    result = Stream.of("A", "B", "C", "Y", "Z")
             .takeWhile(x -> x.equals("Y"))
             .toList();
     IO.println(result);
@@ -521,8 +482,7 @@ void main() {
     - Works with sequential streams; in parallel streams, encounter order may not be preserved.
     - Output: [A, B, C]
     */
-    list = List.of("Z", "Z", "A", "B", "C");
-    result = list.stream()
+    result = Stream.of("Z", "Z", "A", "B", "C")
             .dropWhile(x -> x.equals("Z"))
             .toList();
     IO.println(result);
@@ -538,10 +498,7 @@ void main() {
     - Related methods: "sequential()" (converts back to sequential stream).
     - Output: C | A | B (order may vary due to parallel execution)
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .parallel()
-            .forEach(IO::println);
+    Stream.of("A", "B", "C").parallel().forEach(IO::println);
 
     /*
     Sequential
@@ -553,11 +510,7 @@ void main() {
     - Related method: "parallel()" (converts a sequential stream into parallel).
     - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .parallel()
-            .sequential()
-            .forEach(IO::println);
+    Stream.of("A", "B", "C").parallel().sequential().forEach(IO::println);
 
     /*
     Unordered
@@ -569,11 +522,7 @@ void main() {
     - Related methods: "forEachOrdered" (preserves encounter order even in parallel streams).
     - Output: C | A | B (order may vary due to parallel execution and unordered hint)
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .parallel()
-            .unordered()
-            .forEach(IO::println);
+    Stream.of("A", "B", "C").parallel().unordered().forEach(IO::println);
 
     /*
     Peek
@@ -583,11 +532,9 @@ void main() {
     - Useful for observing the elements in a pipeline without modifying them.
     - Works with both sequential and parallel streams.
     - Should not be used for modifying the elements; side effects can lead to unexpected behavior.
-    - Output: (nothing is printed because the stream is not consumed)
+    - Output: A | B | C
     */
-    list = List.of("A", "B", "C");
-    list.stream()
-            .peek(IO::println);
+    Stream.of("A", "B", "C").peek(IO::println).toList();
 
     //==================================================================================================================
     // Convert to Primitive Streams
@@ -605,8 +552,7 @@ void main() {
     - In this example, the IntStream is consumed by the terminal operation "sum()" to produce the total of all elements.
     - Output: 6
     */
-    intList = List.of(1, 2, 3);
-    sum = intList.stream()
+    sum = Stream.of(1, 2, 3)
             .mapToInt(x -> x)
             .sum();
     IO.println(sum);
@@ -624,8 +570,7 @@ void main() {
       elements.
     - Output: 6
     */
-    intList = List.of(1, 2, 3);
-    long longSum = intList.stream()
+    long longSum = Stream.of(1, 2, 3)
             .mapToLong(x -> x)
             .sum();
     IO.println(longSum);
@@ -643,8 +588,7 @@ void main() {
       elements.
     - Output: 6.0
     */
-    intList = List.of(1, 2, 3);
-    double doubleSum = intList.stream()
+    double doubleSum = Stream.of(1, 2, 3)
             .mapToDouble(x -> x)
             .sum();
     IO.println(doubleSum);
@@ -661,8 +605,7 @@ void main() {
     - In this example, the IntStream is consumed by the terminal operation "sum()" to produce the total of all elements.
     - Output: 10
     */
-    List<List<Integer>> intDeepList = List.of(List.of(1, 2), List.of(3, 4));
-    sum = intDeepList.stream()
+    sum = Stream.of(List.of(1, 2), List.of(3, 4))
             .flatMapToInt(x -> x.stream().mapToInt(y -> y))
             .sum();
     IO.println(sum);
@@ -680,8 +623,7 @@ void main() {
       elements.
     - Output: 10
     */
-    intDeepList = List.of(List.of(1, 2), List.of(3, 4));
-    longSum = intDeepList.stream()
+    longSum = Stream.of(List.of(1, 2), List.of(3, 4))
             .flatMapToLong(x -> x.stream().mapToLong(y -> y))
             .sum();
     IO.println(sum);
@@ -700,8 +642,7 @@ void main() {
       elements.
     - Output: 10.0
     */
-    intDeepList = List.of(List.of(1, 2), List.of(3, 4));
-    doubleSum = intDeepList.stream()
+    doubleSum = Stream.of(List.of(1, 2), List.of(3, 4))
             .flatMapToDouble(x -> x.stream().mapToDouble(y -> y))
             .sum();
     IO.println(sum);
@@ -718,8 +659,7 @@ void main() {
     - Works with both sequential and parallel streams.
     - Output: 3
     */
-    intList = List.of(1);
-    sum = intList.stream()
+    sum = Stream.of(1)
             .mapMultiToInt((x, consumer) -> {
                 consumer.accept(x); // each element emitted three times
                 consumer.accept(x);
@@ -740,8 +680,7 @@ void main() {
     - Works with both sequential and parallel streams.
     - Output: 3
     */
-    intList = List.of(1);
-    longSum = intList.stream()
+    longSum = Stream.of(1)
             .mapMultiToLong((x, consumer) -> {
                 consumer.accept(x); // each element emitted three times
                 consumer.accept(x);
@@ -763,8 +702,7 @@ void main() {
     - Works with both sequential and parallel streams.
     - Output: 3.0
     */
-    intList = List.of(1);
-    doubleSum = intList.stream()
+    doubleSum = Stream.of(1)
             .mapMultiToDouble((x, consumer) -> {
                 consumer.accept(x); // each element emitted three times
                 consumer.accept(x);

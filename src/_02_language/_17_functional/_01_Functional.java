@@ -49,8 +49,7 @@ void main() {
     - Output: [User[name=ANNA], User[name=ALICE], User[name=AMANDA]]
     */
     record User(String name) {}
-    List<String> names = List.of("Amanda", "Anna", "John");  // Declare List
-    List<User> result = names.stream()                       // Call Stream API
+    List<User> result = Stream.of("Amanda", "Anna", "John")
             .filter(name -> name.startsWith("A"))            // Filter names with "A":   ["Amanda", "Anna"]
             .map(String::toUpperCase)                        // Map to uppercase:        ["AMANDA", "ANNA"]
             .sorted(Comparator.comparingInt(String::length)) // Sort by length:          ["ANNA", "AMANDA"]
