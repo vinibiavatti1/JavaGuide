@@ -2,7 +2,6 @@
 Maps and Streams
 - This section explains how to work with the "Map" interface in Java using the Stream API.
 
-
 Overview
 - Maps do not directly implement the Collection interface, so they do not have a stream() method.
 - To perform stream operations, you must use the map collections:

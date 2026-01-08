@@ -93,8 +93,8 @@ void main() {
             new Item("pc", 2),
             new Item("ssd", 1)
     ).collect(Collectors.toMap(
-            Item::name,    // Key Mapper
-            Item::quantity // Value Mapper
+            Item::name,    // Key Mapper (Function)
+            Item::quantity // Value Mapper (Function)
     ));
     IO.println(resultMap);
 
@@ -115,10 +115,10 @@ void main() {
             new Item("ssd", 1),
             new Item("pc", 3)
     ).collect(Collectors.toMap(
-            Item::name,     // Key Mapper
-            Item::quantity, // Value Mapper
-            Integer::sum,   // Merge Function
-            HashMap::new    // Map Factory
+            Item::name,     // Key Mapper (Function)
+            Item::quantity, // Value Mapper (Function)
+            Integer::sum,   // Merge Function (BinaryOperator)
+            HashMap::new    // Map Factory (Supplier)
     ));
     IO.println(resultMap);
 
@@ -257,7 +257,7 @@ void main() {
     */
     sum = Stream.of(1, 2, 3).collect(Collectors.reducing(
             0,           // Initial Value
-            Integer::sum // Accumulator Function
+            Integer::sum // Accumulator Function (BinaryOperator)
     ));
     IO.println(sum);
 
@@ -277,7 +277,7 @@ void main() {
     - Output: [B]
     */
     resultList = Stream.of("A", "B", "C").collect(Collectors.filtering(
-            x -> x.equals("B"), // Predicate
+            x -> x.equals("B"), // Filter (Predicate)
             Collectors.toList() // Collector
     ));
     IO.println(resultList);
@@ -294,7 +294,7 @@ void main() {
     - Output: [a, b, c]
     */
     resultList = Stream.of("A", "B", "C").collect(Collectors.mapping(
-            String::toLowerCase, // Mapper
+            String::toLowerCase, // Mapper (Function)
             Collectors.toList()  // Collector
     ));
     IO.println(resultList);
@@ -339,7 +339,7 @@ void main() {
             new Item("pc", 2),
             new Item("ssd", 1)
     ).collect(Collectors.groupingBy(
-            Item::name // Key Mapper
+            Item::name // Key Mapper (Function)
     ));
     IO.println(groupedResult);
 
@@ -369,7 +369,7 @@ void main() {
             new User("John", false),
             new User("Robert", false)
     ).collect(Collectors.partitioningBy(
-            User::isAdmin // Predicate
+            User::isAdmin // Filter (Predicate)
     ));
     IO.println(partitionedResult);
 
