@@ -1,19 +1,18 @@
 /*
 Naming Conventions
-This file documents the standard naming conventions used in the project for classes, methods, variables, packages,
-constants, exceptions, and other identifiers. The goal is to ensure code readability, consistency, and maintainability
-across the codebase.
+- This file documents the standard naming conventions used in the project for classes, methods, variables, packages,
+  constants, exceptions, and other identifiers.
 */
 void main() {
     /*
     Project
     - Must use a clear and descriptive name
-    - Use CamelCase (no underscores)
-    - Start with a capital letter
-    - Do not use special symbols
-    - Avoid spaces
+    - Use lowercase letters
+    - Separate words with hyphens (e.g., my-project)
+    - Avoid underscores, spaces, or special symbols
+    - Start with a meaningful word related to the project purpose
     */
-    /// MyProject
+    /// my-project
 
     /*
     Packages
@@ -93,7 +92,7 @@ void main() {
     - Follow standard Java conventions for annotation placement and usage
     NOTE: The @interface was not used in the example because local annotations cannot be declared
     */
-    interface Entity {}
+    interface Annotation {}
 
     /*
     Variables
