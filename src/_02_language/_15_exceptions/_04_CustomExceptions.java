@@ -21,41 +21,46 @@ Usage
 - Catch exceptions only if you can meaningfully recover; otherwise, let them propagate.
 
 Example:
-- The example below demonstrates defining and throwing a checked exception ("MyCheckedException") and an unchecked
-  exception ("MyUncheckedException").
-- Both exceptions are caught in separate try-catch blocks and handled by printing their messages.
+- The example below demonstrates defining a checked exception "MyCheckedException" and an unchecked exception
+  "MyUncheckedException".
+- Checked exceptions must be declared in the method signature using "throws", forcing callers to handle or propagate.
+- Unchecked exceptions do not need to be declared, and can propagate freely without being caught.
 */
 public class MyCheckedException extends Exception {
     public MyCheckedException(String message) {
         super(message);
     }
 }
-
 public class MyUncheckedException extends RuntimeException {
     public MyUncheckedException(String message) {
         super(message);
     }
 }
 
+public void throwCheckedException() throws MyCheckedException { // Checked Exception declared with "throws"
+    throw new MyCheckedException("My Checked Exception");
+}
+public void throwUncheckedException() {
+    throw new MyUncheckedException("My Unchecked Exception");
+}
+
 void main() {
     /*
-    Throwing and catching a checked exception
-    - Demonstrates that a checked exception must be caught or declared in the method signature.
+    Throwing and Catching a Checked Exception
     - Output: My Checked Exception
     */
     try {
-        throw new MyCheckedException("My Checked Exception");
+        throwCheckedException();
     } catch (Exception e) {
         IO.println(e.getMessage());
     }
 
     /*
-    Throwing and catching an unchecked exception
-    - Demonstrates that an unchecked exception does not need to be declared but can still be caught.
+    Throwing and Catching an Unchecked Exception
     - Output: My Unchecked Exception
     */
     try {
-        throw new MyUncheckedException("My Unchecked Exception");
+        throwUncheckedException();
     } catch (Exception e) {
         IO.println(e.getMessage());
     }
