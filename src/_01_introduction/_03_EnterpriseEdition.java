@@ -1,6 +1,7 @@
 /*
 Enterprise Edition (Jakarta EE / Java EE)
-This document explains what the Java Enterprise Edition is, its components, typical usage, servers, and modern context.
+- This document explains what the Java Enterprise Edition is, its components, typical usage, servers, and modern
+  context.
 
 What is Java Enterprise Edition
 - Java Enterprise Edition (Java EE), now called Jakarta EE, is an entire platform with standardized APIs, runtime
@@ -27,7 +28,7 @@ Application Servers
 - The server provides runtime support for EE APIs, deployment descriptors, and resource management.
 
 How to Use
-- Create a web or enterprise project in an IDE like IntelliJ IDEA or Eclipse.
+- Create a web or enterprise project in an IDE like IntelliJ IDEA (may require premium license) or Eclipse.
 - Configure an application server for deployment.
 - Include Jakarta EE APIs in your project dependencies (some servers provide them automatically).
 - Package the application as a WAR or EAR for deployment to the server.
