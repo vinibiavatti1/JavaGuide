@@ -1,45 +1,104 @@
 /*
 Project Structure
-This document explains the common structure of a Java project, including source roots, resource paths, and other
-important directories. A well-defined project structure allows IDEs and build tools to know how to compile and package
-the application correctly.
+- This document explains the standard structure of a Java project, including source roots, resource paths, test
+  separation, and output directories.
+- A well-defined project structure allows IDEs and build tools to correctly compile, test, package, and run Java
+  applications in a predictable and reproducible way.
 
-- Source Roots
-  - A source root is a directory that contains "Java source code".
-  - Files under source roots are compiled into ".class" files by the compiler.
-  - Example: "src/main/java" is a standard source root for production code.
-- Resource Paths
-  - Resource paths contain "non-code files" used by the application, such as configuration files, images, and templates.
-  - Files under resource paths are "copied as-is" to the output directory and are available in the classpath at runtime.
-  - Example: "src/main/resources" is a common resource path.
-- Test Source Roots
-  - Directories containing test code are usually separated from main code.
-  - Example: "src/test/java" for Java test classes, "src/test/resources" for test resources.
-  - Allows IDEs and build tools to "compile and run tests separately" from production code.
-- Test Resource Paths
-  - Similar to main resource paths, but specifically for test resources.
-  - Files here are available in the classpath "when running tests", but are not included in the production classpath.
-  - Example: "src/test/resources" for configuration files, sample data, or templates used only during testing.
-- Output Directories
-  - Compiled `.class` files are placed in output directories such as `bin` or `out`.
-  - Resource files are also copied here, preserving their structure relative to the source root.
+Overview
+- Java projects follow a conventional directory layout that separates source code, resources, tests, and generated
+  artifacts.
+- These conventions are recognized by build tools (Maven, Gradle) and IDEs, enabling automation of compilation,
+  testing, and packaging without manual configuration.
+- Although layouts may vary, the structure described here represents the most common and widely adopted standard.
+
+Source Roots
+- A source root is a directory that contains Java source code files (".java").
+- Files located under source roots are compiled by the Java compiler into ".class" files.
+- Package declarations inside source files define the directory structure of the compiled output.
+- Typical example:
+  - "src/main/java": production source code
+- Source roots are:
+  - Included at compile time
+  - Excluded from the runtime classpath after compilation (only ".class" files remain)
+
+Resource Paths
+- Resource paths contain non-code files required by the application at runtime.
+- These files are not compiled; they are copied as-is to the output directory.
+- Resources are made available on the runtime classpath and can be accessed via the ClassLoader.
+- Common use cases include:
+  - Configuration files
+  - SQL scripts
+  - Templates
+  - Static assets
+- Typical example:
+  - "src/main/resources"
+
+Test Source Roots
+- Test source roots contain Java code used exclusively for testing.
+- Test code is compiled separately from production code.
+- Tests typically depend on production classes, but not the other way around.
+- Typical example:
+  - "src/test/java"
+- This separation allows:
+  - Independent compilation and execution of tests
+  - Clear boundaries between production and test logic
+
+Test Resource Paths
+- Test resource paths contain non-code files used only during testing.
+- These resources are available on the classpath when running tests, but are excluded from production artifacts.
+- Common examples:
+  - Test-specific configuration files
+  - Sample input data
+  - Mock resources
+- Typical example:
+  - "src/test/resources"
+
+Output Directories
+- Output directories store generated artifacts produced by the build process.
+- This includes:
+  - Compiled ".class" files
+  - Copied resource files
+  - Generated metadata
+- The directory structure mirrors package and resource layouts.
+- Common output directories:
+  - "bin" or "out" (IDE-managed projects)
+  - "target" (Maven)
+  - "build" (Gradle)
 
 Project Structure Example
-MyProject          | Project
-|- src             |
-   |- main         |
-      |- java      | Source Root
-      |- resources | Resource Root
-   |- test         |
-      |- java      | Test Source Root
-      |- resources | Test Resource Root
-|- out             | Output Directory ("bin", "target", etc.)
+my-project/
+|- src/
+|  |- main/
+|  |  |- java/                     // Production source root
+|  |  |  |- com/example/modulea/
+|  |  |     |- MyClassA.java
+|  |  |- resources/                // Production resource root
+|  |- test/
+|     |- java/                     // Test source root
+|     |  |- com/example/modulea/
+|     |     |- MyClassATest.java
+|     |- resources/                // Test resource root
+|- out/                            // Build output directory
 
-Other Directories
-- /WebContent or src/main/webapp: Used in "web projects" for web resources such as Servlets, JSPs, HTML, etc.
-- /generated: Contains code automatically produced by "annotation processors".
-- /target: Standard output folder used by "Maven and Gradle".
-- /docs: Folder for project documentation, README files, or generated Javadoc.
-- /scripts: Contains scripts for "build, deployment, or automation" tasks.
+Other Common Directories
+- src/main/webapp:
+  - Used in web applications for static web resources such as HTML, JSP, JSF, and configuration files.
+- generated / target/generated-sources:
+  - Contains source code generated by annotation processors or build tools.
+- target / build/libs:
+  - Output directories for compiled artifacts and packaged JARs.
+  - Maven stores JARs in "target/", Gradle in "build/libs/".
+  - JAR files typically include compiled classes, resources, and the META-INF/manifest file.
+- docs:
+  - Stores project documentation, README files, and generated Javadoc.
+- scripts:
+  - Contains scripts for build, deployment, migration, or automation tasks.
+
+Summary
+- A consistent project structure is essential for build automation and tooling support.
+- Source code, resources, and tests are clearly separated.
+- Build outputs are isolated from source directories.
+- These conventions improve maintainability, scalability, and team collaboration.
 */
 void main() {}

@@ -1,40 +1,50 @@
 /*
 Ecosystem
-This document explains the core concepts of the Java ecosystem (JVM, JDK and JRE).
+- This document describes the fundamental components of the Java ecosystem and how they relate to each other:
+  JVM, JRE, and JDK.
+
+Overview
+- The Java ecosystem is designed around a clear separation of responsibilities between execution, runtime support,
+  and development tooling.
+- Java source code is written once, compiled into platform-independent bytecode, and executed by the JVM on different
+  operating systems.
+- JVM, JRE, and JDK build on top of each other in layers: JVM is the execution engine, JRE provides the runtime
+  environment, and JDK adds development tools.
 
 JVM (Java Virtual Machine)
-The JVM is the runtime engine that executes Java applications. Java source code is first compiled into bytecode
-(`.class` files). The JVM then interprets or compiles this bytecode into native machine code for the operating system.
-It only understands bytecode, not Java syntax. Key responsibilities:
-- Bytecode execution
-- Memory management (heap, stack, garbage collection)
-- Thread management
-- Security and sandboxing
-- Just-In-Time (JIT) compilation for performance
+- The JVM is the core runtime engine responsible for executing Java bytecode (".class" files).
+- Java source code is compiled into bytecode, which is then interpreted or JIT-compiled into native machine code at
+  runtime.
+- The JVM does not understand Java syntax; it only operates on bytecode.
+- Its main responsibilities include:
+  - Bytecode execution
+  - Memory management (heap, stack, garbage collection)
+  - Thread scheduling and synchronization
+  - Security mechanisms and sandboxing
+  - Just-In-Time (JIT) compilation for performance optimizations
 
 JRE (Java Runtime Environment)
-The JRE is a software package that provides all the necessary components to run Java applications on a computer. It does
-not include tools for developing Java programs, such as compilers or debuggers. Its primary purpose is to execute Java
-bytecode produced by the compiler. It provides:
-- JVM (Java Virtual Machine): executes Java bytecode and manages memory, threads, and runtime optimizations.
-- Core Java libraries: essential classes and APIs for collections, I/O, networking, utilities, and more.
-- Runtime support files: configuration and resource files required for the JVM and libraries to run applications.
+- The JRE provides everything required to run Java applications, but not to develop them.
+- It is intended for end users and production environments where applications are executed, not compiled.
+- The JRE consists of:
+  - The JVM: responsible for executing bytecode and managing runtime behavior.
+  - Core Java libraries: standard APIs for collections, I/O, networking, concurrency, utilities, and more.
+  - Runtime support files: configuration, resources, and metadata required by the JVM and libraries.
 
 JDK (Java Development Kit)
-The Java Development Kit (JDK) is a software package that provides everything needed to develop, compile, and build Java
-applications. It includes all the components of the Java Runtime Environment (JRE), plus additional tools specifically
-for development. It provides:
-- JRE (Java Runtime Environment, including the JVM).
-- Java compiler (javac): to compile source code into bytecode.
-- Debugger (jdb): to debug Java applications.
-- Documentation generator (javadoc): to create API documentation.
-- Archive tool (jar): to package classes and resources.
-- Additional development tools: for tasks like disassembly (javap), runtime image creation (`jlink`), etc.
+- The JDK is the complete toolkit for Java development.
+- It includes the JRE and adds tools required to write, compile, test, debug, and package Java applications.
+- The JDK provides:
+  - JRE (including the JVM)
+  - Java compiler (javac): compiles source code into bytecode
+  - Debugger (jdb): supports debugging Java applications
+  - Documentation generator (Javadoc): produces API documentation
+  - Archive tool (jar): packages classes and resources
+  - Additional development tools: such as javap (bytecode inspection) and jlink (custom runtime image creation)
 
-Comparison Summary:
-- JVM = The engine that executes Java bytecode; handles memory, threads, and runtime optimizations; does not include
-        libraries or development tools.
-- JRE = JVM + core Java libraries + runtime support files; used to run Java applications without development tools.
-- JDK = JRE + development tools (javac, jdb, javadoc, jar, etc.); used to develop, compile, and build Java applications.
+Comparison Summary
+- JVM: Executes Java bytecode and manages memory, threads, and runtime optimizations.
+- JRE: JVM plus core libraries and runtime support; used to run Java applications.
+- JDK: JRE plus development tools; used to develop, compile, and build Java applications.
 */
 void main() {}
