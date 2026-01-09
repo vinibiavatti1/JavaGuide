@@ -28,14 +28,14 @@ void main() {
     - Common types: Integer, Double, Boolean and Character
     - Less common types: Byte, Short, Long, Float
     */
-    Byte x1 = 127;      // Wrapper for byte
-    Short x2 = 32767;   // Wrapper for short
-    Integer x3 = 0;     // Wrapper for int (default for integers)
-    Long x4 = 999_999L; // Wrapper for long
-    Float x5 = 3.14f;   // Wrapper for float
-    Double x6 = 3.14;   // Wrapper for double (default for decimals)
-    Boolean x7 = true;  // Wrapper for boolean
-    Character x8 = 'A'; // Wrapper for char
+    Byte _ = 127;      // Wrapper for byte
+    Short _ = 32767;   // Wrapper for short
+    Integer _ = 0;     // Wrapper for int (default for integers)
+    Long _ = 999_999L; // Wrapper for long
+    Float _ = 3.14f;   // Wrapper for float
+    Double _ = 3.14;   // Wrapper for double (default for decimals)
+    Boolean _ = true;  // Wrapper for boolean
+    Character _ = 'A'; // Wrapper for char
 
     /*
     Declaration

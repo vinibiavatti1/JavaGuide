@@ -26,14 +26,14 @@ void main() {
     - Common types: int, double, boolean and char
     - Less common types: byte, short, long, float
     */
-    byte y1 = 127;      // 8-bit signed integer
-    short y2 = 32767;   // 16-bit signed integer
-    int x2 = 0;         // 32-bit signed integer (default for integers)
-    long y3 = 999_999L; // 64-bit signed integer
-    float y4 = 3.14f;   // 32-bit floating-point
-    double x3 = 3.14;   // 64-bit floating-point (default for decimals)
-    boolean x1 = true;  // Represents true or false values
-    char x4 = 'A';      // Single UTF-16 character
+    byte _ = 127;      // 8-bit signed integer
+    short _ = 32767;   // 16-bit signed integer
+    int _ = 0;         // 32-bit signed integer (default for integers)
+    long _ = 999_999L; // 64-bit signed integer
+    float _ = 3.14f;   // 32-bit floating-point
+    double _ = 3.14;   // 64-bit floating-point (default for decimals)
+    boolean _ = true;  // Represents true or false values
+    char _ = 'A';      // Single UTF-16 character
 
     /*
     Declaration
