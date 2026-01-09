@@ -20,10 +20,7 @@ Key Concepts
   - Declares dependencies and repositories
   - Configures build plugins, profiles, and packaging instructions
 - Example minimal POM:
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="...">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
     <artifactId>myapp</artifactId>
@@ -86,16 +83,20 @@ Key Concepts
 - Custom build goals can be defined and executed via Maven commands
 
 Project Structure Example
-MyProject               // Project
+my-maven-project
 |- src
-   |- main
-      |- java           // Default Maven Source Root
-      |- resources      // Default Maven Resource Root
-   |- test
-      |- java           // Default Maven Test Source Root
-      |- resources      // Default Maven Test Resource Root
-|- target               // Output directory for compiled classes and artifacts
-|- pom.xml              // Project Object Model (POM)
+|  |- main
+|  |  |- java                       // Default Maven Source Root
+|  |  |  |- com/example
+|  |  |     |- MyClassA.java
+|  |  |- resources                  // Default Maven Resource Root
+|  |- test
+|     |- java                       // Default Maven Test Source Root
+|     |  |- com/example
+|     |     |- MyClassATest.java
+|     |- resources                  // Default Maven Test Resource Root
+|- target                           // Output directory for compiled classes and artifacts
+|- pom.xml                          // Project Object Model (POM)
 
 Advantages of Maven
 - Automates compilation, testing, packaging, and deployment
