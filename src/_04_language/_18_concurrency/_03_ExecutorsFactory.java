@@ -51,7 +51,7 @@ void main() {
       requests.
     - Output: Hello World (printed by a virtual thread)
     */
-    try(ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
+    try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
         executor.submit(() -> IO.println("Hello World"));
     }
 
@@ -63,7 +63,7 @@ void main() {
     - Does not impose an upper bound on the number of threads, so it should be used with care.
     - Output: Hello World (printed by a pooled thread)
     */
-    try(ExecutorService executor = Executors.newCachedThreadPool()) {
+    try (ExecutorService executor = Executors.newCachedThreadPool()) {
         executor.submit(() -> IO.println("Hello World"));
     }
 
@@ -79,7 +79,7 @@ void main() {
     - Suitable for CPU-bound workloads or scenarios where resource usage must be controlled.
     - Output: Hello World (printed by one of the pool threads)
     */
-    try(ExecutorService executor = Executors.newFixedThreadPool(3)) {
+    try (ExecutorService executor = Executors.newFixedThreadPool(3)) {
         executor.submit(() -> IO.println("Hello World"));
     }
 
@@ -91,7 +91,7 @@ void main() {
     - Suitable for simple CPU-bound or lightweight tasks that require strict ordering.
     - Output: Hello World (printed by the single executor thread)
     */
-    try(ExecutorService executor = Executors.newSingleThreadExecutor()) {
+    try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
         executor.submit(() -> IO.println("Hello World"));
     }
 
@@ -107,7 +107,7 @@ void main() {
     - Useful for repeating jobs, maintenance tasks, or delayed processing that should not block other tasks.
     - Output: Hello World (printed after the specified delay)
     */
-    try(ScheduledExecutorService executor = Executors.newScheduledThreadPool(3)) {
+    try (ScheduledExecutorService executor = Executors.newScheduledThreadPool(3)) {
         executor.schedule(() -> IO.println("Hello World"), 100, TimeUnit.MILLISECONDS);
     }
 
@@ -120,7 +120,7 @@ void main() {
     - Guarantees execution order when multiple tasks are scheduled.
     - Output: Hello World (printed after the specified delay)
     */
-    try(ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor()) {
+    try (ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor()) {
         executor.schedule(() -> IO.println("Hello World"), 100, TimeUnit.MILLISECONDS);
     }
 
@@ -137,7 +137,7 @@ void main() {
       decomposition.
     - Output: Hello World (printed by one of the pool threads)
     */
-    try(ExecutorService executor = Executors.newWorkStealingPool()) {
+    try (ExecutorService executor = Executors.newWorkStealingPool()) {
         executor.submit(() -> IO.println("Hello World"));
     }
 
@@ -150,7 +150,7 @@ void main() {
       resources.
     - Output: Hello World (printed by a newly created thread)
     */
-    try(ExecutorService executor = Executors.newThreadPerTaskExecutor(Executors.defaultThreadFactory())) {
+    try (ExecutorService executor = Executors.newThreadPerTaskExecutor(Executors.defaultThreadFactory())) {
         executor.submit(() -> IO.println("Hello World"));
     }
 }

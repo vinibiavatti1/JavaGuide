@@ -20,8 +20,8 @@ Key Characteristics
 - For-each loops are preferred when only element access is needed and index is irrelevant.
 
 Syntax:
-- For Syntax:      for(<initializations>; <conditions>; <updates>)
-- For-each Syntax: for(<elementType> <element> : <arrayOrCollection>)
+- For Syntax:      for (<initializations>; <conditions>; <updates>)
+- For-each Syntax: for (<elementType> <element> : <arrayOrCollection>)
 
 Usage
 - Use "for" loops when the number of iterations is known or controlled explicitly.
@@ -77,7 +77,7 @@ void main() {
     - The for-each loop (enhanced for loop) is used to iterate over all elements of an array or collection without
       needing an explicit index.
     - It provides a simpler and more readable way to access each element in sequence.
-    - Syntax: for(<elementType> <element> : <arrayOrCollection>)
+    - Syntax: for (<elementType> <element> : <arrayOrCollection>)
     - Output: A | B | C
     */
     char[] arr = new char[] {'A', 'B', 'C'};

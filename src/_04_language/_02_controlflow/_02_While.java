@@ -51,7 +51,7 @@ void main() {
       but care must be taken to include a proper exit condition or break statement to avoid unintentional application
       hangs.
     */
-    while(true) {
+    while (true) {
         break;
     }
 
@@ -65,5 +65,5 @@ void main() {
     do {
         IO.println(i);
         i++;
-    } while(i < 3);
+    } while (i < 3);
 }
