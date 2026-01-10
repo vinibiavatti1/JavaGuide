@@ -50,7 +50,7 @@ Example
 */
 void main() throws IOException {
     /*
-    Reading Bytes
+    Reading External Bytes File
     - The "Files.newInputStream" method creates an InputStream for reading binary data from a file.
     - If the file does not exist, an IOException is thrown.
     - Path.of is used to create a platform-independent path to the resource.
@@ -63,7 +63,7 @@ void main() throws IOException {
     }
 
     /*
-    Writing Bytes
+    Writing External Bytes File
     - The "Files.newOutputStream" method creates an OutputStream for writing binary data to a file.
     - If the file already exists, its content is truncated before writing.
     - If the file does not exist, it is created automatically.
@@ -76,7 +76,7 @@ void main() throws IOException {
     }
 
     /*
-    Reading Text
+    Reading External Text File
     - The "Files.newBufferedReader" method creates a BufferedReader for reading text files.
     - If the file does not exist, an IOException is thrown.
     - Path.of is used to create a platform-independent path to the resource.
@@ -89,7 +89,7 @@ void main() throws IOException {
     }
 
     /*
-    Writing Text
+    Writing External Text File
     - The "Files.newBufferedWriter" method creates a BufferedWriter for writing text files.
     - If the file already exists, its content is truncated before writing; if it does not exist, it is created.
     - To control open behavior, the flags in StandardOpenOption can be used.

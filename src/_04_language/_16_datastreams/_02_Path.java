@@ -28,7 +28,6 @@ Usage
   between absolute and relative paths.
 - Typically used together with the Files class to perform actual file or directory operations.
 */
-
 void main() {
     //==================================================================================================================
     // Declaration
