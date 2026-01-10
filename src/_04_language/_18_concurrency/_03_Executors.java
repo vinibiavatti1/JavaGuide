@@ -1,5 +1,5 @@
 /*
-Executors Factory
+Executors
 - This section explains the Executors factory class in Java, which provides factory methods to create various types of
   ExecutorService implementations for managing and executing concurrent tasks efficiently.
 

@@ -22,11 +22,9 @@ Key Characteristics
 - Resource management is important to avoid contention, deadlocks, and excessive context switching.
 
 Features
-- Thread: represents an independent sequence of execution; can be user or daemon threads.
+- Threads: represents an independent sequence of execution; can be user or daemon threads.
 - Executors: factory methods for creating and managing thread pools, including fixed, cached, single-threaded, and
   virtual thread pools; simplifies task submission without manually creating threads.
-- Virtual Threads (Project Loom): lightweight threads managed by the JVM that allow blocking I/O code to scale
-  efficiently to thousands of concurrent tasks.
 - CompletableFuture: API for composing and executing asynchronous tasks in a functional style, enabling chaining,
   combination, and result handling.
 - Synchronized: keyword for defining critical sections, ensuring that only one thread accesses a resource at a time.
