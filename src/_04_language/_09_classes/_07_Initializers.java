@@ -4,10 +4,10 @@ Class Initializers
   creation.
 
 Overview
-- Static Initializers (`static { ... }`):
+- Static Initializers ("static { ... }"):
   - Executed once when the class is first loaded.
   - Typically used to initialize static fields or perform setup for the class.
-- Instance Initializers (`{ ... }`):
+- Instance Initializers ("{ ... }"):
   - Executed every time a new object is created, before the constructor.
   - Typically used to initialize instance fields with complex logic.
 
@@ -34,6 +34,6 @@ public class Person {
 }
 
 void main() {
-    Person p1 = new Person(); // Static and Instance initializers executed
+    Person p1 = new Person(); // Static + Instance initializers executed
     Person p2 = new Person(); // Only Instance initializer executed
 }

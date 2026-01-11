@@ -33,7 +33,7 @@ public enum Color {
     private final int id;
     private final String description;
 
-    // Constructor (always private)
+    // Private Constructor
     Color(int id, String description) {
         this.id = id;
         this.description = description;

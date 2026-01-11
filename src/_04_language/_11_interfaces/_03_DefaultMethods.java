@@ -25,7 +25,6 @@ Example:
 - Classes "Dog" and "Cat" implement the interface and inherit or override the default behavior.
 */
 public interface Speaker {
-    // Default method
     default void sayHello() {
         IO.println("Hello!");
     }

@@ -1,23 +1,23 @@
 /*
 Enums
-- This section explains enums in Java and how they represent a fixed set of constants.
+- This section explains enums in Java and how they represent a fixed, type-safe set of constants.
 
 Overview
 - An enum (short for "enumeration") is a special type that defines a collection of named constants.
 - Declared using the "enum" keyword.
-- Provides type safety and readability compared to using plain integers or strings.
-- Can include fields, methods, and constructors for more complex behavior.
+- Provides type safety and readability compared to using plain integers, strings, or other literals.
+- Can include fields, methods, and constructors to add custom behavior or properties to each constant.
 
 Key Characteristics
 - Each constant is a public static final instance of the enum type.
-- Enums can implement interfaces but cannot extend other classes (implicitly final).
-- Methods like "values()", "valueOf(String)", and "ordinal()" are automatically provided.
-- Supports usage in switch statements and comparisons.
+- Enums are implicitly final and cannot extend other classes, but they can implement interfaces.
+- Built-in methods like "values()", "valueOf(String)", and "ordinal()" are automatically provided.
+- Enums can be used in "switch" statements and support comparison using "==" or "compareTo()".
 
 Usage
-- Use enums to represent a fixed set of known values (e.g., days of the week, states, colors).
-- Avoid using arbitrary strings or integers for predefined categories.
-- Can include additional properties and behavior if needed.
+- Use enums to represent a fixed set of known values, such as days of the week, states, or colors.
+- Avoid using arbitrary strings or integers for predefined categories; enums make the code safer and more readable.
+- Enums can have additional fields, methods, and logic if more complex behavior is required.
 
 Example:
 - The example shows an enum "Color" with three constants: RED, GREEN, and BLUE.
@@ -33,10 +33,9 @@ void main() {
     /*
     Constants
     - Prints the enum constant directly. Shows the name of the constant as defined.
+    - Output: // RED
     */
-    IO.println(Color.RED);   // RED
-    IO.println(Color.GREEN); // GREEN
-    IO.println(Color.BLUE);  // BLUE
+    IO.println(Color.RED);
 
     /*
     Values

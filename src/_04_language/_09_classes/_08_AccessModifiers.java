@@ -1,21 +1,23 @@
 /*
 Access Modifiers
-- This section explains how access modifiers control the visibility of class members in Java.
-- Fields should usually be private and accessed via getters/setters.
+- This section explains how access modifiers control the visibility of class members (fields, methods, and constructors)
+  in Java.
+- Fields should generally be private and accessed through getters and setters to maintain encapsulation.
 
 Overview
-- public: The field is accessible from any class, regardless of the package.
-- protected: The field is accessible within the same package and by subclasses.
-- private: The field is accessible only within the declaring class.
-- package-private (default): The field is accessible only within the same package.
+- public: Members are accessible from any class, in any package.
+- protected: Members are accessible within the same package and by subclasses, even if they are in a different package.
+- private: Members are accessible only within the declaring class.
+- package-private (default, no modifier): Members are accessible only within the same package.
 
 Key Characteristics
-- Modifiers define encapsulation and influence class design and maintainability.
-- Choosing the right modifier helps protect internal state and prevents unintended access.
+- Access modifiers enforce encapsulation and influence class design, maintainability, and security.
+- Choosing the appropriate modifier helps protect internal state, control access, and prevent unintended modifications.
+- Proper use of modifiers promotes clean, maintainable, and safe object-oriented code.
 
 Example:
 - This example declares a public class with fields using different access modifiers.
-- Shows how access to fields is restricted based on the modifier.
+- Demonstrates how access to fields is restricted according to the modifier used.
 */
 public class Person {
     // Fields
