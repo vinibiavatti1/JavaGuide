@@ -49,4 +49,273 @@ Example
   and handling exceptions such as ClassNotFoundException.
 - These examples provide a foundation for performing runtime inspection and dynamic behavior using reflection.
 */
-void main() {}
+import java.beans.JavaBean;
+import java.lang.annotation.Annotation;
+
+@JavaBean
+public static class Person<T> implements Serializable {
+    // Static Fields
+    private static final long serialVersionUID = 1L;
+
+    // Fields
+    private String name = "Unknown";
+    private int age;
+
+    // Constructors
+    public Person() {}
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Methods
+    public void greet() {
+        IO.println(String.format("Hello, my name is %s, and I am %d years old", name, age));
+    }
+
+    // Static Methods
+    public static void staticGreet() {
+        IO.println("Hello from Person class!");
+    }
+
+    // Getters and Setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    // Inner Classes
+    class Inner {}
+    static class StaticInner {}
+}
+
+void main() throws Exception {
+    //==================================================================================================================
+    // Class Object
+    //==================================================================================================================
+
+    /*
+    Get Class via Class Literal
+    - The ".class" literal provides a direct reference to the Class object associated with a given type.
+    - This approach is resolved at compile time and does not require an instance of the class.
+    - Commonly used in reflection, type-safe APIs, and framework configuration.
+    - Output: class _01_Reflection$Person
+    */
+    Class<Person> clazz = Person.class;
+    IO.println(clazz);
+
+    /*
+    Get Class from Object Instance
+    - The "getClass()" method is inherited from java.lang.Object and returns the runtime Class of the instance.
+    - This approach requires an existing object and is resolved dynamically at runtime.
+    - Useful when the concrete type of the object is not known at compile time.
+    - Because "getClass()" returns a Class<?> (unknown type), an explicit cast to Class<Integer> is required.
+    - Output: class _01_Reflection$Person
+    */
+    Person instance = new Person("John", 35);
+    clazz = (Class<Person>) instance.getClass();
+    IO.println(clazz);
+
+    /*
+    Get Class by Fully Qualified Name
+    - The "Class.forName()" method loads (or retrieves) a class using its fully qualified name.
+    - This approach is resolved at runtime and is commonly used in frameworks, dependency injection, and plugin systems.
+    - It allows dynamic loading of classes without compile-time dependencies.
+    - Because "Class.forName()" returns a Class<?> (unknown type), an explicit cast to Class<Integer> is required.
+    - Throws ClassNotFoundException if the specified class name cannot be found by the ClassLoader.
+    - Output: class _01_Reflection$Person
+    */
+    clazz = (Class<Person>) Class.forName("_01_Reflection$Person");
+    IO.println(clazz);
+
+    /*
+    Get Class of a Standard Java Type by Fully Qualified Name
+    - The "Class.forName()" method loads (or retrieves) a class using its fully qualified name.
+    - This approach is resolved at runtime and allows dynamic loading of classes without compile-time dependencies.
+    - Because "Class.forName()" returns a Class<?> (unknown type), an explicit cast to Class<Integer> is required
+      when assigning to a variable with a specific type.
+    - Throws ClassNotFoundException if the specified class name cannot be found by the ClassLoader.
+    - Useful for obtaining Class objects of standard Java types or any class known only by name at runtime.
+    - Output: class java.lang.Integer
+    */
+    Class<Integer> integerClass = (Class<Integer>) Class.forName("java.lang.Integer");
+    IO.println(integerClass);
+
+    //==================================================================================================================
+    // Class Introspection
+    //==================================================================================================================
+
+    /*
+    Get Name
+    -
+    - Output: _02_Operations$Person / Person
+    */
+    IO.println(Person.class.getName() + " / " + Person.class.getSimpleName());
+
+    /*
+    Get Super Class
+    -
+    - Output: class java.lang.Object
+    */
+    IO.println(Person.class.getSuperclass());
+
+    /*
+    Get Interfaces
+    -
+    - Output: interface java.io.Serializable
+    */
+    for (Class inter : Person.class.getInterfaces()) {
+        IO.println(inter);
+    }
+
+    /*
+    Get Fields
+    - (add note about this)
+    - (add note about getFields vs getDeclaredFields)
+    - (add note about getDeclaredField by name)
+    - Output: serialVersionUID | name | age | this$0
+    */
+    for (Field field : Person.class.getDeclaredFields()) {
+        IO.println(field.getName());
+    }
+
+    /*
+    Get Methods
+    - (add note about getMethods vs getDeclaredMethods)
+    - (add note about getDeclaredMethod by name and params (because overload))
+    - Output: greet | getName | setName | getAge | setAge | staticGreet
+    */
+    for (Method method : Person.class.getDeclaredMethods()) {
+        IO.println(method.getName());
+    }
+
+    /*
+    Get Constructors
+    - (add note about getConstructors vs getDeclaredConstructors)
+    - (add note about getConstructor by params)
+    - Output: Person | Person
+    */
+    for (Constructor constructor : Person.class.getDeclaredConstructors()) {
+        IO.println(constructor.getName());
+    }
+
+    /*
+    Get Annotations
+    - (add note about getAnnotations vs getDeclaredAnnotations)
+    - (add note about getDeclaredAnnotation by type)
+    - Output: interface java.beans.JavaBean
+    */
+    for (Annotation annotation : Person.class.getDeclaredAnnotations()) {
+        IO.println(annotation.annotationType());
+    }
+
+    /*
+    Get Type Parameters
+    -
+    - Output: T
+    */
+    for (TypeVariable type : Person.class.getTypeParameters()) {
+        IO.println(type);
+    }
+
+    /*
+    Get Nested Classes
+    -
+    - Output: Person$StaticInner | Person$Inner
+    */
+    for (Class<?> inner : Person.class.getDeclaredClasses()) {
+        IO.println(inner);
+    }
+
+    //==================================================================================================================
+    // Field Data
+    //==================================================================================================================
+
+    /*
+    Get Static Field Data
+    -
+    - (add note about setAccessible)
+    - (add note about null in get)
+    - Output: 1
+    */
+    Field field = Person.class.getDeclaredField("serialVersionUID");
+    field.setAccessible(true);
+    long version = (long) field.get(null);
+    IO.println(version);
+
+    /*
+    Get Field Data
+    -
+    - (add note about setAccessible)
+    - Output: John
+    */
+    Person person = new Person("John", 35);
+    field = Person.class.getDeclaredField("name");
+    field.setAccessible(true);
+    String name = (String) field.get(person);
+    IO.println(name);
+
+    //==================================================================================================================
+    // Method Invocation
+    //==================================================================================================================
+
+    /*
+    Invoke Static Methods
+    -
+    - Output: Hello from Person class!
+    */
+    Method method = Person.class.getDeclaredMethod("staticGreet");
+    method.invoke(null);
+
+    /*
+    Invoke Methods
+    -
+    - Output: Hello, my name is John, and I am 35 years old
+    */
+    person = new Person("John", 35);
+    method = Person.class.getDeclaredMethod("greet");
+    method.invoke(person);
+
+    /*
+    Invoke Methods with Parameters
+    -
+    - Output: Anna
+    */
+    person = new Person("John", 35);
+    method = Person.class.getDeclaredMethod("setName", String.class);
+    method.invoke(person, "Anna");
+    IO.println(person.getName());
+
+    /*
+    Invoke Methods with Return
+    -
+    - Output: John
+    */
+    person = new Person("John", 35);
+    method = Person.class.getDeclaredMethod("getName");
+    name = (String) method.invoke(person);
+    IO.println(name);
+
+    //==================================================================================================================
+    // Invoke Constructors
+    //==================================================================================================================
+
+    /*
+    Invoke Constructor (Create New Instance)
+    - (add note about type param)
+    - Output: Unknown
+    */
+    Constructor constructor = Person.class.getDeclaredConstructor();
+    person = (Person) constructor.newInstance();
+    IO.println(person.getName());
+
+    /*
+    Invoke Constructor With Arguments (Create New Instance)
+    - (add note about type param)
+    - Output: John
+    */
+    constructor = Person.class.getDeclaredConstructor(String.class, int.class);
+    person = (Person) constructor.newInstance("John", 35);
+    IO.println(person.getName());
+}

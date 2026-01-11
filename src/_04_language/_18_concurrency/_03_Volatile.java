@@ -1,5 +1,5 @@
 /*
-Volatile Keyword
+Volatile
 - This section explains the "volatile" keyword in Java and how it ensures visibility of variables across multiple
   threads.
 
@@ -25,6 +25,26 @@ Example:
 - One thread executes the loop, and another thread sets the variable to false.
 - Using "volatile" ensures that the loop thread sees the updated value immediately and terminates correctly.
 */
-void main() {
-    
+public class Task implements Runnable {
+    private volatile boolean running = true;
+
+    @Override
+    public void run() {
+        while(running) {
+            // process...
+        }
+        IO.println("Task finished!");
+    }
+
+    public void stop() {
+        running = false;
+    }
+}
+
+void main() throws InterruptedException {
+    Task task = new Task();
+    Thread thread = new Thread(task);
+    thread.start();
+    Thread.sleep(1000);
+    task.stop(); // Ensures the thread will see the update immediately
 }
