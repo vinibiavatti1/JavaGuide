@@ -41,13 +41,8 @@ Usage
 - Be mindful that reflection can introduce performance overhead and reduce type safety.
 
 Example
-- The examples below demonstrate three common ways to obtain a Class object in Java:
-  1. Using a class literal ("ClassName.class")
-  2. Using an existing object instance ("getClass()")
-  3. Loading a class dynamically by its fully qualified name ("Class.forName()")
-- Each approach illustrates how reflection can access type information at runtime, with notes on casting when necessary
-  and handling exceptions such as ClassNotFoundException.
-- These examples provide a foundation for performing runtime inspection and dynamic behavior using reflection.
+- A class "Person" was defined to be used as the target class for the reflection operations below.
+- The examples provide a foundation for performing runtime inspection and dynamic behavior using reflection.
 */
 import java.beans.JavaBean;
 import java.lang.annotation.Annotation;
@@ -147,63 +142,29 @@ void main() throws Exception {
     //==================================================================================================================
 
     /*
-    Get Name
-    -
+    Get Class Name
+    - The "getName()" method returns the fully qualified binary name of the class, including its package and enclosing
+      classes.
+    - For nested classes, the name includes the '$' separator used by the JVM.
+    - The "getSimpleName()" method returns only the simple class name, without package or enclosing context.
     - Output: _02_Operations$Person / Person
     */
     IO.println(Person.class.getName() + " / " + Person.class.getSimpleName());
 
     /*
     Get Super Class
-    -
+    - The "getSuperclass()" method returns the direct superclass of the current class.
+    - If the class does not explicitly extend another class, the superclass is "java.lang.Object".
+    - Returns null only for Object itself.
     - Output: class java.lang.Object
     */
     IO.println(Person.class.getSuperclass());
 
     /*
-    Get Interfaces
-    -
-    - Output: interface java.io.Serializable
-    */
-    for (Class inter : Person.class.getInterfaces()) {
-        IO.println(inter);
-    }
-
-    /*
-    Get Fields
-    - (add note about this)
-    - (add note about getFields vs getDeclaredFields)
-    - (add note about getDeclaredField by name)
-    - Output: serialVersionUID | name | age | this$0
-    */
-    for (Field field : Person.class.getDeclaredFields()) {
-        IO.println(field.getName());
-    }
-
-    /*
-    Get Methods
-    - (add note about getMethods vs getDeclaredMethods)
-    - (add note about getDeclaredMethod by name and params (because overload))
-    - Output: greet | getName | setName | getAge | setAge | staticGreet
-    */
-    for (Method method : Person.class.getDeclaredMethods()) {
-        IO.println(method.getName());
-    }
-
-    /*
-    Get Constructors
-    - (add note about getConstructors vs getDeclaredConstructors)
-    - (add note about getConstructor by params)
-    - Output: Person | Person
-    */
-    for (Constructor constructor : Person.class.getDeclaredConstructors()) {
-        IO.println(constructor.getName());
-    }
-
-    /*
     Get Annotations
-    - (add note about getAnnotations vs getDeclaredAnnotations)
-    - (add note about getDeclaredAnnotation by type)
+    - The "getAnnotations()" method returns annotations present on the class and inherited from superclasses.
+    - The "getDeclaredAnnotations()" method returns only annotations directly declared on the class.
+    - The "getDeclaredAnnotation(Class<T>)" method retrieves a specific annotation by its type.
     - Output: interface java.beans.JavaBean
     */
     for (Annotation annotation : Person.class.getDeclaredAnnotations()) {
@@ -212,7 +173,9 @@ void main() throws Exception {
 
     /*
     Get Type Parameters
-    -
+    - The "getTypeParameters()" method returns the generic type parameters declared by the class.
+    - These type parameters represent placeholders (e.g., T, E, K, V, etc.) used in generic class definitions.
+    - If the class is not generic, this method returns an empty array.
     - Output: T
     */
     for (TypeVariable type : Person.class.getTypeParameters()) {
@@ -220,8 +183,60 @@ void main() throws Exception {
     }
 
     /*
+    Get Interfaces
+    - The "getInterfaces()" method returns all interfaces directly implemented by the class.
+    - Interfaces implemented by superclasses are also included in the result.
+    - The returned array contains Class objects representing each interface.
+    - Output: interface java.io.Serializable
+    */
+    for (Class inter : Person.class.getInterfaces()) {
+        IO.println(inter);
+    }
+
+    /*
+    Get Fields
+    - The "getDeclaredFields()" method returns all fields declared directly in the class, regardless of access modifier.
+      This includes private, protected, package-private, public, static, and compiler-generated fields.
+    - The "getFields()" method returns only public fields, including those inherited from superclasses.
+    - The "getDeclaredField(String)" method retrieves a specific field by name from the declaring class.
+    - Output: serialVersionUID | name | age | this$0
+    */
+    for (Field field : Person.class.getDeclaredFields()) {
+        IO.println(field.getName());
+    }
+
+    /*
+    Get Constructors
+    - The "getDeclaredConstructors()" method returns all constructors declared directly in the class, regardless of
+      access. This includes public, protected, package-private, and private constructors.
+    - The "getConstructors()" method returns only public constructors, including those inherited from superclasses.
+    - The "getConstructor(Class<?>...)" method retrieves a specific public constructor by its parameter types.
+    - Output: Person | Person
+    */
+    for (Constructor constructor : Person.class.getDeclaredConstructors()) {
+        IO.println(constructor.getName());
+    }
+
+    /*
+    Get Methods
+    - The "getDeclaredMethods()" method returns all methods declared directly in the class, regardless of access
+      modifier. This includes private, protected, package-private, public, static methods, and compiler-generated
+      methods.
+    - The "getMethods()" method returns only public methods, including those inherited from superclasses.
+    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method by name and parameter types, which
+      is important when multiple overloaded methods exist.
+    - Output: greet | getName | setName | getAge | setAge | staticGreet
+    */
+    for (Method method : Person.class.getDeclaredMethods()) {
+        IO.println(method.getName());
+    }
+
+    /*
     Get Nested Classes
-    -
+    - The "getDeclaredClasses()" method returns all classes and interfaces declared directly within the current class,
+      including static and inner classes.
+    - The "getClasses()" method returns only the public nested classes, including inherited ones.
+    - Anonymous classes are not included in this list.
     - Output: Person$StaticInner | Person$Inner
     */
     for (Class<?> inner : Person.class.getDeclaredClasses()) {
@@ -234,9 +249,11 @@ void main() throws Exception {
 
     /*
     Get Static Field Data
-    -
-    - (add note about setAccessible)
-    - (add note about null in get)
+    - The "getDeclaredField(String)" method retrieves a specific field declared in the class, regardless of its access
+      modifier.
+    - To access private or protected fields via reflection, call "setAccessible(true)" to temporarily bypass Java's
+      access control.
+    - For static fields, the "get(Object)" method ignores the parameter and accepts null.
     - Output: 1
     */
     Field field = Person.class.getDeclaredField("serialVersionUID");
@@ -246,8 +263,11 @@ void main() throws Exception {
 
     /*
     Get Field Data
-    -
-    - (add note about setAccessible)
+    - The "getDeclaredField(String)" method retrieves a specific field declared in the class, regardless of its access
+      modifier.
+    - To access private or protected fields via reflection, call "setAccessible(true)" to temporarily bypass Java's
+      access control.
+    - For instance fields, the "get(Object)" method requires the target object whose field value you want to read.
     - Output: John
     */
     Person person = new Person("John", 35);
@@ -262,7 +282,10 @@ void main() throws Exception {
 
     /*
     Invoke Static Methods
-    -
+    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
+      private and static methods.
+    - To call a static method via reflection, pass null as the target object in "invoke(Object, Object...)".
+    - Useful for dynamically executing utility or class-level behavior, testing, or framework operations.
     - Output: Hello from Person class!
     */
     Method method = Person.class.getDeclaredMethod("staticGreet");
@@ -270,7 +293,9 @@ void main() throws Exception {
 
     /*
     Invoke Methods
-    -
+    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
+      private and instance methods.
+    - To call an instance method via reflection, pass the target object to "invoke(Object, Object...)".
     - Output: Hello, my name is John, and I am 35 years old
     */
     person = new Person("John", 35);
@@ -279,7 +304,10 @@ void main() throws Exception {
 
     /*
     Invoke Methods with Parameters
-    -
+    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
+      private and instance methods.
+    - To call a method with parameters via reflection, pass the target object as the first argument to
+      "invoke(Object, Object...)" followed by the method arguments.
     - Output: Anna
     */
     person = new Person("John", 35);
@@ -289,7 +317,10 @@ void main() throws Exception {
 
     /*
     Invoke Methods with Return
-    -
+    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
+      private and instance methods.
+    - To call a method with a return value via reflection, pass the target object to "invoke(Object, Object...)" and
+      cast the result to the expected type.
     - Output: John
     */
     person = new Person("John", 35);
@@ -298,12 +329,17 @@ void main() throws Exception {
     IO.println(name);
 
     //==================================================================================================================
-    // Invoke Constructors
+    // Invoke Constructors (Create New Instances)
     //==================================================================================================================
 
     /*
-    Invoke Constructor (Create New Instance)
-    - (add note about type param)
+    Invoke Constructor
+    - The "getDeclaredConstructor(Class<?>...)" method retrieves a specific constructor declared in the class, including
+      private constructors.
+    - Use "newInstance(Object...)" to create a new instance dynamically; the arguments must match the constructor
+      parameters.
+    - For generic classes, the type parameter is not enforced at runtime due to type erasure; the returned object must
+      be cast to the appropriate type.
     - Output: Unknown
     */
     Constructor constructor = Person.class.getDeclaredConstructor();
@@ -311,8 +347,13 @@ void main() throws Exception {
     IO.println(person.getName());
 
     /*
-    Invoke Constructor With Arguments (Create New Instance)
-    - (add note about type param)
+    Invoke Constructor With Parameters
+    - The "getDeclaredConstructor(Class<?>...)" method retrieves a specific constructor declared in the class, including
+      private constructors.
+    - Use "newInstance(Object...)" to create a new instance dynamically; arguments must match the constructor's
+      parameter types.
+    - For generic classes, type parameters are erased at runtime; the returned object must be cast to the appropriate
+      type.
     - Output: John
     */
     constructor = Person.class.getDeclaredConstructor(String.class, int.class);
