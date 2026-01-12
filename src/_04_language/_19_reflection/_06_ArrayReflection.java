@@ -75,4 +75,14 @@ void main() {
     strArray = (String[]) Array.newInstance(String.class, 3);
     Array.set(strArray, 0, "A");
     IO.println(Array.get(strArray, 0));
+
+    /*
+    Check Array
+    - The "isArray()" method on a Class object returns true if the class represents an array type.
+    - Works for both primitive arrays (e.g., int[]) and object arrays (e.g., String[]).
+    - Returns false for regular classes and interfaces.
+    - Useful for generic code that must handle arrays differently from other objects.
+    - Output: true
+    */
+    IO.println(int[].class.isArray());
 }

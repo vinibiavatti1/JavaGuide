@@ -49,36 +49,16 @@ import java.lang.annotation.Annotation;
 
 @JavaBean
 public static class Person<T> implements Serializable {
-    // Static Fields
-    private static final long serialVersionUID = 1L;
-
     // Fields
-    private String name = "Unknown";
-    private int age;
+    private static String defaultName = "Unknown";
+    private String name = "John";
 
     // Constructors
     public Person() {}
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
     // Methods
-    public void greet() {
-        IO.println(String.format("Hello, my name is %s, and I am %d years old", name, age));
-    }
-
-    // Static Methods
-    public static void staticGreet() {
-        IO.println("Hello from Person class!");
-    }
-
-    // Getters and Setters
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
 
     // Inner Classes
     class Inner {}
@@ -87,7 +67,7 @@ public static class Person<T> implements Serializable {
 
 void main() throws Exception {
     //==================================================================================================================
-    // Class Object
+    // Class Instance
     //==================================================================================================================
 
     /*
@@ -108,7 +88,7 @@ void main() throws Exception {
     - Because "getClass()" returns a Class<?> (unknown type), an explicit cast to Class<Integer> is required.
     - Output: class _01_Reflection$Person
     */
-    Person instance = new Person("John", 35);
+    Person instance = new Person();
     clazz = (Class<Person>) instance.getClass();
     IO.println(clazz);
 
@@ -147,9 +127,20 @@ void main() throws Exception {
       classes.
     - For nested classes, the name includes the '$' separator used by the JVM.
     - The "getSimpleName()" method returns only the simple class name, without package or enclosing context.
-    - Output: _02_Operations$Person / Person
+    - Output: _01_Reflection$Person / Person
     */
     IO.println(Person.class.getName() + " / " + Person.class.getSimpleName());
+
+    /*
+    Get Modifiers
+    - The "getModifiers()" method returns an integer representing the class's modifiers, such as public, final,
+      abstract, etc.
+    - Use the Modifier class (java.lang.reflect.Modifier) to interpret the integer, e.g., Modifier.isPublic(modifiers).
+    - Useful for inspecting access levels and properties of classes dynamically.
+    - Output: public static
+    */
+    int modifiers = Person.class.getModifiers();
+    IO.println(Modifier.toString(modifiers));
 
     /*
     Get Super Class
@@ -194,12 +185,24 @@ void main() throws Exception {
     }
 
     /*
-    Get Fields
+    Get Nested Classes
+    - The "getDeclaredClasses()" method returns all classes and interfaces declared directly within the current class,
+      including static and inner classes.
+    - The "getClasses()" method returns only the public nested classes, including inherited ones.
+    - Anonymous classes are not included in this list.
+    - Output: class _01_Reflection$Person$StaticInner | class _01_Reflection$Person$Inner
+    */
+    for (Class<?> inner : Person.class.getDeclaredClasses()) {
+        IO.println(inner);
+    }
+
+    /*
+    Get Declared Fields
     - The "getDeclaredFields()" method returns all fields declared directly in the class, regardless of access modifier.
       This includes private, protected, package-private, public, static, and compiler-generated fields.
     - The "getFields()" method returns only public fields, including those inherited from superclasses.
     - The "getDeclaredField(String)" method retrieves a specific field by name from the declaring class.
-    - Output: serialVersionUID | name | age | this$0
+    - Output: defaultName | name
     */
     for (Field field : Person.class.getDeclaredFields()) {
         IO.println(field.getName());
@@ -211,7 +214,7 @@ void main() throws Exception {
       access. This includes public, protected, package-private, and private constructors.
     - The "getConstructors()" method returns only public constructors, including those inherited from superclasses.
     - The "getConstructor(Class<?>...)" method retrieves a specific public constructor by its parameter types.
-    - Output: Person | Person
+    - Output: _01_Reflection$Person
     */
     for (Constructor constructor : Person.class.getDeclaredConstructors()) {
         IO.println(constructor.getName());
@@ -225,138 +228,9 @@ void main() throws Exception {
     - The "getMethods()" method returns only public methods, including those inherited from superclasses.
     - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method by name and parameter types, which
       is important when multiple overloaded methods exist.
-    - Output: greet | getName | setName | getAge | setAge | staticGreet
+    - Output: getName | setName
     */
     for (Method method : Person.class.getDeclaredMethods()) {
         IO.println(method.getName());
     }
-
-    /*
-    Get Nested Classes
-    - The "getDeclaredClasses()" method returns all classes and interfaces declared directly within the current class,
-      including static and inner classes.
-    - The "getClasses()" method returns only the public nested classes, including inherited ones.
-    - Anonymous classes are not included in this list.
-    - Output: Person$StaticInner | Person$Inner
-    */
-    for (Class<?> inner : Person.class.getDeclaredClasses()) {
-        IO.println(inner);
-    }
-
-    //==================================================================================================================
-    // Field Data
-    //==================================================================================================================
-
-    /*
-    Get Static Field Data
-    - The "getDeclaredField(String)" method retrieves a specific field declared in the class, regardless of its access
-      modifier.
-    - To access private or protected fields via reflection, call "setAccessible(true)" to temporarily bypass Java's
-      access control.
-    - For static fields, the "get(Object)" method ignores the parameter and accepts null.
-    - Output: 1
-    */
-    Field field = Person.class.getDeclaredField("serialVersionUID");
-    field.setAccessible(true);
-    long version = (long) field.get(null);
-    IO.println(version);
-
-    /*
-    Get Field Data
-    - The "getDeclaredField(String)" method retrieves a specific field declared in the class, regardless of its access
-      modifier.
-    - To access private or protected fields via reflection, call "setAccessible(true)" to temporarily bypass Java's
-      access control.
-    - For instance fields, the "get(Object)" method requires the target object whose field value you want to read.
-    - Output: John
-    */
-    Person person = new Person("John", 35);
-    field = Person.class.getDeclaredField("name");
-    field.setAccessible(true);
-    String name = (String) field.get(person);
-    IO.println(name);
-
-    //==================================================================================================================
-    // Method Invocation
-    //==================================================================================================================
-
-    /*
-    Invoke Static Methods
-    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
-      private and static methods.
-    - To call a static method via reflection, pass null as the target object in "invoke(Object, Object...)".
-    - Useful for dynamically executing utility or class-level behavior, testing, or framework operations.
-    - Output: Hello from Person class!
-    */
-    Method method = Person.class.getDeclaredMethod("staticGreet");
-    method.invoke(null);
-
-    /*
-    Invoke Methods
-    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
-      private and instance methods.
-    - To call an instance method via reflection, pass the target object to "invoke(Object, Object...)".
-    - Output: Hello, my name is John, and I am 35 years old
-    */
-    person = new Person("John", 35);
-    method = Person.class.getDeclaredMethod("greet");
-    method.invoke(person);
-
-    /*
-    Invoke Methods with Parameters
-    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
-      private and instance methods.
-    - To call a method with parameters via reflection, pass the target object as the first argument to
-      "invoke(Object, Object...)" followed by the method arguments.
-    - Output: Anna
-    */
-    person = new Person("John", 35);
-    method = Person.class.getDeclaredMethod("setName", String.class);
-    method.invoke(person, "Anna");
-    IO.println(person.getName());
-
-    /*
-    Invoke Methods with Return
-    - The "getDeclaredMethod(String, Class<?>...)" method retrieves a specific method declared in the class, including
-      private and instance methods.
-    - To call a method with a return value via reflection, pass the target object to "invoke(Object, Object...)" and
-      cast the result to the expected type.
-    - Output: John
-    */
-    person = new Person("John", 35);
-    method = Person.class.getDeclaredMethod("getName");
-    name = (String) method.invoke(person);
-    IO.println(name);
-
-    //==================================================================================================================
-    // Invoke Constructors (Create New Instances)
-    //==================================================================================================================
-
-    /*
-    Invoke Constructor
-    - The "getDeclaredConstructor(Class<?>...)" method retrieves a specific constructor declared in the class, including
-      private constructors.
-    - Use "newInstance(Object...)" to create a new instance dynamically; the arguments must match the constructor
-      parameters.
-    - For generic classes, the type parameter is not enforced at runtime due to type erasure; the returned object must
-      be cast to the appropriate type.
-    - Output: Unknown
-    */
-    Constructor constructor = Person.class.getDeclaredConstructor();
-    person = (Person) constructor.newInstance();
-    IO.println(person.getName());
-
-    /*
-    Invoke Constructor With Parameters
-    - The "getDeclaredConstructor(Class<?>...)" method retrieves a specific constructor declared in the class, including
-      private constructors.
-    - Use "newInstance(Object...)" to create a new instance dynamically; arguments must match the constructor's
-      parameter types.
-    - For generic classes, type parameters are erased at runtime; the returned object must be cast to the appropriate
-      type.
-    - Output: John
-    */
-    constructor = Person.class.getDeclaredConstructor(String.class, int.class);
-    person = (Person) constructor.newInstance("John", 35);
-    IO.println(person.getName());
 }
