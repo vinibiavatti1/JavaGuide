@@ -4,6 +4,7 @@ public class ServiceProvider {
     private Map<Class<?>, Object> services = new ConcurrentHashMap();
 
     public <T> T get(Class<T> clazz) {
+        Objects.requireNonNull(clazz);
         Object instance = services.get(clazz);
         if (instance == null) {
             throw new RuntimeException("Service '" + clazz.getSimpleName() + "' not registered");
@@ -12,6 +13,7 @@ public class ServiceProvider {
     }
 
     public void register(Class<?> clazz) {
+        Objects.requireNonNull(clazz);
         if (!services.containsKey(clazz)) {
             Object instance = createInstance(clazz);
             services.put(clazz, instance);
