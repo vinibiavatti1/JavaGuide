@@ -1,4 +1,4 @@
-/* TODO
+/*
 Annotation Compile Processing
 - This section explains compile-time annotation processing in Java, which allows programs to process annotations during
   compilation rather than at runtime.
@@ -46,6 +46,10 @@ Usage
   - Generating configuration files or other auxiliary resources
 - Processors must be registered using the file: "META-INF/services/javax.annotation.processing.Processor" containing the
   fully qualified processor class name.
+
+Example
+- The example below only illustrates the implementation of an Annotation Processor. Execution details and advanced setup
+  are omitted, as the guide aims to provide a simple demonstration rather than an in-depth exploration.
 */
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.RoundEnvironment;
@@ -59,11 +63,9 @@ import javax.lang.model.element.TypeElement;
 public static class MyProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        IO.println("TEST");
-        return false;
+        // Code Generation here.
+        return true;
     }
 }
 
-void main() {
-
-}
+void main() {}
