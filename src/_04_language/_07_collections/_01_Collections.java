@@ -1,29 +1,29 @@
 /*
-Collections
-- This section explains the Java Collections framework, which provides a unified architecture for storing and
-  manipulating groups of objects.
-
-Overview
-- The framework includes core interfaces like Collection, List, Set, Map, and Queue.
-- Concrete implementations vary in performance, ordering, and thread-safety.
-- Collections provide utility methods for sorting, searching, synchronization, and creating thread-safe wrappers.
-
-Key Characteristics
-- Collection interface defines basic operations: add(), remove(), contains(), size(), and iterator().
-- Iteration supported via for-loops, for-each, iterators, spliterators, or streams.
-
-Abstractions
-- List: ordered collection with positional access; allows duplicates (ArrayList, LinkedList).
-- Set: collection of unique elements (HashSet, LinkedHashSet, TreeSet, EnumSet).
-- Map: key-value associations (HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap, EnumMap).
-- Deque: double-ended queue with insertion/removal at both ends (ArrayDeque, LinkedList).
-
-Usage
-- Choose the appropriate collection based on requirements: order, uniqueness, concurrency, and performance.
-- Use List for ordered data, Set for uniqueness, Map for key-value pairs, and Deque for double-ended operations.
-- Utilize Collections utility methods for common tasks like sorting, searching, and synchronization.
-- For most standard cases, default implementations (ArrayList, HashSet, HashMap) are sufficient.
-*/
+ * Collections
+ * - This section explains the Java Collections framework, which provides a unified architecture for storing and
+ *   manipulating groups of objects.
+ *
+ * Overview
+ * - The framework includes core interfaces like Collection, List, Set, Map, and Queue.
+ * - Concrete implementations vary in performance, ordering, and thread-safety.
+ * - Collections provide utility methods for sorting, searching, synchronization, and creating thread-safe wrappers.
+ *
+ * Key Characteristics
+ * - Collection interface defines basic operations: add(), remove(), contains(), size(), and iterator().
+ * - Iteration supported via for-loops, for-each, iterators, spliterators, or streams.
+ *
+ * Abstractions
+ * - List: ordered collection with positional access; allows duplicates (ArrayList, LinkedList).
+ * - Set: collection of unique elements (HashSet, LinkedHashSet, TreeSet, EnumSet).
+ * - Map: key-value associations (HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap, EnumMap).
+ * - Deque: double-ended queue with insertion/removal at both ends (ArrayDeque, LinkedList).
+ *
+ * Usage
+ * - Choose the appropriate collection based on requirements: order, uniqueness, concurrency, and performance.
+ * - Use List for ordered data, Set for uniqueness, Map for key-value pairs, and Deque for double-ended operations.
+ * - Utilize Collections utility methods for common tasks like sorting, searching, and synchronization.
+ * - For most standard cases, default implementations (ArrayList, HashSet, HashMap) are sufficient.
+ */
 void main() {
     // Default Collections
     new ArrayList<>();             // Resizable List, allows duplicates, maintains insertion order

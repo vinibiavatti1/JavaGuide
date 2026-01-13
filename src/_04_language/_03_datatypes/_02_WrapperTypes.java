@@ -1,33 +1,34 @@
 /*
-Wrapper Types
-- This section explains the wrapper classes in Java, which encapsulate primitive values as objects.
-
-Overview
-- Each primitive type has a corresponding wrapper class: Byte, Short, Integer, Long, Float, Double, Character, Boolean.
-- Wrapper types allow primitive values to be used in object-oriented contexts.
-- They provide utility methods for parsing, conversion, and comparison.
-- Wrapper types are sometimes referred to as "boxed" or "container" types because they wrap a primitive value inside an
-  object.
-
-Key Characteristics
-- Wrapper types are reference types and can be null.
-- Useful for Collections, Generics, and APIs that require objects.
-- Provide constants (MIN_VALUE, MAX_VALUE) and methods (parseInt, valueOf, etc.).
-- Part of the "java.lang" package and automatically supported by autoboxing/unboxing.
-
-Usage
-- Use wrapper types when objects are required instead of primitives (e.g., in Lists, Maps, or Generics).
-- Enable nullability for primitive values when needed.
-- Utilize utility methods for conversions and comparisons.
-*/
+ * Wrapper Types
+ * - This section explains the wrapper classes in Java, which encapsulate primitive values as objects.
+ *
+ * Overview
+ * - Each primitive type has a corresponding wrapper class: Byte, Short, Integer, Long, Float, Double, Character,
+ *   Boolean.
+ * - Wrapper types allow primitive values to be used in object-oriented contexts.
+ * - They provide utility methods for parsing, conversion, and comparison.
+ * - Wrapper types are sometimes referred to as "boxed" or "container" types because they wrap a primitive value inside
+ *   an object.
+ *
+ * Key Characteristics
+ * - Wrapper types are reference types and can be null.
+ * - Useful for Collections, Generics, and APIs that require objects.
+ * - Provide constants (MIN_VALUE, MAX_VALUE) and methods (parseInt, valueOf, etc.).
+ * - Part of the "java.lang" package and automatically supported by autoboxing/unboxing.
+ *
+ * Usage
+ * - Use wrapper types when objects are required instead of primitives (e.g., in Lists, Maps, or Generics).
+ * - Enable nullability for primitive values when needed.
+ * - Utilize utility methods for conversions and comparisons.
+ */
 void main() {
     /*
-    Wrapper Types
-    - The wrapper types below are available in Java and can be used as reference data types in place of their
-      corresponding primitive types.
-    - Common types: Integer, Double, Boolean and Character
-    - Less common types: Byte, Short, Long, Float
-    */
+     * Wrapper Types
+     * - The wrapper types below are available in Java and can be used as reference data types in place of their
+     *   corresponding primitive types.
+     * - Common types: Integer, Double, Boolean and Character
+     * - Less common types: Byte, Short, Long, Float
+     */
     Byte _ = 127;      // Wrapper for byte
     Short _ = 32767;   // Wrapper for short
     Integer _ = 0;     // Wrapper for int (default for integers)
@@ -38,58 +39,58 @@ void main() {
     Character _ = 'A'; // Wrapper for char
 
     /*
-    Declaration
-    - We can use the "valueOf" function to declare an instance of this datatype.
-    - Output: 5
-    */
+     * Declaration
+     * - We can use the "valueOf" function to declare an instance of this datatype.
+     * - Output: 5
+     */
     Integer w = Integer.valueOf(5);
     IO.println(w);
 
     /*
-    Nullable
-    - Unlike primitive data types, wrapper types can be null, meaning they are able to represent the absence of a value.
-    - Output: null
-    */
+     * Nullable
+     * - Unlike primitive data types, wrapper types can be null, meaning they are able to represent the absence of a value.
+     * - Output: null
+     */
     w = null;
     IO.println(w);
 
     /*
-    Equality
-    - To compare wrapper types, we must use the "equals" method rather than the '==' operator.
-    - The '==' operator checks if both references point to the same object, while equals() checks if the actual value is
-      identical.
-    - Output: true
-    */
+     * Equality
+     * - To compare wrapper types, we must use the "equals" method rather than the '==' operator.
+     * - The '==' operator checks if both references point to the same object, while equals() checks if the actual value is
+     *   identical.
+     * - Output: true
+     */
     Integer w1 = Integer.valueOf(5);
     Integer w2 = Integer.valueOf(5);
     boolean eq = w1.equals(w2);
     IO.println(eq);
 
     /*
-    Comparison
-    - To compare wrapper types for ordering, we can use the "compareTo" method.
-    - It compares the current object with another object of the same type and returns a negative value, zero, or a
-      positive value.
-    - Output: 0 (equal)
-    */
+     * Comparison
+     * - To compare wrapper types for ordering, we can use the "compareTo" method.
+     * - It compares the current object with another object of the same type and returns a negative value, zero, or a
+     *   positive value.
+     * - Output: 0 (equal)
+     */
     w1 = Integer.valueOf(5);
     w2 = Integer.valueOf(5);
     int cmp = w1.compareTo(w2);
     IO.println(cmp);
 
     /*
-    Casting
-    - We can cast the wrapper data type to any other data type using the "typeValue" methods.
-    - Output: 5.0
-    */
+     * Casting
+     * - We can cast the wrapper data type to any other data type using the "typeValue" methods.
+     * - Output: 5.0
+     */
     w = Integer.valueOf(5);
     double d = w.doubleValue();
     IO.println(d);
 
     /*
-    Boolean Constants
-    - Boolean wrapper class provide predefined boolean instances.
-    */
+     * Boolean Constants
+     * - Boolean wrapper class provide predefined boolean instances.
+     */
     IO.println(Boolean.TRUE);  // new Boolean(true);
     IO.println(Boolean.FALSE); // new Boolean(false);
 }
