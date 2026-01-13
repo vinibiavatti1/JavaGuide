@@ -153,9 +153,9 @@ void main() {
     - Useful for creating CSV-like outputs, formatting lists, or generating custom string representations from stream
       elements.
     - Works with both sequential and parallel streams.
-    - Output: A,B,C
+    - Output: {A, B, C}
     */
-    String resultStr = Stream.of("A", "B", "C").collect(Collectors.joining(","));
+    String resultStr = Stream.of("A", "B", "C").collect(Collectors.joining(", ", "{", "}"));
     IO.println(resultStr);
 
     //==================================================================================================================
