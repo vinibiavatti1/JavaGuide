@@ -42,6 +42,9 @@ Usage
 - Ideal for scenarios where multiple threads need to read and update a shared variable safely and efficiently.
 - Avoids overhead and complexity of synchronized blocks for simple atomic operations.
 - Can be combined with other concurrent utilities to build high-performance, thread-safe applications.
+
+Example
+- The example below show the main functions that can be used to work with "Atomic" classes.
 */
 void main() {
     /*
