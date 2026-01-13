@@ -1,63 +1,66 @@
 /*
-Method References
-- This section explains method references in Java, which provide a concise way to refer to existing methods without
-  invoking them directly, improving readability and reducing boilerplate.
-
-Overview
-- Method references are part of Java 8's functional programming enhancements alongside lambda expressions.
-- They allow referring to static methods, instance methods, or constructors, and can be passed wherever a functional
-  interface is expected.
-- Enable direct delegation to an existing method, keeping code concise and expressive.
-- Introduced to simplify lambda expressions that call a single method.
-
-Key Characteristics
-- Provide a clean and readable way to reference existing methods.
-- Supported for static methods, instance methods, arbitrary object methods, and constructors.
-- Type inference ensures the method reference matches the target functional interface.
-- Reduce boilerplate code and clarify intent when compared to equivalent lambdas.
-
-Types of Method References
-- ClassName::staticMethod   - Refers to a static method of a class.
-- instance::instanceMethod  - Refers to an instance method of a specific object.
-- ClassName::instanceMethod - Refers to an instance method of an arbitrary object of a particular type.
-- ClassName::new            - Refers to a constructor.
-
-Notes
-- A method reference is not a function by itself; it is a symbolic reference that is mapped to a functional interface.
-- At compile time, the Java compiler converts the method reference into an implementation of the target functional
-  interface's single abstract method.
-- The referenced method is invoked only when the functional interface method (such as apply, accept, get, or test)
-  is explicitly called.
-- This design exists because Java does not have native delegates or first-class function types; behavior is always
-  represented through interfaces.
-- As a result, method references cannot be executed directly and must always be invoked via the functional interface
-  method.
-- This approach preserves Java's strong typing model, backward compatibility, and object-oriented foundations.
-
-Usage
-- Use method references to replace simple lambdas that call a single method.
-- Commonly applied in streams, sorting, event handling, and functional-style processing.
-- Example: The lambda "(s) -> s.toUpperCase()" can be replaced by "String::toUpperCase", as both perform the same
-  operation by directly delegating to the existing method.
-*/
+ * Method References
+ * - This section explains method references in Java, which provide a concise way to refer to existing methods without
+ *   invoking them directly, improving readability and reducing boilerplate.
+ *
+ * Overview
+ * - Method references are part of Java 8's functional programming enhancements alongside lambda expressions.
+ * - They allow referring to static methods, instance methods, or constructors, and can be passed wherever a functional
+ *   interface is expected.
+ * - Enable direct delegation to an existing method, keeping code concise and expressive.
+ * - Introduced to simplify lambda expressions that call a single method.
+ *
+ * Key Characteristics
+ * - Provide a clean and readable way to reference existing methods.
+ * - Supported for static methods, instance methods, arbitrary object methods, and constructors.
+ * - Type inference ensures the method reference matches the target functional interface.
+ * - Reduce boilerplate code and clarify intent when compared to equivalent lambdas.
+ *
+ * Types of Method References
+ * - ClassName::staticMethod    // Refers to a static method of a class.
+ * - instance::instanceMethod   // Refers to an instance method of a specific object.
+ * - ClassName::instanceMethod  // Refers to an instance method of an arbitrary object of a particular type.
+ * - ClassName::new             // Refers to a constructor.
+ *
+ * Notes
+ * - A method reference is not a function by itself; it is a symbolic reference that is mapped to a functional
+ *   interface.
+ * - At compile time, the Java compiler converts the method reference into an implementation of the target functional
+ *   interface's single abstract method.
+ * - The referenced method is invoked only when the functional interface method (such as apply, accept, get, or test)
+ *   is explicitly called.
+ * - This design exists because Java does not have native delegates or first-class function types; behavior is always
+ *   represented through interfaces.
+ * - As a result, method references cannot be executed directly and must always be invoked via the functional interface
+ *   method.
+ * - This approach preserves Java's strong typing model, backward compatibility, and object-oriented foundations.
+ *
+ * Usage
+ * - Use method references to replace simple lambdas that call a single method.
+ * - Commonly applied in streams, sorting, event handling, and functional-style processing.
+ * - Example: The lambda "(s) -> s.toUpperCase()" can be replaced by "String::toUpperCase", as both perform the same
+ *   operation by directly delegating to the existing method.
+ */
 void main() {
     /*
-    Delegate Function With Method Reference
-    - Demonstrates a method reference used as a target for a functional interface.
-    - The method reference "Integer::sum" is mapped by the compiler to the single abstract method "apply" of
-      BinaryOperator<Integer>.
-    - Java generates an implicit proxy that delegates the call to Integer.sum, applying autoboxing/unboxing as needed.
-    - Output: 5
-    */
+     * Delegate Function With Method Reference
+     * - Demonstrates a method reference used as a target for a functional interface.
+     * - The method reference "Integer::sum" is mapped by the compiler to the single abstract method "apply" of
+     *   BinaryOperator<Integer>.
+     * - Java generates an implicit proxy that delegates the call to Integer.sum, applying autoboxing/unboxing as
+     *   needed.
+     * - Output: 5
+     */
     BinaryOperator<Integer> sumFnRef = Integer::sum;
     IO.println(sumFnRef.apply(3, 2));
 
     /*
-    Compilation Result
-    - Shows the equivalent anonymous class generated by the compiler behind the scenes.
-    - Method references are not functions themselves; they are implemented as interface method bodies at compile time.
-    - Output: 5
-    */
+     * Compilation Result
+     * - Shows the equivalent anonymous class generated by the compiler behind the scenes.
+     * - Method references are not functions themselves; they are implemented as interface method bodies at compile
+     *   time.
+     * - Output: 5
+     */
     BinaryOperator<Integer> compiledSumFnRef = new BinaryOperator<Integer>() {
         @Override
         public Integer apply(Integer a, Integer b) {
@@ -67,21 +70,21 @@ void main() {
     IO.println(compiledSumFnRef.apply(3, 2));
 
     /*
-    Delegate Function With Constructor Reference
-    - Demonstrates a constructor reference used as a target for a functional interface.
-    - The constructor reference "String::new" is mapped to the single abstract method "get" of Supplier<String>.
-    - The generated method instantiates a new object when the functional interface method is invoked.
-    - Output: ""
-    */
+     * Delegate Function With Constructor Reference
+     * - Demonstrates a constructor reference used as a target for a functional interface.
+     * - The constructor reference "String::new" is mapped to the single abstract method "get" of Supplier<String>.
+     * - The generated method instantiates a new object when the functional interface method is invoked.
+     * - Output: ""
+     */
     Supplier<String> newFnRef = String::new;
     IO.println(newFnRef.get());
 
     /*
-    Compilation Result
-    - Shows the equivalent anonymous class generated by the compiler for the constructor reference.
-    - Highlights that constructor references are converted into interface method implementations.
-    - Output: ""
-    */
+     * Compilation Result
+     * - Shows the equivalent anonymous class generated by the compiler for the constructor reference.
+     * - Highlights that constructor references are converted into interface method implementations.
+     * - Output: ""
+     */
     Supplier<String> compiledNewFnRef = new Supplier<String>() {
         @Override
         public String get() {

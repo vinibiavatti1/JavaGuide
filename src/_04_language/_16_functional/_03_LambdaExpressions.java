@@ -1,52 +1,65 @@
 /*
-Lambda Functions
-- This section explains lambda expressions in Java, which provide a concise way to define anonymous functions inline,
-  improving readability, reducing boilerplate, and enabling functional-style programming.
-
-Overview
-- Lambda expressions are part of Java 8's functional programming enhancements alongside method references.
-- They allow defining a function inline that can be passed as a value to a target functional interface.
-- Enable concise delegation of behavior to functional interfaces without requiring a full anonymous class.
-- Introduced to simplify anonymous implementations of single-method interfaces.
-
-Key Characteristics
-- Can be assigned to any functional interface (interfaces with exactly one abstract method).
-- Can capture variables from the enclosing scope (effectively final or final variables).
-- Supports concise syntax: `(parameters) -> expression` or `(parameters) -> { statements }`.
-- Type inference ensures that parameter and return types match the target functional interface.
-- Can replace simple anonymous classes with more readable and maintainable code.
-
-Technical Notes
-- A lambda expression is not a standalone function object; it is compiled into a method that implements the target
-  functional interface.
-- At compile time, the compiler generates a private method for the lambda body and a synthetic class or invokedynamic
-  call that implements the interface method.
-- The lambda body is executed only when the interface method (such as apply, accept, get, or test) is called.
-- This is necessary because Java does not have native first-class functions or delegates; all behavior is represented
-  through interfaces.
-- Lambdas maintain strong typing and are compatible with Java's object-oriented model.
-
-Usage
-- Use lambda expressions to pass behavior concisely to streams, callbacks, or higher-order functions.
-- Prefer lambdas to anonymous classes when implementing functional interfaces.
-- Keep lambdas short and side effect free when used in functional-style APIs like streams.
-*/
+ * Lambda Functions
+ * - This section explains lambda expressions in Java, which provide a concise way to define anonymous functions inline,
+ *   improving readability, reducing boilerplate, and enabling functional-style programming.
+ *
+ * Overview
+ * - Lambda expressions are part of Java 8's functional programming enhancements alongside method references.
+ * - They allow defining a function inline that can be passed as a value to a target functional interface.
+ * - Enable concise delegation of behavior to functional interfaces without requiring a full anonymous class.
+ * - Introduced to simplify anonymous implementations of single-method interfaces.
+ *
+ * Key Characteristics
+ * - Can be assigned to any functional interface (interfaces with exactly one abstract method).
+ * - Can capture variables from the enclosing scope (effectively final or final variables).
+ * - Type inference ensures that parameter and return types match the target functional interface.
+ * - Can replace simple anonymous classes with more readable and maintainable code.
+ *
+ * Lambda Syntaxes
+ * - No parameter
+ *   - Syntax: "() -> expression".
+ *   - Defines a lambda that takes no arguments; return is implicit.
+ * - One parameter:
+ *   - Syntax: "x -> expression".
+ *   - Defines a lambda with a single parameter; parentheses are optional; return is implicit.
+ * - Multiple parameters:
+ *   - Syntax: "(x, y) -> expression".
+ *   - Defines a lambda with two or more parameters; return is implicit.
+ * - Block body:
+ *   - Syntax: "() -> { return expression; }".
+ *   - Used when the lambda requires multiple statements; return is explicit.
+ *
+ * Technical Notes
+ * - A lambda expression is not a standalone function object; it is compiled into a method that implements the target
+ *   functional interface.
+ * - At compile time, the compiler generates a private method for the lambda body and a synthetic class or invokedynamic
+ *   call that implements the interface method.
+ * - The lambda body is executed only when the interface method (such as apply, accept, get, or test) is called.
+ * - This is necessary because Java does not have native first-class functions or delegates; all behavior is represented
+ *   through interfaces.
+ * - Lambdas maintain strong typing and are compatible with Java's object-oriented model.
+ *
+ * Usage
+ * - Use lambda expressions to pass behavior concisely to streams, callbacks, or higher-order functions.
+ * - Prefer lambdas to anonymous classes when implementing functional interfaces.
+ * - Keep lambdas short and side effect free when used in functional-style APIs like streams.
+ */
 void main() {
     /*
-    Delegate Function With Lambda
-    - Demonstrates a lambda expression assigned to a functional interface.
-    - The lambda "(x, y) -> x + y" implements the single abstract method "apply" of BinaryOperator<Integer>.
-    - Output: 5
-    */
+     * Delegate Function With Lambda
+     * - Demonstrates a lambda expression assigned to a functional interface.
+     * - The lambda "(x, y) -> x + y" implements the single abstract method "apply" of BinaryOperator<Integer>.
+     * - Output: 5
+     */
     BinaryOperator<Integer> sumFnLambda = (x, y) -> x + y;
     IO.println(sumFnLambda.apply(3, 2));
 
     /*
-    Compilation Result
-    - Equivalent anonymous class generated by the compiler behind the scenes.
-    - Shows that lambdas are converted into interface method implementations at compile time.
-    - Output: 5
-    */
+     * Compilation Result
+     * - Equivalent anonymous class generated by the compiler behind the scenes.
+     * - Shows that lambdas are converted into interface method implementations at compile time.
+     * - Output: 5
+     */
     BinaryOperator<Integer> compiledSumFnLambda = new BinaryOperator<Integer>() {
         @Override
         public Integer apply(Integer a, Integer b) {

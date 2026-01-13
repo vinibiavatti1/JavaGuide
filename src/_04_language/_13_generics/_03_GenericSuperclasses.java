@@ -1,28 +1,29 @@
 /*
-Generics Superclasses
-- This section explains how to create generic superclasses in Java, allowing subclasses to specify or inherit type
-  parameters while maintaining type safety and code reuse.
-
-Overview
-- Generic superclasses declare type parameters (e.g., <T>, <E>) that can be used in fields, methods, and constructors.
-- Subclasses can specify concrete types or remain generic by passing the type parameter.
-- Supports polymorphism, code reuse, and flexibility across different types.
-
-Key Characteristics
-- Type parameters of the superclass can be inherited or specialized by subclasses.
-- Fields, methods, and constructors can use the generic type safely.
-- Can be combined with bounded types (extends/super) for additional constraints.
-
-Usage
-- Use generic superclasses when multiple subclasses share common logic or storage for a type.
-- Useful for reusable data structures, containers, and frameworks.
-
-Example:
-- The example shows a generic superclass "Container<T>" and two subclasses:
-  - String-specific subclass
-  - Generic subclass
-- Type safety is enforced at compile time, no casting needed.
-*/
+ * Generics Superclasses
+ * - This section explains how to create generic superclasses in Java, allowing subclasses to specify or inherit type
+ *   parameters while maintaining type safety and code reuse.
+ *
+ * Overview
+ * - Generic superclasses declare type parameters (e.g., <T>, <E>) that can be used in fields, methods, and
+ *   constructors.
+ * - Subclasses can specify concrete types or remain generic by passing the type parameter.
+ * - Supports polymorphism, code reuse, and flexibility across different types.
+ *
+ * Key Characteristics
+ * - Type parameters of the superclass can be inherited or specialized by subclasses.
+ * - Fields, methods, and constructors can use the generic type safely.
+ * - Can be combined with bounded types (extends/super) for additional constraints.
+ *
+ * Usage
+ * - Use generic superclasses when multiple subclasses share common logic or storage for a type.
+ * - Useful for reusable data structures, containers, and frameworks.
+ *
+ * Example:
+ * - The example shows a generic superclass "Container<T>" and two subclasses:
+ *   - String-specific subclass
+ *   - Generic subclass
+ * - Type safety is enforced at compile time, no casting needed.
+ */
 public class Container<T> {
     private T value;
 
