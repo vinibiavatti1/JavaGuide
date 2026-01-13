@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaServiceLoaderService">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/JavaServiceLoaderService.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
