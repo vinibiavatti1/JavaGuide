@@ -86,11 +86,10 @@ public static class Provider implements Service {
 /*
 Service Loader
 - The method below uses ServiceLoader to dynamically discover and load the Provider at runtime.
-- Output: Hello World!
 */
 void main() {
     ServiceLoader<Service> loader = ServiceLoader.load(Service.class);
     for (Service provider : loader) {
-        provider.run();
+        provider.run(); // Output: Hello World!
     }
 }
