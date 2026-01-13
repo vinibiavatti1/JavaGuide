@@ -25,14 +25,14 @@ Types of Method References
 Notes
 - A method reference is not a function by itself; it is a symbolic reference that is mapped to a functional interface.
 - At compile time, the Java compiler converts the method reference into an implementation of the target functional
-  interface’s single abstract method.
+  interface's single abstract method.
 - The referenced method is invoked only when the functional interface method (such as apply, accept, get, or test)
   is explicitly called.
 - This design exists because Java does not have native delegates or first-class function types; behavior is always
   represented through interfaces.
 - As a result, method references cannot be executed directly and must always be invoked via the functional interface
   method.
-- This approach preserves Java’s strong typing model, backward compatibility, and object-oriented foundations.
+- This approach preserves Java's strong typing model, backward compatibility, and object-oriented foundations.
 
 Usage
 - Use method references to replace simple lambdas that call a single method.

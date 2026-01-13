@@ -18,7 +18,7 @@ Key Characteristics
   - Produce compiler messages and warnings
 - Only annotations declared with proper targets and retention policies can be processed by a processor.
 - Note: Annotation processing is used to generate new code or resources during compilation, but it cannot modify
-  existing classes directly. Tools like Lombok modify the existing class’s AST or bytecode at compile-time, allowing
+  existing classes directly. Tools like Lombok modify the existing class's AST or bytecode at compile-time, allowing
   fields or methods to be injected directly into the original class.
 
 Supported Annotations for Processor Configuration

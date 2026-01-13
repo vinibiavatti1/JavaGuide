@@ -21,7 +21,7 @@ public class Main {
 
 /*
 Simplified Main
-- Since Java 25, it is possible to use a simplified top-level main method without explicitly defining a class
+- Since Java 25, it is possible to use a simplified top-level main method without explicitly defining a class.
 */
 void main() {
     IO.println("Hello World"); // Output: Hello World

@@ -29,7 +29,7 @@ void main() {
         Exception Message
         - Returns the message describing the exception.
         - "getLocalizedMessage()" returns a locale-specific version of the exception message, allowing programs to
-          provide error messages in the user’s language; by default, it returns the same string as getMessage().
+          provide error messages in the user's language; by default, it returns the same string as getMessage().
         - Output: Something Happened!
         */
         IO.println(e.getMessage());

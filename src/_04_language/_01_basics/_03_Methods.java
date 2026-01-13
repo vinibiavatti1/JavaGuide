@@ -18,9 +18,7 @@ Usage
 - Apply parameters to customize behavior.
 - Use varargs when the number of arguments may vary.
 - Return values when a result is required.
-*/
 
-/*
 Method
 - Simple method with no parameters and no return value.
 */
@@ -93,7 +91,7 @@ void main() {
     IO.println(x);
 
     /*
-    Calling Example
+    Calling Example Method
     - Output: 8
     */
     int sum = add(5, 3);

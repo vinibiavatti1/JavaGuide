@@ -1,54 +1,51 @@
 /*
-Printing
-- This section explains how to output information to the console in Java, allowing programs to communicate with the
-  user.
+Printing (Console Output)
+- This section explains how to output information to the console in Java, enabling programs to communicate with users,
+  provide feedback, or support debugging and logging.
 
 Overview
-- Printing is used to display variables, literals, or formatted messages.
-- Java provides several mechanisms for console output, such as the modern "IO.println()" (Java 25+) and the common
-  "System.out.println()".
+- Printing is used to display literals, variables, or formatted messages.
+- Java provides several mechanisms for console output:
+  - Traditional: System.out.print(), System.out.println(), System.out.printf()
+  - Modern (Java 25+): IO.print(), IO.println()
+- Output can be unformatted (simple text) or formatted (aligned, structured, with placeholders).
 
 Key Characteristics
-- "print": prints a message without adding a newline.
-- "println": prints a message followed by a newline.
+- print(): Prints the given message without adding a newline at the end.
+- println(): Prints the message and appends a newline.
+- printf(): Prints formatted text using placeholders (e.g., %d, %f, %s) with optional newline (%n).
+- Modern IO class methods mirror System.out methods but may provide additional convenience or abstraction.
 
 Usage
-- Use printing for debugging, logging, or providing user feedback.
-- Combine literals, variables, and expressions to display meaningful information.
-- Prefer formatted output when clarity or alignment is important.
+- Use console printing for:
+  - Debugging and inspecting variables.
+  - Providing real-time feedback to the user.
+  - Displaying results or summaries of program operations.
+- Prefer formatted printing (printf or String.format) when alignment, precision, or structured output is required.
+- Avoid overusing console output for production logging; prefer logging frameworks for maintainable logs.
 */
 void main() {
     /*
-    Printing to the console using the conventional method.
-    - This prints the message and moves the cursor to the next line.
-    - Output: Hello World
+    Basic Print
+    - Demonstrates printing with and without a newline.
+    - Output: Hello World | Hello World
     */
-    System.out.println("Hello World");
+    System.out.print("Hello World");   // Without newline
+    System.out.println("Hello World"); // With newline
 
     /*
-    Printing using the new IO class (Java 25+).
-    - Simplifies console output; behaves like println.
-    - Output: Hello World
+    Modern IO Print (Java 25+)
+    - Demonstrates printing using the IO utility class.
+    - Output: Hello World | Hello World\n
     */
-    IO.println("Hello World");
+    IO.print("Hello World");   // Without newline
+    IO.println("Hello World"); // With newline
 
     /*
-    Printing to the console without automatically moving to the next line.
-    - We add "\n" at the end of the string to force the cursor to jump to the next line.
-    - Output: Hello World
+    Formatted Print
+    - Demonstrates formatted printing using printf.
+    - Not available in IO class.
+    - Output: Count: 1, Price: 3,14
     */
-    IO.print("Hello World\n");
-
-    /*
-    Printing using formatted output.
-    - System.out.printf allows you to define a template string with placeholders:
-      - %d -> integer
-      - %f -> floating-point number
-      - %s -> string
-      - %n -> \n
-    - Output: Count: 1, Price: 1.23
-    */
-    int count = 1;
-    double price = 1.234;
-    System.out.printf("Count: %d, Price: %.2f %n", count, price);
+    System.out.printf("Count: %d, Price: %.2f %n", 1, 3.14);
 }

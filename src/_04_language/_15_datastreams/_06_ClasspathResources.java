@@ -4,7 +4,7 @@ Classpath Resources
   and loaded via the classpath at runtime, independently of the underlying filesystem structure.
 
 Overview
-- Classpath resources are files included in the application’s classpath (e.g., text files, configuration files,
+- Classpath resources are files included in the application's classpath (e.g., text files, configuration files,
   templates, SQL scripts, JSON, XML, icons, etc.).
 - They are typically placed under a resources directory and copied to the classpath during the build process.
 - Resources are accessed through the Class or ClassLoader APIs, not via direct filesystem paths.
@@ -18,7 +18,7 @@ Key Characteristics
 - Path-based APIs (File, Path, Files) are not guaranteed to work with classpath resources.
 
 How Resources Are Accessed
-- Resources are loaded via the Class or ClassLoader APIs, which perform a lookup on the application’s classpath.
+- Resources are loaded via the Class or ClassLoader APIs, which perform a lookup on the application's classpath.
 - Class.getResource(...) resolves paths relative to the package of the calling class, unless an absolute path is used.
 - An absolute path (starting with "/") is resolved from the root of the classpath.
 - ClassLoader.getResource(...) and getResourceAsStream(...) always resolve paths from the classpath root.
@@ -27,7 +27,7 @@ How Resources Are Accessed
 Notes
 - When a resource is loaded from the root of the classpath using an absolute path, the specific class used to invoke
   "getClass()" does not matter, since the resource is resolved against the global classpath rather than relative to the
-  caller’s package.
+  caller's package.
 
 Usage
 - Use classpath resources for static, application-bundled data such as templates, default configuration files,

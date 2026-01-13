@@ -14,10 +14,6 @@ Key Characteristics
 - Can be combined with bounded types to restrict allowed types.
 - Multiple types are allowed <T1, T2, ...>
 
-Notes
-- List<Number> is not the same as List<Integer>. To allow a variable to accept a list of multiple types, you can use
-  wildcards: List<? extends Number> or List<? super Integer> (Check Upper Bound and Lower Bound guide files!)
-
 Usage
 - Use generic classes for containers, collections, or utilities that should work with multiple types.
 - Common examples: "List<T>", "Map<K, V>", or custom generic data structures.

@@ -45,7 +45,7 @@ Main Unchecked Exceptions                    Use Case
 - java.lang.UnsupportedOperationException    Operation not supported (e.g., immutable collection)
 - java.lang.ArithmeticException              Arithmetic errors (e.g., divide by zero)
 - java.util.ConcurrentModificationException  Collection modified while iterating
-- java.util.NoSuchElementException           Attempt to access an element that doesn’t exist
+- java.util.NoSuchElementException           Attempt to access an element that doesn't exist
 - java.lang.SecurityException                Any issue regarding security
 - java.time.format.DateTimeParseException    Failure to parse a date/time string
 

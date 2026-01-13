@@ -14,7 +14,7 @@ Overview
 Key Concepts
 
 1. Build Script
-- The build script defines the project’s dependencies, plugins, and build instructions.
+- The build script defines the project's dependencies, plugins, and build instructions.
 - Common files:
   - build.gradle -> Groovy DSL
   - build.gradle.kts -> Kotlin DSL
