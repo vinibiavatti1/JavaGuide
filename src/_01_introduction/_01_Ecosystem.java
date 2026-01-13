@@ -1,7 +1,7 @@
 /*
 Ecosystem
-- This document describes the fundamental components of the Java ecosystem and how they relate to each other:
-  JVM, JRE, and JDK.
+- This document describes the fundamental components of the Java ecosystem and how they relate to each other: JVM, JRE,
+  and JDK.
 
 Overview
 - The Java ecosystem is designed around a clear separation of responsibilities between execution, runtime support,

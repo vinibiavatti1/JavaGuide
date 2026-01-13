@@ -35,8 +35,8 @@ void main() {}
 // Inline Comment
 
 /*
-Multiline Comment
-*/
+ * Multiline Comment
+ */
 
 /**
  * Javadoc Comment
