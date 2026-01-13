@@ -1,104 +1,111 @@
 /*
-Data Streams (Java I/O & NIO.2)
-- This section explains the hierarchy of Java's Input/Output system, focusing on the modern standard for handling byte
-  and character streams using the java.nio.file.Files utility.
+Data Streams (Java I/O)
+- This section explains Java's core stream abstractions independent of the data source, focusing on how byte and
+  character streams work when connected to generic input/output devices such as the console, sockets, or pipes.
 
 Overview
-- Java I/O is divided into two main categories: Byte Streams (8-bit) and Character Streams (16-bit).
-- Legacy classes such as FileInputStream and FileReader are now commonly accessed through factory methods provided by
-  the java.nio.file.Files class, offering safer and more expressive APIs.
-- The I/O system follows the Decorator pattern, where functionality such as buffering or encoding is added by wrapping
-  streams.
+- Java streams represent a sequential flow of data between a producer and a consumer.
+- Data Streams are source-agnostic: they can be connected to files, network sockets, memory buffers, or standard I/O.
+- Streams are divided into two fundamental categories:
+  - Byte Streams (8-bit): InputStream / OutputStream
+  - Text Streams (16-bit): Reader / Writer
+- The I/O system follows the Decorator pattern, allowing buffering, encoding, and other behaviors to be layered
+  transparently over raw streams.
 
 Key Characteristics
-- Byte Streams: Subclasses of InputStream/OutputStream. Used for binary data (images, PDFs).
-- Character Streams: Subclasses of Reader/Writer. Used for text data (UTF-8, logs, JSON).
-- Buffering: Essential for performance; reduces the number of I/O operations by using memory.
-- Paths: Modern I/O uses Path (via Path.of() or Paths.get()) instead of File, providing better cross-platform support.
+- Input streams consume data; output streams produce data.
+- Byte streams operate on raw bytes and are encoding-agnostic.
+- Text streams operate on characters and require an explicit or implicit character encoding.
+- Buffered streams improve performance by reducing the number of low-level I/O operations.
+- Closing an outer stream automatically closes the wrapped inner stream.
 
-Usage
-- For Binary Files: Use Files.newInputStream(path) or Files.newOutputStream(path).
-- For Text Files: Use Files.newBufferedReader(path) or Files.newBufferedWriter(path).
-- For Quick Reads: Use Files.readAllLines(path) for small files or Files.lines(path) for large files and streaming.
+Notes on Blocking Behavior
+- Java's classic I/O streams (java.io) are synchronous and blocking by design.
+- Read operations such as read(), read(byte[]), and readLine() block the calling thread until data becomes available,
+  the end of the stream is reached, or an error occurs.
+- This blocking behavior simplifies the programming model but requires careful handling in interactive or concurrent
+  applications.
+- Non-blocking and asynchronous I/O require alternative APIs such as java.nio (channels and selectors) or higher-level
+  frameworks built on top of them.
 
-Open Options
-- StandardOpenOption flags can be used to control file creation and writing behavior.
-- Common flags include:
-  - CREATE           : Creates a new file if it does not exist.
-  - CREATE_NEW       : Creates a new file and fails if it already exists.
-  - APPEND           : Opens the file for writing at the end, preserving existing content.
-  - TRUNCATE_EXISTING: Opens the file and truncates it to zero length if it already exists.
-  - DELETE_ON_CLOSE  : Deletes the file automatically when the stream is closed.
-  - READ             : Opens the file for reading.
-  - WRITE            : Opens the file for writing.
+I/O Streams Graph
+- InputStream
+  - BufferedInputStream   // Standard Byte Input Stream
+  - InputStreamReader     // Bridge: Bytes -> Text
+    - BufferedReader      // Standard Text Input Stream
+- OutputStream
+  - BufferedOutputStream  // Standard Byte Output Stream
+  - OutputStreamWriter    // Bridge: Bytes -> Text
+    - BufferedWriter      // Standard Text Output Stream
 
-Legacy
-- Prior to Java 7 (before NIO.2), developers were required to manually chain multiple stream constructors to enable
-  buffering and ensure correct character encoding:
-  - Example: new BufferedReader(new InputStreamReader(new FileInputStream(file), charset));
-- Today, the recommended approach is to rely on the Files utility class, which encapsulates buffering and encoding
-  concerns in a simpler, safer, and more modern way.
+File Streams
+- When working specifically with files, the traditional manual chaining of stream decorators (FileInputStream,
+  FileOutputStream, BufferedInputStream, InputStreamReader, etc.) is now considered legacy in practice.
+- Since Java 7 (NIO.2), the recommended approach is to use the java.nio.file.Files utility class, which provides
+  factory methods that encapsulate stream creation and improve safety and readability.
 
 Notes
-- Always use try-with-resources to ensure streams are closed automatically, avoiding resource leaks.
-- Avoid using FileReader/FileWriter directly, as they rely on the system default encoding; prefer
-  Files.newBufferedReader/Writer to explicitly define UTF-8.
-
-Example
-- The example demonstrates the modern way to instantiate buffered readers and writers without manual nesting,
-  as the Files class handles the hierarchy internally.
+- This file demonstrates stream behavior using standard input/output (System.in / System.out).
+- File-specific concerns (paths, open options, filesystem semantics) are intentionally excluded and covered separately
+  in FileStreams.java.
 */
 void main() throws IOException {
+    //==================================================================================================================
+    // Byte Streams
+    //==================================================================================================================
+
     /*
-    Reading External Bytes File
-    - The "Files.newInputStream" method creates an InputStream for reading binary data from a file.
-    - If the file does not exist, an IOException is thrown.
-    - Path.of is used to create a platform-independent path to the resource.
-    - The entire file is read into memory using readAllBytes().
-    - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
+    Byte Input Stream
+    - System.in is a predefined InputStream connected to the standard input (console).
+    - InputStream reads raw bytes (8-bit) without any interpretation or encoding.
+    - BufferedInputStream wraps the original stream to add in-memory buffering, improving read performance.
+    - Common read operations include read(), read(byte[]), and readAllBytes().
     */
-    try (InputStream in = Files.newInputStream(Path.of("resources/file.dat"))) {
-        byte[] content = in.readAllBytes();
-        for (byte b : content) IO.println(b);
+    InputStream inputStream = System.in;
+    try (BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream)) {
+        // Read Operations
     }
 
     /*
-    Writing External Bytes File
-    - The "Files.newOutputStream" method creates an OutputStream for writing binary data to a file.
-    - If the file already exists, its content is truncated before writing.
-    - If the file does not exist, it is created automatically.
-    - To control open behavior, the flags in StandardOpenOption can be used.
-    - The byte array represents the ASCII/UTF-8 encoding of the string "Hello World".
+    Byte Output Stream
+    - System.out is a predefined OutputStream connected to the standard output (console).
+    - OutputStream writes raw bytes directly to the output destination.
+    - BufferedOutputStream accumulates bytes in memory before writing them, reducing system calls.
+    - flush() forces buffered bytes to be written immediately.
     */
-    try (OutputStream out = Files.newOutputStream(Path.of("resources/file.dat"))) {
-        byte[] data = "Hello World".getBytes();
-        out.write(data);
+    OutputStream outputStream = System.out;
+    try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream)) {
+        // Write Operations
+    }
+
+    //==================================================================================================================
+    // Text Streams
+    //==================================================================================================================
+
+    /*
+    Text Input Stream
+    - Text streams operate on characters (char) rather than raw bytes.
+    - InputStreamReader acts as an adapter that converts bytes from an InputStream into characters using a character
+      encoding (UTF-8 by default, unless specified).
+    - BufferedReader adds character buffering and provides convenience methods such as readLine().
+    */
+    inputStream = System.in;
+    try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+         BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+        // Read Operations
     }
 
     /*
-    Reading External Text File
-    - The "Files.newBufferedReader" method creates a BufferedReader for reading text files.
-    - If the file does not exist, an IOException is thrown.
-    - Path.of is used to create a platform-independent path to the resource.
-    - The entire text is read into a String in memory using readAllAsString().
-    - Output: Hello World
+    Text Output Stream
+    - OutputStreamWriter converts characters into bytes using a character encoding.
+    - OutputStreamReader acts as an adapter that converts bytes to an OutputStream into characters using a character
+      encoding (UTF-8 by default, unless specified).
+    - BufferedWriter accumulates characters in memory before encoding and writing them.
+    - flush() ensures all buffered characters are encoded and sent to the output destination.
     */
-    try (BufferedReader in = Files.newBufferedReader(Path.of("resources/file.txt"))) {
-        String content = in.readAllAsString();
-        IO.println(content);
-    }
-
-    /*
-    Writing External Text File
-    - The "Files.newBufferedWriter" method creates a BufferedWriter for writing text files.
-    - If the file already exists, its content is truncated before writing; if it does not exist, it is created.
-    - To control open behavior, the flags in StandardOpenOption can be used.
-    - Path.of is used to create a platform-independent path to the resource.
-    - The text is written to the file using the write() method.
-    - Output in "resources/file.txt": Hello World
-    */
-    try (BufferedWriter out = Files.newBufferedWriter(Path.of("resources/file.txt"))) {
-        String content = "Hello World";
-        out.write(content);
+    outputStream = System.out;
+    try (OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
+         BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)) {
+        // Write Operations
     }
 }
