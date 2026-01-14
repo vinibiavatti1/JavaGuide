@@ -12,12 +12,12 @@
  * - Can span multiple lines.
  * - Used for longer explanations, code documentation, or temporarily commenting out blocks of code.
  *
- Section Comments
+ * Section Comments
  * - Syntax:
  *   - //===============================================================================================================
  *   - // Title
  *   - //===============================================================================================================
- * - Used to divide code in sections.
+ * - Used to organize code into logical sections.
  *
  * Javadoc Comments
  * - Syntax: /** ...
