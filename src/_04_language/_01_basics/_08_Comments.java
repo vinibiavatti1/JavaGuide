@@ -12,6 +12,13 @@
  * - Can span multiple lines.
  * - Used for longer explanations, code documentation, or temporarily commenting out blocks of code.
  *
+ Section Comments
+ * - Syntax:
+ *   - //===============================================================================================================
+ *   - // Title
+ *   - //===============================================================================================================
+ * - Used to divide code in sections.
+ *
  * Javadoc Comments
  * - Syntax: /** ...
  * - Special type of multiline comment used to generate API documentation.
@@ -37,6 +44,10 @@ void main() {}
 /*
  * Multiline Comment
  */
+
+//======================================================================================================================
+// Section Comment
+//======================================================================================================================
 
 /**
  * Javadoc Comment
