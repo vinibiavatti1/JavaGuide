@@ -31,11 +31,11 @@ public <T1, T2> void methodWithGenericArguments(T1 a, T2 b) {
 }
 
 /*
- * Method With Generic VarArgs
+ * Method With Generic Varargs
  * - Accepts zero or more arguments of the same generic type.
  * - The compiler infers the type from the provided arguments.
  */
-public <T> void methodWithGenericVarArgs(T... arguments) {
+public <T> void methodWithGenericVarargs(T... arguments) {
     return;
 }
 
@@ -65,8 +65,8 @@ void main() {
     this.<String, Integer>methodWithGenericArguments("test", 1); // Explicit types
 
     // Generic varargs
-    methodWithGenericVarArgs("A", "B", "C");                     // T inferred as String
-    this.<String>methodWithGenericVarArgs("X", "Y");             // Explicit type
+    methodWithGenericVarargs("A", "B", "C");                     // T inferred as String
+    this.<String>methodWithGenericVarargs("X", "Y");             // Explicit type
 
     // Generic return type
     var x1 = methodWithGenericReturn();                          // R inferred as Object
