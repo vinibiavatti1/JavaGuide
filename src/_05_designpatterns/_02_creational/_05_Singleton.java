@@ -37,7 +37,7 @@ public static class Database {
     // Static field to hold the single instance
     private static Database INSTANCE = null;
 
-    // Private Constructor - prevent external instantiation.
+    // Private Constructor to prevent external instantiation.
     private Database() {}
 
     // Public static method that returns the single instance, creating it if necessary.
