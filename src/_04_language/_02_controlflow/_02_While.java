@@ -5,7 +5,7 @@
  *
  * Overview
  * - The "while" loop executes its body as long as the specified boolean condition evaluates to true.
- * - The condition is evaluated **before each iteration**.
+ * - The condition is evaluated before each iteration.
  * - If the condition is false at the first check, the loop body is skipped entirely.
  *
  * Key Characteristics

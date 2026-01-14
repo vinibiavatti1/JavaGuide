@@ -78,7 +78,7 @@ public static interface Service {
  *   behavior.
  * - The Provider class is registered in the file located at:
  *   - resources/META-INF/services/_01_ServiceLoader$Service
- *     - _01_ServiceLoader$Provider
+ *     | _01_ServiceLoader$Provider
  */
 public static class Provider implements Service {
     @Override

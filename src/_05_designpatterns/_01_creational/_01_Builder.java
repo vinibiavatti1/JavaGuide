@@ -1,6 +1,6 @@
 /*
-
-*/
+ * TODO
+ */
 public class Person {
     private int id;
     private String name;
@@ -17,8 +17,8 @@ public class Person {
 }
 
 /*
-
-*/
+ *
+ */
 public class PersonBuilder {
     private int id;
     private String name;
@@ -39,8 +39,8 @@ public class PersonBuilder {
 }
 
 /*
-
-*/
+ *
+ */
 public class PersonDirector {
     private PersonBuilder personBuilder;
 
@@ -64,8 +64,8 @@ public class PersonDirector {
 }
 
 /*
-Test
-*/
+ *
+ */
 void main() {
     PersonBuilder builder = new PersonBuilder();
     PersonDirector director = new PersonDirector(builder);

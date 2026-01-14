@@ -27,7 +27,7 @@
  * Usage
  * - Use "for" loops when the number of iterations is known or controlled explicitly.
  * - Use "for-each" loops to iterate over arrays or collections in a simple, readable way.
- * - Avoid modifying the collection inside a for-each loop to prevent `ConcurrentModificationException`.
+ * - Avoid modifying the collection inside a for-each loop to prevent "ConcurrentModificationException".
  */
 void main() {
     /*

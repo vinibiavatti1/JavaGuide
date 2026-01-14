@@ -63,7 +63,7 @@
  * Usage
  * - Use exceptions to handle error conditions instead of returning error codes.
  * - Catch only exceptions you can meaningfully handle; let others propagate.
- * - Declare checked exceptions with `throws` in method signatures if not handled.
+ * - Declare checked exceptions with "throws" in method signatures if not handled.
  */
 void main() {}
 
