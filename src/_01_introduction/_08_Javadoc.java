@@ -1,0 +1,6 @@
+/*
+ * Javadoc
+ */
+void main() {
+
+}

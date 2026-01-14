@@ -43,16 +43,16 @@ void main() {
      * - We can use the "valueOf" function to declare an instance of this datatype.
      * - Output: 5
      */
-    Integer w = Integer.valueOf(5);
-    IO.println(w);
+    Integer x = Integer.valueOf(5);
+    IO.println(x);
 
     /*
      * Nullable
      * - Unlike primitive data types, wrapper types can be null, meaning they are able to represent the absence of a value.
      * - Output: null
      */
-    w = null;
-    IO.println(w);
+    x = null;
+    IO.println(x);
 
     /*
      * Equality
@@ -61,9 +61,9 @@ void main() {
      *   identical.
      * - Output: true
      */
-    Integer w1 = Integer.valueOf(5);
-    Integer w2 = Integer.valueOf(5);
-    boolean eq = w1.equals(w2);
+    Integer a = Integer.valueOf(5);
+    Integer b = Integer.valueOf(5);
+    boolean eq = a.equals(b);
     IO.println(eq);
 
     /*
@@ -73,9 +73,9 @@ void main() {
      *   positive value.
      * - Output: 0 (equal)
      */
-    w1 = Integer.valueOf(5);
-    w2 = Integer.valueOf(5);
-    int cmp = w1.compareTo(w2);
+    a = Integer.valueOf(5);
+    b = Integer.valueOf(5);
+    int cmp = a.compareTo(b);
     IO.println(cmp);
 
     /*
@@ -83,8 +83,8 @@ void main() {
      * - We can cast the wrapper data type to any other data type using the "typeValue" methods.
      * - Output: 5.0
      */
-    w = Integer.valueOf(5);
-    double d = w.doubleValue();
+    x = Integer.valueOf(5);
+    double d = x.doubleValue();
     IO.println(d);
 
     /*

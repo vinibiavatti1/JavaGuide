@@ -70,9 +70,9 @@ void main() {
      *   is identical.
      * - Output: true
      */
-    String s1 = "Hello World";
-    String s2 = "Hello World";
-    IO.println(s1.equals(s2));
+    String a = "Hello World";
+    String b = "Hello World";
+    IO.println(a.equals(b));
 
     /*
      * Comparison
@@ -81,9 +81,9 @@ void main() {
      *   positive value.
      * - Output: 0 (equal)
      */
-    s1 = "Hello World";
-    s2 = "Hello World";
-    IO.println(s1.compareTo(s2));
+    a = "Hello World";
+    b = "Hello World";
+    IO.println(a.compareTo(b));
 
     /*
      * Casting

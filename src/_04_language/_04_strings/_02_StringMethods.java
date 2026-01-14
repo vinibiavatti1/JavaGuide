@@ -30,8 +30,8 @@ void main() {
      * - Has overloads for all primitive types, objects, and even char arrays.
      * - Output: 3.14 (as string)
      */
-    String str = String.valueOf(3.14);
-    IO.println(str);
+    String x = String.valueOf(3.14);
+    IO.println(x);
 
     /*
      * Join
@@ -40,8 +40,8 @@ void main() {
      * - Can accept either a varargs of CharSequence or an Iterable (e.g., List<String>).
      * - Output: A, B, C
      */
-    str = String.join(", ", "A", "B", "C");
-    IO.println(str);
+    x = String.join(", ", "A", "B", "C");
+    IO.println(x);
 
     /*
      * Format
@@ -51,8 +51,8 @@ void main() {
      * - Output: Hello, John! You have 3 messages.
      */
     String template = "Hello, %s! You have %d messages.";
-    str = String.format(template, "John", 3);
-    IO.println(str);
+    x = String.format(template, "John", 3);
+    IO.println(x);
 
     //==================================================================================================================
     // Length
@@ -64,8 +64,8 @@ void main() {
      * - Works correctly with all characters, including ASCII and Unicode.
      * - Output: 11
      */
-    str = "Hello World";
-    IO.println(str.length());
+    x = "Hello World";
+    IO.println(x.length());
 
     //==================================================================================================================
     // Index Operations
@@ -77,8 +77,8 @@ void main() {
      * - Index must be between 0 and length()-1, otherwise it throws StringIndexOutOfBoundsException.
      * - Output: W
      */
-    str = "Hello World";
-    IO.println(str.charAt(6));
+    x = "Hello World";
+    IO.println(x.charAt(6));
 
     /*
      * Get Index
@@ -88,8 +88,8 @@ void main() {
      * - If not found, returns -1.
      * - Output: 6
      */
-    str = "Hello World";
-    IO.println(str.indexOf("W"));
+    x = "Hello World";
+    IO.println(x.indexOf("W"));
 
     /*
      * Get Last Index
@@ -99,8 +99,8 @@ void main() {
      * - If not found, returns -1.
      * - Output: 9
      */
-    str = "Hello World";
-    IO.println(str.lastIndexOf("l"));
+    x = "Hello World";
+    IO.println(x.lastIndexOf("l"));
 
     //==================================================================================================================
     // Transformation
@@ -112,8 +112,8 @@ void main() {
      * - The argument string is required; no optional parameters.
      * - Output: Hello World
      */
-    str = "Hello ";
-    IO.println(str.concat("World"));
+    x = "Hello ";
+    IO.println(x.concat("World"));
 
     /*
      * Trim
@@ -121,8 +121,8 @@ void main() {
      * - Whitespace is defined as any character with a codepoint <= U+0020 (space, tab, newline, carriage return, etc.).
      * - Output: Hello World
      */
-    str = " Hello World ";
-    IO.println(str.trim());
+    x = " Hello World ";
+    IO.println(x.trim());
 
     /*
      * Strip
@@ -132,8 +132,8 @@ void main() {
      *   whitespace.
      * - Output: Hello World
      */
-    str = "  Hello World  ";
-    IO.println(str.strip());
+    x = "  Hello World  ";
+    IO.println(x.strip());
 
     /*
      * Lower Case
@@ -141,8 +141,8 @@ void main() {
      * - To specify a locale, use toLowerCase(Locale), otherwise the default locale will be used.
      * - Output: hello world
      */
-    str = "Hello World";
-    IO.println(str.toLowerCase());
+    x = "Hello World";
+    IO.println(x.toLowerCase());
 
     /*
      * Upper Case
@@ -150,16 +150,16 @@ void main() {
      * - To specify a locale, use toUpperCase(Locale), otherwise the default locale will be used.
      * - Output: HELLO WORLD
      */
-    str = "Hello World";
-    IO.println(str.toUpperCase());
+    x = "Hello World";
+    IO.println(x.toUpperCase());
 
     /*
      * Repeat
      * - Returns a string that is the concatenation of this string repeated count times.
      * - Output: Hello Hello Hello
      */
-    str = "Hello ";
-    IO.println(str.repeat(3));
+    x = "Hello ";
+    IO.println(x.repeat(3));
 
     /*
      * Replace
@@ -167,8 +167,8 @@ void main() {
      *   replacement.
      * - Output: Hi World
      */
-    str = "Hello World";
-    IO.println(str.replace("Hello", "Hi"));
+    x = "Hello World";
+    IO.println(x.replace("Hello", "Hi"));
 
     /*
      * Replace All (Regex)
@@ -178,8 +178,8 @@ void main() {
      *   escaped if needed.
      * - Output: Hi
      */
-    str = "Hello";
-    IO.println(str.replaceAll("[a-z]+", "i"));
+    x = "Hello";
+    IO.println(x.replaceAll("[a-z]+", "i"));
 
     /*
      * Replace First (Regex)
@@ -189,8 +189,8 @@ void main() {
      *   escaped if needed.
      * - Output: Hi Hello
      */
-    str = "Hello Hello";
-    IO.println(str.replaceFirst("[a-z]+", "i"));
+    x = "Hello Hello";
+    IO.println(x.replaceFirst("[a-z]+", "i"));
 
     /*
      * Substring
@@ -198,8 +198,8 @@ void main() {
      * - The beginIndex (inclusive) and endIndex (exclusive) specify the range to extract.
      * - Output: World
      */
-    str = "Hello World";
-    IO.println(str.substring(6, 11));
+    x = "Hello World";
+    IO.println(x.substring(6, 11));
 
     /*
      * Split
@@ -209,8 +209,8 @@ void main() {
      * - An optional limit parameter can be specified to control the number of resulting substrings.
      * - Output: [A, B, C]
      */
-    str = "A,B,C";
-    String[] parts = str.split(",");
+    x = "A,B,C";
+    String[] parts = x.split(",");
     IO.println(Arrays.toString(parts));
 
     //==================================================================================================================
@@ -223,8 +223,9 @@ void main() {
      * - Related method: equalsIgnoreCase(...) compares ignoring case differences.
      * - Output: true
      */
-    str = "Hello World";
-    IO.println(str.equals("Hello World"));
+    String a = "Hello World";
+    String b = "Hello World";
+    IO.println(a.equals(b));
 
     /*
      * Compare
@@ -232,32 +233,18 @@ void main() {
      * - Related method: compareToIgnoreCase(...) compares strings ignoring case differences.
      * - Output: 0 (equal)
      */
-    str = "Hello World";
-    IO.println(str.compareTo("Hello World"));
-
-    /*
-     * Is Blank
-     * - Returns true if the string is empty or contains only whitespace codepoints.
-     * - Output: true
-     */
-    str = " ";
-    IO.println(str.isBlank());
-
-    /*
-     * Is Empty
-     * - Returns true if, and only if, length() is 0.
-     * - Output: true
-     */
-    str = "";
-    IO.println(str.isEmpty());
+    a = "Hello World";
+    b = "Hello World";
+    IO.println(a.compareTo(b));
 
     /*
      * Contains
      * - Returns true if this string contains the specified sequence of characters.
      * - Output: true
      */
-    str = "Hello World";
-    IO.println(str.contains("Hello"));
+    a = "Hello World";
+    b = "Hello World";
+    IO.println(a.contains(b));
 
     /*
      * Starts With
@@ -265,16 +252,34 @@ void main() {
      * - Optional: an offset can be specified to start checking from a specific index.
      * - Output: true
      */
-    str = "Hello World";
-    IO.println(str.startsWith("Hello"));
+    a = "Hello World";
+    b = "Hello";
+    IO.println(a.startsWith(b));
 
     /*
      * Ends With
      * - Tests if this string ends with the specified suffix.
      * - Output: true
      */
-    str = "Hello World";
-    IO.println(str.endsWith("World"));
+    a = "Hello World";
+    b = "World";
+    IO.println(a.endsWith(b));
+
+    /*
+     * Is Blank
+     * - Returns true if the string is empty or contains only whitespace codepoints.
+     * - Output: true
+     */
+    x = " ";
+    IO.println(x.isBlank());
+
+    /*
+     * Is Empty
+     * - Returns true if, and only if, length() is 0.
+     * - Output: true
+     */
+    x = "";
+    IO.println(x.isEmpty());
 
     /*
      * Matches
@@ -282,8 +287,8 @@ void main() {
      * - This method uses regular expressions (regex) for matching.
      * - Output: true
      */
-    str = "Hello World";
-    IO.println(str.matches("[a-zA-Z ]*"));
+    x = "Hello World";
+    IO.println(x.matches("[a-zA-Z ]*"));
 
     /*
      * Hash Code
@@ -291,8 +296,8 @@ void main() {
      * - Useful for hash-based collections like HashMap or HashSet.
      * - Output: -862545276
      */
-    str = "Hello World";
-    IO.println(str.hashCode());
+    x = "Hello World";
+    IO.println(x.hashCode());
 
     //==================================================================================================================
     // Formatting
@@ -305,8 +310,8 @@ void main() {
      * - The arguments must match the format specifiers in the string.
      * - Output: Hello, John! You have 3 messages.
      */
-    str = "Hello, %s! You have %d messages.";
-    IO.println(str.formatted("John", 3));
+    x = "Hello, %s! You have %d messages.";
+    IO.println(x.formatted("John", 3));
 
     //==================================================================================================================
     // Array Conversion
@@ -318,8 +323,8 @@ void main() {
      * - Useful for processing individual characters directly.
      * - Output: [A, B, C]
      */
-    str = "ABC";
-    IO.println(Arrays.toString(str.toCharArray()));
+    x = "ABC";
+    IO.println(Arrays.toString(x.toCharArray()));
 
     /*
      * Get Bytes
@@ -328,8 +333,8 @@ void main() {
      * - Useful for I/O operations or byte-level processing.
      * - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
      */
-    str = "Hello World";
-    IO.println(Arrays.toString(str.getBytes()));
+    x = "Hello World";
+    IO.println(Arrays.toString(x.getBytes()));
 
     //==================================================================================================================
     // Stream
@@ -341,8 +346,8 @@ void main() {
      * - Useful for processing or mapping characters as their Unicode code points.
      * - Output: 72 | 101 | 108 | 108 | 111 | 32 | 87 | 111 | 114 | 108 | 100
      */
-    str = "Hello World";
-    IntStream charsStream = str.chars();
+    x = "Hello World";
+    IntStream charsStream = x.chars();
     charsStream.forEach(IO::println);
 
     /*
@@ -351,8 +356,8 @@ void main() {
      * - Useful for processing multi-line strings line by line.
      * - Output: Hello | World
      */
-    str = "Hello\nWorld";
-    Stream<String> linesStream = str.lines();
+    x = "Hello\nWorld";
+    Stream<String> linesStream = x.lines();
     linesStream.forEach(IO::println);
 
     //==================================================================================================================
@@ -366,6 +371,6 @@ void main() {
      * - Useful for chaining operations on a string in a functional style.
      * - Output: HELLO WORLD
      */
-    str = "Hello World";
-    IO.println(str.transform(String::toUpperCase));
+    x = "Hello World";
+    IO.println(x.transform(String::toUpperCase));
 }

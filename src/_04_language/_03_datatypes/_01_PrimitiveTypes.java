@@ -48,9 +48,9 @@ void main() {
      * - To compare data types, we can use the '==' operator.
      * - Output: true
      */
-    int i1 = 5;
-    int i2 = 5;
-    boolean eq = i1 == i2;
+    int a = 5;
+    int b = 5;
+    boolean eq = a == b;
     IO.println(eq);
 
     /*
@@ -58,8 +58,8 @@ void main() {
      * - To parse a String to the data type, we can use the "parseType" method.
      * - Output: 10
      */
-    int i = Integer.parseInt("10");
-    IO.println(i);
+    x = Integer.parseInt("10");
+    IO.println(x);
 
     /*
      * Comparison
@@ -68,9 +68,9 @@ void main() {
      *   positive value.
      * - Output: 0 (equal)
      */
-    i1 = 5;
-    i2 = 5;
-    int cmp = Integer.compare(i1, i2);
+    a = 5;
+    b = 5;
+    int cmp = Integer.compare(a, b);
     IO.println(cmp);
 
     /*
@@ -78,8 +78,8 @@ void main() {
      * - We can cast the data type to any other data type using the "(type)" syntax.
      * - Output: 5.0
      */
-    i = 5;
-    double d = (double)i;
+    x = 5;
+    double d = (double)x;
     IO.println(d);
 
     /*
