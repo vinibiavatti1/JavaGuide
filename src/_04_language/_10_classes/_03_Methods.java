@@ -21,33 +21,43 @@
  *   - Useful for utility functions, factory methods, or operations that do not depend on object state.
  *   - Cannot directly access instance fields or methods.
  *
+ * The "this" Keyword
+ * - Refers to the current instance of the class.
+ * - Used to access instance fields, call instance methods, or pass the current object as a parameter.
+ * - Helps disambiguate between instance variables and parameters with the same name.
+ * - Syntax:
+ *   - Field Access: this.field
+ *   - Method Class: this.method()
+ *
  * Usage
  * - Use getters and setters to maintain encapsulation and safely expose object state.
  * - Use behavioral methods to define object actions, logic, or workflows.
  * - Use static methods for class-level operations or utility functions that do not require an instance.
  * - Well-designed methods improve readability, maintainability, and reusability.
- *
- * Example:
- * - This example declares a public class named "Person" and illustrates the definition of methods.
- * - In main method, we are using the property methods to change the class state, and behavioral methods to perform
- *   actions.
+ */
+
+/*
+ * Class Declaration With Methods
+ * - This example demonstrates a class "Person" with different types of methods: Property Methods, Behavioral Methods,
+ *   and Static Methods.
+ * - The "this" keyword is being used to between instance variables and parameters: "this.name = name".
  */
 public class Person {
     private String name;
 
-    // Property Method (Getter)
+    // Property Method (Getter for field "name")
     public String getName() {
         return name;
     }
 
-    // Property Method (Setter)
+    // Property Method (Setter for field "name")
     public void setName(String name) {
         this.name = name;
     }
 
     // Behavioral Method
     public void sayHello() {
-        IO.println(this.name + " said Hello!");
+        IO.println(name + " said Hello!");
     }
 
     // Static Method
@@ -56,15 +66,22 @@ public class Person {
     }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates creating an instance of "Person" and using its methods.
+ * - Shows the difference between instance methods (property and behavioral) and static methods.
+ */
 void main() {
-    // Instance methods are called from the objects.
-    Person p1 = new Person();
-    Person p2 = new Person();
-    p1.setName("John");
-    p2.setName("Jane");
-    p1.sayHello(); // John said Hello!
-    p2.sayHello(); // Jane said Hello!
+    // Creating a Person instance
+    Person person = new Person();
 
-    // Static fields are called from the class.
-    Person.greet(); // Hello from Person class!
+    // Calling property methods to access and modify the private field
+    person.setName("John");
+    IO.println(person.getName()); // Output: John
+
+    // Calling behavioral methods to perform actions
+    person.sayHello(); // Output: John said Hello!
+
+    // Static methods are called on the class itself, without creating an instance
+    Person.greet(); // Output: Hello from Person class!
 }

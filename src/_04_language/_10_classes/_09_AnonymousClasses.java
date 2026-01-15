@@ -17,11 +17,6 @@
  * - Anonymous classes do not have a name and cannot declare constructors.
  * - They are always inner classes in the sense that they capture a reference to their enclosing context if needed.
  * - They can override methods of a superclass or implement interface methods.
- * - Reflection metadata:
- *   - "getEnclosingClass()" returns the outer class that contains the anonymous class.
- *   - "getEnclosingMethod()" or "getEnclosingConstructor()" returns the method or constructor in which the anonymous
- *     class is defined.
- *   - "getDeclaringClass()" often returns "null" because anonymous classes are not explicitly declared with a name.
  *
  * Usage
  * - Use anonymous classes when you need a short, one-off implementation of an interface or subclass.
@@ -30,9 +25,14 @@
  *   top-level classes.
  * - Can be replaced with lambda expressions for functional interfaces in Java 8 and later, simplifying syntax further.
  */
+
+/*
+ * Usage Example
+ * - The examples below demonstrate declarations of anonymous classes.
+ */
 void main() {
     /*
-     * Define Anonymous Class From Interface
+     * Declare Anonymous Class From Interface
      * - Creates an unnamed class implementing Runnable inline.
      * - Provides a one-off implementation of run() without a separate class.
      * - Output: Hello from anonymous class!
@@ -46,7 +46,7 @@ void main() {
     task.run();
 
     /*
-     * Define Anonymous Class From Class
+     * Declare Anonymous Class From Class
      * - Creates an unnamed class that extends ArrayList inline.
      * - Overrides the add() method to customize behavior without creating a separate subclass.
      * - Output: Hello from anonymous class!

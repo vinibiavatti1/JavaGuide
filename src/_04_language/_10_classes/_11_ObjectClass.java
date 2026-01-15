@@ -29,8 +29,19 @@
  *   - Inspecting runtime type ("getClass()")
  *   - Basic thread synchronization ("wait()", "notify()", "notifyAll()")
  */
-public class MyClass {} // Implicit "extends Object".
 
+/*
+ * Any Top-Level Class Declaration Extends Object
+ * - In Java, every top-level class implicitly extends "java.lang.Object" if no other superclass is specified.
+ * - The class below is equivalent to: "public class MyClass extends Object {}"
+ * - As a result, all classes inherit the methods defined in Object.
+ */
+public class MyClass {}
+
+/*
+ * Object Methods
+ * - Demonstrates some of the key methods inherited from the Object class, which are available to all Java classes.
+ */
 void main() throws Exception {
     /*
      * Equals
@@ -38,9 +49,9 @@ void main() throws Exception {
      * - Returns true if the objects are logically equal.
      * - Output: false
      */
-    MyClass x = new MyClass();
-    MyClass y = new MyClass();
-    IO.println(x.equals(y));
+    MyClass a = new MyClass();
+    MyClass b = new MyClass();
+    IO.println(a.equals(b));
 
     /*
      * Hash Code
@@ -48,7 +59,7 @@ void main() throws Exception {
      * - Used in hash-based collections like HashMap and HashSet.
      * - Output: 713338599
      */
-    x = new MyClass();
+    MyClass x = new MyClass();
     IO.println(x.hashCode());
 
     /*
@@ -64,9 +75,9 @@ void main() throws Exception {
      * Get Class
      * - Returns the runtime class of this object.
      * - Can be used for reflection and type inspection.
-     * - Output: MyClass
+     * - Output: class MyClass
      */
     x = new MyClass();
     Class<?> clazz = x.getClass();
-    IO.println(clazz.getName());
+    IO.println(clazz);
 }

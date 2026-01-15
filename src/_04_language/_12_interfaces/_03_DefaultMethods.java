@@ -19,10 +19,11 @@
  * - Avoid code duplication across multiple implementing classes.
  * - Useful for backward-compatible interface evolution.
  * - Can be combined with abstract methods for flexible API design.
- *
- * Example:
- * - The example demonstrates an interface "Speaker" with a default method "greet".
- * - Classes "Dog" and "Cat" implement the interface and inherit or override the default behavior.
+ */
+
+/*
+ * Interface Declaration With Default Methods
+ * - The example below demonstrates a declaration of an interface with a default method.
  */
 public interface Speaker {
     default void sayHello() {
@@ -30,9 +31,13 @@ public interface Speaker {
     }
 }
 
+/*
+ * Interface Implementation With Override
+ * - Classes that implement the interface inherit the default method automatically.
+ * - Classes can override default methods to provide their own behavior.
+ */
 public class Dog implements Speaker {
 }
-
 public class Cat implements Speaker {
     @Override
     public void sayHello() {
@@ -40,9 +45,14 @@ public class Cat implements Speaker {
     }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates the use of default methods in interfaces.
+ */
 void main() {
-    Speaker s1 = new Dog();
-    Speaker s2 = new Cat();
-    s1.sayHello(); // Hello! (default method)
-    s2.sayHello(); // Cat says Hello! (overridden default)
+    Speaker dog = new Dog();
+    Speaker cat = new Cat();
+
+    dog.sayHello(); // Output: Hello! (default method)
+    cat.sayHello(); // Output: Cat says Hello! (overridden default)
 }

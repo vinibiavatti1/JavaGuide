@@ -17,18 +17,28 @@
  * - Use final methods to enforce invariant behavior that should not change in subclasses.
  * - Commonly applied in libraries, frameworks, or security-sensitive code to prevent accidental overrides.
  * - Helps maintain predictable behavior in inheritance hierarchies.
- *
- * Example:
- * - The example shows a class with a final method "speak".
- * - Any attempt to override "speak" in a subclass would result in a compile-time error.
+ */
+
+/*
+ * Final Method Declaration
+ * - Demonstrates a method marked as "final" in the superclass.
  */
 public class Animal {
     public final void speak() {
         IO.println("The animal makes a sound");
     }
 }
+
+/*
+ * Override Final Method (Not Allowed)
+ * - Demonstrates that final methods cannot be overridden.
+ */
 public class Dog extends Animal {
-    // public final void speak() {...} - Not Allowed: cannot override a final method
+    // Uncommenting the following method will cause a compile-time error:
+    // @Override
+    // public void speak() {
+    //     IO.println("The dog barks");
+    // }
 }
 
 void main() {}

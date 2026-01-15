@@ -17,16 +17,20 @@
  * - Constructors are allowed and can be called by subclass constructors.
  * - Fields, methods, and access modifiers can be defined as in regular classes.
  * - Enables polymorphism: variables can refer to abstract types, allowing flexible and extensible code design.
+ * - An abstract class may implement one or more interfaces, but it is not required to provide implementations for the
+ *   interface methods; this responsibility is delegated to its concrete subclasses.
  *
  * Usage
  * - Use abstract classes to define a common base for related classes.
  * - Enforce a contract through abstract methods while sharing code in concrete methods.
  * - Ideal when you want partial implementation but still require subclass customization.
  * - Supports polymorphism and promotes maintainable, extensible object-oriented design.
- *
- * Example:
- * - The example demonstrates an abstract class "Animal" with an abstract method "say".
- * - Subclasses "Dog" and "Cat" provide their own implementations of "say".
+ */
+
+/*
+ * Abstract Class Declaration
+ * - Demonstrates an abstract class "Animal" that cannot be instantiated directly.
+ * - Abstract methods must be implemented by concrete subclasses.
  */
 public abstract class Animal {
     private String name;
@@ -36,7 +40,7 @@ public abstract class Animal {
     }
 
     // Abstract method: must be implemented by concrete subclasses
-    public abstract void say();
+    public abstract void speak();
 
     // Concrete method: shared behavior for all subclasses
     public String getName() {
@@ -44,36 +48,49 @@ public abstract class Animal {
     }
 }
 
+/*
+ * Subclass Declarations
+ * - Concrete subclasses of Animal must implement all abstract methods.
+ */
 public class Dog extends Animal {
     public Dog(String name) {
         super(name);
     }
 
     @Override
-    public void say() {
+    public void speak() {
         IO.println("woof!");
     }
 }
-
 public class Cat extends Animal {
     public Cat(String name) {
         super(name);
     }
 
     @Override
-    public void say() {
+    public void speak() {
         IO.println("meow!");
     }
 }
 
-@SuppressWarnings("all")
+/*
+ * Usage Example
+ * - The example below calls both concrete and abstract methods on subclass instances.
+ * - Shows that abstract classes cannot be instantiated directly.
+ */
 void main() {
-    Animal a1 = new Dog("Rex");
-    Animal a2 = new Cat("Tom");
-    // Animal a = new Animal("Test"); - Not allowed: cannot instantiate abstract class
+    // Creating subclass instances
+    Animal dog = new Dog("Rex");
+    Animal cat = new Cat("Tom");
 
-    IO.println(a1.getName()); // Rex
-    IO.println(a2.getName()); // Tom
-    a1.say(); // woof!
-    a2.say(); // meaw!
+    // Creating abstract class instance (not allowed)
+    // Animal a = new Animal("Test"); - Compile-time error
+
+    // Calling property method
+    IO.println(dog.getName()); // Output: Rex
+    IO.println(cat.getName()); // Output: Tom
+
+    // Calling abstract method
+    dog.speak(); // Output: woof!
+    cat.speak(); // Output: meow!
 }

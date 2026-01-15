@@ -20,10 +20,12 @@
  * - Ideal for APIs where a fixed set of known implementations is required.
  * - Works well with pattern matching and enhanced "switch" expressions.
  * - Prevents uncontrolled subclassing that could break invariants or internal logic.
- *
- * Example:
- * - The example demonstrates a sealed class "Animal" with a fixed set of permitted subclasses.
- * - The child classes are "final" and "non-sealed"; any other declaration would cause a compile-time error.
+ */
+
+/*
+ * Sealed Class Declaration
+ * - The example below shows a class declaration marked as sealed.
+ * - Only the classes listed in the "permits" clause are allowed to extend this class.
  */
 public sealed class Animal permits Dog, Cat {
     private final String name;
@@ -37,21 +39,29 @@ public sealed class Animal permits Dog, Cat {
     }
 }
 
+/*
+ * Subclasses Declaration
+ * - Subclasses must be declared as "final", "non-sealed", or "sealed" as mandatory.
+ */
 public final class Dog extends Animal {
     public Dog(String name) {
         super(name);
     }
 }
-
 public non-sealed class Cat extends Animal {
     public Cat(String name) {
         super(name);
     }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates creating instances of subclasses of a sealed superclass.
+ */
 void main() {
-    Animal a1 = new Dog("Rex");
-    Animal a2 = new Cat("Tom");
-    IO.println(a1.getName()); // Rex
-    IO.println(a2.getName()); // Tom
+    Animal dog = new Dog("Rex");
+    Animal cat = new Cat("Tom");
+
+    IO.println(dog.getName()); // Output: Rex
+    IO.println(cat.getName()); // Output: Tom
 }

@@ -17,12 +17,18 @@
  * - Use final classes to lock down implementation details and prevent inheritance.
  * - Commonly applied to utility classes, constants, immutable objects, or security-sensitive classes.
  * - Prevents subclasses from altering critical behavior or internal logic.
- *
- * Example:
- * - The example shows a final class declaration.
- * - Any attempt to extend it would result in a compile-time error.
+ */
+
+/*
+ * Final Class Declaration
+ * - Demonstrates a class marked as "final".
  */
 public final class Dog {}
-// public class Labrador extends Dog {} - Not Allowed: cannot extend a final class
+
+/*
+ * Extending Final Class (Not Allowed)
+ * - A final class cannot be subclassed or extended.
+ */
+/// public class Labrador extends Dog {} - Compile-time error
 
 void main() {}

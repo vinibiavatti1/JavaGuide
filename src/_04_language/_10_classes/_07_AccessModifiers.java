@@ -4,7 +4,7 @@
  *   constructors) in Java.
  * - Fields should generally be private and accessed through getters and setters to maintain encapsulation.
  *
- * Overview
+ * Overview of Modifiers
  * - public: Members are accessible from any class, in any package.
  * - protected: Members are accessible within the same package and by subclasses, even if they are in a different
  *   package.
@@ -16,29 +16,53 @@
  * - Choosing the appropriate modifier helps protect internal state, control access, and prevent unintended
  *   modifications.
  * - Proper use of modifiers promotes clean, maintainable, and safe object-oriented code.
- *
- * Example:
- * - This example declares a public class with fields using different access modifiers.
- * - Demonstrates how access to fields is restricted according to the modifier used.
  */
-public class Person {
-    // Fields
-    public String publicField;          // Public: Accessible from anywhere
-    protected String protectedField;    // Protected: Accessible in the same package or subclasses
-    private String privateField;        // Private: Accessible only within this class
-    String packagePrivateField;         // Package-Private: Accessible only within the same package (default)
 
-    // Methods
-    public void publicMethod() {}       // Public: Accessible from anywhere
-    protected void protectedMethod() {} // Protected: Accessible in the same package or subclasses
-    private void privateMethod() {}     // Private: Accessible only within this class
-    void packagePrivateMethod() {}      // Package-Private: Accessible only within the same package (default)
+/*
+ * Class Access Modifiers
+ * - Demonstrates how classes themselves can have access modifiers.
+ * - public: Class is accessible from any other class in any package.
+ * - package-private (default): Class is accessible only within the same package.
+ */
+public class PublicClass {}       // Public class, accessible everywhere
+class PackagePrivateClass {}      // Package-private class, accessible only within the package
+
+/*
+ * Field Access Modifiers
+ * - Demonstrates different access levels for fields in a class.
+ * - Best practice: Keep fields private and provide access through getters and setters.
+ */
+public class Fields {
+    public String publicField;       // Accessible from anywhere
+    protected String protectedField; // Accessible within the same package or by subclasses
+    private String privateField;     // Accessible only within this class
+    String packagePrivateField;      // Accessible only within the same package (default)
 }
 
+/*
+ * Method Access Modifiers
+ * - Demonstrates different access levels for methods in a class.
+ * - Methods follow the same rules as fields.
+ */
+public class Methods {
+    public void publicMethod() {}       // Accessible from anywhere
+    protected void protectedMethod() {} // Accessible within the same package or by subclasses
+    private void privateMethod() {}     // Accessible only within this class
+    void packagePrivateMethod() {}      // Accessible only within the same package (default)
+}
+
+/*
+ * Usage Example
+ * - Demonstrates how access modifiers affect visibility in practice.
+ */
 void main() {
-    Person p = new Person();
-    p.publicField = "...";              // Accessible
-    p.protectedField = "...";           // Accessible within package
-    p.packagePrivateField = "...";      // Accessible within package
-    // p.privateField = "Private";      // Not accessible here, would cause a compilation error
+    Fields fields = new Fields();
+
+    // Accessible according to modifiers
+    fields.publicField = "Public";          // Accessible anywhere
+    fields.protectedField = "Protected";    // Accessible in same package
+    fields.packagePrivateField = "Package"; // Accessible in same package
+
+    // Not accessible outside class
+    // fields.privateField = "Private"; // Compilation error
 }

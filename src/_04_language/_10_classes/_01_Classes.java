@@ -34,9 +34,18 @@
  * - The example shows a class declaration that defines a new reference type in Java using the "class" keyword.
  * - The main method shows how to create instances (objects) of the new class using the "new" keyword.
  */
-class Person {}
 
+/*
+ * Class Declaration
+ * - The example below demonstrates the declaration of a class named "Person".
+ */
+public class Person {}
+
+/*
+ * Usage Example
+ * - The example below demonstrates how to create instances of the "Person" class using the "new" keyword.
+ */
 void main() {
-    Person p1 = new Person();
-    Person p2 = new Person();
+    Person person = new Person();
+    Person otherPerson = new Person();
 }

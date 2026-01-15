@@ -17,10 +17,12 @@
  * - Use method overloading to offer multiple ways to perform an operation depending on input types or counts.
  * - Ensure that overloaded methods perform similar or related actions to maintain clarity.
  * - Avoid overloading with completely unrelated functionality, as it can confuse readers and maintainers.
- *
- * Example
- * - The example demonstrates the use of method overloading and shows how calls to these overloaded methods are resolved
- *   based on the arguments provided.
+ */
+
+/*
+ * Class Declaration With Method Overloading
+ * - This example demonstrates a class "Printer" that uses method overloading.
+ * - Overloaded methods provide flexibility while keeping method names meaningful.
  */
 public class Printer {
     // Base method
@@ -34,7 +36,7 @@ public class Printer {
     }
 
     // Overload by type of parameters
-    public void print(String a, double b) {
+    public void print(String a, String b) {
         IO.println(a + b);
     }
 
@@ -44,10 +46,16 @@ public class Printer {
     }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates calling different overloaded versions of the "print" method.
+ * - Shows how Java resolves which method to call based on argument types, number, and order.
+ */
 void main() {
-    Printer calc = new Printer();
-    calc.print("x=", 1);    // x=1
-    calc.print("x=", 1, 2); // x=12
-    calc.print("x=", 3.14); // x=3.14
-    calc.print(1, "x=");    // x=1
+    Printer printer = new Printer();
+
+    printer.print("x=", 10);   // Output: x=10
+    printer.print("x=", 1, 0); // Output: x=10
+    printer.print("x=", "1");  // Output: x=10
+    printer.print(10, "x=");   // Output: x=10
 }

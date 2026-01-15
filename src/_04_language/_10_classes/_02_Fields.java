@@ -28,25 +28,48 @@
  * - Use static final fields for constants to improve code readability and maintainability.
  * - Avoid exposing mutable public fields to prevent unintended external modifications.
  *
- * Example:
- * - This example declares a public class named "Person" and illustrates the definition of an instance field.
- * - Each "Person" instance has its own "name" value, demonstrating that objects maintain independent state.
- * - NOTE: Public instance fields are discouraged; always use private fields with getters/setters.
+ * Important Note
+ * - Public instance fields are discouraged; always use private fields with getters/setters.
+ */
+
+/*
+ * Class Declaration With Fields
+ * - This example demonstrates the declaration of a class named "Person" with both instance and static fields.
+ * - Instance Fields: Each object has its own copy of these fields, maintaining independent state per instance.
+ * - Static Fields: Belong to the class itself and are shared among all instances.
  */
 public class Person {
+    // Static Fields
+    public static final int MIN_AGE = 0;
     public static String defaultName = "Unknown";
+
+    // Instance Fields
     public String name;
+    public int age;
 }
 
+/*
+ * Usage Example
+ * - The example below demonstrates creating instances of the "Person" class and manipulating both
+ *   instance and static fields.
+ * - Each object maintains its own state, while static fields are accessed via the class itself.
+ */
 void main() {
-    // Instance fields belong to objects.
-    Person p1 = new Person();
-    Person p2 = new Person();
-    p1.name = "John";
-    p2.name = "Jane";
-    IO.println(p1.name); // John
-    IO.println(p2.name); // Jane
+    // Creating the first Person instance
+    Person person = new Person();
+    person.name = "John";
+    person.age = 35;
 
-    // Static fields belong to the class and are shared.
-    IO.println(Person.defaultName); // Unknown
+    // Creating another Person instance
+    Person otherPerson = new Person();
+    otherPerson.name = "Anna";
+    otherPerson.age = 32;
+
+    // Each instance maintains independent state
+    IO.println(person.name);      // Output: John
+    IO.println(otherPerson.name); // Output: Anna
+
+    // Static fields are shared and accessed via the class itself
+    IO.println(Person.MIN_AGE);     // Output: 0
+    IO.println(Person.defaultName); // Output: Unknown
 }

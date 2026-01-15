@@ -22,31 +22,42 @@
  * - Implement different behaviors for the same method across related classes.
  * - Enable polymorphic designs where code works with abstract types or superclass references.
  * - Improve code extensibility, maintainability, and reusability.
- *
- * Example:
- * - The example shows a subclass overriding a method from its superclass.
- * - The main method demonstrates that the overridden method is resolved at runtime.
+ */
+
+/*
+ * Superclass Declaration
+ * - Demonstrates a superclass "Animal" with a method "speak" that can be inherited or overridden by subclasses.
  */
 public class Animal {
-    public void say() {
+    public void speak() {
         IO.println("woof!");
     }
 }
 
+/*
+ * Method Override
+ * - Demonstrates two subclasses of Animal:
+ *   1. Dog: inherits the speak() method without changes.
+ *   2. Cat: overrides the speak() method to provide its own behavior.
+ * - Use of @Override ensures that the method signature matches a method in the superclass.
+ */
 public class Dog extends Animal {
 }
-
 public class Cat extends Animal {
     @Override
-    public void say() { // Override say() method from Animal with new logic
+    public void speak() { // Override say() method from Animal with new logic
         IO.println("meow!");
     }
 }
 
-@SuppressWarnings("all")
+/*
+ * Usage Example
+ * - Shows the difference between inherited and overridden methods.
+ */
 void main() {
-    Animal a1 = new Dog();
-    Animal a2 = new Cat();
-    a1.say(); // woof! (inherited from Animal)
-    a2.say(); // meow! (overridden in Cat)
+    Animal dog = new Dog();
+    Animal cat = new Cat();
+
+    dog.speak(); // Output: woof! (inherited from Animal)
+    cat.speak(); // Output: meow! (overridden in Cat)
 }

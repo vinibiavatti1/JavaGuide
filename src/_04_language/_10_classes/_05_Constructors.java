@@ -24,13 +24,17 @@
  * - Parameterized constructors provide flexibility and control over initial state.
  * - Constructor overloading allows multiple ways to instantiate objects depending on available data.
  * - Well-designed constructors improve code safety, readability, and consistency of object state.
- *
- * Example
- * - This example declares a public class named "Person" and illustrates the definition of a constructor.
- * - In the main method, we will use the constructor to initialize the class fields.
+ */
+
+/*
+ * Class Declaration With Constructor
+ * - Constructors have the same name as the class and do not declare a return type.
+ * - The example below demonstrates a class with two constructors: No-Argument Constructor and two Parameterized
+ *   Constructors.
  */
 public class Person {
     public String name;
+    public int age;
 
     // No-Argument Constructor
     public Person() {}
@@ -39,9 +43,25 @@ public class Person {
     public Person(String name) {
         this.name = name;
     }
+
+    // Overloaded Parameterized Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates creating instances of "Person" using different constructors.
+ * - Allows setting fields at instantiation depending on which constructor is used.
+ */
 void main() {
-    Person person = new Person("John");
-    IO.println(person.name); // John
+    Person person1 = new Person();           // No-argument constructor
+    Person person2 = new Person("John");     // Parameterized constructor
+    Person person3 = new Person("Anna", 32); // Overloaded parameterized constructor
+
+    IO.println(person2.name); // Output: John
+    IO.println(person3.name); // Output: Anna
+    IO.println(person3.age);  // Output: 32
 }

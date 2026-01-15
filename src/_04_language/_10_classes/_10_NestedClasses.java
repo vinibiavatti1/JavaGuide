@@ -35,11 +35,22 @@
  * - Avoid overusing nested classes for large or widely reused classes, as it can reduce readability and increase
  *   coupling.
  */
+
+/*
+ * Class Declaration with Nested Classes
+ * - This example demonstrates how to declare and use nested classes in Java.
+ * - There are two types of nested classes: Non-Static Inner Class and Static Nested Class.
+ */
 public class Outer {
     class Inner {}
     static class StaticInner {}
 }
 
+/*
+ * Usage Example
+ * - Demonstrates creating instances of outer and nested classes, showing differences between inner and static nested
+ *   classes.
+ */
 void main() {
     /*
      * Create Instance of Outer Class

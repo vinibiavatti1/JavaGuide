@@ -19,26 +19,42 @@
  * - Commonly applied in frameworks, lifecycle hooks, template methods, or any scenario where base logic must be
  *   preserved.
  * - Ensures that critical superclass logic is executed while allowing extensions in subclasses.
- *
- * Example:
- * - The example shows a subclass overriding a method and calling "super" to extend it.
- * - The main method demonstrates that both the superclass and subclass behaviors are executed.
  */
-public class Animal {
-    public void speak() {
-        IO.println("The animal makes a sound");
+
+/*
+ * Superclass Declaration
+ * - Demonstrates a superclass "Processor" with a method "process" that will be extended by the subclasses.
+ */
+public class Processor {
+    public void process() {
+        IO.println("Processing...");
     }
 }
 
-public class Dog extends Animal {
+/*
+ * Method Extension
+ * - Demonstrates a subclass "ExtendedProcessor" that overrides the "process" method.
+ * - Calls super.process() to preserve the original behavior from Animal.
+ * - Adds behavior both before and after calling the superclass method.
+ */
+public class ExtendedProcessor extends Processor {
     @Override
-    public void speak() {
-        super.speak(); // preserve superclass behavior
-        IO.println("The dog barks"); // add additional behavior
+    public void process() {
+        IO.println("Before Processing..."); // Additional behavior BEFORE superclass method
+        super.process();                    // Preserve superclass behavior
+        IO.println("After Processing...");  // Additional behavior AFTER superclass method
     }
 }
 
+/*
+ * Usage Example
+ * - Demonstrates calling the extended method.
+ * - Output:
+ *   | Before Processing...
+ *   | Processing...
+ *   | After Processing...
+ */
 void main() {
-    Dog d = new Dog();
-    d.speak(); // The animal makes a sound | The dog barks
+    ExtendedProcessor processor = new ExtendedProcessor();
+    processor.process();
 }
