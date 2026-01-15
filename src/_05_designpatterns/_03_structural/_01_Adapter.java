@@ -88,5 +88,5 @@ void main() {
     LegacyLogger legacyLogger = new LegacyLogger();
     LegacyLoggerAdapter legacyLoggerAdapter = new LegacyLoggerAdapter(legacyLogger);
     Application app = new Application(legacyLoggerAdapter);
-    app.log("Hello World!"); // LOG: Hello World!
+    app.log("Hello World!"); // Output: LOG: Hello World!
 }

@@ -108,6 +108,6 @@ void main() {
     Frame flatFrame = new Frame(new FlatComponentFactory());
     Frame roundedFrame = new Frame(new RoundedComponentFactory());
 
-    flatFrame.showMessageDialog();    // Click on the button to confirm: [CONFIRM]
-    roundedFrame.showMessageDialog(); // Click on the button to confirm: (CONFIRM)
+    flatFrame.showMessageDialog();    // Output: Click on the button to confirm: [CONFIRM]
+    roundedFrame.showMessageDialog(); // Output: Click on the button to confirm: (CONFIRM)
 }

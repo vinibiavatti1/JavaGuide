@@ -116,6 +116,6 @@ void main() {
     Button flatButton = buttonDirector.buildFlatButton("CLICK");
     Button roundedButton = buttonDirector.buildRoundedButton("CLICK");
 
-    flatButton.show();    // [CLICK]
-    roundedButton.show(); // (CLICK)
+    flatButton.show();    // Output: [CLICK]
+    roundedButton.show(); // Output: (CLICK)
 }

@@ -100,5 +100,5 @@ public class Frame {
  */
 void main() {
     Frame frame = new Frame();
-    frame.showConfirmDialog();
+    frame.showConfirmDialog(); // Output: Are you sure? [YES] [NO] [CANCEL]
 }

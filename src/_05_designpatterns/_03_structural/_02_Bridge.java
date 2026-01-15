@@ -87,6 +87,6 @@ void main() {
     Writer consoleWriter = new ConsoleWriter();
     Logger logger = new Logger(consoleWriter);
 
-    logger.logMessage("Hello World!");    // Hello World!
-    logger.logError("Validation failed"); // ERROR: Validation failed
+    logger.logMessage("Hello World!");    // Output: Hello World!
+    logger.logError("Validation failed"); // Output: ERROR: Validation failed
 }
