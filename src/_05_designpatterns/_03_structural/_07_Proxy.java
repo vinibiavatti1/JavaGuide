@@ -1,7 +1,7 @@
 /*
  * Proxy Design Pattern
- * - This section explains the "Proxy" design pattern, which provides a surrogate or placeholder for another object
- *   to control access, reduce cost, or add additional functionality.
+ * - This section explains the "Proxy" design pattern, which provides a surrogate or placeholder for another object to
+ *   control access, reduce cost, or add additional functionality.
  *
  * Overview
  * - The Proxy pattern is a structural design pattern.
@@ -50,10 +50,10 @@ public class Database implements Connector {
  * Proxy
  * - Maintains a reference to the RealSubject and controls access to it, possibly adding extra behavior.
  */
-public class SecureDatabase implements Connector {
+public class SecureDatabaseProxy implements Connector {
     private Database readDatabase;
 
-    public SecureDatabase() {
+    public SecureDatabaseProxy() {
         this.readDatabase = new Database();
     }
 
@@ -86,11 +86,9 @@ public class DatabaseService {
  */
 void main() {
     Database database = new Database();
-    SecureDatabase secureDatabase = new SecureDatabase();
+    SecureDatabaseProxy secureDatabaseProxy = new SecureDatabaseProxy();
 
-    String user = "john";
-    String password = "123";
-
-    new DatabaseService(database, user, password);       // Output: Connected!
-    new DatabaseService(secureDatabase, user, password); // Output: Access Denied!
+    String user = "john", password = "123";
+    new DatabaseService(database, user, password);            // Output: Connected!
+    new DatabaseService(secureDatabaseProxy, user, password); // Output: Access Denied!
 }

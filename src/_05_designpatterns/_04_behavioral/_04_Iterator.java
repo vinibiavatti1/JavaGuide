@@ -109,6 +109,6 @@ void main() {
     Range range = new Range(3, 8);
     Iterator<Integer> iterator = range.iterator();
     while(iterator.hasMore()) {
-        IO.println(iterator.getNext()); // 3 | 4 | 5 | 6 | 7
+        IO.println(iterator.getNext()); // Output: 3 | 4 | 5 | 6 | 7
     }
 }

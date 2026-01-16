@@ -1,7 +1,7 @@
 /*
  * Abstract Factory Design Pattern
- * - This section explains the "Abstract Factory" design pattern, which provides an interface for creating families
- *   of related or dependent objects without specifying their concrete classes.
+ * - This section explains the "Abstract Factory" design pattern, which provides an interface for creating families of
+ *   related or dependent objects without specifying their concrete classes.
  *
  * Overview
  * - The Abstract Factory pattern is a creational design pattern.

@@ -96,9 +96,11 @@ public class Shop {
 void main() {
     Shop shop = new Shop();
     shop.checkout("John", "Great Street, AB", "PC", 1500.0);
-    // Output:
-    // Checking stock for item: PC
-    // Processing payment for customer: John. Amount: 1500.0
-    // Shipping PC to Great Street, AB
-    // Order processed successfully!
+    /*
+     * Output:
+     * Checking stock for item: PC
+     * Processing payment for customer: John. Amount: 1500.0
+     * Shipping PC to Great Street, AB
+     * Order processed successfully!
+     */
 }

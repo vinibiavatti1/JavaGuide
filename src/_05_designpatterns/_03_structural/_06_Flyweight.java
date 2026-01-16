@@ -104,6 +104,16 @@ public class TextureFactory {
 public class Game {
     TextureFactory textureFactory = new TextureFactory();
 
+    /*
+     * Since this method creates multiple Sprite instances that reuse the same Texture objects,
+     * memory usage is reduced by sharing intrinsic state instead of duplicating it.
+     *
+     * Each Sprite maintains only its extrinsic state (position), while the Texture instances
+     * are shared flyweights managed by the TextureFactory.
+     *
+     * This demonstrates how the Flyweight pattern minimizes memory consumption when a large
+     * number of similar objects are created.
+     */
     public void renderLevel() {
         Sprite tree1 = new Sprite(0, 0, textureFactory.get(TreeTexture.class));
         Sprite tree2 = new Sprite(0, 1, textureFactory.get(TreeTexture.class));

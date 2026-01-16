@@ -54,5 +54,7 @@ public static class Database {
  * - The example below shows the usage of the Singleton design pattern.
  */
 void main() {
-    Database database = Database.getInstance();
+    Database database1 = Database.getInstance();
+    Database database2 = Database.getInstance();
+    IO.println(database1 == database2); // true - they are the same instance
 }

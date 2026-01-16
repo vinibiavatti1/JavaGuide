@@ -95,6 +95,21 @@ void main() {
     }
 
     /*
+     * Conditional Statement (switch with arrow labels)
+     * - This switch statement uses the modern arrow (->) syntax introduced with switch expressions, but is used here
+     *   purely for control flow and side effects.
+     * - Each case directly executes an operation (printing a message) instead of returning a value.
+     * - No "yield" is required, since this switch does not produce a result.
+     * - Output: Error
+     */
+    httpStatus = 500;
+    switch (httpStatus) {
+        case 200 -> IO.println("Success");
+        case 500 -> IO.println("Error");
+        default -> IO.println("Unknown");
+    }
+
+    /*
      * Conditional Statement (switch expression)
      * - This form of the switch statement is used as an expression, allowing the result of the switch to be assigned
      *   directly to a variable.
