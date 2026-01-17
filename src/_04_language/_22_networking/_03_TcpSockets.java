@@ -1,5 +1,5 @@
 /*
- * Sockets (TCP/IP)
+ * TCP/IP (Transmission Control Protocol/Internet Protocol) Sockets
  * - This file demonstrates the basic usage of TCP sockets in Java, providing a foundation for network communication
  *   between a server and one or more clients.
  *

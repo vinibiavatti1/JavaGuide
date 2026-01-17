@@ -1,5 +1,5 @@
 /*
- * Datagrams (UDP)
+ * UDP (User Datagram Protocol) Sockets
  * - This file demonstrates the basic usage of UDP sockets in Java, providing a foundation for connectionless network
  *   communication between a server and a client.
  *
