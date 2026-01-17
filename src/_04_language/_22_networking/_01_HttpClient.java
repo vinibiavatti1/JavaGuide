@@ -134,7 +134,7 @@ void main() throws Exception {
      * - The request uses the POST method and includes the file content as the body.
      * - Output: https://httpbin.org/get POST
      */
-    Path path = Path.of("resources/file.dat");
+    Path path = Path.of("resources/request.dat");
     request = HttpRequest.newBuilder()
             .uri(URI.create("https://httpbin.org/post"))
             .POST(HttpRequest.BodyPublishers.ofFile(path))
