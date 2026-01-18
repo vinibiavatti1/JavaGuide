@@ -1,0 +1,103 @@
+Add @SuppressWarnings
+
+_01_basics
+	_01_Main.java
+	_02_Variables.java
+	_03_Constants.java
+_02_datatypes
+	_01_Byte.java
+	_02_Short.java
+	_03_Int.java
+	_04_Long.java
+	_05_Float.java
+	_06_Double.java
+	_07_Boolean.java
+	_08_Char.java
+_03_strings
+	_01_Strings.java
+	_02_Format.java
+	_03_StringBuilder.java
+_04_collections
+	_01_Arrays.java
+	_02_List.java
+	_03_Map.java
+	_04_Set.java
+_05_controlflow
+	_01_If.java
+	_02_While.java
+	_03_DoWhile.java
+	_04_For.java
+	_05_Switch.java
+_06_operators
+	_01_Aritmetic.java
+	_02_Assignment.java
+	_03_Comparison.java
+	_04_Logical.java
+	_05_Instanceof.java
+	_06_Bitwise.java
+_07_packages
+	_01_Packages.java
+	_02_Modules.java
+_08_documentation
+	_01_Comments.java
+	_02_JavaDoc.java
+_09_oop
+	_01_Classes.java
+	_02_Attributes.java
+	_03_Methods.java
+	_04_Static.java
+	_05_Constructors.java
+	_06_Initializers.java
+	_07_MethodOverloading.java
+	_08_Inheritance.java
+	_09_AbstractClasses.java
+	_10_Interfaces.java
+	_11_DefaultMethods.java
+	_12_Records.java
+	_13_SealedClasses.java
+	_14_Enums.java
+_10_generics
+	_01_ClassGenerics.java
+	_02_MethodGenerics.java
+_11_errorhandling
+	_01_Exceptions.java
+	_02_TryCatch.java
+	_03_TryWithResources.java
+_12_functionalprogramming
+	_01_Lambda.java
+	_02_Optional.java
+	_03_Stream.java
+_13_io
+	_01_Reader.java
+	_02_Writer.java
+	_03_Serialization.java
+	_04_Transient.java
+_15_asyncprogramming
+	_01_Thread.java
+	_02_Synchronized.java
+	_03_Volatile.java
+	_04_Lock.java
+	_05_Semaphore.java
+	_06_Completablefuture.java
+	_07_VirtualThreads.java
+_16_metaprogramming
+	_01_Reflection.java
+	_02_Annotations.java
+_17_classloader
+	_01_ClassLoader.java
+_18_tests
+	_01_UnitTests.java
+	_02_BenchmarkTests.java
+_19_swing
+	TODO
+_20_sdk
+	TODO
+_21_designpatterns
+	_01_creational
+		TODO
+	_02_structural
+		TODO
+	_03_behavioral
+		TODO
+_22_misc
+	TODO

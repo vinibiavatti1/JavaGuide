@@ -8,6 +8,7 @@
  * Java EE :..............: Java Enterprise Edition
  * Java SE :..............: Java Standard Edition
  * JPA :..................: Java Persistance API
+ * LaF : .................: Look and Feel
  * POJO :.................: Plain Old Java Object
  * TCP/IP :...............: Transmission Control Protocol/Internet Protocol
  * UDP :..................: User Datagram Protocol

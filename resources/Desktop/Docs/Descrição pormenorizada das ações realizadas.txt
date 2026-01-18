@@ -1,0 +1,10 @@
+Incidente
+
+Etapas:
+1. Autenticação no Portal de Renovações da AIMA
+2. Autenticação e acesso concluido com sucesso
+3. Erro: A sua situação de dívida com a Segurança Social e a Autoridade Tributária está em revisão. Uma vez validada, poderá fazer os pedidos. Por favor volte mais tarde.
+
+Ações Realizadas
+- Tentativa de re-autenticação
+- Contacto realizado através do formulário disponível no portal (este próprio contacto)
