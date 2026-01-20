@@ -47,7 +47,7 @@
  */
 import javax.swing.*;
 
-void main() {
+void example() {
     //==================================================================================================================
     // Message Dialogs
     //==================================================================================================================
@@ -194,4 +194,17 @@ void main() {
     label.setIcon(new ImageIcon(this.getClass().getResource("java.png")));
     label.setHorizontalAlignment(SwingConstants.CENTER);
     JOptionPane.showMessageDialog(null, label, "Image", JOptionPane.PLAIN_MESSAGE);
+
+    // Stop Program and Event Dispatch Thread (EDT)
+    System.exit(0);
+}
+
+/*
+ * EDT Initialization
+ * - Launches the Swing application safely by scheduling the GUI initialization on the Event Dispatch Thread (EDT).
+ */
+void main() {
+    SwingUtilities.invokeLater(() -> {
+        example();
+    });
 }
