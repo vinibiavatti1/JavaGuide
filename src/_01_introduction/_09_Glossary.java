@@ -4,6 +4,7 @@
  * DTO :..................: Data Transfer Object
  * EDT :..................: Event Dispatch Thread
  * FQN :..................: Full Qualified Name
+ * i18n :.................: Internationalization
  * IoC :..................: Inversion of Control
  * Java EE :..............: Java Enterprise Edition
  * Java SE :..............: Java Standard Edition

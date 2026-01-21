@@ -25,7 +25,7 @@
  */
 import javax.swing.*;
 
-void main() {
+void example() {
     /*
      * Declaring ProgressMonitor
      * - Creates a ProgressMonitor dialog to track the progress of a long-running task.
@@ -60,15 +60,26 @@ void main() {
             for (int i = 0; i <= 100; i++) {
                 if (progressMonitor.isCanceled()) {
                     IO.println("Operation Canceled");
-                    return;
+                    System.exit(0);
                 }
                 progressMonitor.setProgress(i);
                 progressMonitor.setNote(i + "/100");
                 Thread.sleep(200);
             }
             IO.println("Operation Finished");
+            System.exit(0);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }).start();
+}
+
+/*
+ * EDT Initialization
+ * - Launches the Swing application safely by scheduling the GUI initialization on the Event Dispatch Thread (EDT).
+ */
+void main() {
+    SwingUtilities.invokeLater(() -> {
+        example();
+    });
 }
