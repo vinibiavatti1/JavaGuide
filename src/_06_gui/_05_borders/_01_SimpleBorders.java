@@ -47,19 +47,17 @@ void example() {
      * Declaring Frame
      * - A new JFrame will be created to demonstrate the component.
      */
-    JFrame frame = new JFrame("Box Layout");
+    JFrame frame = new JFrame("Simple Borders");
     frame.setSize(400, 400);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     JPanel panel = new JPanel();
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-    panel.setLayout(new GridLayout(6, 1, 5, 5));
+    panel.setLayout(new GridLayout(3, 2, 5, 5));
 
     /*
      * Borders
      * - The example below demonstrates how different border types are created and applied to JPanels.
-     * - These borders define the visual boundaries of each panel and help organize the layout and structure of the user
-     *   interface.
      */
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
@@ -68,14 +66,14 @@ void example() {
     JPanel panel5 = new JPanel();
     JPanel panel6 = new JPanel();
     panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-    panel2.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
-    panel3.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+    panel2.setBorder(BorderFactory.createEtchedBorder());
+    panel3.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
     panel4.setBorder(BorderFactory.createRaisedBevelBorder());
     panel5.setBorder(BorderFactory.createLoweredBevelBorder());
     panel6.setBorder(BorderFactory.createEmptyBorder());
     panel1.add(new JLabel("Line Border"));
-    panel2.add(new JLabel("Etched Border (RAISED)"));
-    panel3.add(new JLabel("Etched Border (LOWERED)"));
+    panel2.add(new JLabel("Etched Border"));
+    panel3.add(new JLabel("Etched Border (RAISED)"));
     panel4.add(new JLabel("Bevel Border"));
     panel5.add(new JLabel("Lowered Bevel Border"));
     panel6.add(new JLabel("Empty Border"));
