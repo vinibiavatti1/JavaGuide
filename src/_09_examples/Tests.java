@@ -1,32 +1,38 @@
 import javax.swing.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Method;
 
-void main() {
-    SwingUtilities.invokeLater(() -> {
-        try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        } catch (Exception e) {
-            IO.println(e.getMessage());
-        }
-
-        JFrame frame = new JFrame();
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        ProgressMonitor pm = new ProgressMonitor(frame, "Processing...", "note", 0, 100);
-        frame.setEnabled(false);
-        new Thread(() -> {
-            for (int i = 0; i <= 100; i++) {
-                pm.setProgress(i);
-                pm.setNote(i + "/100");
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+public class Tests {
+    public static void main(String[] args) throws Exception {
+        for (Method method : MyTest.class.getMethods()) {
+            if (method.isAnnotationPresent(Test.class)) {
+                method.invoke(null);
             }
-        }).start();
+        }
+    }
+}
 
-    });
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+@interface Test {}
 
+class MyTest {
+
+    @Test
+    public static void test1() {
+        IO.println("TEST 1");
+    }
+
+    @Test
+    public static void test2() {
+        IO.println("TEST 2");
+    }
+}
+
+class Person {
+    private String name;
+    private transient int age;
 }

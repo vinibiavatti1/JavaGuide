@@ -36,7 +36,8 @@ void main() {
 
     /*
      * Format Message With Multiple Parameters
-     * - Formats a message containing multiple placeholders {0}, {1}, etc., replacing each with the corresponding argument.
+     * - Formats a message containing multiple placeholders {0}, {1}, etc., replacing each with the corresponding
+     *   argument.
      * - Useful when a message requires multiple dynamic values.
      * - Output: Welcome John, you have 15 messages
      */

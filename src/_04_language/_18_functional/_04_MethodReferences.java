@@ -17,10 +17,37 @@
  * - Reduce boilerplate code and clarify intent when compared to equivalent lambdas.
  *
  * Types of Method References
- * - ClassName::staticMethod    // Refers to a static method of a class.
  * - instance::instanceMethod   // Refers to an instance method of a specific object.
+ * - ClassName::staticMethod    // Refers to a static method of a class.
  * - ClassName::instanceMethod  // Refers to an instance method of an arbitrary object of a particular type.
  * - ClassName::new             // Refers to a constructor.
+ *
+ * Type Inference & Resolution
+ * - The compiler infers the target functional interface first, then resolves the method reference accordingly.
+ * - Instance Method (Arbitrary Object as Receiver)
+ *   - Lambda:      x -> x.instanceMethod()
+ *   - Reference:   ClassName::instanceMethod
+ *   - Inference:   The lambda parameter becomes the receiver of the instance method.
+ * - Instance Method (Bound Receiver)
+ *   - Lambda:      () -> instance.method()
+ *   - Reference:   instance::instanceMethod
+ *   - Inference:   The method is bound to a specific object instance.
+ * - Instance Method (Receiver + Arguments)
+ *   - Lambda:      (x, y) -> x.instanceMethod(y)
+ *   - Reference:   ClassName::instanceMethod
+ *   - Inference:   The first parameter becomes the receiver; remaining parameters are method arguments.
+ * - Static Method (Direct Parameter Mapping)
+ *   - Lambda:      x -> staticMethod(x)
+ *   - Reference:   ClassName::staticMethod
+ *   - Inference:   Lambda parameters are mapped directly to the static method parameters.
+ * - Static Method (Multiple Parameters)
+ *   - Lambda:      (x, y) -> staticMethod(x, y)
+ *   - Reference:   ClassName::staticMethod
+ *   - Inference:   All lambda parameters map directly to the static method parameters.
+ * - Constructor Reference
+ *   - Lambda:      x -> new ClassName(x)
+ *   - Reference:   ClassName::new
+ *   - Inference:   Constructor parameters are inferred from the functional interface method signature.
  *
  * Notes
  * - A method reference is not a function by itself; it is a symbolic reference that is mapped to a functional
@@ -42,6 +69,10 @@
  *   operation by directly delegating to the existing method.
  */
 void main() {
+    //==================================================================================================================
+    // Function Delegation
+    //==================================================================================================================
+
     /*
      * Delegate Function With Method Reference
      * - Demonstrates a method reference used as a target for a functional interface.
@@ -92,4 +123,58 @@ void main() {
         }
     };
     IO.println(compiledNewFnRef.get());
+
+    //==================================================================================================================
+    // Type Inference & Resolution
+    //==================================================================================================================
+
+    /*
+     * Instance Method (Arbitrary Object as Receiver)
+     * - Lambda: x -> x.instanceMethod()
+     * - The lambda parameter becomes the receiver of the instance method.
+     * - The first example uses a lambda expression, while the second uses a method reference.
+     */
+    Function<String, String> _ = x -> x.toUpperCase();
+    Function<String, String> _ = String::toUpperCase;
+
+    /*
+     * Instance Method (Bound Receiver)
+     * - Lambda: () -> instance.method()
+     * - The method is bound to a specific object instance.
+     */
+    String instance = "";
+    Supplier<String> _ = () -> instance.trim();
+    Supplier<String> _ = instance::trim;
+
+    /*
+     * Instance Method (Receiver + Arguments)
+     * - Lambda: (x, y) -> x.instanceMethod(y)
+     * - The first parameter becomes the receiver; remaining parameters are method arguments.
+     */
+    BiPredicate<String, String> _ = (x, y) -> x.equals(y);
+    BiPredicate<String, String> _ = String::equals;
+
+    /*
+     * Static Method (Direct Parameter Mapping)
+     * - Lambda: x -> staticMethod(x)
+     * - Lambda parameters map directly to the static method parameters.
+     */
+    Consumer<String> _ = x -> IO.println(x);
+    Consumer<String> _ = IO::println;
+
+    /*
+     * Static Method (Multiple Parameters)
+     * - Lambda: (x, y) -> staticMethod(x, y)
+     * - All lambda parameters map directly to the static method parameters.
+     */
+    BinaryOperator<Integer> _ = (x, y) -> Integer.sum(x, y);
+    BinaryOperator<Integer> _ = Integer::sum;
+
+    /*
+     * Constructor Reference
+     * - Lambda: x -> new ClassName(x)
+     * - Constructor parameters are inferred from the functional interface method signature.
+     */
+    Function<String, String> _ = x -> new String(x);
+    Function<String, String> _ = String::new;
 }
