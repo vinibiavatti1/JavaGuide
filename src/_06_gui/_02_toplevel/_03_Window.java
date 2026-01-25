@@ -1,5 +1,5 @@
 /*
- * JWindow
+ * Window
  * - This section explains the JWindow class in Java Swing, which represents a top-level window without any window
  *   decorations such as a title bar, border, or buttons.
  *

@@ -47,7 +47,7 @@ void main() throws IOException {
      * - If the resource cannot be found, "getResourceAsStream" returns null.
      * - Output: -119 | 80 | 78 | 71 | 13 | ...
      */
-    try (InputStream in = getClass().getResourceAsStream("/icon.png")) {
+    try (InputStream in = getClass().getResourceAsStream("/gui/icon.png")) {
         byte[] content = in.readAllBytes();
         for (byte b : content) IO.println(b);
     }

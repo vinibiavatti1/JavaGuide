@@ -1,5 +1,5 @@
 /*
- * JFrame
+ * Frame
  * - This section explains the JFrame class in Java Swing, which represents a top-level window with a title, border, and
  *   optional menu bar, serving as the main window for desktop applications.
  *
@@ -51,7 +51,7 @@ void example() {
      * - The image is typically loaded as an ImageIcon from the classpath.
      * - Updates to the icon are applied immediately and reflected in the window decoration and OS taskbar.
      */
-    ImageIcon icon = new ImageIcon(this.getClass().getResource("application.png"));
+    ImageIcon icon = new ImageIcon(this.getClass().getResource("gui/application.png"));
     frame.setIconImage(icon.getImage());
 
     /*

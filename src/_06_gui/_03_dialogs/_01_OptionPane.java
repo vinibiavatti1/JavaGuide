@@ -191,7 +191,7 @@ void example() {
      * - Example: JLabel with an icon displayed centered horizontally.
      */
     JLabel label = new JLabel();
-    label.setIcon(new ImageIcon(this.getClass().getResource("java.png")));
+    label.setIcon(new ImageIcon(this.getClass().getResource("gui/java.png")));
     label.setHorizontalAlignment(SwingConstants.CENTER);
     JOptionPane.showMessageDialog(null, label, "Image", JOptionPane.PLAIN_MESSAGE);
 

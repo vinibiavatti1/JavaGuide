@@ -29,7 +29,6 @@
  *   interacting with the UI.
  */
 import javax.swing.*;
-import javax.swing.colorchooser.DefaultColorSelectionModel;
 import java.awt.*;
 
 void example() {

@@ -1,5 +1,5 @@
 /*
- * JDialog
+ * Dialog
  * - This section explains the JDialog class in Java Swing, which represents a top-level window used for dialog boxes,
  *   pop-ups, and secondary windows that are associated with a parent frame or another window.
  *

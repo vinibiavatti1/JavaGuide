@@ -7,10 +7,10 @@ public class Tests2 {
     public static void main(String[] args) {
 
         List<Person> people = new ArrayList<>();
-        people.add(new Person("Xundas", 32, false, List.of(" Football", "LoL")));
-        people.add(new Person("Vini", 31, true, List.of("Java", " Mushrooms")));
-        people.add(new Person("Ana", 28, true, List.of("Series", "Repo ")));
-        people.add(new Person("Elder", 12, false, List.of("Heavy Dicks", "Feet Pics")));
+        people.add(new Person("Anna", 32, false, List.of(" Football", "Cars")));
+        people.add(new Person("John", 31, true, List.of("Java", " Games")));
+        people.add(new Person("Robert", 28, true, List.of("Series", "TV ")));
+        people.add(new Person("Mary", 12, false, List.of("Social")));
 
         // IMPERATIVE ==================================================================================================
 

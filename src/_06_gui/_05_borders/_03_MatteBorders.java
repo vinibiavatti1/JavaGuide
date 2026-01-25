@@ -54,7 +54,7 @@ void example() {
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     panel1.setBorder(BorderFactory.createMatteBorder(4, 1, 1, 1, Color.BLACK));
-    panel2.setBorder(BorderFactory.createMatteBorder(16, 16, 16, 16, new ImageIcon(this.getClass().getResource("heart.png"))));
+    panel2.setBorder(BorderFactory.createMatteBorder(16, 16, 16, 16, new ImageIcon(this.getClass().getResource("gui/heart.png"))));
     panel1.add(new JLabel("Matte Border With Color"));
     panel2.add(new JLabel("Matte Border With Icon"));
     panel.add(panel1);
