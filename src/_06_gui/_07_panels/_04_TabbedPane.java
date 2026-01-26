@@ -58,6 +58,11 @@ void example() {
     /*
      * Tabbed Pane
      * - Creates a JTabbedPane to display multiple components using selectable tabs.
+     * - The constructor allows defining:
+     *   - The tab name
+     *   - The tab icon
+     *   - The tab component
+     *   - The tab hint
      * - Tabs are positioned at the top using the JTabbedPane.TOP constant.
      * - Each tab is added with a title, an icon, and an associated component.
      * - Internally, JTabbedPane uses a SingleSelectionModel to manage the selected tab.
@@ -65,9 +70,9 @@ void example() {
      * - In this example, setSelectedIndex(1) selects the second tab by default.
      */
     JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-    tabbedPane.addTab("Tab 1", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel1);
-    tabbedPane.addTab("Tab 2", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel2);
-    tabbedPane.addTab("Tab 3", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel3);
+    tabbedPane.addTab("Tab 1", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel1, "Hint");
+    tabbedPane.addTab("Tab 2", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel2, "Hint");
+    tabbedPane.addTab("Tab 3", new ImageIcon(this.getClass().getResource("/gui/application.png")), panel3, "Hint");
     tabbedPane.getModel().setSelectedIndex(1);
     frame.add(tabbedPane);
 
