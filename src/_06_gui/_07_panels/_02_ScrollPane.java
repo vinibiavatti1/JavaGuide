@@ -38,7 +38,7 @@ void example() {
      * Declaring Frame
      * - A new JFrame will be created to demonstrate the component.
      */
-    JFrame frame = new JFrame("Component");
+    JFrame frame = new JFrame("Scroll Pane");
     frame.setSize(400, 300);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

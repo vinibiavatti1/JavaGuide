@@ -46,19 +46,21 @@ void example() {
      * Declaring Frame
      * - A new JFrame will be created to demonstrate the component.
      */
-    JFrame frame = new JFrame("Component");
+    JFrame frame = new JFrame("Split Pane");
     frame.setSize(400, 300);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     /*
-     * Components
-     * - JButton instances are created to demonstrate the functionality of a JSplitPane.
-     * - These buttons will serve as the left and right (or top and bottom) components within the split pane.
-     * - Using simple components like buttons makes it easy to visualize how the divider affects the layout.
+     * Panels
+     * - Two JPanel instances are created to serve as the content components for a JSplitPane.
+     * - Each panel contains a simple JLabel to visually identify it as the left or right component.
+     * - These panels demonstrate how the JSplitPane organizes and resizes its child components interactively.
      */
-    JButton leftButton = new JButton("Left");
-    JButton rightButton = new JButton("Right");
+    JPanel leftPanel = new JPanel();
+    JPanel rightPanel = new JPanel();
+    leftPanel.add(new JLabel("Left Panel"));
+    rightPanel.add(new JLabel("Right Panel"));
 
     /*
      * Split Pane
@@ -69,7 +71,7 @@ void example() {
      *   - JSplitPane.VERTICAL_SPLIT: Top and bottom components.
      * - The divider is made one-touch expandable, allowing quick collapse and expansion of either component.
      */
-    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftButton, rightButton);
+    JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
     splitPane.setOneTouchExpandable(true);
     frame.add(splitPane);
 

@@ -28,13 +28,13 @@ void example() {
      * Declaring Frame
      * - A new JFrame will be created to demonstrate the component.
      */
-    JFrame frame = new JFrame("Component");
+    JFrame frame = new JFrame("Panel");
     frame.setSize(400, 300);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     /*
-     * Component
+     * Panel
      * - The example below shows the usage of the component.
      */
     JPanel panel = new JPanel();
