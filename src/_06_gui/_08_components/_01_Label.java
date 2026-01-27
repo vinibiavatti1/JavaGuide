@@ -12,14 +12,14 @@
  * - Can display text, icons, or a combination of both.
  * - Supports horizontal and vertical alignment of content.
  * - Allows text formatting through font, color, and border customization.
- * - Supports HTML rendering for simple formatted text (e.g., bold, italics, line breaks).
- *   - Enable HTML rendering by using "<html></html>" tags.
  * - Integrates with the current Look and Feel for consistent visual appearance.
- *
- * Behavior
  * - JLabel does not receive keyboard focus and does not generate action events.
  * - It is lightweight and optimized for displaying static information.
  * - Can be associated with another component using setLabelFor to improve accessibility.
+ *
+ * HTML Support
+ * - JLabel Supports HTML rendering for simple formatted text (e.g., bold, italics, line breaks).
+ * - Enable HTML rendering by using "<html></html>" tags.
  *
  * Usage
  * - Use JLabel to describe the purpose of input fields or groups of components.
