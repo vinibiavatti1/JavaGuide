@@ -26,14 +26,14 @@
  *   - Always call super.paintComponent(g) to ensure proper background clearing and default behavior.
  *
  * Component Refresh Methods
- * - repaint():
- *   - Schedules a call to the painting system to refresh the component's display.
- *   - Triggers Swing to eventually call paint() / paintComponent() asynchronously.
- *   - Use when component visuals have changed.
  * - revalidate():
  *   - Informs the layout manager that the component's size, layout, or hierarchy changed.
  *   - Layout will be recalculated during the next Swing layout pass.
  *   - Often called after adding/removing components or resizing, typically followed by repaint().
+ * - repaint():
+ *   - Schedules a call to the painting system to refresh the component's display.
+ *   - Triggers Swing to eventually call paint() / paintComponent() asynchronously.
+ *   - Use when component visuals have changed.
  *
  * Usage
  * - Use a JPanel as a canvas for rendering custom graphics in Swing applications.
