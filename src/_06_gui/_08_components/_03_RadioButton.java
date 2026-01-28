@@ -39,10 +39,18 @@ void example() {
      * Radio Button
      * - Demonstrates a basic JRadioButton configured with a text label.
      * - By default, the radio button starts in an unselected state.
-     * - Selection state can be queried or modified using isSelected() and setSelected().
      */
-    JRadioButton radioButton = new JRadioButton("Option 1");
+    JRadioButton radioButton = new JRadioButton("Radio");
     frame.add(radioButton);
+
+    /*
+     * Selected Radio Button
+     * - Demonstrates a basic JRadioButton pre-selected.
+     * - The selection state can be queried or modified using isSelected() and setSelected().
+     */
+    JRadioButton selectedRadioButton = new JRadioButton("Selected");
+    selectedRadioButton.setSelected(true);
+    frame.add(selectedRadioButton);
 
     /*
      * Disabled Radio Button
@@ -56,37 +64,34 @@ void example() {
     frame.add(disabledRadioButton);
 
     /*
-     * Radio Button With Text On Right (Selected)
+     * Radio Button On Right
      * - Demonstrates customization of text positioning relative to the radio button icon.
-     * - The text is placed to the left of the icon using setHorizontalTextPosition().
-     * - The radio button is pre-selected using the setSelected() method.
-     */
-    JRadioButton radioButtonOnRight = new JRadioButton("Check");
-    radioButtonOnRight.setHorizontalTextPosition(JCheckBox.LEFT);
-    radioButtonOnRight.setSelected(true);
-    frame.add(radioButtonOnRight);
-
-    /*
-     * Radio Button With Text On Top
-     * - Demonstrates vertical alignment between the radio button icon and its text.
-     * - The text is displayed below the icon.
      * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
      *   setHorizontalTextPosition().
      */
-    JRadioButton radioButtonOnTop = new JRadioButton("Check");
+    JRadioButton radioButtonOnRight = new JRadioButton("Right");
+    radioButtonOnRight.setHorizontalTextPosition(JCheckBox.LEFT);
+    frame.add(radioButtonOnRight);
+
+    /*
+     * Radio Button On Top
+     * - Demonstrates vertical alignment between the radio button icon and its text.
+     * - The text is displayed below the icon.
+     */
+    JRadioButton radioButtonOnTop = new JRadioButton("Top");
     radioButtonOnTop.setVerticalTextPosition(JCheckBox.BOTTOM);
     radioButtonOnTop.setHorizontalTextPosition(JButton.CENTER);
     frame.add(radioButtonOnTop);
 
     /*
-     * Radio Button With Tooltip
-     * - Demonstrates a JRadioButton configured with a tooltip message.
-     * - Tooltips provide contextual help when the user hovers over the component.
-     * - The tooltip text is set using the setToolTipText() method.
+     * Radio Button On Bottom
+     * - Demonstrates vertical alignment between the radio button icon and its text.
+     * - The text is displayed on top the icon.
      */
-    JRadioButton radioButtonTooltip = new JRadioButton("Tooltip");
-    radioButtonTooltip.setToolTipText("This is a tooltip!");
-    frame.add(radioButtonTooltip);
+    JRadioButton radioButtonOnBottom = new JRadioButton("Bottom");
+    radioButtonOnBottom.setVerticalTextPosition(JCheckBox.TOP);
+    radioButtonOnBottom.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(radioButtonOnBottom);
 
     /*
      * Button Group
@@ -96,10 +101,11 @@ void example() {
      */
     ButtonGroup buttonGroup = new ButtonGroup();
     buttonGroup.add(radioButton);
+    buttonGroup.add(selectedRadioButton);
     buttonGroup.add(disabledRadioButton);
     buttonGroup.add(radioButtonOnRight);
     buttonGroup.add(radioButtonOnTop);
-    buttonGroup.add(radioButtonTooltip);
+    buttonGroup.add(radioButtonOnBottom);
 
     /*
      * Set Visible

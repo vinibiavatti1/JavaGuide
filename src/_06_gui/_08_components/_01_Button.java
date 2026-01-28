@@ -45,8 +45,10 @@ void example() {
      * - Demonstrates a basic JButton configured with a text label.
      * - An ActionListener is registered to handle click events with "addActionListener()" method.
      * - When activated, the button triggers a simple feedback dialog.
+     * - The tooltip text is set using the "setToolTipText()" method.
      */
     JButton button = new JButton("Click");
+    button.setToolTipText("This is a tooltip!");
     button.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
     frame.add(button);
 
@@ -62,18 +64,7 @@ void example() {
     frame.add(disabledButton);
 
     /*
-     * Button With Tooltip
-     * - Demonstrates a JButton configured with a tooltip message.
-     * - Tooltips provide contextual help when the user hovers the mouse over the component.
-     * - The tooltip text is set using the "setToolTipText()" method.
-     */
-    JButton buttonWithTooltip = new JButton("Tooltip");
-    buttonWithTooltip.setToolTipText("This is a tooltip!");
-    buttonWithTooltip.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithTooltip);
-
-    /*
-     * Button With Image
+     * Button With Icon
      * - Demonstrates a JButton displaying only an icon, without text.
      * - Icon-based buttons are often used in toolbars or compact UIs.
      * - The "setIcon" method can be used to set an icon to a JButton.
@@ -84,7 +75,7 @@ void example() {
     frame.add(buttonWithImage);
 
     /*
-     * Button With Image On Left
+     * Button With Icon On Left
      * - Demonstrates a JButton combining text and an icon.
      * - By default, the icon is placed to the left of the text.
      */
@@ -94,7 +85,7 @@ void example() {
     frame.add(buttonWithImageOnLeft);
 
     /*
-     * Button With Image On Right
+     * Button With Icon On Right
      * - Demonstrates custom positioning of text relative to the icon.
      * - The relative positioning of text and icon can be customized using: setHorizontalTextPosition() and
      *   setVerticalTextPosition().
@@ -106,7 +97,7 @@ void example() {
     frame.add(buttonWithImageOnRight);
 
     /*
-     * Button With Image On Top
+     * Button With Icon On Top
      * - Demonstrates vertical alignment between icon and text.
      * - The icon is displayed above the text using vertical and horizontal text position setters.
      */
@@ -118,7 +109,7 @@ void example() {
     frame.add(buttonWithImageOnTop);
 
     /*
-     * Button With Image On Bottom
+     * Button With Icon On Bottom
      * - Demonstrates the inverse vertical layout, with text above the icon.
      * - Achieved by adjusting the vertical and horizontal text positions.
      */

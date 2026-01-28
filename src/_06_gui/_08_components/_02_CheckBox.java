@@ -39,10 +39,20 @@ void example() {
      * Check Box
      * - Demonstrates a basic JCheckBox configured with a text label.
      * - Represents an independent on/off option that the user can toggle.
-     * - The selection state can be queried or modified using isSelected() and setSelected().
+     * - The tooltip text is set using the setToolTipText() method.
      */
     JCheckBox checkBox = new JCheckBox("Check");
+    checkBox.setToolTipText("This is a tooltip!");
     frame.add(checkBox);
+
+    /*
+     * Selected Check Box
+     * - Demonstrates a basic JCheckBox pre-selected.
+     * - The selection state can be queried or modified using isSelected() and setSelected().
+     */
+    JCheckBox selectedCheckBox = new JCheckBox("Selected");
+    selectedCheckBox.setSelected(true);
+    frame.add(selectedCheckBox);
 
     /*
      * Disabled Check Box
@@ -56,38 +66,38 @@ void example() {
     frame.add(disabledCheckBox);
 
     /*
-     * Check Box With Text On Right (Selected)
+     * Check Box On Right
      * - Demonstrates customization of text positioning relative to the checkbox icon.
      * - By default, the text appears to the right of the checkbox.
      * - The horizontal text position can be adjusted using setHorizontalTextPosition().
-     * - The "setSelected()" method can be used to change the checkbox state.
      */
-    JCheckBox checkBoxOnRight = new JCheckBox("Check");
+    JCheckBox checkBoxOnRight = new JCheckBox("Right");
     checkBoxOnRight.setHorizontalTextPosition(JCheckBox.LEFT);
-    checkBoxOnRight.setSelected(true);
     frame.add(checkBoxOnRight);
 
     /*
-     * Check Box With Text On Top
+     * Check Box On Top
      * - Demonstrates vertical alignment between the checkbox icon and its text.
      * - The text is displayed below the checkbox icon.
      * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
      *   setHorizontalTextPosition().
      */
-    JCheckBox checkBoxOnTop = new JCheckBox("Check");
+    JCheckBox checkBoxOnTop = new JCheckBox("Top");
     checkBoxOnTop.setVerticalTextPosition(JCheckBox.BOTTOM);
     checkBoxOnTop.setHorizontalTextPosition(JButton.CENTER);
     frame.add(checkBoxOnTop);
 
     /*
-     * Check Box With Tooltip
-     * - Demonstrates a JCheckBox configured with a tooltip message.
-     * - Tooltips provide contextual help when the user hovers over the component.
-     * - The tooltip text is set using the setToolTipText() method.
+     * Check Box On Bottom
+     * - Demonstrates vertical alignment between the checkbox icon and its text.
+     * - The text is displayed below the checkbox icon.
+     * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
+     *   setHorizontalTextPosition().
      */
-    JCheckBox checkBoxTooltip = new JCheckBox("Tooltip");
-    checkBoxTooltip.setToolTipText("This is a tooltip!");
-    frame.add(checkBoxTooltip);
+    JCheckBox checkBoxOnBottom = new JCheckBox("Bottom");
+    checkBoxOnBottom.setVerticalTextPosition(JCheckBox.TOP);
+    checkBoxOnBottom.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(checkBoxOnBottom);
 
     /*
      * Set Visible
