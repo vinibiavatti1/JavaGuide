@@ -41,18 +41,18 @@ void example() {
      * - Represents an independent on/off option that the user can toggle.
      * - The tooltip text is set using the setToolTipText() method.
      */
-    JCheckBox checkBox = new JCheckBox("Check");
-    checkBox.setToolTipText("This is a tooltip!");
-    frame.add(checkBox);
+    JCheckBox checkBox1 = new JCheckBox("Check");
+    checkBox1.setToolTipText("This is a tooltip!");
+    frame.add(checkBox1);
 
     /*
      * Selected Check Box
      * - Demonstrates a basic JCheckBox pre-selected.
      * - The selection state can be queried or modified using isSelected() and setSelected().
      */
-    JCheckBox selectedCheckBox = new JCheckBox("Selected");
-    selectedCheckBox.setSelected(true);
-    frame.add(selectedCheckBox);
+    JCheckBox checkBox2 = new JCheckBox("Selected");
+    checkBox2.setSelected(true);
+    frame.add(checkBox2);
 
     /*
      * Disabled Check Box
@@ -61,9 +61,9 @@ void example() {
      * - Commonly used to indicate options that are not available due to application state.
      * - The enabled state is controlled via the setEnabled() method.
      */
-    JCheckBox disabledCheckBox = new JCheckBox("Disabled");
-    disabledCheckBox.setEnabled(false);
-    frame.add(disabledCheckBox);
+    JCheckBox checkBox3 = new JCheckBox("Disabled");
+    checkBox3.setEnabled(false);
+    frame.add(checkBox3);
 
     /*
      * Check Box On Right
@@ -71,9 +71,9 @@ void example() {
      * - By default, the text appears to the right of the checkbox.
      * - The horizontal text position can be adjusted using setHorizontalTextPosition().
      */
-    JCheckBox checkBoxOnRight = new JCheckBox("Right");
-    checkBoxOnRight.setHorizontalTextPosition(JCheckBox.LEFT);
-    frame.add(checkBoxOnRight);
+    JCheckBox checkBox4 = new JCheckBox("Right");
+    checkBox4.setHorizontalTextPosition(JCheckBox.LEFT);
+    frame.add(checkBox4);
 
     /*
      * Check Box On Top
@@ -82,10 +82,10 @@ void example() {
      * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
      *   setHorizontalTextPosition().
      */
-    JCheckBox checkBoxOnTop = new JCheckBox("Top");
-    checkBoxOnTop.setVerticalTextPosition(JCheckBox.BOTTOM);
-    checkBoxOnTop.setHorizontalTextPosition(JButton.CENTER);
-    frame.add(checkBoxOnTop);
+    JCheckBox checkBox5 = new JCheckBox("Top");
+    checkBox5.setVerticalTextPosition(JCheckBox.BOTTOM);
+    checkBox5.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(checkBox5);
 
     /*
      * Check Box On Bottom
@@ -94,10 +94,10 @@ void example() {
      * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
      *   setHorizontalTextPosition().
      */
-    JCheckBox checkBoxOnBottom = new JCheckBox("Bottom");
-    checkBoxOnBottom.setVerticalTextPosition(JCheckBox.TOP);
-    checkBoxOnBottom.setHorizontalTextPosition(JButton.CENTER);
-    frame.add(checkBoxOnBottom);
+    JCheckBox checkBox6 = new JCheckBox("Bottom");
+    checkBox6.setVerticalTextPosition(JCheckBox.TOP);
+    checkBox6.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(checkBox6);
 
     /*
      * Set Visible

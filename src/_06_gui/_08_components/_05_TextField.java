@@ -15,6 +15,9 @@
  * - Integrates with the current Look and Feel for consistent rendering.
  * - Fully supports keyboard input, focus handling, and accessibility.
  *
+ * Dimension Control
+ * - setColumns(int): defines the preferred width of the text area in terms of character columns.
+ *
  * Usage
  * - Use JTextField to collect short user input such as names, values, or search terms.
  * - For multi-line input, prefer JTextArea instead.
@@ -43,10 +46,10 @@ void example() {
      * - Columns do not limit input length; they only affect the preferred width.
      * - A tooltip is added to provide contextual help to the user.
      */
-    JTextField textField = new JTextField();
-    textField.setColumns(20);
-    textField.setToolTipText("This is a tooltip!");
-    frame.add(textField);
+    JTextField textField1 = new JTextField();
+    textField1.setColumns(20);
+    textField1.setToolTipText("This is a tooltip!");
+    frame.add(textField1);
 
     /*
      * Text Field With Content
@@ -54,10 +57,10 @@ void example() {
      * - Text can be set programmatically using setText().
      * - Alternatively, constructors can be used to define initial text and column size.
      */
-    JTextField textFieldWithContent = new JTextField();
-    textFieldWithContent.setColumns(20);
-    textFieldWithContent.setText("Hello World!");
-    frame.add(textFieldWithContent);
+    JTextField textField2 = new JTextField();
+    textField2.setColumns(20);
+    textField2.setText("Hello World!");
+    frame.add(textField2);
 
     /*
      * Disabled Text Field
@@ -66,10 +69,11 @@ void example() {
      * - Commonly used to display read-only or unavailable data.
      * - The enabled state is controlled using the setEnabled() method.
      */
-    JTextField disabledTextField = new JTextField();
-    disabledTextField.setColumns(20);
-    disabledTextField.setEnabled(false);
-    frame.add(disabledTextField);
+    JTextField textField3 = new JTextField();
+    textField3.setColumns(20);
+    textField3.setEnabled(false);
+    textField3.setText("Hello World!");
+    frame.add(textField3);
 
     /*
      * Document Listener
@@ -79,15 +83,15 @@ void example() {
      * - The current text can be safely retrieved using getText() on the JTextField.
      * - This approach captures all changes, including typing, deletion, and paste operations.
      */
-    textField.getDocument().addDocumentListener(new DocumentListener() {
+    textField1.getDocument().addDocumentListener(new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-            IO.println(textField.getText()); // Output: <text field content>
+            IO.println(textField1.getText()); // Output: <text field content>
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-            IO.println(textField.getText()); // Output: <text field content>
+            IO.println(textField1.getText()); // Output: <text field content>
         }
 
         @Override

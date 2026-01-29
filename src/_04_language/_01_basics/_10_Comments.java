@@ -12,13 +12,6 @@
  * - Can span multiple lines.
  * - Used for longer explanations, code documentation, or temporarily commenting out blocks of code.
  *
- * Section Comments
- * - Syntax:
- *   - //===============================================================================================================
- *   - // Title
- *   - //===============================================================================================================
- * - Used to organize code into logical sections.
- *
  * Javadoc Comments
  * - Syntax: /** ...
  * - Special type of multiline comment used to generate API documentation.

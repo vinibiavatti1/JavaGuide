@@ -15,6 +15,9 @@
  * - Integrates with the current Look and Feel for consistent rendering.
  * - Fully supports keyboard input, focus handling, and accessibility.
  *
+ * Dimension Control
+ * - setColumns(int): defines the preferred width of the text area in terms of character columns.
+ *
  * Common Formats
  * - Number: NumberFormat.getNumberInstance(), NumberFormat.getIntegerInstance()
  * - Currency: NumberFormat.getCurrencyInstance()
@@ -64,10 +67,10 @@ void example() throws ParseException {
      * - Columns do not limit input length; they only affect the preferred width.
      * - A tooltip is added to provide contextual help to the user.
      */
-    JFormattedTextField formattedTextField = new JFormattedTextField();
-    formattedTextField.setColumns(20);
-    formattedTextField.setToolTipText("This is a tooltip!");
-    frame.add(formattedTextField);
+    JFormattedTextField formattedTextField1 = new JFormattedTextField();
+    formattedTextField1.setColumns(20);
+    formattedTextField1.setToolTipText("This is a tooltip!");
+    frame.add(formattedTextField1);
 
     /*
      * Formatted Text Field With Number Format
@@ -76,9 +79,64 @@ void example() throws ParseException {
      * - Example uses NumberFormat.getNumberInstance(Locale.US) for standard US-style numbers.
      */
     NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.US);
-    JFormattedTextField formattedTextFieldWithNumberFormat = new JFormattedTextField(numberFormat);
-    formattedTextFieldWithNumberFormat.setColumns(20);
-    frame.add(formattedTextFieldWithNumberFormat);
+    JFormattedTextField formattedTextField2 = new JFormattedTextField(numberFormat);
+    formattedTextField2.setColumns(20);
+    formattedTextField2.setValue(1000000);
+    frame.add(formattedTextField2);
+
+    /*
+     * Formatted Text Field With Currency Format
+     * - Demonstrates a JFormattedTextField configured to display currency values.
+     * - Uses NumberFormat.getCurrencyInstance(Locale.US) for standard US currency formatting.
+     * - Automatically formats numbers with the "$" symbol, comma as a thousand separator, and two decimal places.
+     * - Users can type numbers, and the field formats them automatically when focus is lost.
+     */
+    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
+    JFormattedTextField formattedTextField3 = new JFormattedTextField(currencyFormat);
+    formattedTextField3.setColumns(20);
+    formattedTextField3.setValue(1000000);
+    frame.add(formattedTextField3);
+
+    /*
+     * Formatted Text Field With Percent Format
+     * - Demonstrates a JFormattedTextField configured to display percentages.
+     * - Uses NumberFormat.getPercentInstance(Locale.US) for standard US-style percent formatting.
+     * - Automatically multiplies input by 100 and appends the "%" symbol when displaying.
+     * - Users can type decimal numbers (e.g., 0.5), and the field formats them as "50%".
+     */
+    NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.US);
+    JFormattedTextField formattedTextField4 = new JFormattedTextField(percentFormat);
+    formattedTextField4.setColumns(20);
+    formattedTextField4.setValue(0.5);
+    frame.add(formattedTextField4);
+
+    /*
+     * Formatted Text Field With Date Format
+     * - Demonstrates a JFormattedTextField configured to display dates.
+     * - Uses DateFormat.getDateInstance() for locale-sensitive date formatting.
+     * - Users can type dates, and the field formats them automatically according to the locale.
+     * - Note: JFormattedTextField works with java.util.Date (legacy). To use java.time.LocalDate or other modern
+     *   date/time types, manual conversion between Date and LocalDate is required.
+     */
+    DateFormat dateFormat = DateFormat.getDateInstance();
+    JFormattedTextField formattedTextField5 = new JFormattedTextField(dateFormat);
+    formattedTextField5.setColumns(20);
+    formattedTextField5.setValue(new Date());
+    frame.add(formattedTextField5);
+
+    /*
+     * Formatted Text Field With Date Time Format
+     * - Demonstrates a JFormattedTextField configured to display both date and time.
+     * - Uses DateFormat.getDateTimeInstance() for locale-sensitive date and time formatting.
+     * - Automatically formats typed input with date and time when focus is lost.
+     * - Note: JFormattedTextField works with java.util.Date (legacy). To use java.time.LocalDate or other modern
+     *   date/time types, manual conversion between Date and LocalDate is required.
+     */
+    DateFormat dateTimeFormat = DateFormat.getDateTimeInstance();
+    JFormattedTextField formattedTextField6 = new JFormattedTextField(dateTimeFormat);
+    formattedTextField6.setColumns(20);
+    formattedTextField6.setValue(new Date());
+    frame.add(formattedTextField6);
 
     /*
      * Formatted Text Field With Custom Mask
@@ -86,23 +144,10 @@ void example() throws ParseException {
      * - MaskFormatter enforces input patterns (e.g., phone numbers, postal codes).
      * - Example mask "(###) ###-####" accepts digits only and automatically formats input.
      */
-    MaskFormatter customFormat = new MaskFormatter("(###) ###-####");
-    JFormattedTextField formattedTextFieldWithCustomFormat = new JFormattedTextField(customFormat);
-    formattedTextFieldWithCustomFormat.setColumns(20);
-    frame.add(formattedTextFieldWithCustomFormat);
-
-    /*
-     * Formatted Text Field With Currency
-     * - Demonstrates a JFormattedTextField configured to display currency values.
-     * - Uses NumberFormat.getCurrencyInstance(Locale.US) for standard US currency formatting.
-     * - Automatically formats numbers with the "$" symbol, comma as a thousand separator, and two decimal places.
-     * - Users can type numbers, and the field formats them automatically when focus is lost.
-     */
-    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-    JFormattedTextField formattedTextFieldWithContent = new JFormattedTextField(currencyFormat);
-    formattedTextFieldWithContent.setColumns(20);
-    formattedTextFieldWithContent.setValue(1000000);
-    frame.add(formattedTextFieldWithContent);
+    MaskFormatter mask = new MaskFormatter("(###) ###-####");
+    JFormattedTextField formattedTextField7 = new JFormattedTextField(mask);
+    formattedTextField7.setColumns(20);
+    frame.add(formattedTextField7);
 
     /*
      * Disabled Formatted Text Field
@@ -111,10 +156,10 @@ void example() throws ParseException {
      * - Commonly used to display read-only or unavailable data.
      * - The enabled state is controlled using the setEnabled() method.
      */
-    JFormattedTextField disabledFormattedTextField = new JFormattedTextField(customFormat);
-    disabledFormattedTextField.setColumns(20);
-    disabledFormattedTextField.setEnabled(false);
-    frame.add(disabledFormattedTextField);
+    JFormattedTextField formattedTextField8 = new JFormattedTextField(mask);
+    formattedTextField8.setColumns(20);
+    formattedTextField8.setEnabled(false);
+    frame.add(formattedTextField8);
 
     /*
      * Document Listener
@@ -125,17 +170,17 @@ void example() throws ParseException {
      * - The underlying value (parsed and formatted object) can be retrieved using getValue().
      * - This approach captures all changes, including typing, deletion, and paste operations.
      */
-    formattedTextField.getDocument().addDocumentListener(new DocumentListener() {
+    formattedTextField1.getDocument().addDocumentListener(new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-            IO.println(formattedTextField.getText());  // Output: <text field content with format>
-            IO.println(formattedTextField.getValue()); // Output: <text field value>
+            IO.println(formattedTextField1.getText());  // Output: <text field content with format>
+            IO.println(formattedTextField1.getValue()); // Output: <text field value>
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-            IO.println(formattedTextField.getText());  // Output: <text field content with format>
-            IO.println(formattedTextField.getValue()); // Output: <text field value>
+            IO.println(formattedTextField1.getText());  // Output: <text field content with format>
+            IO.println(formattedTextField1.getValue()); // Output: <text field value>
         }
 
         @Override

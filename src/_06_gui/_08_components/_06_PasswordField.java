@@ -15,6 +15,9 @@
  * - Integrates with the current Look and Feel for consistent masking behavior.
  * - Designed to reduce accidental exposure of sensitive input.
  *
+ * Dimension Control
+ * - setColumns(int): defines the preferred width of the text area in terms of character columns.
+ *
  * Usage
  * - Use JPasswordField for passwords, PINs, or other confidential input.
  * - Prefer getPassword() over getText() to retrieve content securely.
@@ -43,10 +46,10 @@ void example() {
      * - Characters typed by the user are masked to protect sensitive data.
      * - A tooltip is added to provide contextual guidance to the user.
      */
-    JPasswordField passwordField = new JPasswordField();
-    passwordField.setColumns(20);
-    passwordField.setToolTipText("This is a tooltip!");
-    frame.add(passwordField);
+    JPasswordField passwordField1 = new JPasswordField();
+    passwordField1.setColumns(20);
+    passwordField1.setToolTipText("This is a tooltip!");
+    frame.add(passwordField1);
 
     /*
      * Password Field With Content
@@ -54,10 +57,10 @@ void example() {
      * - Text can be set programmatically using setText().
      * - This is typically used for demos or testing, not for real password handling.
      */
-    JPasswordField passwordFieldWithContent = new JPasswordField();
-    passwordFieldWithContent.setColumns(20);
-    passwordFieldWithContent.setText("Secret Password");
-    frame.add(passwordFieldWithContent);
+    JPasswordField passwordField2 = new JPasswordField();
+    passwordField2.setColumns(20);
+    passwordField2.setText("Secret Password");
+    frame.add(passwordField2);
 
     /*
      * Disabled Password Field
@@ -65,10 +68,11 @@ void example() {
      * - Disabled fields are visible but do not accept focus or user input.
      * - Commonly used to display unavailable or read-only credential fields.
      */
-    JPasswordField disabledPasswordField = new JPasswordField();
-    disabledPasswordField.setColumns(20);
-    disabledPasswordField.setEnabled(false);
-    frame.add(disabledPasswordField);
+    JPasswordField passwordField3 = new JPasswordField();
+    passwordField3.setColumns(20);
+    passwordField3.setText("Secret Password");
+    passwordField3.setEnabled(false);
+    frame.add(passwordField3);
 
     /*
      * Document Listener
@@ -77,15 +81,15 @@ void example() {
      * - This captures all modifications, including typing, deletion, and paste operations.
      * - Accessing the text directly is possible but not recommended for sensitive data.
      */
-    passwordField.getDocument().addDocumentListener(new DocumentListener() {
+    passwordField1.getDocument().addDocumentListener(new DocumentListener() {
         @Override
         public void insertUpdate(DocumentEvent e) {
-            IO.println(passwordField.getText()); // Output: <password field content>
+            IO.println(passwordField1.getText()); // Output: <password field content>
         }
 
         @Override
         public void removeUpdate(DocumentEvent e) {
-            IO.println(passwordField.getText()); // Output: <password field content>
+            IO.println(passwordField1.getText()); // Output: <password field content>
         }
 
         @Override

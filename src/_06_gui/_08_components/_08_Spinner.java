@@ -14,6 +14,11 @@
  * - Fully supports keyboard navigation, focus, and accessibility.
  * - Supports ChangeListeners to detect value changes, similar to a DocumentListener for JTextField.
  *
+ * Dimension Control
+ * - JSpinner is a composite Swing component that combines a text field with up/down arrow buttons.
+ * - To control its preferred width in terms of characters, you must access the editor's text field.
+ * - Example: ((JSpinner.NumberEditor) spinner.getEditor()).getTextField().setColumns(...);
+ *
  * Models
  * - JSpinner supports multiple models:
  *   - SpinnerNumberModel: default model for numeric ranges (default for new JSpinner()).
@@ -50,10 +55,10 @@ void example() throws ParseException {
      * - A tooltip is added to provide contextual help.
      */
     SpinnerNumberModel numberModel = new SpinnerNumberModel(5, 0, 10, 1);
-    JSpinner numberSpinner = new JSpinner(numberModel);
-    ((JSpinner.NumberEditor) numberSpinner.getEditor()).getTextField().setColumns(18);
-    numberSpinner.setToolTipText("This is a tooltip!");
-    frame.add(numberSpinner);
+    JSpinner spinner1 = new JSpinner(numberModel);
+    ((JSpinner.NumberEditor) spinner1.getEditor()).getTextField().setColumns(18);
+    spinner1.setToolTipText("This is a tooltip!");
+    frame.add(spinner1);
 
     /*
      * Spinner With List Model
@@ -62,9 +67,9 @@ void example() throws ParseException {
      * - The editor must be accessed to adjust the visible column width for proper display.
      */
     SpinnerListModel listModel = new SpinnerListModel(java.util.List.of("Default", "Light", "Dark"));
-    JSpinner listSpinner = new JSpinner(listModel);
-    ((JSpinner.ListEditor) listSpinner.getEditor()).getTextField().setColumns(18);
-    frame.add(listSpinner);
+    JSpinner spinner2 = new JSpinner(listModel);
+    ((JSpinner.ListEditor) spinner2.getEditor()).getTextField().setColumns(18);
+    frame.add(spinner2);
 
     /*
      * Spinner With Date Model
@@ -75,16 +80,16 @@ void example() throws ParseException {
      * - Note: SpinnerDateModel works with java.util.Date (legacy). To use java.time.LocalDate or other modern date/time
      *   types, manual conversion between Date and LocalDate is required.
      */
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     SpinnerDateModel dateModel = new SpinnerDateModel(
-            format.parse("2025-01-01"),
-            format.parse("2020-07-15"),
-            format.parse("2030-12-31"),
+            dateFormat.parse("2025-01-01"),
+            dateFormat.parse("2020-07-15"),
+            dateFormat.parse("2030-12-31"),
             Calendar.DAY_OF_MONTH
     );
-    JSpinner dateSpinner = new JSpinner(dateModel);
-    ((JSpinner.DateEditor) dateSpinner.getEditor()).getTextField().setColumns(18);
-    frame.add(dateSpinner);
+    JSpinner spinner3 = new JSpinner(dateModel);
+    ((JSpinner.DateEditor) spinner3.getEditor()).getTextField().setColumns(18);
+    frame.add(spinner3);
 
     /*
      * Spinner With Content
@@ -92,10 +97,10 @@ void example() throws ParseException {
      * - The value is set programmatically using setValue().
      * - The editor is accessed to set the visible column width.
      */
-    JSpinner spinnerWithContent = new JSpinner();
-    ((JSpinner.NumberEditor) spinnerWithContent.getEditor()).getTextField().setColumns(18);
-    spinnerWithContent.setValue(100);
-    frame.add(spinnerWithContent);
+    JSpinner spinner4 = new JSpinner();
+    ((JSpinner.NumberEditor) spinner4.getEditor()).getTextField().setColumns(18);
+    spinner4.setValue(100);
+    frame.add(spinner4);
 
     /*
      * Disabled Spinner
@@ -104,10 +109,10 @@ void example() throws ParseException {
      * - The enabled state is controlled using setEnabled().
      * - The editor is still accessed to set the column width for consistent layout.
      */
-    JSpinner disabledSpinner = new JSpinner();
-    ((JSpinner.NumberEditor) disabledSpinner.getEditor()).getTextField().setColumns(18);
-    disabledSpinner.setEnabled(false);
-    frame.add(disabledSpinner);
+    JSpinner spinner5 = new JSpinner();
+    ((JSpinner.NumberEditor) spinner5.getEditor()).getTextField().setColumns(18);
+    spinner5.setEnabled(false);
+    frame.add(spinner5);
 
     /*
      * Change Listener
@@ -117,7 +122,7 @@ void example() throws ParseException {
      * - The current value can be retrieved using getValue().
      * - Output: <content of first spinner>
      */
-    numberSpinner.getModel().addChangeListener(evt -> IO.println(numberSpinner.getValue()));
+    spinner1.getModel().addChangeListener(evt -> IO.println(spinner1.getValue()));
 
     /*
      * Set Visible

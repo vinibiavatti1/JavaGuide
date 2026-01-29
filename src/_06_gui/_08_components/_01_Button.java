@@ -47,10 +47,10 @@ void example() {
      * - When activated, the button triggers a simple feedback dialog.
      * - The tooltip text is set using the "setToolTipText()" method.
      */
-    JButton button = new JButton("Click");
-    button.setToolTipText("This is a tooltip!");
-    button.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(button);
+    JButton button1 = new JButton("Click");
+    button1.setToolTipText("This is a tooltip!");
+    button1.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button1);
 
     /*
      * Disabled Button
@@ -59,9 +59,9 @@ void example() {
      * - Commonly used to indicate unavailable actions based on application state.
      * - The method "setEnabled()" can be used to enable/disable buttons.
      */
-    JButton disabledButton = new JButton("Disabled");
-    disabledButton.setEnabled(false);
-    frame.add(disabledButton);
+    JButton button2 = new JButton("Disabled");
+    button2.setEnabled(false);
+    frame.add(button2);
 
     /*
      * Button With Icon
@@ -69,20 +69,20 @@ void example() {
      * - Icon-based buttons are often used in toolbars or compact UIs.
      * - The "setIcon" method can be used to set an icon to a JButton.
      */
-    JButton buttonWithImage = new JButton();
-    buttonWithImage.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
-    buttonWithImage.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithImage);
+    JButton button3 = new JButton();
+    button3.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
+    button3.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button3);
 
     /*
      * Button With Icon On Left
      * - Demonstrates a JButton combining text and an icon.
      * - By default, the icon is placed to the left of the text.
      */
-    JButton buttonWithImageOnLeft = new JButton("Click");
-    buttonWithImageOnLeft.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
-    buttonWithImageOnLeft.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithImageOnLeft);
+    JButton button4 = new JButton("Click");
+    button4.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
+    button4.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button4);
 
     /*
      * Button With Icon On Right
@@ -90,35 +90,35 @@ void example() {
      * - The relative positioning of text and icon can be customized using: setHorizontalTextPosition() and
      *   setVerticalTextPosition().
      */
-    JButton buttonWithImageOnRight = new JButton("Click");
-    buttonWithImageOnRight.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
-    buttonWithImageOnRight.setHorizontalTextPosition(JButton.LEFT);
-    buttonWithImageOnRight.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithImageOnRight);
+    JButton button5 = new JButton("Click");
+    button5.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
+    button5.setHorizontalTextPosition(JButton.LEFT);
+    button5.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button5);
 
     /*
      * Button With Icon On Top
      * - Demonstrates vertical alignment between icon and text.
      * - The icon is displayed above the text using vertical and horizontal text position setters.
      */
-    JButton buttonWithImageOnTop = new JButton("Click");
-    buttonWithImageOnTop.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
-    buttonWithImageOnTop.setVerticalTextPosition(JButton.BOTTOM);
-    buttonWithImageOnTop.setHorizontalTextPosition(JButton.CENTER);
-    buttonWithImageOnTop.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithImageOnTop);
+    JButton button6 = new JButton("Click");
+    button6.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
+    button6.setVerticalTextPosition(JButton.BOTTOM);
+    button6.setHorizontalTextPosition(JButton.CENTER);
+    button6.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button6);
 
     /*
      * Button With Icon On Bottom
      * - Demonstrates the inverse vertical layout, with text above the icon.
      * - Achieved by adjusting the vertical and horizontal text positions.
      */
-    JButton buttonWithImageOnBottom = new JButton("Click");
-    buttonWithImageOnBottom.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
-    buttonWithImageOnBottom.setVerticalTextPosition(JButton.TOP);
-    buttonWithImageOnBottom.setHorizontalTextPosition(JButton.CENTER);
-    buttonWithImageOnBottom.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
-    frame.add(buttonWithImageOnBottom);
+    JButton button7 = new JButton("Click");
+    button7.setIcon(new ImageIcon(this.getClass().getResource("/gui/add.png")));
+    button7.setVerticalTextPosition(JButton.TOP);
+    button7.setHorizontalTextPosition(JButton.CENTER);
+    button7.addActionListener(evt -> JOptionPane.showMessageDialog(frame, "Clicked!"));
+    frame.add(button7);
 
     /*
      * Set Visible

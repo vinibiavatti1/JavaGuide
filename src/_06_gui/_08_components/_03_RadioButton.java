@@ -40,17 +40,17 @@ void example() {
      * - Demonstrates a basic JRadioButton configured with a text label.
      * - By default, the radio button starts in an unselected state.
      */
-    JRadioButton radioButton = new JRadioButton("Radio");
-    frame.add(radioButton);
+    JRadioButton radioButton1 = new JRadioButton("Radio");
+    frame.add(radioButton1);
 
     /*
      * Selected Radio Button
      * - Demonstrates a basic JRadioButton pre-selected.
      * - The selection state can be queried or modified using isSelected() and setSelected().
      */
-    JRadioButton selectedRadioButton = new JRadioButton("Selected");
-    selectedRadioButton.setSelected(true);
-    frame.add(selectedRadioButton);
+    JRadioButton radioButton2 = new JRadioButton("Selected");
+    radioButton2.setSelected(true);
+    frame.add(radioButton2);
 
     /*
      * Disabled Radio Button
@@ -59,9 +59,9 @@ void example() {
      * - Commonly used to indicate unavailable options.
      * - The enabled state is controlled via the setEnabled() method.
      */
-    JRadioButton disabledRadioButton = new JRadioButton("Disabled");
-    disabledRadioButton.setEnabled(false);
-    frame.add(disabledRadioButton);
+    JRadioButton radioButton3 = new JRadioButton("Disabled");
+    radioButton3.setEnabled(false);
+    frame.add(radioButton3);
 
     /*
      * Radio Button On Right
@@ -69,29 +69,29 @@ void example() {
      * - Vertical and horizontal alignment are controlled using setVerticalTextPosition() and
      *   setHorizontalTextPosition().
      */
-    JRadioButton radioButtonOnRight = new JRadioButton("Right");
-    radioButtonOnRight.setHorizontalTextPosition(JCheckBox.LEFT);
-    frame.add(radioButtonOnRight);
+    JRadioButton radioButton4 = new JRadioButton("Right");
+    radioButton4.setHorizontalTextPosition(JCheckBox.LEFT);
+    frame.add(radioButton4);
 
     /*
      * Radio Button On Top
      * - Demonstrates vertical alignment between the radio button icon and its text.
      * - The text is displayed below the icon.
      */
-    JRadioButton radioButtonOnTop = new JRadioButton("Top");
-    radioButtonOnTop.setVerticalTextPosition(JCheckBox.BOTTOM);
-    radioButtonOnTop.setHorizontalTextPosition(JButton.CENTER);
-    frame.add(radioButtonOnTop);
+    JRadioButton radioButton5 = new JRadioButton("Top");
+    radioButton5.setVerticalTextPosition(JCheckBox.BOTTOM);
+    radioButton5.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(radioButton5);
 
     /*
      * Radio Button On Bottom
      * - Demonstrates vertical alignment between the radio button icon and its text.
      * - The text is displayed on top the icon.
      */
-    JRadioButton radioButtonOnBottom = new JRadioButton("Bottom");
-    radioButtonOnBottom.setVerticalTextPosition(JCheckBox.TOP);
-    radioButtonOnBottom.setHorizontalTextPosition(JButton.CENTER);
-    frame.add(radioButtonOnBottom);
+    JRadioButton radioButton6 = new JRadioButton("Bottom");
+    radioButton6.setVerticalTextPosition(JCheckBox.TOP);
+    radioButton6.setHorizontalTextPosition(JButton.CENTER);
+    frame.add(radioButton6);
 
     /*
      * Button Group
@@ -100,12 +100,12 @@ void example() {
      * - ButtonGroup itself is not a visual component.
      */
     ButtonGroup buttonGroup = new ButtonGroup();
-    buttonGroup.add(radioButton);
-    buttonGroup.add(selectedRadioButton);
-    buttonGroup.add(disabledRadioButton);
-    buttonGroup.add(radioButtonOnRight);
-    buttonGroup.add(radioButtonOnTop);
-    buttonGroup.add(radioButtonOnBottom);
+    buttonGroup.add(radioButton1);
+    buttonGroup.add(radioButton2);
+    buttonGroup.add(radioButton3);
+    buttonGroup.add(radioButton4);
+    buttonGroup.add(radioButton5);
+    buttonGroup.add(radioButton6);
 
     /*
      * Set Visible

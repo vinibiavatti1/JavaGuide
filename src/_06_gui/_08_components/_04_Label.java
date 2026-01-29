@@ -57,8 +57,8 @@ void example() {
      * - Demonstrates a basic JLabel displaying plain text.
      * - Used for simple, read-only messages or captions in the UI.
      */
-    JLabel labelWithText = new JLabel("My Text");
-    frame.add(labelWithText);
+    JLabel label1 = new JLabel("My Text");
+    frame.add(label1);
 
     /*
      * Label With HTML
@@ -66,8 +66,8 @@ void example() {
      * - Allows basic formatting such as italics, bold text, and line breaks.
      * - Useful for multi-line labels or emphasizing parts of the text without custom painting.
      */
-    JLabel labelWithHtml = new JLabel("<html><i>My<br>Text</i></html>");
-    frame.add(labelWithHtml);
+    JLabel label2 = new JLabel("<html><i>My<br>Text</i></html>");
+    frame.add(label2);
 
     /*
      * Label With Image
@@ -76,9 +76,9 @@ void example() {
      * - Useful for logos, status indicators, or decorative UI elements.
      * - The "setIcon" method can be used to set an icon to a JLabel.
      */
-    JLabel labelWithImage = new JLabel();
-    labelWithImage.setIcon(new ImageIcon(this.getClass().getResource("/gui/java.png")));
-    frame.add(labelWithImage);
+    JLabel label3 = new JLabel();
+    label3.setIcon(new ImageIcon(this.getClass().getResource("/gui/java.png")));
+    frame.add(label3);
 
     /*
      * Label With Image And Text
@@ -88,11 +88,11 @@ void example() {
      *   setVerticalTextPosition().
      * - Commonly used for application titles, menu headers, or labeled icons.
      */
-    JLabel labelWithImageAndText = new JLabel("Text with Image");
-    labelWithImageAndText.setIcon(new ImageIcon(this.getClass().getResource("/gui/application.png")));
-    labelWithImageAndText.setVerticalTextPosition(JLabel.BOTTOM);
-    labelWithImageAndText.setHorizontalTextPosition(JLabel.CENTER);
-    frame.add(labelWithImageAndText);
+    JLabel label4 = new JLabel("Text with Image");
+    label4.setIcon(new ImageIcon(this.getClass().getResource("/gui/application.png")));
+    label4.setVerticalTextPosition(JLabel.BOTTOM);
+    label4.setHorizontalTextPosition(JLabel.CENTER);
+    frame.add(label4);
 
     /*
      * Set Visible
