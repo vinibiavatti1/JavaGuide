@@ -108,6 +108,16 @@ void example() {
     buttonGroup.add(radioButton6);
 
     /*
+     * Radio Button Listener
+     * - Demonstrates adding an ActionListener to a JRadioButton.
+     * - The listener is triggered when the radio button is selected.
+     * - The current selection state is retrieved using isSelected().
+     * - Commonly used to react to user choices within a group of options.
+     * - Output: true / false
+     */
+    radioButton1.addActionListener(evt -> IO.println(radioButton1.isSelected()));
+
+    /*
      * Set Visible
      * - Makes the frame visible on the screen to demonstrate the component in action.
      */

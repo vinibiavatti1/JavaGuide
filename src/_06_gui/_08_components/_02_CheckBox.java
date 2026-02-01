@@ -100,6 +100,16 @@ void example() {
     frame.add(checkBox6);
 
     /*
+     * Check Box Listener
+     * - Demonstrates adding an ActionListener to a JCheckBox.
+     * - The listener is triggered whenever the selection state changes.
+     * - The current state (selected or not) is retrieved using isSelected().
+     * - Commonly used to react to user interactions such as enabling or disabling features.
+     * - Output: true / false
+     */
+    checkBox1.addActionListener(evt -> IO.println(checkBox1.isSelected()));
+
+    /*
      * Set Visible
      * - Makes the frame visible on the screen to demonstrate the component in action.
      */
