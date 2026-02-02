@@ -33,7 +33,7 @@ void example() {
      * - A new JFrame will be created to demonstrate the component.
      */
     JFrame frame = new JFrame("List");
-    frame.setSize(400, 400);
+    frame.setSize(700, 200);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     frame.setLayout(new FlowLayout());
