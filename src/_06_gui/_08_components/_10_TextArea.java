@@ -36,10 +36,10 @@ void example() {
      * - A new JFrame will be created to demonstrate the component.
      */
     JFrame frame = new JFrame("Text Area");
-    frame.setSize(400, 320);
+    frame.setSize(800, 400);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    frame.setLayout(new FlowLayout());
+    frame.setLayout(new GridLayout(1, 3, 5, 5));
 
     /*
      * Text Area

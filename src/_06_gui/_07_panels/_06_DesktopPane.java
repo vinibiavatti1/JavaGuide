@@ -96,9 +96,7 @@ void example() {
 
 /*
  * EDT Initialization
- * - Launches the Swing application safely by scheduling the GUI initialization
- *   on the Event Dispatch Thread (EDT).
- * - Ensures thread-safety for Swing components.
+ * - Launches the Swing application safely by scheduling the GUI initialization on the Event Dispatch Thread (EDT).
  */
 void main() {
     SwingUtilities.invokeLater(() -> {

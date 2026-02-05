@@ -41,10 +41,10 @@ void example() {
      * - A new JFrame will be created to demonstrate the component.
      */
     JFrame frame = new JFrame("Tree");
-    frame.setSize(750, 300);
+    frame.setSize(800, 400);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    frame.setLayout(new FlowLayout());
+    frame.setLayout(new GridLayout(2, 3, 5, 5));
 
     /*
      * Tree
