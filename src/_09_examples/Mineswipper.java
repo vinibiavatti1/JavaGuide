@@ -7,11 +7,12 @@ import java.util.List;
 
 void main() {
     SwingUtilities.invokeLater(() -> {
-        new MinesweeperFrame(10, 10, 10);
+        new MinesweeperFrame(10, 10, 15);
     });
 }
 
 public class MinesweeperFrame extends JFrame {
+    private final String TITLE = "Minesweeper (Mines: %s / Flags: %s)";
     private final int MAX_WIDTH = 10;
     private final int MAX_HEIGHT = 10;
     private final int BUTTON_WIDTH = 45;
@@ -21,6 +22,8 @@ public class MinesweeperFrame extends JFrame {
     private int height;
     private int minesQuantity;
     private int visitedTilesQuantity = 0;
+    private int flagsQuantity = 0;
+    private int tilesQuantity = 0;
     private MinesweeperTile[][] field;
     private List<MinesweeperTile> tiles = new ArrayList<>();
 
@@ -29,7 +32,7 @@ public class MinesweeperFrame extends JFrame {
         this.width = width;
         this.height = height;
         this.minesQuantity = minesQuantity;
-        this.setTitle("Minesweeper");
+        this.tilesQuantity = width * height;
         this.setSize(this.width * this.BUTTON_WIDTH, this.height * this.BUTTON_WIDTH);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -37,6 +40,7 @@ public class MinesweeperFrame extends JFrame {
         this.setLayout(new GridLayout(width, height));
         this.createField();
         this.reset();
+        this.refreshTitle();
         this.setVisible(true);
     }
 
@@ -44,6 +48,10 @@ public class MinesweeperFrame extends JFrame {
         Objects.checkIndex(width, MAX_WIDTH + 1);
         Objects.checkIndex(height, MAX_HEIGHT + 1);
         Objects.checkIndex(minesQuantity, width * height);
+    }
+
+    private void refreshTitle() {
+        this.setTitle(String.format(TITLE, this.minesQuantity, this.flagsQuantity));
     }
 
     private void createField() {
@@ -102,6 +110,10 @@ public class MinesweeperFrame extends JFrame {
         return (int) tiles.stream().filter(MinesweeperTile::isMine).count();
     }
 
+    private boolean checkVictory() {
+        return this.visitedTilesQuantity == (this.tilesQuantity - this.minesQuantity);
+    }
+
     private void processLeftClick(MinesweeperTile tile) {
         if (tile.isVisited()) {
             return;
@@ -119,13 +131,23 @@ public class MinesweeperFrame extends JFrame {
             getNeighbors(tile.getFieldX(), tile.getFieldY()).stream().forEach(x -> processLeftClick(x));
         }
         this.visitedTilesQuantity++;
+        if (checkVictory()) {
+            JOptionPane.showMessageDialog(this, "Victory!!!");
+            this.reset();
+        }
     }
 
     private void processRightClick(MinesweeperTile button) {
         if (button.isVisited()) {
             return;
         }
+        if (button.getMark() == MinesweeperButtonMark.FLAG) {
+            this.flagsQuantity--;
+        } else if(button.getMark() == MinesweeperButtonMark.NONE) {
+            this.flagsQuantity++;
+        }
         button.toggleMark();
+        this.refreshTitle();
     }
 
     private class ButtonMouseListener extends MouseAdapter {
