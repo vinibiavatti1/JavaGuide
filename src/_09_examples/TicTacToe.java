@@ -2,11 +2,15 @@ package _09_examples;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TicTacToe {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new TicTacToeFrame();
+            new TicTacToeFrame(false);
         });
     }
 }
@@ -27,8 +31,9 @@ class TicTacToeFrame extends JFrame {
 
     private TicTacToePlayer currentPlayer = TicTacToePlayer.X;
     private TicTacToeButton[] buttons = new TicTacToeButton[BUTTON_QUANTITY];
+    private boolean pvp = false;
 
-    public TicTacToeFrame() {
+    public TicTacToeFrame(boolean pvp) {
         this.setTitle(String.format(TITLE, currentPlayer.getSymbol()));
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
@@ -36,6 +41,11 @@ class TicTacToeFrame extends JFrame {
         this.setLayout(new GridLayout(3, 3, 5, 5));
         this.buildButtons();
         this.setVisible(true);
+        this.pvp = pvp;
+    }
+
+    public TicTacToePlayer getCurrentPlayer() {
+        return currentPlayer;
     }
 
     private void reset() {
@@ -66,6 +76,9 @@ class TicTacToeFrame extends JFrame {
             return;
         }
         swapCurrentPlayer();
+        if (!this.pvp && this.currentPlayer == TicTacToePlayer.O) {
+            randomPlay();
+        }
     }
 
     private void swapCurrentPlayer() {
@@ -118,8 +131,14 @@ class TicTacToeFrame extends JFrame {
         this.reset();
     }
 
-    public TicTacToePlayer getCurrentPlayer() {
-        return currentPlayer;
+    private void randomPlay() {
+        this.setEnabled(false);
+        List<TicTacToeButton> remainingButtons = Arrays.stream(this.buttons)
+                .filter(TicTacToeButton::isFree)
+                .collect(Collectors.toList());
+        Collections.shuffle(remainingButtons);
+        remainingButtons.stream().findFirst().ifPresent(x -> x.doClick());
+        this.setEnabled(true);
     }
 }
 
@@ -144,6 +163,10 @@ class TicTacToeButton extends JButton {
         this.player = player;
         this.setText(player.getSymbol());
         this.setEnabled(false);
+    }
+
+    public boolean isFree() {
+        return this.player != null;
     }
 }
 
