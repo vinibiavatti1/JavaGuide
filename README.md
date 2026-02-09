@@ -17,7 +17,7 @@ The repository focuses on:
 - Practical examples that can be easily executed and tested
 - **Object-Oriented Programming** principles applied in real scenarios
 - Best practices, conventions, and common patterns used in the Java ecosystem
-- Small demos and exercises to reinforce learning
+- Small demo projects
 
 The main goal of this project is to help you **learn, practice, and feel confident programming in Java**.
 
@@ -28,8 +28,8 @@ All examples are designed to be **simple, executable, and educational**, making 
 1. Install **Java (JDK)** on your system.
     - You can download it from [Oracle](https://www.oracle.com/java/technologies/downloads/) or use an OpenJDK distribution.
 2. Clone this repository.
-3. Choose your favorite IDE or code editor.
-    - Popular options include **IntelliJ IDEA**, **Eclipse**, and **VS Code**.
+3. Use **IntelliJ IDEA** as your IDE.
+    - This project was created using IntelliJ IDEA and includes **additional configuration files** that are best supported by it.
 4. Run the examples and explore the code at your own pace.
 
 Happy coding ☕
