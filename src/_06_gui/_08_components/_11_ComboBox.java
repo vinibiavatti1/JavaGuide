@@ -37,12 +37,21 @@ void example() {
     frame.setLayout(new FlowLayout());
 
     /*
-     * Combo Box
-     * - Demonstrates a basic JComboBox populated with predefined items.
-     * - Displays a drop-down list allowing the user to choose one option.
-     * - The tooltip text is set using the setToolTipText() method.
+     * Combo Box Data
+     * - Defines the data model used by the JComboBox.
+     * - In this example, a simple String array is used as the data source.
+     * - Internally, the array is wrapped by a ComboBoxModel implementation.
+     * - Suitable for static or fixed sets of options.
      */
     String[] items = new String[] { "Default", "Light", "Dark" };
+
+    /*
+     * Combo Box
+     * - Demonstrates a basic JComboBox populated with predefined items.
+     * - Displays a drop-down list that allows the user to select a single option.
+     * - Uses a ComboBoxModel internally to manage its elements.
+     * - The tooltip text is set using the setToolTipText() method.
+     */
     JComboBox<String> comboBox1 = new JComboBox<>(items);
     comboBox1.setToolTipText("This is a tooltip!");
     frame.add(comboBox1);

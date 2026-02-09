@@ -36,16 +36,25 @@ void example() {
     frame.setSize(800, 300);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    frame.setLayout(new GridLayout(2, 3, 5, 5));
+    frame.setLayout(new GridLayout(1, 4, 5, 5));
+
+    /*
+     * List Data
+     * - Defines the data model used by the JList.
+     * - In this example, a simple String array is used as the data source.
+     * - Internally, the array is wrapped by a ListModel implementation.
+     * - Suitable for static or read-only lists with a fixed set of values.
+     */
+    String[] items = new String[] { "Java", "C#", "C++", "C", "Python", "Javascript", "Typescript", "PHP", "Ruby" };
 
     /*
      * Vertical List (Default)
-     * - Demonstrates a standard vertical JList.
-     * - Items are displayed in a single column.
-     * - Wrapped in a JScrollPane to allow scrolling when content exceeds visible area.
-     * - A tooltip is added to provide contextual help.
+     * - Demonstrates a standard vertical JList using the default layout orientation.
+     * - Items are displayed in a single column from top to bottom.
+     * - The JList uses a ListModel to manage and access its elements.
+     * - Wrapped in a JScrollPane to support scrolling when the list exceeds the visible area.
+     * - A tooltip is added to provide contextual information to the user.
      */
-    String[] items = new String[] { "Java", "C#", "C++", "C", "Python", "Javascript", "Typescript", "PHP", "Ruby" };
     JList<String> list1 = new JList<>(items);
     JScrollPane scrollPane1 = new JScrollPane(
             list1,
@@ -86,10 +95,10 @@ void example() {
     frame.add(scrollPane3);
 
     /*
-     * List With Single Selection
-     * - Demonstrates a JList restricted to selecting only one item at a time.
-     * - This is the default selection mode for JList.
-     * - Controlled using setSelectionMode(SINGLE_SELECTION).
+     * Disabled List
+     * - Demonstrates a JList in a disabled state.
+     * - Disabled lists are visible but do not allow user interaction.
+     * - Commonly used to indicate unavailable options.
      */
     JList<String> list4 = new JList<>(items);
     JScrollPane scrollPane4 = new JScrollPane(
@@ -97,37 +106,8 @@ void example() {
             ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
             ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
     );
-    list4.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    list4.setEnabled(false);
     frame.add(scrollPane4);
-
-    /*
-     * List With Single Interval Selection
-     * - Demonstrates a JList allowing selection of a contiguous range of items.
-     * - The user can select a continuous block using Shift + click.
-     */
-    JList<String> list5 = new JList<>(items);
-    JScrollPane scrollPane5 = new JScrollPane(
-            list5,
-            ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-            ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
-    );
-    list5.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-    frame.add(scrollPane5);
-
-    /*
-     * Disabled List
-     * - Demonstrates a JList in a disabled state.
-     * - Disabled lists are visible but do not allow user interaction.
-     * - Commonly used to indicate unavailable options.
-     */
-    JList<String> list6 = new JList<>(items);
-    JScrollPane scrollPane6 = new JScrollPane(
-            list6,
-            ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-            ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
-    );
-    list6.setEnabled(false);
-    frame.add(scrollPane6);
 
     /*
      * List Listener

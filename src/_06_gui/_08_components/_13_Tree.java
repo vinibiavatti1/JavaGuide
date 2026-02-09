@@ -44,15 +44,15 @@ void example() {
     frame.setSize(800, 400);
     frame.setLocationRelativeTo(null);
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    frame.setLayout(new GridLayout(2, 3, 5, 5));
+    frame.setLayout(new GridLayout(1, 4, 5, 5));
 
     /*
-     * Tree
-     * - Demonstrates a basic JTree built using DefaultMutableTreeNode.
+     * Tree Data
+     * - Demonstrates a basic tree structure built using DefaultMutableTreeNode.
+     * - DefaultMutableTreeNode represents a mutable node that can contain child nodes.
      * - The root node represents the top-level element of the hierarchy.
-     * - Child nodes are inserted explicitly to form parent–child relationships.
-     * - Root handles are enabled to display expand/collapse controls.
-     * - The visible row count defines how many rows are shown before scrolling is required.
+     * - Child nodes are explicitly added to define parent–child relationships.
+     * - This node-based structure is later consumed by the JTree through its TreeModel.
      */
     DefaultMutableTreeNode parent = new DefaultMutableTreeNode("Folder");
     DefaultMutableTreeNode child1 = new DefaultMutableTreeNode("File 1");
@@ -61,6 +61,15 @@ void example() {
     parent.insert(child1, 0);
     parent.insert(child2, 1);
     parent.insert(child3, 2);
+
+    /*
+     * Tree
+     * - Creates a JTree using the provided node as the root of the tree.
+     * - Internally, the JTree wraps the root node in a DefaultTreeModel.
+     * - Root handles are enabled to display expand/collapse controls for child nodes.
+     * - The visible row count defines how many rows are shown before scrolling is required.
+     * - Typically wrapped in a JScrollPane to support large hierarchies.
+     */
     JTree tree1 = new JTree(parent);
     tree1.setShowsRootHandles(true);
     tree1.setVisibleRowCount(10);
@@ -90,55 +99,21 @@ void example() {
     frame.add(scrollPane2);
 
     /*
-     * Tree With Single Selection
-     * - Demonstrates a JTree restricted to selecting only one node at a time.
-     * - This is the default selection mode for JTree.
-     * - Controlled via TreeSelectionModel.SINGLE_TREE_SELECTION.
+     * Disabled Tree
+     * - Demonstrates a JTree in a disabled state.
+     * - Disabled trees are visible but do not allow user interaction.
+     * - Commonly used to indicate unavailable hierarchical data.
      */
     JTree tree3 = new JTree(parent);
     tree3.setVisibleRowCount(10);
     tree3.setShowsRootHandles(true);
-    tree3.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+    tree3.setEnabled(false);
     JScrollPane scrollPane3 = new JScrollPane(
             tree3,
             ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
             ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
     );
     frame.add(scrollPane3);
-
-    /*
-     * Tree With Contiguous Selection
-     * - Demonstrates a JTree allowing selection of adjacent nodes.
-     * - Users can select a continuous range of nodes.
-     * - Useful for operations applied to grouped tree items.
-     */
-    JTree tree4 = new JTree(parent);
-    tree4.setVisibleRowCount(10);
-    tree4.setShowsRootHandles(true);
-    tree4.getSelectionModel().setSelectionMode(TreeSelectionModel.CONTIGUOUS_TREE_SELECTION);
-    JScrollPane scrollPane4 = new JScrollPane(
-            tree4,
-            ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-            ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
-    );
-    frame.add(scrollPane4);
-
-    /*
-     * Disabled Tree
-     * - Demonstrates a JTree in a disabled state.
-     * - Disabled trees are visible but do not allow user interaction.
-     * - Commonly used to indicate unavailable hierarchical data.
-     */
-    JTree tree5 = new JTree(parent);
-    tree5.setVisibleRowCount(10);
-    tree5.setShowsRootHandles(true);
-    tree5.setEnabled(false);
-    JScrollPane scrollPane5 = new JScrollPane(
-            tree5,
-            ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-            ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
-    );
-    frame.add(scrollPane5);
 
     /*
      * Tree With Custom Icons
