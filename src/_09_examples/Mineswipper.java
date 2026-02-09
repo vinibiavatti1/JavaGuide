@@ -7,7 +7,7 @@ import java.util.List;
 
 void main() {
     SwingUtilities.invokeLater(() -> {
-        new MinesweeperFrame(10, 10, 15);
+        new MinesweeperFrame(10, 10, 5);
     });
 }
 
@@ -68,6 +68,7 @@ public class MinesweeperFrame extends JFrame {
     }
 
     private void reset() {
+        this.flagsQuantity = 0;
         this.visitedTilesQuantity = 0;
         tiles.stream().forEach(MinesweeperTile::reset);
         Collections.shuffle(tiles);
@@ -118,9 +119,6 @@ public class MinesweeperFrame extends JFrame {
         if (tile.isVisited()) {
             return;
         }
-        if (tile.getMark() != MinesweeperButtonMark.NONE) {
-            return;
-        }
         tile.visit();
         if (tile.isMine()) {
             JOptionPane.showMessageDialog(this, "BOOM!");
@@ -153,11 +151,14 @@ public class MinesweeperFrame extends JFrame {
     private class ButtonMouseListener extends MouseAdapter {
         @Override
         public void mouseReleased(MouseEvent e) {
-            MinesweeperTile button = (MinesweeperTile) e.getComponent();
+            MinesweeperTile tile = (MinesweeperTile) e.getComponent();
             if (e.getButton() == MouseEvent.BUTTON1) {
-                processLeftClick(button);
+                if (tile.getMark() != MinesweeperButtonMark.NONE) {
+                    return;
+                }
+                processLeftClick(tile);
             } else {
-                processRightClick(button);
+                processRightClick(tile);
             }
         }
     }
@@ -212,6 +213,7 @@ public class MinesweeperTile extends JButton {
         this.setBackground(null);
         this.setIcon(null);
         this.setVisited(false);
+        this.mark = MinesweeperButtonMark.NONE;
         this.setEnabled(true);
     }
 
@@ -252,6 +254,8 @@ public class MinesweeperTile extends JButton {
     }
 
     public void visit() {
+        this.mark = MinesweeperButtonMark.NONE;
+        this.setIcon(null);
         if (this.isMine()) {
             this.setIcon(this.BOMB_ICON);
             this.setBackground(Color.RED);
