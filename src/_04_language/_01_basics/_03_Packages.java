@@ -4,7 +4,7 @@
  *   and determines how it is organized and accessed within a Java application.
  *
  * Overview
- * - The package declaration is specified using the `package` keyword at the very top of a source file.
+ * - The package declaration is specified using the "package" keyword at the very top of a source file.
  * - It groups related classes and interfaces into a logical namespace.
  * - Packages are part of Java since its earliest versions and are fundamental to project organization and modularity.
  *

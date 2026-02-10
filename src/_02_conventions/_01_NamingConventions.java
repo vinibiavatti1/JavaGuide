@@ -21,6 +21,7 @@ void main() {
      * - Separate words with dots (.).
      * - Avoid special symbols and spaces.
      * - Keep names meaningful and concise.
+     * - Prefer singular names to represent a concept or responsibility.
      */
     /// com.example.myproject
     /// com.example.myproject.model
@@ -56,6 +57,7 @@ void main() {
      * - Acronyms should follow CamelCase (e.g., HttpStatus).
      * - Avoid special symbols and spaces.
      * - Keep names concise and meaningful.
+     * - Prefer singular names to represent a concept or responsibility.
      */
     enum ActionType {}
 
