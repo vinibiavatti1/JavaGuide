@@ -18,8 +18,8 @@ public class ElementaryCellularAutomaton {
     private boolean[][] grid;
 
     public ElementaryCellularAutomaton(int width, int height) {
-        Objects.checkIndex(width, MAX_WIDTH);
-        Objects.checkIndex(height, MAX_HEIGHT);
+        Objects.checkIndex(width, MAX_WIDTH + 1);
+        Objects.checkIndex(height, MAX_HEIGHT + 1);
         this.width = width;
         this.height = height;
         this.grid = new boolean[height][width];
@@ -144,7 +144,7 @@ public class ElementaryCellularAutomatonCanvas extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-        super.paintComponents(g);
+        super.paint(g);
         int scale = ElementaryCellularAutomatonFrame.SCALE;
         for (int y = 0; y < this.elementaryCellularAutomaton.getHeight(); y++) {
             for (int x = 0; x < this.elementaryCellularAutomaton.getWidth(); x++) {
