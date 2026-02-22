@@ -83,6 +83,7 @@ public class ElementaryCellularAutomatonRule {
     private Map<String, Boolean> map = new HashMap<>();
 
     public ElementaryCellularAutomatonRule(int rule) {
+        Objects.checkIndex(rule, 256);
         this.map = this.buildMap(toBinaryString(rule));
     }
 
