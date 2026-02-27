@@ -4,8 +4,9 @@ import java.awt.*;
 void main() {
     SwingUtilities.invokeLater(() -> {
         ElementaryCellularAutomaton elementaryCellularAutomaton = new ElementaryCellularAutomaton(400, 250);
+        elementaryCellularAutomaton.setCell(elementaryCellularAutomaton.getWidth() / 2, 0, true);
+        elementaryCellularAutomaton.process(ElementaryCellularAutomatonRule.of(30));
         ElementaryCellularAutomatonFrame elementaryCellularAutomatonFrame = new ElementaryCellularAutomatonFrame(elementaryCellularAutomaton);
-        elementaryCellularAutomaton.process(30);
     });
 }
 
@@ -25,10 +26,8 @@ public class ElementaryCellularAutomaton {
         this.grid = new boolean[height][width];
     }
 
-    public void process(int decimalRule) {
-        this.reset();
-        this.setCell(Math.round(this.width / 2), 0, true);
-        ElementaryCellularAutomatonRule rule = new ElementaryCellularAutomatonRule(decimalRule);
+    public void process(ElementaryCellularAutomatonRule rule) {
+        Objects.requireNonNull(rule);
         for (int y = 1; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
                 boolean[] topPixels = this.getTopCells(x, y);
@@ -79,12 +78,16 @@ public class ElementaryCellularAutomaton {
     }
 }
 
-public class ElementaryCellularAutomatonRule {
+public static class ElementaryCellularAutomatonRule {
     private Map<String, Boolean> map = new HashMap<>();
 
-    public ElementaryCellularAutomatonRule(int rule) {
+    private ElementaryCellularAutomatonRule(int rule) {
         Objects.checkIndex(rule, 256);
         this.map = this.buildMap(toBinaryString(rule));
+    }
+
+    public static ElementaryCellularAutomatonRule of(int rule) {
+        return new ElementaryCellularAutomatonRule(rule);
     }
 
     public boolean get(boolean left, boolean middle, boolean right) {
@@ -154,7 +157,7 @@ public class ElementaryCellularAutomatonCanvas extends JPanel {
                     g.setColor(Color.WHITE);
                 }
 
-                g.drawRect(x*scale, y*scale, 1, 1);
+                g.fillRect(x*scale, y*scale, scale, scale);
             }
         }
     }
