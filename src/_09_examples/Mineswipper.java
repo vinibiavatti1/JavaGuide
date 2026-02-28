@@ -7,7 +7,7 @@ import java.util.List;
 
 void main() {
     SwingUtilities.invokeLater(() -> {
-        new MinesweeperFrame(10, 10, 5);
+        new MinesweeperFrame(10, 10, 20);
     });
 }
 
