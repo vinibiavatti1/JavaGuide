@@ -3,78 +3,87 @@ import java.awt.*;
 
 void main() {
     SwingUtilities.invokeLater(() -> {
-        ElementaryCellularAutomaton elementaryCellularAutomaton = new ElementaryCellularAutomaton(400, 250);
-        elementaryCellularAutomaton.setCell(elementaryCellularAutomaton.getWidth() / 2, 0, true);
+        ElementaryCellularAutomaton elementaryCellularAutomaton = new ElementaryCellularAutomaton(250, 400);
+        elementaryCellularAutomaton.setCell(0, elementaryCellularAutomaton.getColumns() / 2, true);
         elementaryCellularAutomaton.process(ElementaryCellularAutomatonRule.of(30));
         ElementaryCellularAutomatonFrame elementaryCellularAutomatonFrame = new ElementaryCellularAutomatonFrame(elementaryCellularAutomaton);
     });
 }
 
 public class ElementaryCellularAutomaton {
-    private static final int MAX_WIDTH = 999;
-    private static final int MAX_HEIGHT = 999;
+    private static final int MAX_ROWS = 999;
+    private static final int MAX_COLUMNS = 999;
 
-    private int width;
-    private int height;
+    private int rows;
+    private int columns;
     private boolean[][] grid;
 
-    public ElementaryCellularAutomaton(int width, int height) {
-        Objects.checkIndex(width, MAX_WIDTH + 1);
-        Objects.checkIndex(height, MAX_HEIGHT + 1);
-        this.width = width;
-        this.height = height;
-        this.grid = new boolean[height][width];
+    public ElementaryCellularAutomaton(int rows, int columns) {
+        Objects.checkIndex(rows, MAX_ROWS + 1);
+        Objects.checkIndex(columns, MAX_COLUMNS + 1);
+        this.rows = rows;
+        this.columns = columns;
+        this.grid = new boolean[rows][columns];
     }
 
     public void process(ElementaryCellularAutomatonRule rule) {
         Objects.requireNonNull(rule);
-        for (int y = 1; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                boolean[] topPixels = this.getTopCells(x, y);
+        for (int row = 1; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                boolean[] topPixels = this.getTopCells(row, column);
                 boolean result = rule.get(topPixels[0], topPixels[1], topPixels[2]);
-                this.grid[y][x] = result;
+                this.grid[row][column] = result;
             }
         }
     }
 
     public void reset() {
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                this.grid[y][x] = false;
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                this.grid[row][column] = false;
             }
         }
     }
 
-    public boolean getCell(int x, int y) {
-        if (x < 0 || x >= this.width) {
+    public boolean getCell(int row, int column) {
+        if (row < 0 || row >= this.rows) {
             return false;
         }
-        if (y < 0 || y >= this.height) {
+        if (column < 0 || column >= this.columns) {
             return false;
         }
-        return this.grid[y][x];
+        return this.grid[row][column];
     }
 
-    public void setCell(int x, int y, boolean active) {
-        Objects.checkIndex(x, width);
-        Objects.checkIndex(y, height);
-        this.grid[y][x] = active;
+    public void setCell(int row, int column, boolean active) {
+        Objects.checkIndex(row, rows);
+        Objects.checkIndex(column, columns);
+        this.grid[row][column] = active;
     }
 
-    public int getWidth() {
-        return width;
+    public int getRows() {
+        return rows;
     }
 
-    public int getHeight() {
-        return height;
+    public int getColumns() {
+        return columns;
     }
 
-    private boolean[] getTopCells(int x, int y) {
+    private boolean[] getTopCells(int row, int column) {
         boolean[] topPixels = new boolean[3];
-        topPixels[0] = this.getCell(x-1, y-1);
-        topPixels[1] = this.getCell(x+0, y-1);
-        topPixels[2] = this.getCell(x+1, y-1);
+        topPixels[0] = this.getCell(row-1, column-1);
+        topPixels[1] = this.getCell(row-1, column);
+        topPixels[2] = this.getCell(row-1, column+1);
         return topPixels;
+    }
+
+    public void print() {
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                IO.print(this.grid[row][column] ? "*" : "_");
+            }
+            IO.println();
+        }
     }
 }
 
@@ -110,7 +119,7 @@ public static class ElementaryCellularAutomatonRule {
 
     private String toBinaryString(int rule) {
         StringBuilder binaryString = new StringBuilder(Integer.toBinaryString(rule));
-        for (int i = binaryString.length(); i < 8; i++) {
+        while (binaryString.length() < 8) {
             binaryString.insert(0, 0);
         }
         return binaryString.toString();
@@ -129,7 +138,7 @@ public class ElementaryCellularAutomatonFrame extends JFrame {
     public ElementaryCellularAutomatonFrame(ElementaryCellularAutomaton elementaryCellularAutomaton) {
         this.canvas = new ElementaryCellularAutomatonCanvas(elementaryCellularAutomaton);
         this.setTitle("Elementary Cellular Automaton");
-        this.setSize(elementaryCellularAutomaton.getWidth() * SCALE, elementaryCellularAutomaton.getHeight() * SCALE);
+        this.setSize(elementaryCellularAutomaton.getColumns() * SCALE, elementaryCellularAutomaton.getRows() * SCALE);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -149,15 +158,10 @@ public class ElementaryCellularAutomatonCanvas extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         int scale = ElementaryCellularAutomatonFrame.SCALE;
-        for (int y = 0; y < this.elementaryCellularAutomaton.getHeight(); y++) {
-            for (int x = 0; x < this.elementaryCellularAutomaton.getWidth(); x++) {
-                if (this.elementaryCellularAutomaton.getCell(x, y)) {
-                    g.setColor(Color.BLACK);
-                } else {
-                    g.setColor(Color.WHITE);
-                }
-
-                g.fillRect(x*scale, y*scale, scale, scale);
+        for (int row = 0; row < this.elementaryCellularAutomaton.getRows(); row++) {
+            for (int column = 0; column < this.elementaryCellularAutomaton.getColumns(); column++) {
+                g.setColor(this.elementaryCellularAutomaton.getCell(row, column) ? Color.BLACK : Color.WHITE);
+                g.fillRect(column*scale, row*scale, scale, scale);
             }
         }
     }

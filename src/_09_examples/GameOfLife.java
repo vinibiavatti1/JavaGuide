@@ -3,15 +3,17 @@ import java.awt.*;
 
 void main() {
     SwingUtilities.invokeLater(() -> {
-        GameOfLife gameOfLife = new GameOfLife(75, 75, GameOfLifeRule.of("235678/378"));
-        int offset = 30;
-        gameOfLife.setCell(1 + offset, 0 + offset, true);
-        gameOfLife.setCell(3 + offset, 1 + offset, true);
-        gameOfLife.setCell(0 + offset, 2 + offset, true);
-        gameOfLife.setCell(1 + offset, 2 + offset, true);
-        gameOfLife.setCell(4 + offset, 2 + offset, true);
-        gameOfLife.setCell(5 + offset, 2 + offset, true);
-        gameOfLife.setCell(6 + offset, 2 + offset, true);
+        GameOfLifeRule rule = GameOfLifeRule.of(GameOfLifeRuleVariation.GOL.getNotation());
+        GameOfLife gameOfLife = new GameOfLife(75, 100, rule);
+        int offsetRows = 35;
+        int offsetColumns = 60;
+        gameOfLife.setCell(0 + offsetRows, 1 + offsetColumns, true);
+        gameOfLife.setCell(1 + offsetRows, 3 + offsetColumns, true);
+        gameOfLife.setCell(2 + offsetRows, 0 + offsetColumns, true);
+        gameOfLife.setCell(2 + offsetRows, 1 + offsetColumns, true);
+        gameOfLife.setCell(2 + offsetRows, 4 + offsetColumns, true);
+        gameOfLife.setCell(2 + offsetRows, 5 + offsetColumns, true);
+        gameOfLife.setCell(2 + offsetRows, 6 + offsetColumns, true);
 
         GameOfLifeFrame gameOfLifeFrame = new GameOfLifeFrame(gameOfLife);
 
@@ -24,67 +26,58 @@ public class GameOfLife {
     private static final int MAX_WIDTH = 999;
     private static final int MAX_HEIGHT = 999;
 
-    private int width;
-    private int height;
+    private int rows;
+    private int columns;
     private GameOfLifeRule rule;
     private boolean[][] grid;
     private boolean[][] buffer;
 
-    public GameOfLife(int width, int height, GameOfLifeRule rule) {
-        Objects.checkIndex(width, MAX_WIDTH + 1);
-        Objects.checkIndex(height, MAX_HEIGHT + 1);
+    public GameOfLife(int rows, int columns, GameOfLifeRule rule) {
+        Objects.checkIndex(rows, MAX_WIDTH + 1);
+        Objects.checkIndex(columns, MAX_HEIGHT + 1);
         Objects.requireNonNull(rule);
-        this.width = width;
-        this.height = height;
+        this.rows = rows;
+        this.columns = columns;
         this.rule = rule;
-        this.grid = new boolean[height][width];
-        this.buffer = new boolean[height][width];
+        this.grid = new boolean[rows][columns];
+        this.buffer = new boolean[rows][columns];
     }
 
-    public void setCell(int x, int y, boolean alive) {
-        Objects.checkIndex(x, this.width);
-        Objects.checkIndex(y, this.height);
-        this.grid[y][x] = alive;
+    public void setCell(int row, int column, boolean alive) {
+        Objects.checkIndex(row, this.rows);
+        Objects.checkIndex(column, this.columns);
+        this.grid[row][column] = alive;
     }
 
     public void reset() {
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                this.grid[y][x] = false;
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                this.grid[row][column] = false;
             }
         }
     }
 
     public void nextGeneration() {
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                int aliveNeighborQuantity = getAliveNeighborQuantity(x, y);
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                int aliveNeighborQuantity = getAliveNeighborQuantity(row, column);
                 GameOfLifeState newState = this.rule.getState(aliveNeighborQuantity);
                 switch (newState) {
-                    case GameOfLifeState.BORN -> this.buffer[y][x] = true;
-                    case GameOfLifeState.KEEP -> this.buffer[y][x] = this.grid[y][x];
-                    case GameOfLifeState.DIE -> this.buffer[y][x] = false;
+                    case GameOfLifeState.BORN -> this.buffer[row][column] = true;
+                    case GameOfLifeState.KEEP -> this.buffer[row][column] = this.grid[row][column];
+                    case GameOfLifeState.DIE -> this.buffer[row][column] = false;
                 }
             }
         }
         this.flush();
     }
 
-    public void print() {
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                IO.print(this.grid[y][x] ? "*" : " ");
-            }
-            IO.println();
-        }
+    public int getRows() {
+        return rows;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
+    public int getColumns() {
+        return columns;
     }
 
     public GameOfLifeRule getRule() {
@@ -92,33 +85,33 @@ public class GameOfLife {
     }
 
     private void flush() {
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                this.grid[y][x] = this.buffer[y][x];
+        for (int row = 0; row < this.rows; row++) {
+            for (int column = 0; column < this.columns; column++) {
+                this.grid[row][column] = this.buffer[row][column];
             }
         }
     }
 
-    private boolean getCell(int x, int y) {
-        if (x < 0 || x >= this.width) {
+    private boolean getCell(int row, int column) {
+        if (row < 0 || row >= this.rows) {
             return false;
         }
-        if (y < 0 || y >= this.height) {
+        if (column < 0 || column >= this.columns) {
             return false;
         }
-        return this.grid[y][x];
+        return this.grid[row][column];
     }
 
-    private int getAliveNeighborQuantity(int x, int y) {
+    private int getAliveNeighborQuantity(int row, int column) {
         int quantity = 0;
-        quantity += getCell(x - 1, y - 1) ? 1 : 0;
-        quantity += getCell(x - 0, y - 1) ? 1 : 0;
-        quantity += getCell(x + 1, y - 1) ? 1 : 0;
-        quantity += getCell(x - 1, y - 0) ? 1 : 0;
-        quantity += getCell(x + 1, y - 0) ? 1 : 0;
-        quantity += getCell(x - 1, y + 1) ? 1 : 0;
-        quantity += getCell(x - 0, y + 1) ? 1 : 0;
-        quantity += getCell(x + 1, y + 1) ? 1 : 0;
+        quantity += getCell(row - 1, column - 1) ? 1 : 0;
+        quantity += getCell(row - 1, column - 0) ? 1 : 0;
+        quantity += getCell(row - 1, column + 1) ? 1 : 0;
+        quantity += getCell(row - 0, column - 1) ? 1 : 0;
+        quantity += getCell(row - 0, column + 1) ? 1 : 0;
+        quantity += getCell(row + 1, column - 1) ? 1 : 0;
+        quantity += getCell(row + 1, column - 0) ? 1 : 0;
+        quantity += getCell(row + 1, column + 1) ? 1 : 0;
         return quantity;
     }
 }
@@ -201,7 +194,7 @@ public class GameOfLifeFrame extends JFrame {
         Objects.requireNonNull(gameOfLife);
         this.gameOfLife = gameOfLife;
         this.setTitle(String.format("Game of Life (%s)", this.gameOfLife.rule));
-        this.setSize(gameOfLife.getWidth() * SCALE, gameOfLife.getHeight() * SCALE);
+        this.setSize(gameOfLife.getColumns() * SCALE, gameOfLife.getRows() * SCALE);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -220,14 +213,52 @@ public class GameOfLifePanel extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        for (int y = 0; y < this.gameOfLife.getHeight(); y++) {
-            for (int x = 0; x < this.gameOfLife.getWidth(); x++) {
-                boolean alive = this.gameOfLife.getCell(x, y);
+        for (int row = 0; row < this.gameOfLife.getRows(); row++) {
+            for (int column = 0; column < this.gameOfLife.getColumns(); column++) {
+                boolean alive = this.gameOfLife.getCell(row, column);
                 g.setColor(alive ? Color.BLACK : Color.WHITE);
-                g.fillRect(x * GameOfLifeFrame.SCALE, y * GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE);
+                g.fillRect(column * GameOfLifeFrame.SCALE, row * GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE);
             }
         }
         this.revalidate();
         this.repaint();
+    }
+}
+
+public enum GameOfLifeRuleVariation {
+    GOL("Game of Life", "23/3"),
+    HIGH_LIFE("High Life", "23/36"),
+    ASSIMILATION("Assimilation", "4567/345"),
+    TWO_X_TWO("2×2", "125/36"),
+    DAY_AND_NIGHT("Day and Night", "34578/3678"),
+    AMOEBA("Amoeba", "1358/357"),
+    MOVE("Move", "245/368"),
+    PSEUDO_LIFE("Pseudo Life", "238/357"),
+    DI_AMOEBA("Di Amoeba", "5678/35678"),
+    THREE_FOUR("34", "34/34"),
+    LONG_LIFE("Long Life", "5/345"),
+    STAINS("Stains", "235678/3678"),
+    SEEDS("Seeds", "/2"),
+    MAZE("Maze", "12345/3"),
+    COAGULATION("Coagulation", "235678/378"),
+    WALLED_CITIES("Walled Cities", "2345/45678"),
+    GNARL("Gnarl", "1/1"),
+    REPLICATOR("Replicator", "1357/1357"),
+    MYSTERY("Mystery", "05678/3458");
+
+    private String name;
+    private String notation;
+
+    GameOfLifeRuleVariation(String name, String notation) {
+        this.name = name;
+        this.notation = notation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNotation() {
+        return notation;
     }
 }
