@@ -16,8 +16,7 @@ void main() {
         gameOfLife.setCell(2 + offsetRows, 6 + offsetColumns, true);
 
         GameOfLifeFrame gameOfLifeFrame = new GameOfLifeFrame(gameOfLife);
-
-        GameOfLifeProcessor gameOfLifeProcessor = new GameOfLifeProcessor(gameOfLife, 50);
+        GameOfLifeProcessor gameOfLifeProcessor = new GameOfLifeProcessor(gameOfLifeFrame, 50);
         new Thread(gameOfLifeProcessor).start();
     });
 }
@@ -154,12 +153,12 @@ public static class GameOfLifeRule {
 }
 
 public class GameOfLifeProcessor implements Runnable {
-    private GameOfLife gameOfLife;
+    private GameOfLifeFrame gameOfLifeFrame;
     private long delayMs;
     private volatile boolean running = true;
 
-    public GameOfLifeProcessor(GameOfLife gameOfLife, long delayMs) {
-        this.gameOfLife = gameOfLife;
+    public GameOfLifeProcessor(GameOfLifeFrame gameOfLifeFrame, long delayMs) {
+        this.gameOfLifeFrame = gameOfLifeFrame;
         this.delayMs = delayMs;
     }
 
@@ -175,7 +174,9 @@ public class GameOfLifeProcessor implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            this.gameOfLife.nextGeneration();
+            this.gameOfLifeFrame.getGameOfLife().nextGeneration();
+            this.gameOfLifeFrame.repaint();
+            this.gameOfLifeFrame.revalidate();
         }
     }
 }
@@ -201,6 +202,10 @@ public class GameOfLifeFrame extends JFrame {
         this.add(new GameOfLifePanel(gameOfLife));
         this.setVisible(true);
     }
+
+    public GameOfLife getGameOfLife() {
+        return gameOfLife;
+    }
 }
 
 public class GameOfLifePanel extends JPanel {
@@ -220,8 +225,6 @@ public class GameOfLifePanel extends JPanel {
                 g.fillRect(column * GameOfLifeFrame.SCALE, row * GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE, GameOfLifeFrame.SCALE);
             }
         }
-        this.revalidate();
-        this.repaint();
     }
 }
 
